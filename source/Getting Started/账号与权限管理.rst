@@ -1,0 +1,104 @@
+
+账号与权限管理
+==============
+
+创建合约账号
+^^^^^^^^^^^^
+
+1. 快速创建一个合约账号
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli account new —account XC11111111111111
+
+2. 按照json文件创建一个合约账号
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli account new —desc account.json
+
+account.json模版如下:
+
+.. code-block:: json
+    :linenos:
+
+    {
+        "module_name": "xkernel",
+        "method_name": "NewAccount",
+        "args" : {
+            "account_name": "1111111111111111",
+            "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 0.6},\"aksWeight\": {\"AK1\": 0.5,\"AK2\": 0.5}}"
+        }
+    }
+
+管理合约账号/合约方法ACL
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. 重新设置一个账号/合约方法的ACL
+
+走multisig命令
+
+2. 查询一个账号的Acl
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli acl query —account XC1111111111111111@root
+
+3. 查询一个合约方法的Acl
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli acl query —contract contractName —method methodName
+
+常见问题
+^^^^^^^^
+
+1. 创建合约账户，重置合约账户／合约方法的ACL时，配置文件的案例：
+
+    a. 创建合约账号,配置文件案例如下：
+
+    .. code-block:: json
+        :linenos:
+
+        {
+            "module_name": "xkernel",
+            "method_name": "NewAccount",
+            "args" : {
+                "account_name": "1111111111111111",
+                "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 0.6},\"aksWeight\": {\"AK1\": 0.5,\"AK2\": 0.5}}"
+            }
+        }
+
+    b. 重置合约账户的ACL,配置文件案例如下：
+
+    .. code-block:: json
+        :linenos:
+
+        {
+            "module_name": "xkernel",
+            "method_name": "SetAccountAcl",
+            "args" : {
+                "account_name": "1111111111111111",
+                "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 0.6},\"aksWeight\": {\"AK1\": 0.5,\"AK2\": 0.5}}"
+            }
+        }
+
+    c. 重置合约方法的ACL,配置文件案例如下：
+
+    .. code-block:: json
+        :linenos:
+
+        {
+            "module_name": "xkernel",
+            "method_name": "SetAccountAcl",
+            "args" : {
+                "contract_name": "math",
+                "method_name": "transfer",
+                "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 0.6},\"aksWeight\": {\"AK1\": 0.5,\"AK2\": 0.5}}"
+            }
+        }
+        

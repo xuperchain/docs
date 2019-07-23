@@ -1,0 +1,171 @@
+
+单节点网络
+==========
+
+启动单节点模拟的测试网络
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+获取编译产出
+------------
+
+在当前目录下：
+主要获取目录为data, logs, conf, plugins, 二进制文件为xchain，xchain-cli
+
+
+建立目录
+--------
+
+==================  ===================
+目录名             
+==================  ===================
+node/                根节点目录	
+——-/conf             xchain.yaml:xchain服务的配置信息,plugins.conf: 插件的配置信息	防止冲突，部署时根据需要修改端口号
+——-/data             数据的存放目录,创世块信息，以及共识和合约的样例	
+——-/——-/blockchain             账本目录	
+——-/——-/keys             此节点的地址，唯一性	
+——-/——-/netkeys              此节点的网络标识ID，唯一性	
+——-/——-/config               创始的共识采用single模式，指定单一地址有权利出块	
+——-/logs             程序日志目录	
+——-/plugins              so的存放目录	
+——-/xchain              服务的二进制文件以及部分的客户端工具	
+——-/xchain-cli              
+==================  ===================
+
+创建链
+------
+
+.. code-block:: console
+    :linenos:
+
+    # 创建root链
+    ./xchain createChain
+
+启动服务
+--------
+
+.. code-block:: console
+    :linenos:
+
+    # 启动服务节点
+    nohup ./xchain &
+
+观察区块
+--------
+
+.. code-block:: console
+    :linenos:
+
+    # check服务运行状况
+    ./xchain systemstatus -H 127.0.0.1:37101
+
+测试基本功能
+------------
+
+创建新账户
+>>>>>>>>>>
+
+.. code-block:: console
+    :linenos:
+
+    # 创建普通用户, 包含地址，公钥，私钥
+    ./xchain-cli account newkeys --output data/accounts/bob
+    # 在bob目录下会看到文件address，publickey，privatekey生成
+    # 创建合约账户
+    ## 通用方式
+    ./xchain-cli account new --desc account.des
+    其中，account.des内容如下
+    {
+        "module_name": "xkernel",
+        "method_name": "NewAccount",
+        "args" : {
+            "account_name": "1111111111111111",  //说明：16位数字组成的字符串
+            "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 0.6},\"aksWeight\": {\"AK1\": 0.3,\"AK2\": 0.3}}"
+        }
+    }
+    ## 简易方式
+    ./xchain-cli account new --account 1111111111111111  // 说明：16位数字组成的字符串
+
+查余额
+>>>>>>
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli account balance --keys data/accounts/bob -H 127.0.0.1:37101
+
+转账
+>>>>
+
+.. code-block:: console
+    :linenos:
+    
+    # --keys 从此地址 转给 --to地址 --amount 钱
+    ./xchain-cli transfer --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount 10 --keys data/keys/ -H 127.0.0.1:37101
+
+查询交易信息
+>>>>>>>>>>>>
+
+.. code-block:: console
+    :linenos:
+
+    # 查询上一步生成的txid的交易信息
+    ./xchain-cli tx query cbbda2606837c950160e99480049e2aec3e60689a280b68a2d253fdd8a6ce931 -H 127.0.0.1:37101
+
+查询block信息
+>>>>>>>>>>>>>
+
+.. code-block:: console
+    :linenos:
+
+    # 可查询上一步交易所在的block id信息
+    ./xchain-cli block 0354240c8335e10d8b48d76c0584e29ab604cfdb7b421d973f01a2a49bb67fee -H 127.0.0.1:37101
+
+发起多重签名交易
+>>>>>>>>>>>>>>>>
+
+.. code-block:: console
+    :linenos:
+
+    # generate raw tx
+    ### data/acl/addrs维护好涉及到操作权限的所有的address信息，默认从此地址文件读取，可用参数指定自己文件
+    ## 某个address发起
+    ./xchain-cli multisig gen --to YDYBchKWXpG7HSkHy4YoyzTJnd3hTFBgG --amount 100 --desc contract.desc -H 127.0.0.1:37101
+    ## 从账户发起
+    ./xchain-cli multisig gen --to YDYBchKWXpG7HSkHy4YoyzTJnd3hTFBgG --amount 100 --desc contract.desc -H 127.0.0.1:37101 --from XC11111111111111
+    # 各方在签名之前可以check 原始交易是否ok
+    ./xchain-cli multisig check --input tx.data --ouput visual.out
+    # 各方签名生成签名文件
+    ./xchain-cli multisig sign --keys data/account/bob --output bob.sign
+    # 组装成带有签名的完整tx，并更新账本，同时发送到周边节点
+    ./xchain-cli multisig send --tx tx.out a.sign,b.sign c.sign,d.sign
+
+常见问题
+--------
+
+single共识介绍，root.json文件如下
+
+.. code-block:: json
+    :linenos:
+
+    {
+        "version" : "1"
+        , "predistribution":[
+            {
+                "address" : "dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN"
+                , "quota" : "100000000000000000000"
+            }
+        ]
+        , "maxblocksize" : "128"
+        , "award" : "428100000000"
+        , "decimals" : "8"
+        , "award_decay": {
+            "height_gap": 31536000,
+            "ratio": 1
+        },"genesis_consensus":{
+            "name": "single",
+            "config": {
+                            "miner":"dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN",
+                            "period": "3000"
+                    }
+            }
+    }
