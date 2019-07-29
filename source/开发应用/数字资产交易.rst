@@ -2,6 +2,8 @@
 数字资产交易
 ============
 
+代码样例参看：contractsdk/go/example/erc721.go
+
 ERC721简介
 ----------
 
@@ -27,6 +29,8 @@ ERC721具备哪些功能
 
 Initialize
 
+./xchain-cli wasm invoke -a '下面json中args字段的内容' --method initialize -H localhost:37101 erc721
+
 .. code-block:: console
     :linenos:
 
@@ -41,6 +45,8 @@ Initialize
     }
 
 Invoke
+
+./xchain-cli native invoke -a 'args内容' --method invoke -H localhost:37101 erc721
 
 .. code-block:: console
     :linenos:
@@ -81,6 +87,8 @@ Invoke
     }
 
 Query
+
+./xchain-cli native query -a 'args内容' --method query -H localhost:37101 erc721
 
 .. code-block:: console
     :linenos:
