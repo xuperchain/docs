@@ -102,9 +102,132 @@ XuperUnion系统支持可插拔共识，通过修改创世块的参数，可以�
 
 先启动node，再启动node2和node3，至此TDPoS共识的集群启动成功。
 
+提名候选人
+----------
+
+.. code-block:: console
+    :linenos:
+    
+    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --name=$chain --desc=./nominate.json --amount=11000002266 --frozen=-1 -H=$host
+
+nominate.json
+
+.. code-block:: json
+    :linenos:
+
+    {
+        "module": "tdpos",
+        "method": "nominate_candidate",
+        "args": {
+            "candidate": "提名address"
+        }
+    }
+
+投票
+----
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=./vote.json --amount=$ballots --frozen=-1 --name=$chain -H=$host
+
+vote.json
+
+.. code-block:: json
+    :linenos:
+
+    {
+        "module": "tdpos",
+        "method": "vote",
+        "args" : {
+            "candidates":["提名过的address"]
+        }
+    }
+
+撤销提名 && 撤销投票
+--------------------
+
+.. code-block:: console
+    :linenos:
+
+    ./bin/xchain transfer --to Y4TmpfV4pvhYT5W17J7TqHSLo6cqq23x3 --desc=./revoke_demo.json --amount=1
+
+revoke_demo.json (txid为提名或者投票时的txid,发起的交易的input需只有一个，且address与提名或者投票时需要相同)
+
+.. code-block:: json
+    :linenos:
+
+    {
+        "module":"proposal",
+        "method": "Thaw",
+        "args" : {
+            "txid":"02cd75a721f2589a3ff6768b49650b46fa0b042f970df935b4d28a15aa19e49a"
+        }
+    }
+
+TDPOS结果查询
+-------------
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli tdpos -h
+
+提示如下所示：
+
+.. figure:: ../images/tdpos_console.png
+    :alt: 查询命令
+    :align: center
+    
+    查询命令
+
+1. 查询候选人信息
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli tdpos query-candidates --name=$chain -H=$host
+
+2. 查看某一轮的出块顺序
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli tdpos query-checkResult -t=30 --name=$chain -H=$host
+
+3. 查询提名信息：某地址发起提名的记录
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli tdpos query-nominate-records --name=$chain -H=$host -a=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
+
+4. 被提名查询：某个候选人被提名的记录
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli tdpos query-nominee-record --name=$chain -H=$host -a=TyYCWDJ1pyV8fA3VyPenCdFdcPmHnwMhx
+
+5. 某选民的有效投票记录
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli tdpos query-vote-records --name=$chain -H=$host -a=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
+
+6. 某候选人被投票记录
+
+.. code-block:: console
+    :linenos:
+
+    ./xchain-cli tdpos query-voted-records --name=$chain -H=$host -a=TyYCWDJ1pyV8fA3VyPenCdFdcPmHnwMhx
+
+
 常见问题
 --------
 
 1. 端口冲突：注意如果在一台机器上部署3个节点，各个节点的RPC监听端口以及p2p监听端口都需要设置地不相同，避免冲突；
 #. 节点公私钥和节点netUrl冲突：注意网络中不同节点 ./data/keys下的文件和./data/netkeys下的内容都不一样，这两个文件夹是节点在网络中的唯一标识，每个节点需要独自生成，否则网络启动异常。
 #. 启动时链接bootNodes节点失败：注意要先将bootNodes节点启动，再起动其他节点，否则会加入网络失败而启动失败。
+#. The gas you cousume is: XXXX, You need add fee. 通过加--fee XXXX 参数附加资源

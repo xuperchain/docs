@@ -15,26 +15,39 @@
 建立目录
 --------
 
-==================  ===================
-目录名             
-==================  ===================
-node/                根节点目录	
-——-/conf             xchain.yaml:xchain服务的配置信息,plugins.conf: 插件的配置信息	防止冲突，部署时根据需要修改端口号
-——-/data             数据的存放目录,创世块信息，以及共识和合约的样例	
-——-/——-/blockchain             账本目录	
-——-/——-/keys             此节点的地址，唯一性	
-——-/——-/netkeys              此节点的网络标识ID，唯一性	
-——-/——-/config               创始的共识采用single模式，指定单一地址有权利出块	
-——-/logs             程序日志目录	
-——-/plugins              so的存放目录	
-——-/xchain              服务的二进制文件以及部分的客户端工具	
-——-/xchain-cli              
-==================  ===================
++-------------------+---------------------------------------------------------------+
+| 目录名            | 功能                                                          |
++===================+===============================================================+
+| node/             | 根节点目录                                                    |
++-------------------+---------------------------------------------------------------+
+| ├─ conf           | xchain.yaml:xchain服务的配置信息,plugins.conf: 插件的配置信息 |
+|                   | （防止冲突，部署时根据需要修改端口号）                        |
++-------------------+---------------------------------------------------------------+
+| ├─ data           | 数据的存放目录,创世块信息，以及共识和合约的样例               |
++-------------------+---------------------------------------------------------------+
+| │   ├─ blockchain | 账本目录                                                      |
++-------------------+---------------------------------------------------------------+
+| │   ├─ keys       | 此节点的地址，唯一性                                          |
++-------------------+---------------------------------------------------------------+
+| │   ├─ netkeys    | 此节点的网络标识ID，唯一性                                    |
++-------------------+---------------------------------------------------------------+
+| │   └─ config     | 创始的共识采用single模式，指定单一地址有权利出块              |
++-------------------+---------------------------------------------------------------+
+| ├─ logs           | 程序日志目录                                                  |
++-------------------+---------------------------------------------------------------+
+| ├─ plugins        | so的存放目录                                                  |
++-------------------+---------------------------------------------------------------+
+| ├─ xchain         | 服务的二进制文件                                              |
++-------------------+---------------------------------------------------------------+
+| ├─ xchain-cli     | 客户端工具                                                    |
++-------------------+---------------------------------------------------------------+
+| └─ wasm2c         | wasm工具                                                      |
++-------------------+---------------------------------------------------------------+
 
 创建链
 ------
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     # 创建root链
@@ -43,7 +56,7 @@ node/                根节点目录
 启动服务
 --------
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     # 启动服务节点
@@ -52,7 +65,7 @@ node/                根节点目录
 观察区块
 --------
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     # check服务运行状况
@@ -64,14 +77,14 @@ node/                根节点目录
 创建新账户
 >>>>>>>>>>
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     # 创建普通用户, 包含地址，公钥，私钥
     ./xchain-cli account newkeys --output data/accounts/bob
     # 在bob目录下会看到文件address，publickey，privatekey生成
     # 创建合约账户
-    ## 通用方式
+    # 通用方式
     ./xchain-cli account new --desc account.des
     其中，account.des内容如下
     {
@@ -82,13 +95,13 @@ node/                根节点目录
             "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 0.6},\"aksWeight\": {\"AK1\": 0.3,\"AK2\": 0.3}}"
         }
     }
-    ## 简易方式
+    # 简易方式
     ./xchain-cli account new --account 1111111111111111  // 说明：16位数字组成的字符串
 
 查余额
 >>>>>>
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli account balance --keys data/accounts/bob -H 127.0.0.1:37101
@@ -96,7 +109,7 @@ node/                根节点目录
 转账
 >>>>
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
     
     # --keys 从此地址 转给 --to地址 --amount 钱
@@ -105,7 +118,7 @@ node/                根节点目录
 查询交易信息
 >>>>>>>>>>>>
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     # 查询上一步生成的txid的交易信息
@@ -114,7 +127,7 @@ node/                根节点目录
 查询block信息
 >>>>>>>>>>>>>
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     # 可查询上一步交易所在的block id信息
@@ -123,14 +136,14 @@ node/                根节点目录
 发起多重签名交易
 >>>>>>>>>>>>>>>>
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     # generate raw tx
-    ### data/acl/addrs维护好涉及到操作权限的所有的address信息，默认从此地址文件读取，可用参数指定自己文件
+    # data/acl/addrs维护好涉及到操作权限的所有的address信息，默认从此地址文件读取，可用参数指定自己文件
     ## 某个address发起
     ./xchain-cli multisig gen --to YDYBchKWXpG7HSkHy4YoyzTJnd3hTFBgG --amount 100 --desc contract.desc -H 127.0.0.1:37101
-    ## 从账户发起
+    # 从账户发起
     ./xchain-cli multisig gen --to YDYBchKWXpG7HSkHy4YoyzTJnd3hTFBgG --amount 100 --desc contract.desc -H 127.0.0.1:37101 --from XC11111111111111
     # 各方在签名之前可以check 原始交易是否ok
     ./xchain-cli multisig check --input tx.data --ouput visual.out
@@ -142,7 +155,43 @@ node/                根节点目录
 常见问题
 --------
 
-single共识介绍，root.json文件如下
+tdpos默认共识，json文件如下：
+
+.. code-block:: json
+    :linenos:
+
+    {
+        "version" : "1"
+        , "predistribution":[
+            {
+                "address" : "dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN"
+                , "quota" : "100000000000000000000"
+            }
+        ]
+        , "maxblocksize" : "128"
+        , "award" : "1000000"
+        , "decimals" : "8"
+        , "award_decay": {
+            "height_gap": 31536000,
+            "ratio": 1
+        }, "genesis_consensus":{
+        "name": "tdpos",
+        "config": {
+            "timestamp": "1556444792000000000",
+            "proposer_num":"1",
+                "period":"3000",
+                    "alternate_interval":"3000",
+                    "term_interval":"6000",
+                "block_num":"20",
+                "vote_unit_price":"1",
+                "init_proposer": {
+                "1":["dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN"]
+                }
+            }
+        }
+    }
+
+single共识，json文件如下
 
 .. code-block:: json
     :linenos:

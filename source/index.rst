@@ -28,8 +28,16 @@ XuperUnion文档
    关键概念/介绍
    关键概念/超级节点
    关键概念/链内并行
-   关键概念/XuperModel
-   关键概念/XuperBridge
+
+.. toctree::
+    :maxdepth: 2
+    :caption: 技术设计文档:
+    :numbered:
+
+    技术设计文档/XuperModel
+    技术设计文档/XuperBridge
+    技术设计文档/账户权限控制模型
+    技术设计文档/身份认证
 
 .. toctree::
     :maxdepth: 2

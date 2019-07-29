@@ -20,6 +20,8 @@
 
 Invoke
 
+./xchain-cli native invoke -a '下面json中args字段的内容' --method save -H localhost:37101 eleccert
+
 .. code-block:: console
     :linenos:
 
@@ -35,6 +37,8 @@ Invoke
     }
 
 Query
+
+./xchain-cli native query -a 'args内容' --method query -H localhost:37101 eleccert
 
 .. code-block:: console
     :linenos:
