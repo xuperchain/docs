@@ -21,13 +21,11 @@ XuperUnion文档
    XuperUnion介绍/总结
 
 .. toctree::
-   :maxdepth: 2
-   :caption: 关键概念:
-   :numbered:
+    :maxdepth: 2
+    :caption: 关键概念:
+    :numbered:
 
-   关键概念/介绍
-   关键概念/超级节点
-   关键概念/链内并行
+    关键概念.rst
 
 .. toctree::
     :maxdepth: 2

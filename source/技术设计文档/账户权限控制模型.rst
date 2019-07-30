@@ -47,7 +47,7 @@
         - 账户所属人员允许在账户内部署合约
         - 账户所属人员可以定义合约管理的权限模型
         - 设置合约方法的权限模型，合约内有一个权限表，记录：{ contract.method，permission_model}
-    - 合约命名规则：长度为4~16个字符(包括4和16)，首字母可选项为\[a-ZA-Z_\]，末尾字符可选项为\[a-zA-Z0-9_\]，中间部分的字符可选项为\[a-zA-Z_.\]
+    - 合约命名规则：长度为4~16个字符(包括4和16)，首字母可选项为\[a-ZA-Z\_\]，末尾字符可选项为\[a-zA-Z0-9\_\]，中间部分的字符可选项为\[a-zA-Z\_.\]
 
 实现功能
 --------
@@ -71,7 +71,7 @@
 ACL数据结构说明
 ^^^^^^^^^^^^^^^
 
-.. code-block:: console
+.. code-block:: protobuf
     :linenos:
 
     // --------   Account and Permission Section -------
@@ -125,13 +125,15 @@ ACL数据结构说明
 样例
 ^^^^
 
-.. code-block:: console
+acl模型如下：
+
+.. code-block:: json
     :linenos:
 
-    acl模型如下：
     {
         "pm": {
-            "rule": 1,  // rule=1表示签名阈值策略. rule=2表示AKSet签名策略
+            "rule": 1,
+
             "acceptValue": 1.0
         },
         "aksWeight": {
@@ -139,4 +141,7 @@ ACL数据结构说明
             "AK2": 1.0
         }
     }
-    含义：签名的ak对应的weight值加起来>acceptValue，则符合要求
+
+- 其中rule=1表示签名阈值策略，rule=2表示AKSet签名策略
+- 签名的ak对应的weight值加起来>acceptValue，则符合要求
+

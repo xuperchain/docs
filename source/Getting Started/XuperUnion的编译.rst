@@ -22,7 +22,7 @@ XuperUnion的编译
 
 - 执行命令
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     cd src/github.com/xuperchain/xuperunion
@@ -35,7 +35,7 @@ XuperUnion的编译
 
 - 配置go语言环境变量
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     export GOROOT=.../gotool/go
@@ -46,8 +46,8 @@ XuperUnion的编译
 - go1.11版本之后无需关注
 
     - 在1.11版本之前需要配置。配置成以下形式：
-    - 比如代码路径xxx/baidu/blockchain/xuperunion/src/baidu.com/xchain/xxx
-    - export GOPATH=xxx/baidu/xuper/xuperunion
+    - 比如代码路径xxx/github.com/xuperchain/xuperunion/src/baidu.com/xchain/xxx
+    - export GOPATH=xxx/github.com/xuperchain/xuperunion
 
 - gcc版本
 
