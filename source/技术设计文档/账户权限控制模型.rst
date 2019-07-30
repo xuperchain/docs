@@ -133,6 +133,7 @@ acl模型如下：
     {
         "pm": {
             "rule": 1,
+
             "acceptValue": 1.0
         },
         "aksWeight": {
@@ -143,3 +144,4 @@ acl模型如下：
 
 - 其中rule=1表示签名阈值策略，rule=2表示AKSet签名策略
 - 签名的ak对应的weight值加起来>acceptValue，则符合要求
+
