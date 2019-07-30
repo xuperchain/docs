@@ -7,14 +7,14 @@
 
 1. 快速创建一个合约账号
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli account new —account XC11111111111111
 
 2. 按照json文件创建一个合约账号
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli account new —desc account.json
@@ -40,45 +40,49 @@ account.json模版如下:
 
     走multisig命令
 
-    step1:准备好ACL的json文件，该json文件中有新的ACL配置，文件名记为acl_new.json
+    step1: 准备好ACL的json文件，该json文件中有新的ACL配置，文件名记为acl_new.json
 
-    step2:针对acl_new.json生成原始交易
+    step2: 针对acl_new.json生成原始交易
 
         先查看合约账号余额是否充足：
-        ./xchain-cli account balance XC1111111111111111@xuper
+
+        .. code-block:: bash
+            :linenos:
+            
+            ./xchain-cli account balance XC1111111111111111@xuper
 
         如果不足，可以把当前个人账户（data/keys/address)的资产转移一些给合约账户
 
-    .. code-block:: console
-        :linenos:
+        .. code-block:: bash
+            :linenos:
 
-        ./xchain-cli multisig gen --desc acl_new.json --from XC1111111111111111@xuper
+            ./xchain-cli multisig gen --desc acl_new.json --from XC1111111111111111@xuper
 
-    step3:使用旧有的acl权限模型对新生成的原始交易做签名(假设旧有的权限模型的成员包括bob和alice)
+    step3: 使用旧有的acl权限模型对新生成的原始交易做签名(假设旧有的权限模型的成员包括bob和alice)
 
-    .. code-block:: console
-        :linenos:
+        .. code-block:: bash
+            :linenos:
 
-        ./xchain-cli multisig sign --keys data/account/bob --output bob.sign
-        ./xchain-cli multisig sign --keys data/account/alice --output alice.sign
+            ./xchain-cli multisig sign --keys data/account/bob --output bob.sign
+            ./xchain-cli multisig sign --keys data/account/alice --output alice.sign
 
     step4:将签名后的交易post出去
 
-    .. code-block:: console
-        :linenos:
+        .. code-block:: bash
+            :linenos:
 
-        n-cli multisig send --tx tx.out bob.sign,alice.sign bob.sign,alice.sign
+            ./xchain-cli multisig send --tx tx.out bob.sign,alice.sign bob.sign,alice.sign
 
 2. 查询一个账号的Acl
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
-    ./xchain-cli acl query —account XC1111111111111111@root
+    ./xchain-cli acl query —account XC1111111111111111@xuper
 
 3. 查询一个合约方法的Acl
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli acl query —contract contractName —method methodName

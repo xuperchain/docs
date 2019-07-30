@@ -19,7 +19,7 @@ wasm合约
 
 注意合约编译环境与源码编译环境一致
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     GOOS=js GOARCH=wasm go build
@@ -30,21 +30,21 @@ wasm合约
 部署
 >>>>
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     # 便捷方式
     ## 账户下权限AK是自己，提前创建好账号，并保证账号下有钱
-    ./xchain-cli wasm deploy --account XC1111111111110600@root --cname counter -H localhost:37101 data/blockchain/root/native/counter
+    ./xchain-cli wasm deploy --account XC1111111111110600@xuper --cname counter -H localhost:37101 data/blockchain/xuper/native/counter
     # 多重签名场景
     ## 提前维护好data/acl/addrs 需要的合作的地址
-    ./xchain-cli wasm deploy --account XC1111111111110600@root --cname counter -H localhost:37801 -m data/blockchain/root/native/counter
+    ./xchain-cli wasm deploy --account XC1111111111110600@xuper --cname counter -H localhost:37801 -m data/blockchain/xuper/native/counter
     ## 后续参看多重签名交易的后续check，sign，send场景
 
 调用合约
 >>>>>>>>
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli wasm query -a '{"key":"counter"}' -H localhost:37101 counter
@@ -65,7 +65,7 @@ native合约
 
 编译合约，注意合约编译环境与源码编译环境一致
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     cd counter
@@ -82,7 +82,7 @@ native合约
 
     合约可以被使用需要发起提案，并投票，通过投票后方可激活合约
 
-    .. code-block:: console
+    .. code-block:: bash
         :linenos:
 
         ./xchain-cli native activate --vote-height-offset 50 counter --version 1.0.0 -H 127.0.0.1:37101
@@ -91,7 +91,7 @@ native合约
 
 - 投票
 
-    .. code-block:: console
+    .. code-block:: bash
         :linenos:
 
         # data/keys下的账户对此提案投票token数量为amount
@@ -100,7 +100,7 @@ native合约
 
 - 确认是否激活
 
-    .. code-block:: console
+    .. code-block:: bash
         :linenos:
 
         # 查看区块高度，是否达到提案生效高度
@@ -114,21 +114,21 @@ native合约
 
 - json文件示例
 
-.. code-block:: console
+.. code-block:: python
     :linenos:
 
     {
-        "module_name":"native",        # 还可以是wasm
-        "contract_name":"counter"      # 自己编写的合约名字
-        "method_name": "initialize",   # 还可写invoke和query
+        "module_name":"native",      # 还可以是wasm
+        "contract_name":"counter",   # 自己编写的合约名字
+        "method_name": "initialize", # 还可写invoke和query
         "args" : {
-            "key":"mycounter"          # 调用的参数是kv形式
+            "key":"mycounter"        # 调用的参数是kv形式
         }
     }
 
 - 调用合约
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     # 参看发起多重签名交易

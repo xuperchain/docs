@@ -37,11 +37,11 @@ P2P建立连接过程
 主要结构修改点
 --------------
 
-.. code-block:: console
+.. code-block:: go
     :linenos:
 
-    stream 增加authenticate接口
+    // stream 增加authenticate接口
     func (s *Stream) Authenticate() error {}
 
-    收到身份验证消息后的回调处理函数接口
+    // 收到身份验证消息后的回调处理函数接口
     func (p *P2PServerV2) handleGetAuthentication(ctx context.Context, msg *xuper_p2p.XuperMessage) (*xuper_p2p.XuperMessage, error) {}

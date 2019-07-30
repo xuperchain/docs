@@ -13,14 +13,14 @@ p2p网络配置
 
 3. 查询node节点的netUrl，会得到节点netUrl
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli netUrl get -H 127.0.0.1:37101
 
 4. 在node2和node3的p2pv2配置中的bootNodes增加node的netUrl，如下所示：
 
-.. code-block:: console
+.. code-block:: yaml
     :linenos:
 
     p2pV2:
@@ -32,7 +32,7 @@ p2p网络配置
 
 5. 设置node2和node3节点RPC服务暴露的端口
 
-.. code-block:: console
+.. code-block:: yaml
     :linenos:
 
     // port是节点启动时RPC服务监听的端口，如果在一台机器上部署注意端口配置不要冲突，node配置的是 :37101，node2和node3可以分别设置为 :37102和 :37103
@@ -41,7 +41,7 @@ p2p网络配置
 
 6. 启动node2和node3，check服务是否正常：
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain systemstatus -H 127.0.0.1:37102
@@ -58,7 +58,7 @@ XuperUnion系统支持可插拔共识，通过修改创世块的参数，可以�
 
 下面创世块配置和单节点创世块配置的区别在于创世共识参数genesis_consensus的config配置，各个配置参数详解配置说明如下所示：
 
-.. code-block:: console
+.. code-block:: python
     :linenos:
 
     {
@@ -78,14 +78,14 @@ XuperUnion系统支持可插拔共识，通过修改创世块的参数，可以�
         }, "genesis_consensus":{
             "name": "tdpos",
             "config": {
-                    "timestamp": "1548123921000000000", // tdpos共识初始时间，声明tdpos共识的起始时间戳，建议设置为一个刚过去不旧的时间戳
-                    "proposer_num":"3",// 每一轮选举出的矿工数，如果某一轮的投票不足以选出足够的矿工数则默认复用前一轮的矿工
-                    "period":"3000",// 每个矿工连续出块的出块间隔
-                    "alternate_interval":"6000",// 每一轮内切换矿工时的时间间隔，需要为period的整数倍
-                    "term_interval":"9000", // 切换轮时的出块间隔，即下一轮第一个矿工出第一个块距离上一轮矿工出最后一个块的时间间隔，需要为period的整数配
-                    "block_num":"200",// 每一轮内每个矿工轮值任期内连续出块的个数
-                    "vote_unit_price":"1",// 为被提名的候选人投票时，每一票单价，即一票等于多少Xuper
-            // 指定第一轮初始矿工，矿工个数需要符合proposer_num指定的个数，所指定的初始矿工需要在网络中存在，不然系统轮到该节点出块时会没有节点出块
+                    "timestamp": "1548123921000000000", # tdpos共识初始时间，声明tdpos共识的起始时间戳，建议设置为一个刚过去不旧的时间戳
+                    "proposer_num":"3",# 每一轮选举出的矿工数，如果某一轮的投票不足以选出足够的矿工数则默认复用前一轮的矿工
+                    "period":"3000",# 每个矿工连续出块的出块间隔
+                    "alternate_interval":"6000",# 每一轮内切换矿工时的时间间隔，需要为period的整数倍
+                    "term_interval":"9000", # 切换轮时的出块间隔，即下一轮第一个矿工出第一个块距离上一轮矿工出最后一个块的时间间隔，需要为period的整数配
+                    "block_num":"200",# 每一轮内每个矿工轮值任期内连续出块的个数
+                    "vote_unit_price":"1",# 为被提名的候选人投票时，每一票单价，即一票等于多少Xuper
+            # 指定第一轮初始矿工，矿工个数需要符合proposer_num指定的个数，所指定的初始矿工需要在网络中存在，不然系统轮到该节点出块时会没有节点出块
                     "init_proposer": {
                             "1":["RU7Qv3CrecW5waKc1ZWYnEuTdJNjHc43u","XpQXiBNo1eHRQpD9UbzBisTPXojpyzkxn","SDCBba3GVYU7s2VYQVrhMGLet6bobNzbM"]
                             }
@@ -95,7 +95,7 @@ XuperUnion系统支持可插拔共识，通过修改创世块的参数，可以�
 
 修改完创世块参数后，删除./data/blockchain下的内容，3个节点全部重新创建链：
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain createChain
@@ -105,7 +105,7 @@ XuperUnion系统支持可插拔共识，通过修改创世块的参数，可以�
 提名候选人
 ----------
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
     
     ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --name=$chain --desc=./nominate.json --amount=11000002266 --frozen=-1 -H=$host
@@ -126,7 +126,7 @@ nominate.json
 投票
 ----
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=./vote.json --amount=$ballots --frozen=-1 --name=$chain -H=$host
@@ -147,7 +147,7 @@ vote.json
 撤销提名 && 撤销投票
 --------------------
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./bin/xchain transfer --to Y4TmpfV4pvhYT5W17J7TqHSLo6cqq23x3 --desc=./revoke_demo.json --amount=1
@@ -168,7 +168,7 @@ revoke_demo.json (txid为提名或者投票时的txid,发起的交易的input需
 TDPOS结果查询
 -------------
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli tdpos -h
@@ -183,42 +183,42 @@ TDPOS结果查询
 
 1. 查询候选人信息
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli tdpos query-candidates --name=$chain -H=$host
 
 2. 查看某一轮的出块顺序
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli tdpos query-checkResult -t=30 --name=$chain -H=$host
 
 3. 查询提名信息：某地址发起提名的记录
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli tdpos query-nominate-records --name=$chain -H=$host -a=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
 
 4. 被提名查询：某个候选人被提名的记录
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli tdpos query-nominee-record --name=$chain -H=$host -a=TyYCWDJ1pyV8fA3VyPenCdFdcPmHnwMhx
 
 5. 某选民的有效投票记录
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli tdpos query-vote-records --name=$chain -H=$host -a=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
 
 6. 某候选人被投票记录
 
-.. code-block:: console
+.. code-block:: bash
     :linenos:
 
     ./xchain-cli tdpos query-voted-records --name=$chain -H=$host -a=TyYCWDJ1pyV8fA3VyPenCdFdcPmHnwMhx

@@ -16,7 +16,7 @@ XuperUnion的配置文件默认读取有3个优先级：
 - 配置文件：通过读取配置文件的方式，可以覆盖系统中默认的参数配置，默认的配置文件为 ./conf/xchain.yaml；
 - 启动参数：有一些参数支持启动参数的方式设置，该设置方式的优先级最高，会覆盖配置文件中的配置项；
 
-.. code-block:: console
+.. code-block:: yaml
     :linenos:
 
     log:

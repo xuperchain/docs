@@ -31,16 +31,16 @@ Initialize
 
 ./xchain-cli wasm invoke -a '下面json中args字段的内容' --method initialize -H localhost:37101 erc721
 
-.. code-block:: console
+.. code-block:: python
     :linenos:
 
     {
-        "module_name": "native",      // native或wasm
-        "contract_name": "erc721",    // contract name
-        "method_name": "initialize",  // initialize or query or invoke
+        "module_name": "native",      # native或wasm
+        "contract_name": "erc721",    # contract name
+        "method_name": "initialize",  # initialize or query or invoke
         "args": {
-            "from": "dudu",           // userName
-            "supply": "1,2"          //  token_ids
+            "from": "dudu",           # userName
+            "supply": "1,2"           # token_ids
         }
     }
 
@@ -48,41 +48,41 @@ Invoke
 
 ./xchain-cli native invoke -a 'args内容' --method invoke -H localhost:37101 erc721
 
-.. code-block:: console
+.. code-block:: python
     :linenos:
 
     {
-        "module_name": "native",      // native或wasm
-        "contract_name": "erc721",    // contract name
-        "method_name": "invoke",      // initialize or query or invoke
+        "module_name": "native",      # native或wasm
+        "contract_name": "erc721",    # contract name
+        "method_name": "invoke",      # initialize or query or invoke
         "args": {
-            "action": "transfer",     // action name
-            "from": "dudu",           // usera
-            "to": "chengcheng",       // userb
-            "token_id": "1"           // token_ids
+            "action": "transfer",     # action name
+            "from": "dudu",           # usera
+            "to": "chengcheng",       # userb
+            "token_id": "1"           # token_ids
         }
     }
     {
-        "module_name": "native",      // native或wasm
-        "contract_name": "erc721",    // contract name
-        "method_name": "invoke",      // initialize or query or invoke
+        "module_name": "native",      # native或wasm
+        "contract_name": "erc721",    # contract name
+        "method_name": "invoke",      # initialize or query or invoke
         "args": {
-            "action": "transferFrom", // action name
-            "from": "dudu",           // userA
-            "caller": "chengcheng",   // userB
-            "to": "miaomiao",         // userC
-            "token_id": "1"           // token_ids
+            "action": "transferFrom", # action name
+            "from": "dudu",           # userA
+            "caller": "chengcheng",   # userB
+            "to": "miaomiao",         # userC
+            "token_id": "1"           # token_ids
         }
     }
     {
-        "module_name": "native",      // native或wasm
-        "contract_name": "erc721",    // contract name
-        "method_name": "invoke",      // initialize or query or invoke
+        "module_name": "native",      # native或wasm
+        "contract_name": "erc721",    # contract name
+        "method_name": "invoke",      # initialize or query or invoke
         "args": {
-            "action": "approve",      // action name
-            "from": "dudu",           // userA
-            "to": "chengcheng",       // userB
-            "token_id": "1"           // token_ids
+            "action": "approve",      # action name
+            "from": "dudu",           # userA
+            "to": "chengcheng",       # userB
+            "token_id": "1"           # token_ids
         }
     }
 
@@ -90,33 +90,33 @@ Query
 
 ./xchain-cli native query -a 'args内容' --method query -H localhost:37101 erc721
 
-.. code-block:: console
+.. code-block:: python
     :linenos:
 
     {
-        "module_name": "native",     // native或wasm
-        "contract_name": "erc721",   // contract name
-        "method_name": "query",      // initialize or query or invoke
+        "module_name": "native",     # native或wasm
+        "contract_name": "erc721",   # contract name
+        "method_name": "query",      # initialize or query or invoke
         "args": {
-            "action": "balanceOf",   // action name
-            "from": "dudu"           // userA
+            "action": "balanceOf",   # action name
+            "from": "dudu"           # userA
         }
     }
     {
-        "module_name": "native",     // native或wasm
-        "contract_name": "erc721",   // contract name
-        "method_name": "query",      // initialize or query or invoke
+        "module_name": "native",     # native或wasm
+        "contract_name": "erc721",   # contract name
+        "method_name": "query",      # initialize or query or invoke
         "args": {
-            "action": "totalSupply"  // action name
+            "action": "totalSupply"  # action name
         }
     }
     {
-        "module_name": "native",      // native或wasm
-        "contract_name": "erc721",    // contract name
-        "method_name": "query",       // initialize or query or invoke
+        "module_name": "native",      # native或wasm
+        "contract_name": "erc721",    # contract name
+        "method_name": "query",       # initialize or query or invoke
         "args": {
-            "action": "approvalOf",   // action name
-            "from": "dudu",           // userA
-            "to": "chengcheng"       // userB
+            "action": "approvalOf",   # action name
+            "from": "dudu",           # userA
+            "to": "chengcheng"        # userB
         }
     }

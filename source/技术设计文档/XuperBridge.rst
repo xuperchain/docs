@@ -47,7 +47,7 @@ PB接口
 
 合约暴露的代码接口
 
-.. code-block:: console
+.. code-block:: protobuf
     :linenos:
 
     service NativeCode {
@@ -56,7 +56,7 @@ PB接口
 
 xchain暴露的syscall接口
 
-.. code-block:: console
+.. code-block:: protobuf
     :linenos:
 
     service Syscall {
@@ -100,7 +100,7 @@ KV的接口：
 
 cache部分采用ordered map实现, value部分结构如下
 
-.. code-block:: console
+.. code-block:: go
     :linenos:
 
     type Value struct {
