@@ -10,6 +10,7 @@ XuperBridge为所有合约提供统一的合约接口，从抽象方式上类似
 .. figure:: ../images/contract.svg
     :alt: XuperBridge
     :align: center
+    :width: 300px
     
     XuperBridge
 
@@ -21,6 +22,7 @@ xchain进程需要调用合约虚拟机来执行具体的合约代码，合约�
 .. figure:: ../images/contract-com.svg
     :alt: 合约双向通信
     :align: center
+    :width: 300px
     
     合约双向通信
 
@@ -31,6 +33,7 @@ xchain进程需要调用合约虚拟机来执行具体的合约代码，合约�
 .. figure:: ../images/contract-socket.svg
     :alt: 合约socket
     :align: center
+    :width: 400px
     
     合约socket
 
@@ -39,6 +42,7 @@ xchain进程需要调用合约虚拟机来执行具体的合约代码，合约�
 .. figure:: ../images/contract-wasm.svg
     :alt: WASM合约
     :align: center
+    :width: 500px
     
     WASM合约
 
@@ -157,6 +161,7 @@ KV在目前的合约实现里面是通过MPT来实现的，合约执行完毕后
 .. figure:: ../images/contract-transfer.svg
     :alt: 合约内转账排列
     :align: center
+    :width: 500px
     
     合约内转账排列
 
