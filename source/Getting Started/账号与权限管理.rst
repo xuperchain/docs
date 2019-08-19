@@ -10,14 +10,14 @@
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli account new —account XC11111111111111
+    ./xchain-cli account new —account 1111111111111111 --fee 1000 -H 127.0.0.1:37101
 
 2. 按照json文件创建一个合约账号
 
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli account new —desc account.json
+    ./xchain-cli account new —desc account.json --fee 1000 -H 127.0.0.1:37101
 
 account.json模版如下:
 
