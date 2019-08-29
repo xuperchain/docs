@@ -22,10 +22,10 @@ XuperUnion文档
 
 .. toctree::
     :maxdepth: 2
-    :caption: 关键概念:
+    :caption: 快速入门
     :numbered:
 
-    关键概念.rst
+    快速入门.rst
 
 .. toctree::
     :maxdepth: 2
@@ -39,14 +39,14 @@ XuperUnion文档
 
 .. toctree::
     :maxdepth: 2
-    :caption: Getting Started
+    :caption: 进阶使用
     :numbered:
 
-    Getting Started/XuperUnion的编译.rst
-    Getting Started/单节点网络.rst
-    Getting Started/账号与权限管理.rst
-    Getting Started/智能合约开发.rst
-    Getting Started/多节点网络搭建.rst
+    进阶使用/合约账号.rst
+    进阶使用/多节点部署.rst
+    进阶使用/创建合约.rst
+    进阶使用/发起提案.rst
+    进阶使用/配置多盘.rst
 
 .. toctree::
     :maxdepth: 2
