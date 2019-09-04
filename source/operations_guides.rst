@@ -2,10 +2,18 @@
 操作指导
 ========
 
+如何获取XuperUnion
+------------------
+
+目前XuperUnion已经发布了2个版本，最新版本为v3.2，可以在github获取发布包
+
+- `XuperUnion v3.2 <https://github.com/xuperchain/xuperunion/releases/tag/v3.2.0>`_
+- `XuperUnion v3.1 <https://github.com/xuperchain/xuperunion/releases/tag/v3.1.0>`_
+
 如何升级软件
 ------------
 
-当版本升级时，需要pull最新的代码，并重新编译，然后将 plugins文件夹, 二进制文件xchain，xchain-cli 全部替换后全部重新启动即可，注意需要先启动bootNodes节点。
+当版本升级时，需要更新为新版本的代码，并重新编译，然后将 plugins文件夹, 二进制文件xchain，xchain-cli 全部替换后全部重新启动即可，注意多节点模式下需要先启动bootNodes节点。
 
 配置文件说明
 ------------

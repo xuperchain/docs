@@ -12,59 +12,66 @@ XuperUnion文档
    :caption: XuperUnion介绍:
    :numbered:
 
-   XuperUnion介绍/简介
-   XuperUnion介绍/模块
-   XuperUnion介绍/智能合约
-   XuperUnion介绍/权限系统
-   XuperUnion介绍/隐私和保密
-   XuperUnion介绍/性能
-   XuperUnion介绍/总结
+   introduction/brief.rst
+   introduction/modules.rst
+   introduction/smart_contracts.rst
+   introduction/permission_system.rst
+   introduction/privacy.rst
+   introduction/perfomance.rst
+   introduction/summary.rst
 
 .. toctree::
     :maxdepth: 2
     :caption: 快速入门
     :numbered:
 
-    快速入门.rst
+    quickstart.rst
 
 .. toctree::
     :maxdepth: 2
     :caption: 技术设计文档:
     :numbered:
 
-    技术设计文档/XuperModel
-    技术设计文档/XuperBridge
-    技术设计文档/账户权限控制模型
-    技术设计文档/身份认证
+    design_documents/XuperModel
+    design_documents/XuperBridge
+    design_documents/permission_model.rst
+    design_documents/authentication.rst
 
 .. toctree::
     :maxdepth: 2
     :caption: 进阶使用
     :numbered:
 
-    进阶使用/合约账号.rst
-    进阶使用/多节点部署.rst
-    进阶使用/创建合约.rst
-    进阶使用/发起提案.rst
-    进阶使用/配置多盘.rst
+    advanced_usage/contract_accounts.rst
+    advanced_usage/multi-nodes.rst
+    advanced_usage/create_contracts.rst
+    advanced_usage/initiate_proposals.rst
+    advanced_usage/multi-disks.rst
 
 .. toctree::
     :maxdepth: 2
     :caption: 开发应用
     :numbered:
 
-    开发应用/电子存证合约.rst
-    开发应用/数字资产交易.rst
+    developing_apps/eleccert.rst
+    developing_apps/erc721.rst
+
+.. toctree::
+    :maxdepth: 2
+    :caption: 开发手册
+    :numbered:
+
+    development_manuals/XuperCDT.rst
 
 .. toctree::
     :maxdepth: 1
     :caption: 其他
     :numbered:
 
-    操作指导.rst
-    指令介绍.rst
-    常见问题解答.rst
-    词汇表.rst
+    operations_guides.rst
+    commands_reference.rst
+    FAQs.rst
+    vocabulary.rst
 
 
 Indices and tables
