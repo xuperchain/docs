@@ -66,7 +66,7 @@ XuperUnion基本操作
 +------------------------+---------------------------------------------------------------+
 | │  ···   ├─ netkeys    | 此节点的网络标识ID，具有全局唯一性                            |
 +------------------------+---------------------------------------------------------------+
-| │  ···   └─ config     | 包括创始的共识，初始的token数，矿工奖励机制等                 |
+| │  ···   └─ config     | 包括创始的共识，初始的资源数，矿工奖励机制等                  |
 +------------------------+---------------------------------------------------------------+
 | ├─ logs                | 程序日志目录                                                  |
 +------------------------+---------------------------------------------------------------+
@@ -93,11 +93,13 @@ XuperUnion基本操作
     # 创建xuper链
     ./xchain-cli createChain
 
-.. figure:: images/createChain.gif
-    :alt: 创建链
-    :align: center
+.. only:: html
 
-    创建链
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/createChain.gif
+        :alt: 创建链
+        :align: center
+
+        创建链
 
 这样我们就使用 config/xuper.json 中的配置创建了一条链（此时 data/blockchain 中会生成 xuper 目录，里面即是我们创建的链的账本等文件）
 
@@ -123,11 +125,13 @@ XuperUnion基本操作
     # check服务运行状况
     ./xchain-cli status -H 127.0.0.1:37101
 
-.. figure:: images/status.gif
-    :alt: 查看状态
-    :align: center
+.. only:: html
 
-    查看运行状态
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/status.gif
+        :alt: 查看状态
+        :align: center
+
+        查看运行状态
 
 基本功能的使用
 ^^^^^^^^^^^^^^
@@ -144,27 +148,31 @@ xchain中，账号分为普通账号和“合约账号”，这里先介绍普�
     ./xchain-cli account newkeys --output data/bob
     # 在bob目录下会看到文件address，publickey，privatekey生成
     
-.. figure:: images/newkey.gif
-    :alt: 创建账号
-    :align: center
+.. only:: html
 
-    创建账号
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/newkey.gif
+        :alt: 创建账号
+        :align: center
 
-查询余额
->>>>>>>>
+        创建账号
 
-对于普通账号，可使用如下命令查询账号余额，其中 -H 参数为xchain服务的地址
+查询资源余额
+>>>>>>>>>>>>
+
+对于普通账号，可使用如下命令查询账号资源余额，其中 -H 参数为xchain服务的地址
 
 .. code-block:: bash
     :linenos:
 
     ./xchain-cli account balance --keys data/keys -H 127.0.0.1:37101
 
-.. figure:: images/balance.gif
-    :alt: 查询余额
-    :align: center
+.. only:: html
 
-    查询余额
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/balance.gif
+        :alt: 查询余额
+        :align: center
+
+        查询余额
 
 转账
 >>>>
@@ -179,11 +187,13 @@ xchain中，账号分为普通账号和“合约账号”，这里先介绍普�
 
 命令执行的返回是转账操作的交易id（txid）
 
-.. figure:: images/transfer.gif
-    :alt: 普通转账
-    :align: center
+.. only:: html
 
-    普通转账操作
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/transfer.gif
+        :alt: 普通转账
+        :align: center
+
+        普通转账操作
 
 查询交易信息
 >>>>>>>>>>>>
@@ -196,11 +206,13 @@ xchain中，账号分为普通账号和“合约账号”，这里先介绍普�
     # 可查询上一步生成的txid的交易信息
     ./xchain-cli tx query cbbda2606837c950160e99480049e2aec3e60689a280b68a2d253fdd8a6ce931 -H 127.0.0.1:37101
 
-.. figure:: images/querytx.gif
-    :alt: 查询交易
-    :align: center
+.. only:: html
 
-    查询交易
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/querytx.gif
+        :alt: 查询交易
+        :align: center
+
+        查询交易
 
 查询block信息
 >>>>>>>>>>>>>
@@ -213,9 +225,11 @@ xchain中，账号分为普通账号和“合约账号”，这里先介绍普�
     # 可查询上一步交易所在的block id信息
     ./xchain-cli block 0354240c8335e10d8b48d76c0584e29ab604cfdb7b421d973f01a2a49bb67fee -H 127.0.0.1:37101
 
-.. figure:: images/queryblock.gif
-    :alt: 查询区块
-    :align: center
+.. only:: html
 
-    查询区块
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/queryblock.gif
+        :alt: 查询区块
+        :align: center
+
+        查询区块
 

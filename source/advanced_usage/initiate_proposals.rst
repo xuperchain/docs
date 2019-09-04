@@ -15,7 +15,7 @@ XuperUnion中有多种提案-投票操作场景，但原理都是一致的，我
         "module": "proposal",
         "method": "Propose",
         "args" : {
-            "min_vote_percent": 51,                 # 生效的token比例
+            "min_vote_percent": 51,                 # 生效的资源比例
             "stop_vote_height": 800                 # 计票截至的高度
         },
         "trigger": {
@@ -56,6 +56,6 @@ XuperUnion中有多种提案-投票操作场景，但原理都是一致的，我
 
     ./xchain-cli vote --txid f26d670b695d9fd5da503a34d130ef19e738b35e031b18b70ad4cbbf6dfe2656 --freeze 1100 --amount 100002825031900000000
 
-这里需要注意进行投票的节点需要有矿工账号的密钥对，以及 --freeze 参数的冻结高度大于提案生效的高度。因为最终通过的规则是投票token大于总token数的51%，所以需要初始token量最多的矿工账号来进行投票，并保证token数符合要求。
+这里需要注意进行投票的节点需要有矿工账号的密钥对，以及 --freeze 参数的冻结高度大于提案生效的高度。因为最终通过的规则是投票资源大于总资源的51%，所以需要初始token量最多的矿工账号来进行投票，并保证token数符合要求。
 
 如此进行后，等到区块出到设定的生效高度，便完成了提案-投票的整个流程。其他场景的提案机制都是类似的，仅是json配置文件不同而已。

@@ -52,11 +52,13 @@ Xchain的客户端工具提供了新建账号的功能，基本用法如下：
 
 命令运行后就会调用xchain的系统合约功能 ``NewAccount`` 创建一个名为 ``XC1111111111111111@xuper`` （如果链名字为xuper）的账号
 
-.. figure:: ../images/acctnew.gif
-    :alt: 新建合约账号
-    :align: center
+.. only:: html
 
-    新建合约账号
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/acctnew.gif
+        :alt: 新建合约账号
+        :align: center
+
+        新建合约账号
 
 除了上述方法，我们还提供了一个比较简易的方式来创建合约账号，命令如下：
 
@@ -83,11 +85,13 @@ Xchain的客户端工具提供了ACL查询功能，只需如下命令
 
     xchain-cli acl query —account XC1111111111111111@xuper # account参数为合约账号名称
 
-.. figure:: ../images/queryacl.gif
-    :alt: 查询合约账号ACL
-    :align: center
+.. only:: html
 
-    查询合约账号ACL
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/queryacl.gif
+        :alt: 查询合约账号ACL
+        :align: center
+
+        查询合约账号ACL
 
 查询账号余额
 ^^^^^^^^^^^^
@@ -101,11 +105,13 @@ Xchain的客户端工具提供了ACL查询功能，只需如下命令
 
 使用此命令即可查询`XC1111111111111111@xuper`的余额
 
-.. figure:: ../images/contracct.gif
-    :alt: 查询合约账号
-    :align: center
+.. only:: html
 
-    查询合约账号余额
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/contracct.gif
+        :alt: 查询合约账号
+        :align: center
+
+        查询合约账号余额
 
 修改账号ACL
 ^^^^^^^^^^^
@@ -134,11 +140,13 @@ Xchain的客户端工具提供了ACL查询功能，只需如下命令
 
     ./xchain-cli multisig gen --desc acl_new.json --from XC1111111111111111@xuper
 
-.. figure:: ../images/modifyacl1.gif
-    :alt: 生成多重签名交易
-    :align: center
+.. only:: html
 
-    成多重签名交易
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/modifyacl1.gif
+        :alt: 生成多重签名交易
+        :align: center
+
+        成多重签名交易
 
 这样就会生成一个默认为`tx.out`的文件，之后使用原ACL中的账号对其进行签名
 
@@ -148,11 +156,13 @@ Xchain的客户端工具提供了ACL查询功能，只需如下命令
     ./xchain-cli multisig sign --keys data/account/AK1 --output AK1.sign
     ./xchain-cli multisig sign --keys data/account/AK2 --output AK2.sign
 
-.. figure:: ../images/modifyacl2.gif
-    :alt: 签名交易
-    :align: center
+.. only:: html
 
-    签名交易
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/modifyacl2.gif
+        :alt: 签名交易
+        :align: center
+
+        签名交易
 
 最后把生成的`tx.out`发出去
 
@@ -161,11 +171,13 @@ Xchain的客户端工具提供了ACL查询功能，只需如下命令
 
     ./xchain-cli multisig send --tx tx.out AK1.sign,AK2.sign AK1.sign,AK2.sign
 
-.. figure:: ../images/modifyacl3.gif
-    :alt: 发送交易
-    :align: center
+.. only:: html
 
-    发送交易
+    .. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/modifyacl3.gif
+        :alt: 发送交易
+        :align: center
+
+        发送交易
 
 至此便完成了ACL的修改
 
