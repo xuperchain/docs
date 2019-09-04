@@ -52,7 +52,7 @@ Xchain的客户端工具提供了新建账号的功能，基本用法如下：
 
 命令运行后就会调用xchain的系统合约功能 ``NewAccount`` 创建一个名为 ``XC1111111111111111@xuper`` （如果链名字为xuper）的账号
 
-.. figure:: ../images/acctnew.gif
+.. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/acctnew.gif
     :alt: 新建合约账号
     :align: center
 
@@ -83,7 +83,7 @@ Xchain的客户端工具提供了ACL查询功能，只需如下命令
 
     xchain-cli acl query —account XC1111111111111111@xuper # account参数为合约账号名称
 
-.. figure:: ../images/queryacl.gif
+.. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/queryacl.gif
     :alt: 查询合约账号ACL
     :align: center
 
@@ -101,7 +101,7 @@ Xchain的客户端工具提供了ACL查询功能，只需如下命令
 
 使用此命令即可查询`XC1111111111111111@xuper`的余额
 
-.. figure:: ../images/contracct.gif
+.. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/contracct.gif
     :alt: 查询合约账号
     :align: center
 
@@ -134,7 +134,7 @@ Xchain的客户端工具提供了ACL查询功能，只需如下命令
 
     ./xchain-cli multisig gen --desc acl_new.json --from XC1111111111111111@xuper
 
-.. figure:: ../images/modifyacl1.gif
+.. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/modifyacl1.gif
     :alt: 生成多重签名交易
     :align: center
 
@@ -148,7 +148,7 @@ Xchain的客户端工具提供了ACL查询功能，只需如下命令
     ./xchain-cli multisig sign --keys data/account/AK1 --output AK1.sign
     ./xchain-cli multisig sign --keys data/account/AK2 --output AK2.sign
 
-.. figure:: ../images/modifyacl2.gif
+.. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/modifyacl2.gif
     :alt: 签名交易
     :align: center
 
@@ -161,7 +161,7 @@ Xchain的客户端工具提供了ACL查询功能，只需如下命令
 
     ./xchain-cli multisig send --tx tx.out AK1.sign,AK2.sign AK1.sign,AK2.sign
 
-.. figure:: ../images/modifyacl3.gif
+.. figure:: https://xchain-xuperunion.bj.bcebos.com/learning/modifyacl3.gif
     :alt: 发送交易
     :align: center
 

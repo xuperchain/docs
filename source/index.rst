@@ -57,6 +57,13 @@ XuperUnion文档
     开发应用/数字资产交易.rst
 
 .. toctree::
+    :maxdepth: 2
+    :caption: 开发手册
+    :numbered:
+
+    开发手册/XuperCDT.rst
+
+.. toctree::
     :maxdepth: 1
     :caption: 其他
     :numbered:
