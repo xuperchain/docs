@@ -10,7 +10,8 @@ Xuperchain节点之间存在双重身份：P2P节点ID和Xuperchain address，�
 名词解释
 --------
 
-Xuperchain address：当前节点的address，一般为data/keys/address P2P节点ID：当前节点P2P的peer.ID
+- Xuperchain address：当前节点的address，一般为data/keys/address 
+- P2P节点ID：当前节点P2P的peer.ID
 
 P2P建立连接过程
 ---------------
