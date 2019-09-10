@@ -65,6 +65,14 @@ XuperUnion文档
 
 .. toctree::
     :maxdepth: 1
+    :caption: 公开测试网络
+    :numbered:
+
+    test_network/description.rst
+    test_network/guides.rst
+
+.. toctree::
+    :maxdepth: 1
     :caption: 其他
     :numbered:
 

@@ -57,7 +57,7 @@ config       系统配置文件 config.go 包括日志配置、Tcp配置、P2p�
 consensus    共识模块 base 共识算法接口定义 consensus.go 可插拔共识实现 tdpos dpos共识算法的具体实现 single single共识算法的具体实现
 contract     智能合约 contract.go 智能合约接口定义 contract_mgr.go 创建智能合约实例 kernel 系统级串行智能合约 proposal 提案 wasm wasm虚拟机
 core         xchaincore.go 区块链的业务逻辑实现 xchainmg.go 负责管理多条区块链 xchainmg_validate.go 对区块、交易、智能合约的合法性验证业务逻辑 sync.go 节点主动向其它节点同步区块业务逻辑 xchaincore_net.go 通过广播形式向周围节点要区块 xchainmg_net.go 注册接收的消息类型 xchainmg_util.go 权限验证
-crypto       密码学模块 account 生成用户账户 client 密码学模块的客户端接口 config 定义创建账户时产生的助记词中的标记符的值，及其所对应的椭圆曲线密码学算法的类 hash hash算法 sign 签名相关 utils 常用功能
+crypto       密码学模块 account 生成用户账号 client 密码学模块的客户端接口 config 定义创建账号时产生的助记词中的标记符的值，及其所对应的椭圆曲线密码学算法的类 hash hash算法 sign 签名相关 utils 常用功能
 global       全局方法/变量 common.go 全局方法 global.go 全局变量
 kv           存储接口与实现 kvdb 单盘存储 mstorage 多盘存储
 ledger       账本模块 genesis.go 创世区块相关实现 ledger.go 账本核心业务逻辑实现 ledger_hash.go 账本涉及的hash实现，如生成Merkle树，生成区块ID

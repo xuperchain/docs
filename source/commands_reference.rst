@@ -28,7 +28,7 @@ rpc GetNetUrl(CommonIn) returns (RawUrl)                                        
 rpc GenerateAccountByMnemonic(GenerateAccountByMnemonicInput) returns (AccountMnemonicInfo)        创建一个带助记词的账号
 rpc CreateNewAccountWithMnemonic(CreateNewAccountWithMnemonicInput) returns (AccountMnemonicInfo)  通过助记词恢复账号
 rpc MergeUTXO (TxData) returns (CommonReply)                                                       将同一个地址的多个余额项合并
-rpc SelectUTXOV2 (UtxoInput) returns(UtxoOutput)                                                   查询一个地址/合约账户对应的余额是否足够
+rpc SelectUTXOV2 (UtxoInput) returns(UtxoOutput)                                                   查询一个地址/合约账号对应的余额是否足够
 rpc QueryContract(QueryContractRequest) returns (QueryContractResponse)                            查询合约数据
 =================================================================================================  ==================
 
