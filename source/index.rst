@@ -65,7 +65,7 @@ XuperUnion文档
 
 .. toctree::
     :maxdepth: 1
-    :caption: 公开测试网络
+    :caption: 超级链测试环境
     :numbered:
 
     test_network/description.rst
@@ -77,6 +77,7 @@ XuperUnion文档
     :numbered:
 
     operations_guides.rst
+    video.rst
     commands_reference.rst
     FAQs.rst
     vocabulary.rst

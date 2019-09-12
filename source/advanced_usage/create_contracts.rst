@@ -52,7 +52,6 @@
     注意合约编译环境与源码编译环境一致，编译参数如下
 
     .. code-block:: bash
-        :linenos:
 
         GOOS=js GOARCH=wasm go build XXX.go
 
@@ -69,18 +68,16 @@
     在合约账号权限AK是节点账号的情况下（即ACL中有当前节点的签名即可生效），我们按照如下命令即可完成部署
 
     .. code-block:: bash
-        :linenos:
 
-        ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter -H localhost:37101 data/blockchain/xuper/native/counter
+        ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter -H localhost:37101 data/blockchain/xuper/wasm/counter
 
     运行时会提示手续费的数目，使用 --fee 参数传入即可
 
     对于合约账号权限AK有多个的情况，部署操作需要多方的签名，需要提前在 data/acl/addrs 维护好需要的合作的地址列表（每个AK地址写一行），运行时增加 -m 参数
 
     .. code-block:: bash
-        :linenos:
 
-        ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter -H localhost:37101 -m data/blockchain/xuper/native/counter
+        ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter -H localhost:37101 -m data/blockchain/xuper/wasm/counter
 
     生成的 tx.out 就像类似修改ACL的操作一样，收集各个AK的签名，然后发送即可
 
@@ -92,7 +89,6 @@
     编译native合约时，只要保持环境和编译xuperunion源码时一致即可，我们还是以example中的counter为例
 
     .. code-block:: bash
-        :linenos:
 
         cd contractsdk/go/example/counter
         go build
@@ -100,4 +96,4 @@
 
 2. 激活合约
 
-    native合约部署需要进行一次 提案-投票 操作，
+    native合约部署需要进行一次 `提案-投票 <initiate_proposals.html>`_ 操作，

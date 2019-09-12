@@ -1,8 +1,12 @@
 
 本章节将指导您获取XuperUnion的代码并部署一个基础的可用环境，还会展示一些基本操作
 
+.. _env-deploy:
+
 XuperUnion环境部署
 ------------------
+
+.. _env-prepare:
 
 准备环境
 ^^^^^^^^
@@ -13,6 +17,8 @@ XuperUnion主要由Golang开发，需要首先准备编译运行的环境
     - 下载地址：`golang <https://golang.org/dl/>`_
 - 安装git
     - 下载地址：`git <https://git-scm.com/download>`_
+
+.. _env-compiling:
 
 编译XuperUnion
 ^^^^^^^^^^^^^^
@@ -42,6 +48,8 @@ XuperUnion主要由Golang开发，需要首先准备编译运行的环境
         
     GCC版本需要升级到4或5以上
 
+
+.. _basic-operation:
 
 XuperUnion基本操作
 ------------------
@@ -79,8 +87,12 @@ XuperUnion基本操作
 | └─ wasm2c              | wasm工具（智能合约会用到）                                    |
 +------------------------+---------------------------------------------------------------+
 
+.. _svr-deploy:
+
 部署xchain服务
 ^^^^^^^^^^^^^^
+
+.. _create-chain:
 
 创建链
 >>>>>>
@@ -103,6 +115,8 @@ XuperUnion基本操作
 
 这样我们就使用 config/xuper.json 中的配置创建了一条链（此时 data/blockchain 中会生成 xuper 目录，里面即是我们创建的链的账本等文件）
 
+.. _svr-start:
+
 启动服务
 >>>>>>>>
 
@@ -113,6 +127,8 @@ XuperUnion基本操作
 
     # 启动服务节点
     nohup ./xchain &
+
+.. _svr-status:
 
 确认服务状态
 >>>>>>>>>>>>
@@ -133,8 +149,12 @@ XuperUnion基本操作
 
         查看运行状态
 
+.. _basic-usage:
+
 基本功能的使用
 ^^^^^^^^^^^^^^
+
+.. _create-account:
 
 创建新账号
 >>>>>>>>>>
@@ -156,6 +176,8 @@ xchain中，账号分为普通账号和“合约账号”，这里先介绍普�
 
         创建账号
 
+.. _balance:
+
 查询资源余额
 >>>>>>>>>>>>
 
@@ -173,6 +195,8 @@ xchain中，账号分为普通账号和“合约账号”，这里先介绍普�
         :align: center
 
         查询余额
+
+.. _transfer:
 
 转账
 >>>>
@@ -195,6 +219,8 @@ xchain中，账号分为普通账号和“合约账号”，这里先介绍普�
 
         普通转账操作
 
+.. _querytx:
+
 查询交易信息
 >>>>>>>>>>>>
 
@@ -213,6 +239,8 @@ xchain中，账号分为普通账号和“合约账号”，这里先介绍普�
         :align: center
 
         查询交易
+
+.. _queryblock:
 
 查询block信息
 >>>>>>>>>>>>>

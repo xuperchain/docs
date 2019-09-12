@@ -1,4 +1,6 @@
 
+.. _brief:
+
 简介
 ====
 
@@ -16,7 +18,3 @@ XuperUnion是超级链体系下的第一个开源项目，是构建超级联盟�
     
     XuperChain架构
 
-
-.. raw:: html
-
-    <iframe width="560" height="315" frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid=g0920kdbh9l" allowFullScreen="true"></iframe>
