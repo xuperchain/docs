@@ -38,6 +38,8 @@ XuperUnion文档
     design_documents/authentication.rst
     design_documents/consensus.rst
     design_documents/proposal.rst
+    design_documents/crypto.rst
+    design_documents/extension.rst
 
 .. toctree::
     :maxdepth: 2
