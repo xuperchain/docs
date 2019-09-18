@@ -116,7 +116,7 @@ XuperChain提供可插拔共识机制，通过提案和投票机制，升级共�
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli transfer --to `cat data/keys/address` --amount 100000000 --desc vote.json  --frozen 121
+    ./xchain-cli vote –amount 100000000 –frozen 121 67cc7cd23b7fcbe0a4919d5c581b3fda759da13cdd97414afa7539e221727594
 
 .. note:: 注意：冻结高度121需要大于提案停止计票高度120, 否则是无效投票。
 
