@@ -125,8 +125,8 @@ XuperChain提供可插拔共识机制，通过提案和投票机制，升级共�
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli account balance –Z 可以查看自己被冻结的资产总量。
-    ./xchain-cli status --host localhost:37301  | grep -i total 查询全链的资产总量。
+    ./xchain-cli account balance –Z # 可以查看自己被冻结的资产总量。
+    ./xchain-cli status --host localhost:37301  | grep -i total # 查询全链的资产总量。
 
 步骤3：最后，等到当前生效高度到达，会发现共识已经切换到TDPOS了。
 
