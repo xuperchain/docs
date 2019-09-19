@@ -116,7 +116,7 @@ XuperChain提供可插拔共识机制，通过提案和投票机制，升级共�
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli transfer --to `cat data/keys/address` --amount 100000000 --desc vote.json  --frozen 121
+    ./xchain-cli vote –amount 100000000 –frozen 121 67cc7cd23b7fcbe0a4919d5c581b3fda759da13cdd97414afa7539e221727594
 
 .. note:: 注意：冻结高度121需要大于提案停止计票高度120, 否则是无效投票。
 
@@ -125,8 +125,8 @@ XuperChain提供可插拔共识机制，通过提案和投票机制，升级共�
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli account balance –Z 可以查看自己被冻结的资产总量。
-    ./xchain-cli status --host localhost:37301  | grep -i total 查询全链的资产总量。
+    ./xchain-cli account balance –Z # 可以查看自己被冻结的资产总量。
+    ./xchain-cli status --host localhost:37301  | grep -i total # 查询全链的资产总量。
 
 步骤3：最后，等到当前生效高度到达，会发现共识已经切换到TDPOS了。
 
