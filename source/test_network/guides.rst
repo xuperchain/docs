@@ -15,7 +15,7 @@
 测试环境通过RPC方式提供服务，开发者可以在 `github <https://github.com/xuperchain/xuperunion>`_ 获取源代码，按照README说明编译得到cli客户端，当前测试环境使用v3.2分支。
 
 - 测试环境接入地址： **14.215.179.74:37101**
-- 黄反服务的address：  **SDnzqhbqm24NvHhFwThLXKpD9jFc9SzxH**
+- 黄反服务的address：  **XDxkpQkfLwG6h56e896f3vBHhuN5g6M9u**
 
 开发者只需要在使用xchain-cli时，通过-H参数指定测试环境地址，即可将客户端命令发送到测试环境。 例如查询账号测试资源：
 
@@ -83,7 +83,7 @@
 .. code-block:: bash
     :linenos:
 
-    SDnzqhbqm24NvHhFwThLXKpD9jFc9SzxH
+    XDxkpQkfLwG6h56e896f3vBHhuN5g6M9u
 
 - Step2: 生成创建合约账号的原始交易，命令如下：
 
@@ -252,7 +252,7 @@ accountAclSet.json模版如下：
 .. code-block:: bash
     :linenos:
 
-    SDnzqhbqm24NvHhFwThLXKpD9jFc9SzxH
+    XDxkpQkfLwG6h56e896f3vBHhuN5g6M9u
     XC1234098776890651@xuper/dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
 
 Step1: 生成部署合约的原始交易，命令如下：

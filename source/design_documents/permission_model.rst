@@ -92,7 +92,7 @@ ACL数据结构说明
 
     // AK集的表示方法
     message AkSet {
-    repeated string aks = 1; //一堆公钥
+        repeated string aks = 1; //一堆公钥
     }
 
     message AkSets {
