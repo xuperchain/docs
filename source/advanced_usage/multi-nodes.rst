@@ -50,7 +50,7 @@ p2p网络配置
 .. code-block:: bash
     :linenos:
 
-    ./xchain systemstatus -H 127.0.0.1:37101
+    ./xchain-cli status -H 127.0.0.1:37101
 
 通过变更 -H 参数，查看每个节点的状态，若所有节点高度都是一致变化的，则证明环境部署成功
 
