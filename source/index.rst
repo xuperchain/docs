@@ -85,6 +85,7 @@ XuperUnion文档
     commands_reference.rst
     FAQs.rst
     vocabulary.rst
+    lessons.rst
 
 
 Indices and tables
