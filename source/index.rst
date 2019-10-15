@@ -35,11 +35,16 @@ XuperUnion文档
     design_documents/XuperModel
     design_documents/XuperBridge
     design_documents/permission_model.rst
+    design_documents/p2p.rst
     design_documents/authentication.rst
-    design_documents/consensus.rst
     design_documents/proposal.rst
     design_documents/crypto.rst
     design_documents/extension.rst
+    design_documents/consensus.rst
+    design_documents/chained_bft.rst
+    design_documents/tdpos.rst
+    design_documents/single_pow.rst
+    design_documents/regulatory.rst
 
 .. toctree::
     :maxdepth: 2
