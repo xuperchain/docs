@@ -14,6 +14,7 @@ XuperUnion文档
 
    introduction/brief.rst
    introduction/modules.rst
+   introduction/datastruct.rst
    introduction/smart_contracts.rst
    introduction/permission_system.rst
    introduction/privacy.rst
