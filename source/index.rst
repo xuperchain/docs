@@ -14,6 +14,7 @@ XuperUnion文档
 
    introduction/brief.rst
    introduction/modules.rst
+   introduction/datastruct.rst
    introduction/smart_contracts.rst
    introduction/permission_system.rst
    introduction/privacy.rst
@@ -34,6 +35,7 @@ XuperUnion文档
 
     design_documents/XuperModel
     design_documents/XuperBridge
+    design_documents/xvm.rst
     design_documents/permission_model.rst
     design_documents/p2p.rst
     design_documents/authentication.rst
