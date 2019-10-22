@@ -35,6 +35,7 @@ XuperUnion文档
 
     design_documents/XuperModel
     design_documents/XuperBridge
+    design_documents/xvm.rst
     design_documents/permission_model.rst
     design_documents/p2p.rst
     design_documents/authentication.rst
@@ -46,7 +47,6 @@ XuperUnion文档
     design_documents/tdpos.rst
     design_documents/single_pow.rst
     design_documents/regulatory.rst
-    design_documents/xvm.rst
 
 .. toctree::
     :maxdepth: 2

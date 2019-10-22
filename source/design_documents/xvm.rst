@@ -13,7 +13,7 @@ XVM为合约提供一个稳定的沙盒运行环境，有如下目标:
 - 运行速度尽量快。
 
 WASM简介
--------
+--------
 
 WASM是WebAssembly的缩写，是一种运行在浏览器上的字节码，用于解决js在浏览器上的性能不足的问题。
 WASM的指令跟机器码很相似，因此很多高级语言如C，C++，Go，rust等都可以编译成WASM字节码从而可以运行在浏览器上。
@@ -24,7 +24,7 @@ xchain的WASM合约正是这样的应用场景，通过用C++，go等高级语�
 XVM虚拟机在这里就提供了一个WASM的运行环境。
 
 WASM字节码编译加载流程
--------------------
+----------------------
 
 WASM字节码的运行有两种方式，一种是解释执行，一种是编译成本地指令后再运行。
 前者针对每条指令挨个解释执行，后者通过把WASM指令映射到本地指令如(x86)来执行，解释执行有点是启动快，缺点是运行慢，编译执行由于有一个预先编译的过程因此启动速度比较慢，但运行速度很快。
@@ -39,7 +39,7 @@ XVM选用的是编译执行模式。
     XVM编译加载流程
 
 字节码编译
-^^^^^^^^
+^^^^^^^^^^
 用户通过c++编写智能合约，通过emcc编译器生成wasm字节码，xvm加载字节码，生成加入了指令资源统计的代码以及一些运行时库符号查找的机制，最后编译成本地指令来运行。
 
 c++合约代码
@@ -53,7 +53,7 @@ c++合约代码
 
 编译后的WASM文本表示
 
-.. code-block:: wast
+.. code-block:: default
     :linenos:
 
     (module
@@ -87,7 +87,7 @@ XVM编译WASM到c，最后再生成动态链接库。
     }
 
 加载运行
-^^^^^^^
+^^^^^^^^
 
 在了解如何加载运行之前先看下如何使用xvm来发起对合约的调用，首先生成Code对象，Code对象管理静态的指令代码以及合约所需要的符号解析器Resolver。
 之后就可以通过实例化Context对象来发起一次合约调用，GasLimit等参数就是在这里传入的。Code和Context的关系类似Docker里面的镜像和容器的关系，
@@ -136,10 +136,10 @@ XVM编译WASM到c，最后再生成动态链接库。
     }
 
 语言运行环境
-----------
+------------
 
 c++运行环境
-^^^^^^^^^^
+^^^^^^^^^^^
 
 c++因为没有runtime，因此运行环境相对比较简单，只需要设置基础的堆栈分布以及一些系统函数还有emscripten的运行时函数即可。
 
@@ -147,7 +147,6 @@ c++合约的内存分布
 
 .. figure:: ../images/wasm-c++-memory.png
     :alt: c++合约的内存分布
-
     :align: center
     :width: 100px
     
@@ -157,25 +156,23 @@ c++合约的内存分布
 
 .. figure:: ../images/symbol_resolve.png
     :alt: xvm符号解析
-
     :align: center
     :width: 300px
     
     xvm符号解析
 
 go运行环境
-^^^^^^^^^
+^^^^^^^^^^
 
 .. figure:: ../images/gowasm.png
     :alt: go合约运行时结构
-
     :align: center
     :width: 400px
     
     go合约运行时结构
 
 XuperBridge对接
---------------
+---------------
 
 XVM跟XuperBridge对接主要靠两个函数
 
@@ -202,10 +199,10 @@ XVM跟XuperBridge对接主要靠两个函数
         success = fetch_response(&(*response)[0u], response_len);
         return success == 1;
     }
-    
+
 
 资源消耗统计
-----------
+------------
 
 考虑到大部分指令都是顺序执行的，因此不需要在每个指令后面加上gas统计指令，
 只需要在control block最开头加上gas统计指令，所谓control block指的是loop, if等会引起跳转的指令。
@@ -230,7 +227,7 @@ c++代码
 
 编译后生成的wast代码
 
-.. code-block:: wast
+.. code-block:: default
     :linenos:
 
     (func (;2;) (type 1) (result i32)
