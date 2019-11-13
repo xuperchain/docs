@@ -126,3 +126,51 @@
     .. container:: text
     
         账号是账户的组成部分，作为账户的唯一标识符，有固定的生成规则。比如，在百度超级链中，dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN是一个有效的普通账户的账号；XC1111111111111111@xuper是一个有效的合约账户的账号。
+
+.. container:: number
+
+    第六期
+    
+.. container:: myclass
+
+    .. container:: title
+    
+        P2P网络是什么？
+        
+    .. container:: text
+    
+        P2P网络也称为对等网络，它是一种网络技术和网络拓扑结构。目前P2P技术已经应用于流媒体、点对点通讯等领域，也就是我们常说的BT工具和电驴，比较常见的P2P网络协议有BitTorrent、ED2K等。
+        
+.. container:: myclass
+
+    .. container:: title
+    
+        区块链P2P网络是什么？
+        
+    .. container:: text
+    
+        区块链P2P网络主要用于区块链节点之间数据传输和广播、节点发现和维护。因此，区块链P2P网络主要解决数据获取以及节点定位两个问题。节点发现和局域网穿透技术主要解决的是节点定位问题，节点交互协议主要解决的是数据获取问题。节点发现主流协议有Gossip以及KAD，局域网穿透协议主要有NAT。
+        
+.. container:: number
+
+    第七期
+    
+.. container:: myclass
+
+    .. container:: title
+    
+        混盘技术是什么？
+        
+    .. container:: text
+    
+        混盘技术也称为多盘技术，将多个磁盘从逻辑上当作一个磁盘来处理，主要用于解决只支持本地单盘场景下数据库空间不够的问题（即扩展性问题），比如被广泛使用的LevelDB。目前对LevelDB的多盘扩展技术，大部分是采用了多个LevelDB实例的方式，也就是每个盘一个单独的LevelDB实例。
+        
+.. container:: myclass
+
+    .. container:: title
+    
+        超级链自研的混盘技术
+        
+    .. container:: text
+    
+        多个LevelDB实例的方式好处是简单，不需要修改LevelDB底层代码，缺点是牺牲了多行原子写入的功能。在区块链的应用场景中，需要保证多个写入操作是原子性的特性。超级链改造LevelDB存储引擎本身，在引擎内部完成了数据文件的多盘放置，能够确保所有写入更新操作的原子性，从而能够满足区块链场景的交易原子性要求。
