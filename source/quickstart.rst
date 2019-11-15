@@ -261,3 +261,54 @@ xchain中，账号分为普通账号和“合约账号”，这里先介绍普�
 
         查询区块
 
+.. _multisig:
+
+发起多重签名交易
+>>>>>>>>>>>>>>>>
+
+对于需要多个账号签名才可以生效的交易，需要先发起多重签名交易，收集需要的签名，然后在发出
+
+对需要收集签名的账号地址，需要事先维护在一个文件中（假定名为addr_list），每个地址一行
+
+.. code-block:: console
+    :linenos:
+
+    YDYBchKWXpG7HSkHy4YoyzTJnd3hTFBgG
+    ZAmWoJViiNn5pKz32m2MVgmPnSpgLia7z
+
+假设要发起一笔转账操作
+
+.. code-block:: bash
+    :linenos:
+    
+    # 从账号发起
+    ./xchain-cli multisig gen --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount 100 -A addr_list
+    # 从合约账号发起
+    ./xchain-cli multisig gen --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount 100 -A addr_list --from XC11111111111111@xuper
+
+这样会生成一个tx.out文件，包含了需发起的交易内容
+
+.. code-block:: bash
+    :linenos:
+
+    # 各方在签名之前可以check 原始交易是否ok，查看visual.out
+    ./xchain-cli multisig check --input tx.out --output visual.out
+
+然后收集需要的签名
+
+.. code-block:: bash
+    :linenos:
+
+    # 首先需要发起者自己的签名
+    ./xchain-cli multisig sign --tx tx.out --output my.sign
+    # 假设addr_list中的地址对应的私钥存放在alice、bob中
+    ./xchain-cli multisig sign --keys data/account/alice --tx tx.out --output alice.sign
+    ./xchain-cli multisig sign --keys data/account/bob --tx tx.out --output bob.sign
+
+最后将交易和收集好的签名发出
+
+.. code-block:: bash
+    :linenos:
+
+    # send后第一个参数是发起者的签名文件，第二个参数是需要收集的签名文件，均为逗号分割
+    ./xchain-cli multisig send --tx tx.out my.sign alice.sign,bob.sign
