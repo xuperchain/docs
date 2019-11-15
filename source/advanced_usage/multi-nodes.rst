@@ -27,7 +27,7 @@ p2p网络配置
 ``/ip4/127.0.0.1/tcp/47101/p2p/QmVxeNubpg1ZQjQT8W5yZC9fD7ZB1ViArwvyGUB53sqf8e`` 
 样式的返回
 
-对其他的节点，我们需要修改其服务配置`conf/xchain.yaml`中p2pv2一节
+对其他的节点，我们需要修改其服务配置 `conf/xchain.yaml` 中p2pv2一节
 
 .. code-block:: yaml
     :linenos:
@@ -105,3 +105,136 @@ XuperUnion系统支持可插拔共识，通过修改创世块的参数，可以�
     }
 
 修改完每个节点的创世块配置后，需要确认各节点的 data/blockchain 目录下内容为空。然后重新按照上一节的步骤，在各节点上创建链，启动所有节点，即完成TDPoS共识的环境部署。
+
+选举TDPOS候选人
+---------------
+
+选举候选人包括提名和投票两个环节，具体操作和 `发起提案 <initiate_proposals.html>`_ 类似
+
+提名候选人
+^^^^^^^^^^
+
+首先需要准备一个提名的配置，json格式
+
+.. code-block:: python
+    :linenos:
+
+    {
+        "module": "tdpos",
+        "method": "nominate_candidate",
+        "args": {
+            # 此字段为要提名的候选人的地址
+            "candidate": "RU7Qv3CrecW5waKc1ZWYnEuTdJNjHc43u"
+        }
+    }
+
+然后将这个json文件（假定文件名为nominate.json）通过转账发出
+
+.. code-block:: bash
+    :linenos:
+
+    # 这里转账的目标地址可以任意，转给自己也可以
+    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=nominate.json --amount=1
+
+命令会返回一个Txid，需要记下来，后面的环节可能会使用到
+
+投票
+^^^^
+
+投票的配置也是一个json格式
+
+.. code-block:: python
+    :linenos:
+
+    {
+        "module": "tdpos",
+        "method": "vote",
+        "args": {
+            # 提名过的address
+            "candidates":["RU7Qv3CrecW5waKc1ZWYnEuTdJNjHc43u"]
+        }
+    }
+
+同样使用转账的命令发出
+
+.. code-block:: bash
+    :linenos:
+
+    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=vote.json --amount=1
+
+.. note:: 细心的读者可能已经发现这些配置文件的json key 都类似，可以参考 xuperunion/contract/contract.go 中TxDesc的定义
+
+撤销提名 && 撤销投票
+^^^^^^^^^^^^^^^^^^^^
+
+Json格式的配置又来了
+
+.. code-block:: python
+    :linenos:
+
+    {
+        "module":"proposal",
+        "method": "Thaw",
+        "args" : {
+            # 此处为提名或者投票时的txid，且address与提名或者投票时需要相同
+            "txid":"02cd75a721f2589a3ff6768b49650b46fa0b042f970df935b4d28a15aa19e49a"
+        }
+    }
+
+然后使用转账操作发出（注意address一致）
+
+.. code-block:: bash
+    :linenos:
+
+    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=vote.json --amount=1
+
+TDPOS结果查询
+^^^^^^^^^^^^^
+
+超级链的客户端提供了这一功能
+
+1. 查询候选人信息
+
+.. code-block:: bash
+
+    ./xchain-cli tdpos query-candidates
+
+2. 查看某一轮的出块顺序
+
+.. code-block:: bash
+
+    ./xchain-cli tdpos query-checkResult -t=30
+
+3. 查询提名信息：某地址发起提名的记录
+
+.. code-block:: bash
+
+    ./xchain-cli tdpos query-nominate-records -a=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
+
+4. 被提名查询：某个候选人被提名的记录
+
+.. code-block:: bash
+
+    ./xchain-cli tdpos query-nominee-record -a=RU7Qv3CrecW5waKc1ZWYnEuTdJNjHc43u
+
+5. 某选民的有效投票记录
+
+.. code-block:: bash
+
+    ./xchain-cli tdpos query-vote-records -a=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
+
+6. 某候选人被投票记录
+
+.. code-block:: bash
+
+    ./xchain-cli tdpos query-voted-records -a=RU7Qv3CrecW5waKc1ZWYnEuTdJNjHc43u
+
+各种查询命令的详细参数列表可以通过 ./xchain-cli tdpos -h 查询
+
+常见问题
+--------
+
+- 端口冲突：注意如果在一台机器上部署多个节点，各个节点的RPC监听端口以及p2p监听端口都需要设置地不相同，避免冲突；
+- 节点公私钥和节点netUrl冲突：注意网络中不同节点./data/keys下的文件和./data/netkeys下的内容都应该不一样，这两个文件夹是节点在网络中的唯一标识，每个节点需要独自生成，否则网络启动异常；
+- 启动时链接bootNodes节点失败：注意要先将bootNodes节点启动，再起动其他节点，否则会因为加入网络失败而启动失败；
+- 遇到The gas you cousume is: XXXX, You need add fee 通过加--fee XXXX 参数附加资源；
