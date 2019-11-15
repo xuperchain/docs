@@ -32,7 +32,7 @@ XuperUnion主要由Golang开发，需要首先准备编译运行的环境
 .. code-block:: bash
     :linenos:
 
-    cd src/github.com/xuperchain/xuperunion
+    cd xuperunion
     make
 
 - 在output目录得到产出xchain和xchain-cli
