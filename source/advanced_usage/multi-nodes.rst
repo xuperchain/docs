@@ -124,19 +124,49 @@ XuperUnion系统支持可插拔共识，通过修改创世块的参数，可以�
         "method": "nominate_candidate",
         "args": {
             # 此字段为要提名的候选人的地址
-            "candidate": "RU7Qv3CrecW5waKc1ZWYnEuTdJNjHc43u"
+            "candidate": "kJFcY3FjmNU8xk6cRzHvTPmChUQ3SBGVE",
+            # 此字段为候选人节点的netURL
+            "neturl": "/ip4/10.0.4.6/tcp/47101/p2p/QmRmdBSyHpKPvhsvmyys8f1jDM4x1S9cbCwZaBMqMKjwhV"
         }
     }
 
-然后将这个json文件（假定文件名为nominate.json）通过转账发出
+然后将这个json文件（假定文件名为nominate.json）通过多重签名命令发出。提名候选人的操作需要提名者和被提名候选人的两个签名（如果是自己提名自己，那么就只需要一个签名了）
+
+首先要准备一个需收集签名的地址列表，可以参考 `发起多重签名交易 <../quickstart.html#multisig>`_
+
+.. code-block:: console
+    :linenos:
+
+    YDYBchKWXpG7HSkHy4YoyzTJnd3hTFBgG
+    kJFcY3FjmNU8xk6cRzHvTPmChUQ3SBGVE
+
+然后生成一个提名交易，超级链上进行候选人提名需要冻结大于链上资产总量的十万分之一的utxo（当前的总资产可以通过 `status查询命令 <../quickstart.html#svr-status>`_ 查看结果的utxoTotal字段）
 
 .. code-block:: bash
     :linenos:
 
-    # 这里转账的目标地址可以任意，转给自己也可以
-    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=nominate.json --amount=1
+    # 这里转账的目标地址可以任意，转给自己也可以，注意冻结参数为-1，表示永久冻结
+    ./xchain-cli multisig gen --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=nominate.json --amount=10000000000000000 --frozen -1 -A addr_list --output nominate.tx
 
-命令会返回一个Txid，需要记下来，后面的环节可能会使用到
+命令会生成交易内容，然后对其进行签名
+
+.. code-block:: bash
+    :linenos:
+
+    # 提名者签名
+    ./xchain-cli multisig sign --tx nominate.tx --output nominate.sign --keys path/to/nominate
+    # 候选人签名
+    ./xchain-cli multisig sign --tx nominate.tx --output candidate.sign --keys path/to/candidate
+
+然后将生成的交易发送
+
+.. code-block:: bash
+    :linenos:
+
+    # send 后面的签名有两个参数，第一个为发起方的签名，第二个为需要收集的签名（列表逗号分隔）
+    ./xchain-cli multisig send --tx nominate.tx nominate.sign nominate.sign,candidate.sign
+
+发送交易会返回一个txid，这里需要记录下来，后面可能会用到
 
 投票
 ^^^^
@@ -155,12 +185,15 @@ XuperUnion系统支持可插拔共识，通过修改创世块的参数，可以�
         }
     }
 
-同样使用转账的命令发出
+同样使用转账的命令发出，注意投票的utxo需要永久冻结。
 
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=vote.json --amount=1
+    # 同样，转账目标地址可任意填写，转给自己也可以
+    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=vote.json --amount=1 --frozen -1
+
+根据共识算法配置的候选人集合大小（上面配置中的"proposer_num"字段，假设为n），每一轮出块结束后系统都会查看被提名的候选人数目是否达到n，如果没有达到则继续按上一轮的顺序出块；如果达到n则会统计得票靠前的n个节点为新一轮的矿工集合
 
 .. note:: 细心的读者可能已经发现这些配置文件的json key 都类似，可以参考 xuperunion/contract/contract.go 中TxDesc的定义
 
@@ -181,12 +214,12 @@ Json格式的配置又来了
         }
     }
 
-然后使用转账操作发出（注意address一致）
+然后使用转账操作发出（注意address一致），撤销提名/投票后，当时被冻结的资产会解冻，可以继续使用了
 
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=vote.json --amount=1
+    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=thaw.json --amount=1
 
 TDPOS结果查询
 ^^^^^^^^^^^^^
