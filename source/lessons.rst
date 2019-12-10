@@ -238,3 +238,27 @@
     .. container:: text
     
         百度超级链中采用了如下可衡量资源：CPU，Mem，Disk，XFee。其中，CPU是指一个合约执行时消耗的CPU指令，Mem是指一个合约上下文消耗的内存大小，Disk是指一个合约上下文的磁盘大小，而XFee是一种特殊资源，主要针对系统合约消耗的资源，比如创建一个合约账号、设置合约方法的ACL需要消耗的资源。Gas计算公式为：Gas = CPU * cpu_rate + Mem * mem_rate + Disk * disk_rate + XFee * xfee_rate，其中cpu_rate，mem_rate，disk_rate，xfee_rate为资源与Gas的兑换比例。
+
+.. container:: number
+
+    第十一期
+    
+.. container:: myclass
+
+    .. container:: title
+    
+        区块链的链上治理是指什么？
+
+    .. container:: text
+    
+        区块链的链上治理是指在一个涉及很多利益方的区块链网络中，为了升级系统共识参数并保证区块链网络持续演进的链上解决方案（比特币和以太坊就因为系统共识参数升级分歧发生过多次硬分叉）。
+        
+.. container:: myclass
+
+    .. container:: title
+    
+        百度超级链的链上治理是如何做的？
+
+    .. container:: text
+    
+        百度超级链提出一种提案机制，首先，提案发起人会发起一笔修改系统共识参数的提案交易；然后，提案发起人将提案交易通过链外方式（比如邮件列表或者论坛、线下聚会等）告诉社区，对提案作进一步解释，并号召大家投票；之后，区块链网络中的用户可以对该提案交易进行投票；最后，如果投票数量超过提案交易中规定的最低票数，该提案交易就会生效。
