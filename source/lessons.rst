@@ -214,3 +214,106 @@
         1. xchain-cli，交互式命令行工具，直接使用xchain-cli即可发起操作，本质是通过rpc接口与服务端进行交互，可以从xuperunion库中获取；xchain-cli具有丰富的命令，包括创建账户、普通转账、合约部署以及调用、提案、投票、链上交易以及区块查询等功能；比如./xchain-cli transfer --to bob --amount 1就可以发起一笔向bob转账1个utxo的交易，更多命令可以通过./xchain-cli -h获取；
         2. SDK：提供一系列的API接口，用户可以基于提供的API接口做定制化的操作，相比xchain-cli更灵活；目前开源的SDK包括Go SDK，Python SDK，C# SDK；
         3. curl：直接通过curl命令来发起查询、构造交易等操作，客户端除了curl，不依赖任何三方库，此时需要服务端启动xchain-httpgw，然后通过curl http://localhost:8098/v1/get_balance -d '{"bcs":[{"bcname":"xuper"}, "address":"bob"], 即可查询xuper链上bob的余额信息
+
+.. container:: number
+
+    第十期
+    
+.. container:: myclass
+
+    .. container:: title
+    
+        Gas在区块链中的作用是什么？
+
+    .. container:: text
+    
+        Gas是一种资源消耗计量单位，比如执行智能合约时消耗的资源数量。用于奖励矿工并防止恶意攻击，是区块链生态系统可持续发展的重要因素。通常，Gas由各种可衡量资源按照特定比例累加而成。
+
+.. container:: myclass
+
+    .. container:: title
+    
+        百度超级链中，如何计算Gas？
+
+    .. container:: text
+    
+        百度超级链中采用了如下可衡量资源：CPU，Mem，Disk，XFee。其中，CPU是指一个合约执行时消耗的CPU指令，Mem是指一个合约上下文消耗的内存大小，Disk是指一个合约上下文的磁盘大小，而XFee是一种特殊资源，主要针对系统合约消耗的资源，比如创建一个合约账号、设置合约方法的ACL需要消耗的资源。Gas计算公式为：Gas = CPU * cpu_rate + Mem * mem_rate + Disk * disk_rate + XFee * xfee_rate，其中cpu_rate，mem_rate，disk_rate，xfee_rate为资源与Gas的兑换比例。
+
+.. container:: number
+
+    第十一期
+    
+.. container:: myclass
+
+    .. container:: title
+    
+        区块链的链上治理是指什么？
+
+    .. container:: text
+    
+        区块链的链上治理是指在一个涉及很多利益方的区块链网络中，为了升级系统共识参数并保证区块链网络持续演进的链上解决方案（比特币和以太坊就因为系统共识参数升级分歧发生过多次硬分叉）。
+        
+.. container:: myclass
+
+    .. container:: title
+    
+        百度超级链的链上治理是如何做的？
+
+    .. container:: text
+    
+        百度超级链提出一种提案机制，首先，提案发起人会发起一笔修改系统共识参数的提案交易；然后，提案发起人将提案交易通过链外方式（比如邮件列表或者论坛、线下聚会等）告诉社区，对提案作进一步解释，并号召大家投票；之后，区块链网络中的用户可以对该提案交易进行投票；最后，如果投票数量超过提案交易中规定的最低票数，该提案交易就会生效。
+
+.. container:: number
+
+    第十二期
+    
+.. container:: myclass
+
+    .. container:: title
+    
+        区块链中，虚拟机的作用是什么？
+
+    .. container:: text
+    
+        虚拟机为智能合约提供了一个对底层透明的执行环境，主要工作包括指令解析、链上交互、Gas计算等。目前常见的虚拟机包括EVM，基于WASM的虚拟机等。
+
+.. container:: myclass
+
+    .. container:: title
+    
+        超级链虚拟机是如何执行合约的？
+
+    .. container:: text
+    
+        XVM(Xuper Virtual Machine，超级链虚拟机)目前支持在预编译模式以及解释模式下执行智能合约。
+        1. 预编译模式下：在合约部署时，XVM会将wasm指令编译成本地机器可以运行的指令(由wasm2c来做，主要工作包括将wasm转换成c、系统调用、Gas统计等功能)；在合约调用时，直接执行相应的指令即可。因此，预编译模式下，合约部署需要消耗时间，通常为数秒；而合约调用因为不需要再次做指令映射，执行效率高；
+        2. 解释模式下：在合约调用时，XVM对wasm指令挨个解释执行(主要工作包括对wasm指令进行解释执行、Gas统计等功能)。因为在合约部署时不需要做指令映射，合约部署较快；在合约调用时，需要对wasm指令挨个做指令映射，执行效率低。
+
+.. container:: number
+
+    第十三期
+    
+.. container:: myclass
+
+    .. container:: title
+    
+        区块链中常见的安全问题有哪些？
+
+    .. container:: text
+    
+        区块链中常见的攻击包括DDoS攻击、女巫攻击、整数溢出、可重入攻击、拜占庭攻击等，主要体现在网络层、智能合约层、共识层、数据层等方面。
+
+.. container:: myclass
+
+    .. container:: title
+    
+        超级链做了哪些安全工作？
+
+    .. container:: text
+    
+        超级链主要在密钥安全、网络安全、数据安全、共识安全以及智能合约安全等方面做了系列工作。
+        1. 密钥安全方面，支持密钥加密存储、助记词恢复、密钥备份等能力；
+        2. 网络安全方面，通过TLS进行数据加密传输，通过CA实现联盟准入机制，节点身份认证以及分层网络路由保护机制，来源IP数量限制等；
+        3. 数据安全方面，除了基本密码学机制外，还实现账号与权限系统细粒度区分数据访问权限；
+        4. 共识安全方面，实现了bft组件，能够抵抗拜占庭节点攻击；
+        5. 智能合约方面，通过wasm实现指令级资源审计，屏蔽对底层存在较大风险的系统调用接口，保证应用层安全。
