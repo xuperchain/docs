@@ -91,7 +91,9 @@ html_context = {
         '_static/theme_overrides.css',  # override wide tables in RTD theme
     ],
 }
-
+html_js_files = [
+    'stat.js',
+]
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
