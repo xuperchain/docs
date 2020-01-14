@@ -12,7 +12,7 @@
 如何接入
 --------
 
-测试环境通过RPC方式提供服务，开发者可以在 `github <https://github.com/xuperchain/xuperunion>`_ 获取源代码，按照README说明编译得到cli客户端，当前测试环境使用v3.2分支。
+测试环境通过RPC方式提供服务，开发者可以在 `github <https://github.com/xuperchain/xuperchain>`_ 获取源代码，按照README说明编译得到cli客户端，当前测试环境使用v3.2分支。
 
 - 测试环境接入地址： **14.215.179.74:37101**
 - 黄反服务的address：  **XDxkpQkfLwG6h56e896f3vBHhuN5g6M9u**
@@ -31,7 +31,7 @@
 
 目前获取测试资源主要有两种方式：
 
-1. 通过超级链公开网络渠道微信群、邮箱等等获取测试资质，可以免费获得测试资源。可以通过 `这里 <https://github.com/xuperchain/xuperunion#%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC>`_ 的微信二维码加入超级链用户微信群。
+1. 通过超级链公开网络渠道微信群、邮箱等等获取测试资质，可以免费获得测试资源。可以通过 `这里 <https://github.com/xuperchain/xuperchain#%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC>`_ 的微信二维码加入超级链用户微信群。
 2. 批量资源获取可邮件联系：`xuper.baidu.com <http://xuper.baidu.com>`_
 
 创建账号

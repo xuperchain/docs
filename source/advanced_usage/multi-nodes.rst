@@ -57,9 +57,9 @@ p2p网络配置
 搭建TDPoS共识网络
 -----------------
 
-XuperUnion系统支持可插拔共识，通过修改创世块的参数，可以创建一个以TDPoS为共识的链。
+XuperChain系统支持可插拔共识，通过修改创世块的参数，可以创建一个以TDPoS为共识的链。
 
-下面创世块配置（一般位于 data/config/xuper.json）和单节点创世块配置的区别在于创世共识参数genesis_consensus的config配置，各个配置参数详解配置说明如下所示：
+下面创世块配置（一般位于 core/data/config/xuper.json）和单节点创世块配置的区别在于创世共识参数genesis_consensus的config配置，各个配置参数详解配置说明如下所示：
 
 .. code-block:: python
     :linenos:
@@ -195,7 +195,7 @@ XuperUnion系统支持可插拔共识，通过修改创世块的参数，可以�
 
 根据共识算法配置的候选人集合大小（上面配置中的"proposer_num"字段，假设为n），每一轮出块结束后系统都会查看被提名的候选人数目是否达到n，如果没有达到则继续按上一轮的顺序出块；如果达到n则会统计得票靠前的n个节点为新一轮的矿工集合
 
-.. note:: 细心的读者可能已经发现这些配置文件的json key 都类似，可以参考 xuperunion/contract/contract.go 中TxDesc的定义
+.. note:: 细心的读者可能已经发现这些配置文件的json key 都类似，可以参考 xuperchain/core/contract/contract.go 中TxDesc的定义
 
 撤销提名 && 撤销投票
 ^^^^^^^^^^^^^^^^^^^^

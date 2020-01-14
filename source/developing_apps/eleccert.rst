@@ -36,7 +36,7 @@
         UserFiles map[string]*UserFile
     }
 
-代码样例可以参看：`contractsdk/go/example/eleccert.go <https://github.com/xuperchain/xuperunion/blob/master/contractsdk/go/example/eleccert/eleccert.go>`_
+代码样例可以参看：`contractsdk/go/example/eleccert.go <https://github.com/xuperchain/xuperchain/blob/master/core/contractsdk/go/example/eleccert/eleccert.go>`_
 
 电子存证合约的功能实现
 ----------------------

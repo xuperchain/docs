@@ -211,7 +211,7 @@
 
     .. container:: text
     
-        1. xchain-cli，交互式命令行工具，直接使用xchain-cli即可发起操作，本质是通过rpc接口与服务端进行交互，可以从xuperunion库中获取；xchain-cli具有丰富的命令，包括创建账户、普通转账、合约部署以及调用、提案、投票、链上交易以及区块查询等功能；比如./xchain-cli transfer --to bob --amount 1就可以发起一笔向bob转账1个utxo的交易，更多命令可以通过./xchain-cli -h获取；
+        1. xchain-cli，交互式命令行工具，直接使用xchain-cli即可发起操作，本质是通过rpc接口与服务端进行交互，可以从xuperchain库中获取；xchain-cli具有丰富的命令，包括创建账户、普通转账、合约部署以及调用、提案、投票、链上交易以及区块查询等功能；比如./xchain-cli transfer --to bob --amount 1就可以发起一笔向bob转账1个utxo的交易，更多命令可以通过./xchain-cli -h获取；
         2. SDK：提供一系列的API接口，用户可以基于提供的API接口做定制化的操作，相比xchain-cli更灵活；目前开源的SDK包括Go SDK，Python SDK，C# SDK；
         3. curl：直接通过curl命令来发起查询、构造交易等操作，客户端除了curl，不依赖任何三方库，此时需要服务端启动xchain-httpgw，然后通过curl http://localhost:8098/v1/get_balance -d '{"bcs":[{"bcname":"xuper"}, "address":"bob"], 即可查询xuper链上bob的余额信息
 

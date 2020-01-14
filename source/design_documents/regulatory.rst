@@ -54,7 +54,7 @@
 
 **1. 编译实名合约** 
 
-实名合约代码路径如下：`xuperunion/contractsdk/cpp/reserved/identity.cc <https://github.com/xuperchain/xuperunion/blob/master/contractsdk/cpp/reserved/identity.cc>`_ 
+实名合约代码路径如下：`core/contractsdk/cpp/reserved/identity.cc <https://github.com/xuperchain/xuperchain/blob/master/core/contractsdk/cpp/reserved/identity.cc>`_ 
 
 实名合约实名的对象是一个具体的ak。
 

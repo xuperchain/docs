@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'xuperunion-doc'
+project = u'xuperchain-doc'
 copyright = u'2019, xuper'
 author = u'xuper'
 
@@ -108,7 +108,7 @@ html_js_files = [
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'xuperunion-docdoc'
+htmlhelp_basename = 'xuperchain-doc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -135,7 +135,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'xuperunion-doc.tex', u'xuperunion-doc Documentation',
+    (master_doc, 'xuperchain-doc.tex', u'xuperchain-doc Documentation',
      u'xuper', 'manual'),
 ]
 
@@ -145,7 +145,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'xuperunion-doc', u'xuperunion-doc Documentation',
+    (master_doc, 'xuperchain-doc', u'xuperchain-doc Documentation',
      [author], 1)
 ]
 
@@ -156,8 +156,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'xuperunion-doc', u'xuperunion-doc Documentation',
-     author, 'xuperunion-doc', 'One line description of project.',
+    (master_doc, 'xuperchain-doc', u'xuperchain-doc Documentation',
+     author, 'xuperchain-doc', 'One line description of project.',
      'Miscellaneous'),
 ]
 

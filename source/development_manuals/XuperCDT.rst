@@ -2,7 +2,7 @@
 智能合约SDK使用说明
 ===================
 
-XuperUnion为方便用户开发属于自己的智能合约，提供了一整套SDK套件，即XuperCDT（XuperChain Crontract Development Toolkit），包含C++语言和Go语言
+XuperChain为方便用户开发属于自己的智能合约，提供了一整套SDK套件，即XuperCDT（XuperChain Crontract Development Toolkit），包含C++语言和Go语言
 
 C++接口API
 ----------

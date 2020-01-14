@@ -2,13 +2,13 @@
 操作指导
 ========
 
-如何获取XuperUnion
+如何获取XuperChain
 ------------------
 
-目前XuperUnion已经发布了2个版本，最新版本为v3.2，可以在github获取发布包
+目前XuperChain已经发布了2个版本，最新版本为v3.2，可以在github获取发布包
 
-- `XuperUnion v3.2 <https://github.com/xuperchain/xuperunion/releases/tag/v3.2.0>`_
-- `XuperUnion v3.1 <https://github.com/xuperchain/xuperunion/releases/tag/v3.1.0>`_
+- `XuperChain v3.2 <https://github.com/xuperchain/xuperchain/releases/tag/v3.2.0>`_
+- `XuperChain v3.1 <https://github.com/xuperchain/xuperchain/releases/tag/v3.1.0>`_
 
 如何升级软件
 ------------
@@ -18,7 +18,7 @@
 配置文件说明
 ------------
 
-XuperUnion的配置文件默认读取有3个优先级：
+XuperChain的配置文件默认读取有3个优先级：
 
 - 默认配置：系统中所有配置项都有默认的配置信息，这个是优先级最低的配置；
 - 配置文件：通过读取配置文件的方式，可以覆盖系统中默认的参数配置，默认的配置文件为 ./conf/xchain.yaml；
@@ -44,14 +44,14 @@ XuperUnion的配置文件默认读取有3个优先级：
     cachesize: 5000 //Utxo内存cache大小设置
     tmplockSeconds: 60 //GenerateTx的临时锁定期限，默认是60秒
 
-各文件说明
-----------
+core目录各文件说明
+------------------
 
 ===========  ==========================
 模块         功能及子文件说明
 ===========  ==========================
 acl          acl查询 account_acl.go 查询合约账号ACL的接口定义 acl_manager.go 查询合约账号ACL,合约方法ACL的具体实现 contract_acl.go 查询合约方法ACL的接口定义
-cmd          XuperUnion命令行功能集合 xchain XuperUnion命令行功能集合，比如多重签名、交易查询、区块查询、合约部署、合约调用、余额查询等
+cmd          XuperChain命令行功能集合，比如多重签名、交易查询、区块查询、合约部署、合约调用、余额查询等
 common       公共组件 batch_chan.go 将交易批量写入到channel中 common.go 获取序列化后的交易/区块的大小 lru_cache.go lru cache实现 util.go 去重string切片中的元素
 config       系统配置文件 config.go 包括日志配置、Tcp配置、P2p配置、矿工配置、Utxo配置、Fee配置、合约配置、控制台配置、节点配置、raft配置等
 consensus    共识模块 base 共识算法接口定义 consensus.go 可插拔共识实现 tdpos dpos共识算法的具体实现 single single共识算法的具体实现

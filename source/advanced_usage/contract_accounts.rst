@@ -78,7 +78,7 @@ Xchain的客户端工具提供了新建账号的功能，基本用法如下：
 查询账号ACL
 ^^^^^^^^^^^
 
-Xchain的客户端工具提供了ACL查询功能，只需如下命令
+XuperChain的客户端工具提供了ACL查询功能，只需如下命令
 
 .. code-block:: bash
     :linenos:
