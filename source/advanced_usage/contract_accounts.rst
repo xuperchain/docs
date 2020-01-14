@@ -83,7 +83,7 @@ Xchain的客户端工具提供了ACL查询功能，只需如下命令
 .. code-block:: bash
     :linenos:
 
-    xchain-cli acl query —account XC1111111111111111@xuper # account参数为合约账号名称
+    xchain-cli acl query --account XC1111111111111111@xuper # account参数为合约账号名称
 
 .. only:: html
 
