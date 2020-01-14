@@ -1,9 +1,9 @@
 
-本章节将指导您获取XuperUnion的代码并部署一个基础的可用环境，还会展示一些基本操作
+本章节将指导您获取XuperChain的代码并部署一个基础的可用环境，还会展示一些基本操作
 
 .. _env-deploy:
 
-XuperUnion环境部署
+XuperChain环境部署
 ------------------
 
 .. _env-prepare:
@@ -11,7 +11,7 @@ XuperUnion环境部署
 准备环境
 ^^^^^^^^
 
-XuperUnion主要由Golang开发，需要首先准备编译运行的环境
+XuperChain主要由Golang开发，需要首先准备编译运行的环境
 
 - 安装go语言编译环境，版本为1.11或更高
     - 下载地址：`golang <https://golang.org/dl/>`_
@@ -20,19 +20,19 @@ XuperUnion主要由Golang开发，需要首先准备编译运行的环境
 
 .. _env-compiling:
 
-编译XuperUnion
+编译XuperChain
 ^^^^^^^^^^^^^^
 
 - 使用git下载源码到本地
 
-    - git clone https://github.com/xuperchain/xuperunion.git
+    - git clone https://github.com/xuperchain/xuperchain.git
 
 - 执行命令
 
 .. code-block:: bash
     :linenos:
 
-    cd src/github.com/xuperchain/xuperunion
+    cd src/github.com/xuperchain/xuperchain
     make
 
 - 在output目录得到产出xchain和xchain-cli
@@ -43,15 +43,14 @@ XuperUnion主要由Golang开发，需要首先准备编译运行的环境
 
     GOPATH问题报错（go1.11版本之后无需关注）
         - 在1.11版本之前需要配置。配置成以下形式：
-        - 比如代码路径xxx/github.com/xuperchain/xuperunion/src/baidu.com/xchain/xxx
-        - export GOPATH=xxx/github.com/xuperchain/xuperunion
+        - export GOPATH=xxx/github.com/xuperchain/xuperchain
         
     GCC版本需要升级到4或5以上
 
 
 .. _basic-operation:
 
-XuperUnion基本操作
+XuperChain基本操作
 ------------------
 
 在output下，主要目录有data, logs, conf, plugins等, 二进制文件有xchain，xchain-cli

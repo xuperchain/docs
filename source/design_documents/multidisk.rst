@@ -55,5 +55,5 @@ leveldb.OpenFile 有两个参数，一个是db文件夹路径path，一个是打
 实验
 ----
 
-| 写入测试可参考代码 `xuperunion/kv/mstorage/test/test_write.go <https://github.com/xuperchain/xuperunion/blob/master/kv/mstorage/test/test_write.go>`_
-| 读取测试可参考代码 `xuperunion/kv/mstorage/test/test_read.go <https://github.com/xuperchain/xuperunion/blob/master/kv/mstorage/test/test_read.go>`_
+| 写入测试可参考代码 `kv/mstorage/test/test_write.go <https://github.com/xuperchain/xuperchain/blob/master/core/kv/mstorage/test/test_write.go>`_
+| 读取测试可参考代码 `kv/mstorage/test/test_read.go <https://github.com/xuperchain/xuperchain/blob/master/core/kv/mstorage/test/test_read.go>`_

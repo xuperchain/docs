@@ -5,7 +5,7 @@
 编写合约
 --------
 
-源码可以参考 xuperchain/xuperunion/contractsdk/go/example/math/math.go 
+源码可以参考 xuperchain/core/contractsdk/go/example/math/math.go 
 
 主要实现struct中initialize，invoke和query三个方法来实现自己的逻辑
 
@@ -16,7 +16,7 @@
     func (m *math) Invoke(nci code.Context) code.Response { ... }
     func (m *math) Query(nci code.Context) code.Response { ... }
 
-每个函数的入口参数均为 code.Context ，具体结构可参考 xuperchain/xuperunion/contractsdk/go/code/context.go
+每个函数的入口参数均为 code.Context ，具体结构可参考 xuperchain/core/contractsdk/go/code/context.go
 接口中定义了如何获取传入方法的参数，如何使用读写功能，以及如何在链上进行交易/区块的查询、转账或调用其他合约
 
 .. code-block:: go
@@ -162,7 +162,7 @@
 
 1. 编译合约
 
-    编译native合约时，只要保持环境和编译xuperunion源码时一致即可，我们还是以example中的counter为例
+    编译native合约时，只要保持环境和编译XuperChain源码时一致即可，我们还是以example中的counter为例
 
     .. code-block:: bash
 

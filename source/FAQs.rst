@@ -26,7 +26,7 @@
     **XuperChain能跨链吗？XuperChain上的各个平行链之间数据能相互访问交互吗？如果现有的eth、eos或者fabric要和XuperChain对接该如何对接呢？**
 
 :A:
-    超级链支持跨链，但此次开源的XuperUnion里面没有包含跨链的组件，XuperUnion 中的平行链不具备互操作性。跨链的功能后续将会开源在XuperCross这个项目里，目前已经实现对超级链平行链之间可以跨链，也可以实现对fabric的跨链，目前跨链技术仍在完善中。
+    超级链支持跨链，但此次开源的XuperChain里面没有包含跨链的组件，XuperChain 中的平行链不具备互操作性。跨链的功能后续将会开源在XuperCross这个项目里，目前已经实现对超级链平行链之间可以跨链，也可以实现对fabric的跨链，目前跨链技术仍在完善中。
 
 :Q:
     **百度超级链在实现上和Fabric相比，具有哪些异同呢？**
@@ -137,7 +137,7 @@
     **超级链合约虚拟机开源了吗，兼容性怎么样？**
 
 :A:
-    已经开源了，目前主要支持XVM和WAVM两种虚拟机。XVM开源在XuperUnion主框架项目中，可以看下XVM的实现，基本过程是wasm -> code injection -> c -> dylib. 然后go里面调用特定的几个导出函数符号执行。wasm import的符号会在c里面体现为外部导入符号，然后通过cgo，在go里面暴露出来。这个方式算是一种比较巧妙而且简洁的方式吧。 
+    已经开源了，目前主要支持XVM和WAVM两种虚拟机。XVM开源在XuperChain主框架项目中，可以看下XVM的实现，基本过程是wasm -> code injection -> c -> dylib. 然后go里面调用特定的几个导出函数符号执行。wasm import的符号会在c里面体现为外部导入符号，然后通过cgo，在go里面暴露出来。这个方式算是一种比较巧妙而且简洁的方式吧。 
     另外wavm开源在XuperChain/Wavm这个项目中。
 
 :Q:
@@ -218,7 +218,7 @@
     **平行链是什么角色有权限创建？创建平行链的权限白名单是写在创世块中的么？**
 
 :A:
-    目前创建平行连有两种方法：一种直接通过xchain-cli的createChain命令，这种没有权限限制，只在本机创建；另一种是调用创建链的合约，这种情况可以在全网创建平行链，节点可以通过配置白名单的方式指定哪些用户能调用创建链的合约。创建平行链的权限白名单目前不在创世块中，而是在节点配置文件中。这么做的初衷是使每个节点有能力通过配置决定只托管符合自己要求的平行链。具体节点配置可以参考：https://github.com/xuperchain/xuperunion/blob/master/conf/xchain.yaml#L52
+    目前创建平行连有两种方法：一种直接通过xchain-cli的createChain命令，这种没有权限限制，只在本机创建；另一种是调用创建链的合约，这种情况可以在全网创建平行链，节点可以通过配置白名单的方式指定哪些用户能调用创建链的合约。创建平行链的权限白名单目前不在创世块中，而是在节点配置文件中。这么做的初衷是使每个节点有能力通过配置决定只托管符合自己要求的平行链。具体节点配置可以参考：https://github.com/xuperchain/xuperchain/blob/master/core/conf/xchain.yaml#L52
 
 :Q:
     **自己搭链有root链和平行链之分么，还是自己搭的只是xuperchain的平行链？通过xchain-cli的createChain命令能在本地创建多条平行链吗？**
