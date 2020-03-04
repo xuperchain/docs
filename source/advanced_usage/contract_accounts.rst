@@ -125,7 +125,7 @@ XuperChain的客户端工具提供了ACL查询功能，只需如下命令
         "module_name": "xkernel",
         "method_name": "SetAccountAcl",  # 这里的方法有了变更
         "args" : {
-            "account_name": "1111111111111111", 
+            "account_name": "XC1111111111111111@xuper", #account_name在此处一定要写成XC.....@xuper的形式
             # acl字段为要修改成的新ACL
             "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 0.6},\"aksWeight\": {\"AK3\": 0.3,\"AK4\": 0.3}}"
         }
