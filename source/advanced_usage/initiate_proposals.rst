@@ -45,7 +45,7 @@ XuperChain中有多种提案-投票操作场景，但原理都是一致的，我
 .. code-block:: python
     :linenos:
 
-    ./xchain-cli transfer --to dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc proposal.json
+    ./xchain-cli transfer --to dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc proposal.json --amount 100
 
 运行后会得到本次提案的交易id，需要记录下来供投票使用
 
