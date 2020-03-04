@@ -9,19 +9,19 @@ p2p网络配置
 
 我们以搭建3个节点的网络为例来说明（其实搭建更多节点的原理是一致的），首先需要有一个节点作为“bootNode”，其他节点启动前都配置这个“bootNode”的地址即可实现
 
-对于bootNode节点，我们需要先获取它的netUrl，具体命令如下：
+对于bootNode节点，我们需要先获取它的netURL，具体命令如下：
 
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli netUrl get -H 127.0.0.1:37101
+    ./xchain-cli netURL get -H 127.0.0.1:37101
 
-如果不是以默认配置启动的，我们需要先生成它的netUrl，然后再获取
+如果不是以默认配置启动的，我们需要先生成它的netURL，然后再获取
 
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli netUrl gen -H 127.0.0.1:37101
+    ./xchain-cli netURL gen -H 127.0.0.1:37101
 
 如此我们会获得一个类似于 
 ``/ip4/127.0.0.1/tcp/47101/p2p/QmVxeNubpg1ZQjQT8W5yZC9fD7ZB1ViArwvyGUB53sqf8e`` 
