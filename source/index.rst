@@ -48,6 +48,7 @@ XuperChain文档
     design_documents/single_pow.rst
     design_documents/regulatory.rst
     design_documents/multidisk.rst
+    design_documents/group.rst
 
 .. toctree::
     :maxdepth: 2
@@ -59,6 +60,7 @@ XuperChain文档
     advanced_usage/create_contracts.rst
     advanced_usage/initiate_proposals.rst
     advanced_usage/multi-disks.rst
+    advanced_usage/parallel_chain.rst
 
 .. toctree::
     :maxdepth: 2
@@ -74,6 +76,7 @@ XuperChain文档
     :numbered:
 
     development_manuals/XuperCDT.rst
+    development_manuals/XuperRPC.rst
 
 .. toctree::
     :maxdepth: 1
