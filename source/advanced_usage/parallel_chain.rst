@@ -40,6 +40,11 @@
 
     ./xchain-cli transfer --to HelloChain --amount 100 --desc createChain.json
 
+获取group_chain合约
+-------------------
+
+超级链提供了默认的群组合约（group_chain）的实现，路径为 core/contractsdk/cpp/example/group_chain.cc 。在 core/contractsdk/cpp 目录下执行 sh build.sh 即可编译生成 group_chain.wasm ，即可使用 group_chain.wasm 实现群组合约的部署。
+
 创建群组
 --------
 
