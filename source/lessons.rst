@@ -389,3 +389,139 @@
 
         UTXO模型主要用于存储用户的utxo数据，一般适用于普通转账交易；而智能合约存储模型主要用于存储用户合约相关数据。本质上，这两种存储模型都是存储用户数据并且包含数据版本依赖关系。因此，超级链自研一套通用的存储模型XuperModel，基于key记录用户数据的依赖关系，实现UTXO和智能合约底层数据存储模型的统一。而比特币和以太坊底层存储模型不同，导致它们无法做到兼容。
 
+.. container:: number
+
+    第十七期
+
+.. container:: myclass
+
+    .. container:: title
+
+        超级链中，交易执行支持哪些模式？
+        
+    .. container:: text
+    
+        超级链支持三种交易执行模式，分别为同步模式、纯异步模式以及异步阻塞模式。
+        1. 同步模式：客户端发起一笔交易并等待交易执行结果；xchain节点更新交易状态时，加锁，锁内只能同时更新一个交易状态；
+        2. 纯异步模式：客户端发起一笔交易并直接返回；xchain节点积攒批量交易，在更新交易状态时，加锁，锁内同时更新批量交易状态；
+        3. 异步阻塞模式：客户端发起一笔交易并等待交易执行结果；xchain节点积攒批量交易，在更新交易状态时，加锁，锁内同时更新批量交易状态；
+
+.. container:: myclass
+
+    .. container:: title
+
+        如何使用同步、纯异步以及异步阻塞模式？
+
+    .. container:: text
+
+        三种模式是互斥的，默认采用同步模式。在xchain节点启动时，通过flag来选择。通过nohup ./xchain --asyncBlockMode=true & 启动异步阻塞模式；通过nohup ./xchain --asyncMode=true & 启动纯异步模式。
+
+.. container:: number
+
+    第十八期
+
+.. container:: myclass
+
+    .. container:: title
+
+        如何参与超级链的开发？
+        
+    .. container:: text
+    
+        1. 可以通过阅读超级链任意开源项目，包括源代码、文档，以便了解当前的开发方向；
+        2. 找到自己感兴趣的功能或者模块；
+        3. 实际开发时需要自测功能是否正常、性能是否符合预期，并运行make & make test检查是否通过所有单测；
+        4. 发起一个Pull Request，如果你的代码合入到主干后，就有机会运行在线上机器上。
+
+.. container:: myclass
+
+    .. container:: title
+
+        如何提一个PR？
+
+    .. container:: text
+
+        1. 从GitHub上fork超级链的项目，并通过git拉取到本地；
+        2. 在本地用git新起一个分支，贡献的代码全部放在本地分支上；
+        3. 本地代码开发完毕，通过git push将本地分支代码提交至远程服务端；
+        4. 点击GitHub对应项目栏下面的Pull Request按钮，填写需要合并的分支以及被合并的分支，然后点击create pull request即发起一个PR。
+
+.. container:: number
+
+    第十九期
+
+.. container:: myclass
+
+    .. container:: title
+
+        超级链支持消息推送机制吗？
+        
+    .. container:: text
+    
+        消息推送是指客户端主动向xchain节点订阅感兴趣的消息类型，当该类型的消息在链上被触发时，xchain节点会主动将该行为推送给客户端；
+        目前，超级链支持三种消息类型的推送，分别为区块消息、交易消息以及账户消息。
+        1. 区块消息：用户可以订阅具有特定策略的区块，当链上触发这类区块时，会将消息主动推送给客户端；
+        2. 交易消息：用户可以订阅具有特定策略的交易，当链上触发这类交易时，会将消息主动推送给客户端；
+        3. 账户消息：当用户的余额发生变化时，会将消息推送给客户端。
+
+.. container:: myclass
+
+    .. container:: title
+
+        如何使用超级链的消息推送机制？
+
+    .. container:: text
+
+        目前，超级链的master分支支持消息推送机制。通过在xchain.yaml中增加pubsubService配置来启动事件推送服务。同时超级链提供了一个简单的客户端来订阅、接收自己感兴趣的消息。针对每种消息类型可用的策略可以参考event.proto文件。
+
+.. container:: number
+
+    第二十期
+
+.. container:: myclass
+
+    .. container:: title
+
+        超级链支持群组功能吗？
+        
+    .. container:: text
+    
+        群组是一种为了实现平行链之间隐私数据隔离，不同平行链只有指定节点才能参与区块打包、区块同步、区块/交易转发等能力的机制。
+
+.. container:: myclass
+
+    .. container:: title
+
+        如何使用超级链的群组功能？
+
+    .. container:: text
+
+        目前，超级链的master分支支持群组功能。在创世块配置文件中配置群组合约的相关参数，包括合约名、方法名等，并部署好群组合约(超级链有群组合约的默认实现)即可调用群组合约为平行链增加节点白名单，从而让平行链具备群组能力。
+
+.. container:: number
+
+    第二十一期
+
+.. container:: myclass
+
+    .. container:: title
+
+        参与超级链贡献流程几何？
+        
+    .. container:: text
+    
+        超级链的XIPs（XuperChain Improvement Proposals）描述了一个需求的生命周期，包括需求收集、需求发布、功能设计、功能开发、功能测试以及最终发布；
+        需求主要来源于工作组、社区以及合作伙伴；同时，工作组会对收集来的需求进行可行性、优先级评审；之后，开发者在github上选择感兴趣的需求进行设计并形成文档；
+        再之后，即可以发起实际的代码开发流程；为了提高代码的质量，需要同时编写单元测试。
+
+
+.. container:: myclass
+
+    .. container:: title
+
+        如何快速参与超级链的需求开发？
+
+    .. container:: text
+
+        为了方便开发者更快地参与超级链的需求开发，超级链工作组已经将一些待开发的需求推到 `github <https://github.com/xuperchain/xuperchain/projects/2>`_ 。开发者可以选择感兴趣的需求直接进行开发。
+
