@@ -523,5 +523,5 @@
 
     .. container:: text
 
-        为了方便开发者更快地参与超级链的需求开发，超级链工作组已经将一些待开发的需求推到`github <https://github.com/xuperchain/xuperchain/projects/2>`_。开发者可以选择感兴趣的需求直接进行开发。
+        为了方便开发者更快地参与超级链的需求开发，超级链工作组已经将一些待开发的需求推到 `github <https://github.com/xuperchain/xuperchain/projects/2>`_ 。开发者可以选择感兴趣的需求直接进行开发。
 
