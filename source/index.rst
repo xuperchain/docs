@@ -44,7 +44,7 @@ XuperChain文档
     design_documents/extension.rst
     design_documents/consensus.rst
     design_documents/chained_bft.rst
-    design_documents/tdpos.rst
+    design_documents/xpos.rst
     design_documents/single_pow.rst
     design_documents/regulatory.rst
     design_documents/multidisk.rst
