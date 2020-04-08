@@ -27,12 +27,13 @@ p2p网络配置
 ``/ip4/127.0.0.1/tcp/47101/p2p/QmVxeNubpg1ZQjQT8W5yZC9fD7ZB1ViArwvyGUB53sqf8e`` 
 样式的返回
 
-对其他的节点，我们需要修改其服务配置 `conf/xchain.yaml` 中p2pv2一节
+对其他的节点，我们需要修改其服务配置 `conf/xchain.yaml` 中p2p一节
 
 .. code-block:: yaml
     :linenos:
 
-    p2pV2:
+    p2p:
+        module: p2pv2
         // port是节点p2p网络监听的默认端口，如果在一台机器上部署注意端口配置不要冲突，
         // node1配置的是47101，node2和node3可以分别设置为47102和47103
         port: 47102
