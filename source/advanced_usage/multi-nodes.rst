@@ -21,7 +21,8 @@ p2p网络配置
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli netURL gen -H 127.0.0.1:37101
+    ./xchain-cli netURL gen         #重新生成本地节点的网络私钥
+    ./xchain-cli netURL preview     #显示本地节点的p2p地址
 
 如此我们会获得一个类似于 
 ``/ip4/127.0.0.1/tcp/47101/p2p/QmVxeNubpg1ZQjQT8W5yZC9fD7ZB1ViArwvyGUB53sqf8e`` 
