@@ -33,7 +33,7 @@
         }
     }
 
-使用如下指令即可创建平行链：
+使用如下指令即可创建平行链（需要在主链操作，转了100个主链的token到平行链同名的address，作为创建链的代价）：
 
 .. code-block:: bash
     :linenos:
@@ -66,7 +66,10 @@
         }
     }
 
-如果需要确保HelloChain具备群组属性，且白名单为<ip1,addr1>,<ip2,addr2>，其他节点不能获取这条平行链的信息，可以按如下操作
+如果需要确保HelloChain具备群组属性，且白名单为<ip1,addr1>,<ip2,addr2>，其他节点不能获取这条平行链的信息，可以按如下操作。
+此处：
+ip1,ip2是指从xchain-cli netURL preview 获取的形如"/ip4/127.0.0.1/tcp/47101/p2p/QmVxeNubpg1ZQjQT8W5yZC9fD7ZB1ViArwvyGUB53sqf8e"的IP地址；
+add1,add2 是指节点的公钥地址：data/keys/addresss
 
 step1: 在xuper链部署GroupChain合约
 
