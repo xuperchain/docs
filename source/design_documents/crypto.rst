@@ -164,7 +164,7 @@ Crypto Provider Interface
 
 如果要创建一个基于国密算法的链，需要完成以下几个步骤：
 
-1. 首先确认使用了v3.7以上的XuperChain版本，并且编译产出中包含了``plugins/crypto/crypto-gm.so.1.0.0``，在插件配置``conf/plugins.conf``中确认包含如下配置内容：
+1. 首先确认使用了v3.7以上的XuperChain版本，并且编译产出中包含了*plugins/crypto/crypto-gm.so.1.0.0*，在插件配置*conf/plugins.conf*中确认包含如下配置内容：
 
 .. code-block:: bash
     :linenos:
@@ -182,14 +182,14 @@ Crypto Provider Interface
     }
 
 2. 首先对每个节点创建一个基于国密算法生成的节点私钥和地址。
-注意，``data/keys``目录原来保存的是默认密码学插件生成的私钥，可以删除原私钥目录，或者使用``-f``参数强制覆盖原私钥。如果不希望覆盖原节点密钥，可以在``--output``参数后面指定新的私钥目录。私钥生成后，可以查看私钥文件，其中``Curvname``应该是``SM2-P-256``。
+注意，*data/keys*目录原来保存的是默认密码学插件生成的私钥，可以删除原私钥目录，或者使用*-f*参数强制覆盖原私钥。如果不希望覆盖原节点密钥，可以在*--output*参数后面指定新的私钥目录。私钥生成后，可以查看私钥文件，其中*Curvname*应该是**SM2-P-256**。
 
 .. code-block:: bash
     :linenos:
 
     ./xchain-cli account newkeys --output data/keys --cryptotype gm
     
-3. 修改待创建链的创世块配置，指定默认密码学插件为国密插件，并修改矿工地址为新生成的国密私钥对应的地址。一般默认创世块配置位于``data/config/xuper.json``，修改创世块配置：
+3. 修改待创建链的创世块配置，通过**crypto**字段指定默认密码学插件为国密插件，并修改矿工地址为新生成的国密私钥对应的地址。一般默认创世块配置位于*data/config/xuper.json*，修改创世块配置：
 
 .. code-block:: bash
     :linenos:
@@ -202,6 +202,7 @@ Crypto Provider Interface
                 "quota": "100000000000000000000"
             }
         ],
+        "crypto": "gm",
         ...,
         "genesis_consensus": {
             "name": "tdpos",
@@ -224,7 +225,7 @@ Crypto Provider Interface
     ./xchain-cli createChain
     nohup ./xchain &
     
-5. 使用命令行进行操作时，需要通过``--cryptotype``参数指定加密类型为国密，例如transfer命令。
+5. 使用命令行进行操作时，需要通过*--cryptotype*参数指定加密类型为国密，例如transfer命令。
 
 .. code-block:: bash
     :linenos:
