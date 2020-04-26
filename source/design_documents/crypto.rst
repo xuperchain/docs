@@ -131,7 +131,7 @@ Crypto Provider Interface
 密码学插件
 ^^^^^^^^^^
 
-由于抽象出了统一的密码学模块和接口，在此基础上实现插件化就比较容易。目前超级链已经实现了包括 *Nist P256 + ECDSA/Schnorr* 以及 *国密* 等多种密码学插件，其中已经开源了 *Nist P256 + ECDSA/Schnorr* ，ECDSA和Schnorr签名作为两种可选的签名方案，分别提供了密码学插件。
+由于抽象出了统一的密码学模块和接口，在此基础上实现插件化就比较容易。目前超级链已经实现了包括 *Nist P256 + ECDSA/Schnorr* 以及 *国密* 等多种密码学插件，并且已经开源了 *Nist P256 + ECDSA/Schnorr*和*国密* 算法实现，并分别提供了密码学插件。
 
 为了方便框架使用密码学插件，超级链在 **crypto/client** 包中封装了一层密码学插件管理器，支持创建指定类型的密码学对象，或者通过公私钥自动识别需要加载的插件类型。通过密码学插件管理器，可以支持隔绝框架对密码学插件的感知，对上层框架提供一种无缝的使用体验。
 
@@ -156,3 +156,79 @@ Crypto Provider Interface
     :linenos:
 
     ./xchain-cli account newkeys --output data/tmpkey --cryptotype schnorr
+    
+国密插件使用方法
+^^^^^^^^^^^^^^
+
+目前我们开源的国密密码学插件支持SM2/SM3/SM4算法，并且国密插件支持对Nist P256算法生成的地址和签名数据进行验签。
+
+如果要创建一个基于国密算法的链，需要完成以下几个步骤：
+
+1. 首先确认使用了v3.7以上的XuperChain版本，并且编译产出中包含了``plugins/crypto/crypto-gm.so.1.0.0``，在插件配置``conf/plugins.conf``中确认包含如下配置内容：
+
+.. code-block:: bash
+    :linenos:
+
+    {
+    "crypto":[
+        ....,
+        {
+            "subtype": "gm",
+            "path": "plugins/crypto/crypto-gm.so.1.0.0",
+            "version": "1.0.0",
+            "ondemand": false
+        }]，
+        ....
+    }
+
+2. 首先对每个节点创建一个基于国密算法生成的节点私钥和地址。
+注意，``data/keys``目录原来保存的是默认密码学插件生成的私钥，可以删除原私钥目录，或者使用``-f``参数强制覆盖原私钥。如果不希望覆盖原节点密钥，可以在``--output``参数后面指定新的私钥目录。私钥生成后，可以查看私钥文件，其中``Curvname``应该是``SM2-P-256``。
+
+.. code-block:: bash
+    :linenos:
+
+    ./xchain-cli account newkeys --output data/keys --cryptotype gm
+    
+3. 修改待创建链的创世块配置，指定默认密码学插件为国密插件，并修改矿工地址为新生成的国密私钥对应的地址。一般默认创世块配置位于``data/config/xuper.json``，修改创世块配置：
+
+.. code-block:: bash
+    :linenos:
+
+    {
+        ...,
+        "predistribution": [
+            {
+                "address": "此处替换为国密address",
+                "quota": "100000000000000000000"
+            }
+        ],
+        ...,
+        "genesis_consensus": {
+            "name": "tdpos",
+            "config": {
+                ...,
+                "init_proposer": {
+                    "1": [
+                        "此处替换为国密address"
+                    ]
+                }
+            }
+        }
+    }
+
+4. 创建链并启动：
+
+.. code-block:: bash
+    :linenos:
+    
+    ./xchain-cli createChain
+    nohup ./xchain &
+    
+5. 使用命令行进行操作时，需要通过``--cryptotype``参数指定加密类型为国密，例如transfer命令。
+
+.. code-block:: bash
+    :linenos:
+    
+    ./xchain-cli transfer --to alice --amount 1 --keys data/keys --cryptotype gm
+    
+6. 目前国密只支持使用Go SDK调用，后续会支持更多SDK。
