@@ -49,6 +49,7 @@ XuperChain文档
     design_documents/regulatory.rst
     design_documents/multidisk.rst
     design_documents/group.rst
+    design_documents/readonly_queries.rst
 
 .. toctree::
     :maxdepth: 2
