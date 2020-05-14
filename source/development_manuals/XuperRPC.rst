@@ -126,7 +126,7 @@ address字段与GetBalance一样，tfds字段则多了是否冻结的内容，tf
     in := &pb.AddressBalanceStatus{
         Header: global.Glogid(),
         Address: "dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN",
-        Tfds: []*pb.TokenFrozenDetails{bc},
+        Tfds: []*pb.TokenFrozenDetails{tfd},
     }
     out, _ := cli.GetBalanceDetail(context.Background(), in)
 
