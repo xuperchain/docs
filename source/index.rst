@@ -63,6 +63,7 @@ XuperChain文档
     advanced_usage/multi-disks.rst
     advanced_usage/parallel_chain.rst
     advanced_usage/subscribe.rst
+    advanced_usage/cross_chain.rst
 
 .. toctree::
     :maxdepth: 2
