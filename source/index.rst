@@ -49,7 +49,7 @@ XuperChain文档
     design_documents/regulatory.rst
     design_documents/multidisk.rst
     design_documents/group.rst
-    design_documents/readonly_queries.rst
+    design_documents/cross_chain.rst
 
 .. toctree::
     :maxdepth: 2
@@ -63,7 +63,7 @@ XuperChain文档
     advanced_usage/multi-disks.rst
     advanced_usage/parallel_chain.rst
     advanced_usage/subscribe.rst
-    advanced_usage/cross_chain.rst
+    advanced_usage/readonly_queries.rst
 
 .. toctree::
     :maxdepth: 2
@@ -79,6 +79,7 @@ XuperChain文档
     :numbered:
 
     development_manuals/XuperCDT.rst
+    development_manuals/XdevManual.rst
     development_manuals/XuperRPC.rst
 
 .. toctree::
