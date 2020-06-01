@@ -198,7 +198,7 @@
 使用说明
 >>>>>>>>>>>>>>
 
-	https://xuperchain.readthedocs.io/zh/latest/design_documents/readonly_queries.html
+	https://xuperchain.readthedocs.io/zh/latest/advanced_usage/readonly_queries.html
 
 非事务场景跨链
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -293,7 +293,7 @@
 使用说明
 >>>>>>>>>>>>>>
 
-	https://xuperchain.readthedocs.io/zh/latest/design_documents/readonly_queries.html
+	https://xuperchain.readthedocs.io/zh/latest/advanced_usage/readonly_queries.html
 
 事务场景跨链
 >>>>>>>>>>>>>>>
