@@ -158,7 +158,7 @@ Crypto Provider Interface
     ./xchain-cli account newkeys --output data/tmpkey --cryptotype schnorr
     
 国密插件使用方法
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 目前我们开源的国密密码学插件支持SM2/SM3/SM4算法，并且国密插件支持对Nist P256算法生成的地址和签名数据进行验签。
 
