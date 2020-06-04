@@ -293,7 +293,7 @@
 使用说明
 >>>>>>>>>>>>>>
 
-	https://xuperchain.readthedocs.io/zh/latest/advanced_usage/readonly_queries.html
+	https://xuperchain.readthedocs.io/zh/latest/advanced_usage/cross_chain.html
 
 事务场景跨链
 >>>>>>>>>>>>>>>
