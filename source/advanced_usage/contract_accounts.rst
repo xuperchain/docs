@@ -133,14 +133,10 @@ XuperChain的客户端工具提供了ACL查询功能，只需如下命令
 
 修改ACL的操作，需要符合当前ACL中设置的规则，即需要具有足够权重的账号签名。
 
-需要新建文件添加需要签名的地址，默认文档路径是：./data/acl/addrs 。
+需要新建文件添加需要签名的地址，默认acl文件路径是：./data/acl/addrs 。
 ./data/acl/addrs 示例：
-
-.. code-block:: bash
-    :linenos:
-
-    XC9999999999999999@xuper/9LArZSMrrRorV7T6h5T32PVUrmdcYLbug
-    XC9999999999999999@xuper/gLAdZSMtkforV7T6h5TA14VUrfdcYLbuy
+XC9999999999999999@xuper/9LArZSMrrRorV7T6h5T32PVUrmdcYLbug
+XC9999999999999999@xuper/gLAdZSMtkforV7T6h5TA14VUrfdcYLbuy
 
 我们首先生成一个多重签名的交易
 
