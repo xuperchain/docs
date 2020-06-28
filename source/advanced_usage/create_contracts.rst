@@ -172,13 +172,23 @@
 
 2. 编译合约 - Java
 
-    编译依赖：Java版本不低于Java1.8版本
+    编译Java sdk：Java版本不低于Java1.8版本
+    
+    包管理器：maven，mvn版本3.6+
+
+    .. code-block:: bash
+
+        # 编译java sdk
+        cd contractsdk/java
+        mvn install -f pom.xml
+        # 产出二进制文件target/java-contract-sdk-0.1.0.jar，并自动安装到mvn本地仓库下
+
     编译native合约时，我们以contractsdk/java/example中的counter合约为例
 
     .. code-block:: bash
 
         cd contractsdk/java/example/counter
-        mvn package -f .
+        mvn package -f pom.xml
         # 产出二进制文件target/counter-0.1.0-jar-with-dependencies.jar，用于合约部署
 
 3. 部署合约
