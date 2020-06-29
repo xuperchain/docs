@@ -244,6 +244,6 @@
         # Tx id: 4b46d9b1292481dcac3b504d5f8031e4eff44d8514c9508f121145cfa141d9db
 
         # 调用java native合约，get方法，javacounter为合约名
-        ./xchain-cli native query --method get -a '{"key":"test"}' golangcounter--cname javacounter
+        ./xchain-cli native query --method get -a '{"key":"test"}' javacounter
         # 调用结果
         # contract response: 1
