@@ -45,6 +45,7 @@ XuperChain文档
     design_documents/consensus.rst
     design_documents/chained_bft.rst
     design_documents/xpos.rst
+    design_documents/xpoa.rst
     design_documents/single_pow.rst
     design_documents/regulatory.rst
     design_documents/multidisk.rst
@@ -65,6 +66,7 @@ XuperChain文档
     advanced_usage/subscribe.rst
     advanced_usage/readonly_queries.rst
     advanced_usage/cross_chain.rst
+    advanced_usage/construct-XPoA.rst
 
 .. toctree::
     :maxdepth: 2
