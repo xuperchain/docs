@@ -129,6 +129,7 @@
 
 使用事件订阅
 ------------
+使用前，请检查xchain的配置conf/xchain.yaml，pubsubService属性是否为true。
 
 我们在xchain的代码中实现了一个简单的例子，参考 xuperchain/xuperchain/core/test/pubsub 目录，里面有一个示例程序和不同类别订阅需要的参数json文件
 
