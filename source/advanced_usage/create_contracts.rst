@@ -160,6 +160,27 @@
 部署native合约
 --------------
 
+如果本地搭建超级链环境，在部署、调用native合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。
+
+.. code-block:: yaml
+    :linenos:
+
+    # 管理native合约的配置
+    native:
+        enable: true
+
+        # docker相关配置
+        docker:
+            enable:false
+            # 合约运行的镜像名字
+            imageName: "docker.io/centos:7.5.1804"
+            # cpu核数限制，可以为小数
+            cpus: 1
+            # 内存大小限制
+            memory: "1G"
+        # 停止合约的等待秒数，超时强制杀死
+        stopTimeout: 3
+
 1. 编译合约 - Golang
 
     编译native合约时，只要保持环境和编译XuperChain源码时一致即可，我们还是以contractsdk/go/example中的counter合约为例
@@ -248,62 +269,60 @@
         # 调用结果
         # contract response: 1146398290725d36631aa70f731bc3174e6484a9a
 
-    native合约部署需要进行一次 `提案-投票 <initiate_proposals.html>`_ 操作，
 
 设置合约方法的ACL
 ------------------
 
+1. 准备desc文件setMethodACL.desc
 
-1.准备desc文件setMethodACL.desc
+    .. code-block:: json
+        
+        {
+            "module_name": "xkernel",
+            "method_name": "SetMethodAcl",
+            "args" : {
+                "contract_name": "counter",
+                "method_name": "increase",
+                "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 1.0},\"aksWeight\": {\"UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8\": 1}}"
+                }
+        }
 
-.. code-block:: json
-    
-    {
-        "module_name": "xkernel",
-        "method_name": "SetMethodAcl",
-        "args" : {
-            "contract_name": "counter",
-            "method_name": "increase",
-            "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 1.0},\"aksWeight\": {\"UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8\": 1}}"
-            }
-    }
+    参数说明：
 
-参数说明：
+    - **module_name**： 模块名称，用固定值xkernel 
+    - **method_name** ：方法名称，用固定值SetMethodAcl
+    - **contract_name**：合约名称
+    - **method_name**：合约方法名称
+    - **acl**：合约方法的acl
 
-- **module_name**： 模块名称，用固定值xkernel 
-- **method_name** ：方法名称，用固定值SetMethodAcl
-- **contract_name**：合约名称
-- **method_name**：合约方法名称
-- **acl**：合约方法的acl
+2. 设置合约方法ACL
 
-2.设置合约方法ACL
+    设置合约方法ACL的操作，需符合合约账号的ACL，在3.2节，使用 **XC1111111111111111@xuper** 部署的counter合约，合约账号ACL里 只有1个AK，所以在data/acl/addrs中添加1行，如果合约账号ACL里有多个AK，则填写多行。
 
-设置合约方法ACL的操作，需符合合约账号的ACL，在3.2节，使用 **XC1111111111111111@xuper** 部署的counter合约，合约账号ACL里 只有1个AK，所以在data/acl/addrs中添加1行，如果合约账号ACL里有多个AK，则填写多行。
+    .. code-block:: bash
 
-.. code-block:: bash
+        echo "XC1111111111111111@xuper/dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN" > data/acl/addrs
 
-    echo "XC1111111111111111@xuper/dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN" > data/acl/addrs
+    执行如下命令，设置ACL：
 
-执行如下命令，设置ACL：
+    .. code-block:: bash
 
-.. code-block:: bash
+        ./xchain-cli multisig gen --desc ./setMethodACL.desc --fee 1 -H 127.0.0.1:37101
+        ./xchain-cli multisig sign --output sign.out
+        ./xchain-cli multisig send sign.out sign.out -H 127.0.0.1:37101
 
-    ./xchain-cli multisig gen --desc ./setMethodACL.desc --fee 1 -H 127.0.0.1:37101
-    ./xchain-cli multisig sign --output sign.out
-    ./xchain-cli multisig send sign.out sign.out -H 127.0.0.1:37101
+3. 查看合约方法ACL
 
-3.查看合约方法ACL
+    .. code-block:: bash
 
-.. code-block:: bash
-
-        [work@]$ deploy-env -> ./xchain-cli acl query --contract counter --method increase -H :37101    
-        # 执行结果  
-        # { 
-        #   "pm": { 
-        #     "rule": 1,    
-        #     "acceptValue": 1
-        #   },  
-        #   "aksWeight": {  
-        #     "UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8": 1    
-        #   }   
-        # }
+            [work@]$ deploy-env -> ./xchain-cli acl query --contract counter --method increase -H :37101    
+            # 执行结果  
+            # { 
+            #   "pm": { 
+            #     "rule": 1,    
+            #     "acceptValue": 1
+            #   },  
+            #   "aksWeight": {  
+            #     "UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8": 1    
+            #   }   
+            # }
