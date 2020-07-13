@@ -13,6 +13,23 @@ Chained-BFT共识公共组件
 
 这样一个chained-bft可以在给定主集合的场景下确保网络的共识安全性，并且通过与外层共识配合工作实现共识的活性保证。
 
+**Xuperchain现有基于Chained-BFT的共识算法**
+
+目前基于chained-BFT的算法有：XPoA、XPoS
+
+**chained-BFT中区块需要在三个块后才被最终一致确认**
+
+HotStuff中明确了基本算法Basic HotStuff和链式算法Chained-HotStuff的概念，其中Chained-HotStuff是Basic HotStuff的流水线链式结构，也是超级链chained-BFT的算法原型。
+
+和PBFT一样，Basic HotStuff也被分成了三个阶段: Prepare、Pre-Commit、Commit，如下图所示。
+
+.. image:: ../images/chained_bft.png
+    :align: center
+
+Chained-Hotstuff并发操作了原本的Basic HotStuff，将上一视图在所在阶段的信息发给下一视图的Leader，从而形成了流水线操作，增加效率。
+
+正因为Basic HotStuff分为三个阶段，在完成三阶段的信息过程后，才最终形成一执行，即在当前视图在三个视图之后才最终完成了信息收集与执行。在chained-BFT中，视图与区块高度是一致绑定的，因此一个区块需要在三个区块后才被确认。
+
 核心数据结构
 ------------
 
