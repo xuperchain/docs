@@ -23,7 +23,7 @@ HotStuff中明确了基本算法Basic HotStuff和链式算法Chained-HotStuff的
 
 和PBFT一样，Basic HotStuff也被分成了三个阶段: Prepare、Pre-Commit、Commit，如下图所示。
 
-.. image:: ../images/chained_bft.png
+.. image:: ../images/chained_bft.jpg
     :align: center
 
 Chained-Hotstuff并发操作了原本的Basic HotStuff，将上一视图在所在阶段的信息发给下一视图的Leader，从而形成了流水线操作，增加效率。
