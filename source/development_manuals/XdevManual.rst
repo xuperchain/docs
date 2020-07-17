@@ -5,7 +5,7 @@
 简介
 ----------
 
-百度超级链是一个支持多语言合约的区块链框架，有多种语言来供大家选择使用开发智能合约。目前超级链的智能合约可以使用c++ 或者 go 语言来编写，理论上任何可以编译成Wasm字节码的语言都可以用来编写超级链的智能合约。c++ 合约相对go合约性能会更好些，go合约在易用性上更好，大家可以根据需要选择自己喜欢的语言来编写智能合约，这篇文章会通过一步步的指引来帮助大家使用c++ 或者go来编写超级链的智能合约，在阅读完文章后，希望大家对如何编写，部署和测试超级链的智能合约有初步的认识。  
+百度超级链是一个支持多语言合约的区块链框架，有多种语言来供大家选择使用开发智能合约。目前超级链的智能合约可以使用c++ 、 go 以及 java语言来编写，c++ 和 go 支持 wasm合约，go 和 java支持native合约。c++ 合约合约性能会更好些，go 合约在易用性上更好，java 合约的开发者会更多些。大家可以根据需要选择自己喜欢的语言来编写智能合约，这篇文章会通过一步步的指引来帮助大家使用c++ 、go 或者 java 来编写超级链的智能合约，在阅读完文章后，希望大家对如何编写，部署和测试超级链的智能合约有初步的认识。  
 
 或使用超级链XuperOS，支持合约可视化管理、在线上链。 `点击了解 <https://xchain.baidu.com/n/console#/xuperos/contracts?type=mine>`_ 
 
@@ -190,14 +190,14 @@ xdev提供了一个默认的c++合约工程模板
 小结
 ^^^^^^^^^^^^
 
-通过本节的学习，我们快速掌握了如果编译，部署和调用合约，在下面的章节里面我们学些如果使用c++或者go语言来编写智能合约。
+通过本节的学习，我们快速掌握了如果编译，部署和调用合约，在下面的章节里面我们学些如果使用c++、go或者java语言来编写智能合约。
 
 合约编写详解
 ---------------
 
-XuperChain目前主要支持两种编译成wasm格式的合约语言， **c++** 和 **go** ，合约框架的整体结构是一致的，在不同语言上的表现形式不太一样，但熟悉一种语言的SDK之后很容易迁移到其他语言。
+XuperChain目前主要支持两种编译成wasm格式的合约语言， **c++** 和 **go**，以及 两种native合约 **go** 和 **java** ，合约框架的整体结构是一致的，在不同语言上的表现形式不太一样，但熟悉一种语言的SDK之后很容易迁移到其他语言。
 
-下面大概说明如何编写这两种类型的合约
+下面大概说明如何编写这三种类型的合约
 
 C++合约
 ^^^^^^^^^^^^
@@ -277,11 +277,12 @@ C++合约
 更多的c++语言合约例子在超级链项目的 **core/contractsdk/cpp/example** 里面寻找。
 
 Go合约
-^^^^^^^^^^^
+^^^^^^^^^^^^
 
 以counter合约为例来看如何编写一个go合约。
+
 合约样例
->>>>>>>>>>>
+>>>>>>>>>>>>>
 
 代码在 **contractsdk/go/example/counter/counter.go**
 
@@ -340,8 +341,9 @@ Go合约
 
 
 go合约的整体框架结构跟c++合约一样，在表现形式上稍微有点不一样：
-- c++合约使用 **DEFINE_METHOD** 来定义合约方法，go通过结构体方法来定义合约方法
-- c++通过 **ctx->ok** 来返回合约数据，go通过返回 **code.Response** 对象来返回合约数据
+
+- c++合约使用 **DEFINE_METHOD** 来定义合约方法，go通过结构体方法来定义合约方法。
+- c++通过 **ctx->ok** 来返回合约数据，go通过返回 **code.Response** 对象来返回合约数据。
 - go合约需要在main函数里面调用 **driver.Serve** 来启动合约。
 
 更多的go语言合约例子在超级链项目的 **core/contractsdk/go/example** 里面寻找。
@@ -369,10 +371,152 @@ Go合约部署唯一跟c++合约不一样的地方在于 **--runtime** 参数，
 
 Go合约的调用跟c++合约参数一致。
 
+Java合约
+^^^^^^^^^^^^
+
+java合约目前只支持native合约。
+
+如果本地搭建超级链环境，在部署、调用native合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。
+
+.. code-block:: yaml
+    :linenos:
+
+    # 管理native合约的配置
+    native:
+        enable: true
+
+以counter合约为例来看如何编写一个java合约。        
+
+编译环境准备
+>>>>>>>>>>>>>
+
+编译Java sdk：Java版本不低于Java1.8版本
+    
+包管理器：maven，mvn版本3.6+
+
+    .. code-block:: bash
+
+        # 编译java sdk
+        cd contractsdk/java
+        mvn install -f pom.xml
+        # 产出二进制文件target/java-contract-sdk-0.1.0.jar，并自动安装到mvn本地仓库下
+
+合约样例
+>>>>>>>>>>>>>
+
+代码在 **contractsdk/java/example/counter/src/main/java/com/baidu/xuper/example/Counter.java**
+
+.. code-block:: java
+    :linenos:
+	
+    package com.baidu.xuper.example;
+
+    import java.math.BigInteger;
+
+    import com.baidu.xuper.Context;
+    import com.baidu.xuper.Contract;
+    import com.baidu.xuper.ContractMethod;
+    import com.baidu.xuper.Driver;
+    import com.baidu.xuper.Response;
+
+    /**
+    * Counter
+    */
+    public class Counter implements Contract {
+
+        @Override
+        @ContractMethod
+        public Response initialize(Context ctx) {
+            return Response.ok("ok".getBytes());
+        }
+
+        @ContractMethod
+        public Response increase(Context ctx) {
+            byte[] key = ctx.args().get("key");
+            if (key == null) {
+                return Response.error("missing key");
+            }
+            BigInteger counter;
+            byte[] value = ctx.getObject(key);
+            if (value != null) {
+                counter = new BigInteger(value);
+            } else {
+                ctx.log("key " + new String(key) + " not found, initialize to zero");
+                counter = BigInteger.valueOf(0);
+            }
+            ctx.log("get value " + counter.toString());
+            counter = counter.add(BigInteger.valueOf(1));
+            ctx.putObject(key, counter.toByteArray());
+
+            return Response.ok(counter.toString().getBytes());
+        }
+
+        @ContractMethod
+        public Response get(Context ctx) {
+            byte[] key = ctx.args().get("key");
+            if (key == null) {
+                return Response.error("missing key");
+            }
+            BigInteger counter;
+            byte[] value = ctx.getObject(key);
+            if (value != null) {
+                counter = new BigInteger(value);
+            } else {
+                return Response.error("key " + new String(key) + " not found)");
+            }
+            ctx.log("get value " + counter.toString());
+
+            return Response.ok(counter.toString().getBytes());
+        }
+
+        public static void main(String[] args) {
+            Driver.serve(new Counter());
+        }
+    }
+
+
+java合约的整体框架结构跟c++、go合约一样，在表现形式上稍微有点不一样：
+
+- c++合约使用 **DEFINE_METHOD** 来定义合约方法，go通过结构体方法来定义合约方法，java通过定义class类方法来定义合约。
+- c++通过 **ctx->ok** 来返回合约数据，go通过返回 **code.Response** 对象来返回合约数据，java通过 **Response.ok** 来返回合约数据。
+- java合约需要在main函数里面调用 **Driver.serve** 来启动合约。
+
+更多的java语言合约例子在超级链项目的 **core/contractsdk/java/example** 里面寻找。
+
+合约编译
+>>>>>>>>>>>
+
+java合约使用如下命令来编译合约
+
+.. code-block:: bash
+
+    cd contractsdk/java/example/counter
+    mvn package -f pom.xml
+    # 产出二进制文件target/counter-0.1.0-jar-with-dependencies.jar，用于合约部署
+
+
+合约部署
+>>>>>>>>>>>>>
+native合约和wasm合约在合约部署和合约执行上通过 **native** 和 **wasm** 字段进行区分。
+
+不同语言的合约通过 **--runtime** 参数进行指定，完整命令如下。
+
+.. code-block:: bash
+
+    # 部署golang native合约
+    ./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java counter-0.1.0-jar-with-dependencies.jar --cname javacounter
+    
+- ``--runtime c`` ：表示部署的是c++合约
+- ``--runtime go`` ：表示部署的是golang合约
+- ``--runtime java``：表示部署的是java合约
+
+
+java合约的调用跟c++、go合约参数一致。
+
 小结
 ^^^^^^^^^
 
-在这个章节里面我们学习了如何使用c++和go语言来编写合约，更多的合约例子可以在对应语言SDK的example目录里面寻找，在下一章节我们学习如果给合约编写单元测试。
+在这个章节里面我们学习了如何使用c++、go和java语言来编写合约，更多的合约例子可以在对应语言SDK的example目录里面寻找，在下一章节我们学习如果给合约编写单元测试。
 
 合约单测
 -----------
