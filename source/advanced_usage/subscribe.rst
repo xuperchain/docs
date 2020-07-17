@@ -7,138 +7,158 @@
 事件订阅的接口
 --------------
 
-订阅的接口十分简单，只有subscribe和unsubscribe两个，订阅和取消订阅
+订阅的接口十分简单，只有Subscribe一个
 
 .. code-block:: protobuf
     :linenos:
 
-    service PubsubService {
-        rpc Subscribe (EventRequest) returns (stream Event);
-        rpc Unsubscribe (UnsubscribeRequest) returns (UnsubscribeResponse) {}
+    service EventService {
+        rpc Subscribe (SubscribeRequest) returns (stream Event);
     }
 
-其中订阅接口的EventRequest格式如下：
+其中订阅接口的SubscribeRequest格式如下：
 
 .. code-block:: protobuf
     :linenos:
 
-    message EventRequest {
-        EventType type = 1;
-        bytes payload = 2;
-    }
-    // EventType 主要有区块、交易、账户 3种
-    enum EventType {
-        UNDEFINED = 0;
-        BLOCK = 1;
-        TRANSACTION = 2;
-        ACCOUNT = 3;
-        SUBSCRIBE_RESPONSE = 4;
+    message SubscribeRequest {
+        SubscribeType type = 1;
+        bytes filter = 2;
     }
 
-请求里的payload是一段序列化的proto对象，因为订阅不同内容需要的参数不尽相同
+    enum SubscribeType {
+        // 区块事件，payload为BlockFilter
+        BLOCK = 0;
+    }
+
+请求里的filter用来设置事件过滤参数，是一段序列化的proto对象，因为订阅不同内容需要的参数不尽相同
+
+``BLOCK`` 事件的过滤参数如下：
 
 .. code-block:: protobuf
     :linenos:
 
-    // BlockEventRequest 订阅区块请求
-    message BlockEventRequest {
+    message BlockFilter {
         string bcname = 1;
-        string proposer = 2;
-        int64 start_height = 3;
-        int64 end_height = 4;
-        bool need_content = 5;
+        BlockRange range = 2;
+        bool exclude_tx = 3;
+        bool exclude_tx_event = 4;
+        string contract = 10;
+        string event_name = 11;
+        string initiator = 12;
+        string auth_require = 13;
+        string from_addr = 14;
+        string to_addr = 15;
     }
 
-    // TransactionEventRequest 订阅交易请求
-    message TransactionEventRequest {
-        string bcname = 1;
-        string initiator = 2;
-        string auth_require = 3;
-        bool need_content = 4;
-    }
+其中各个字段的说明如下：
 
-    // AccountEventRequest 订阅账户请求
-    message AccountEventRequest {
-        string bcname = 1;
-        string from_addr = 2;
-        string to_addr = 3;
-        bool need_content = 4;
-    }
+- ``bcname`` 链名，必填字段
+- ``range`` 指定起始订阅位置和结束位置，如果没有指定则默认从当前最新区块开始，持续订阅。
+- ``exclude_tx`` 是否去掉FilteredTransaction数据
+- ``exclude_tx_event`` 是否去掉ContractEvent数据
+- ``contract`` 匹配合约名字，为空的话匹配所有合约
+- ``event_name`` 匹配合约事件名字，为空的话匹配所有合约事件name
+- ``initiator`` 匹配合约发起者地址，为空的话匹配所有合约发起者
+- ``auth_require`` 匹配交易的auth_require中的任何一个地址，为空匹配所有
+- ``from_addr`` 匹配转账发起者地址，为空的话匹配所有转账发起者
+- ``to_addr`` 匹配转账接受者地址，为空的匹配所有转账接受者
 
-订阅返回的内容格式均为Event，对应不同的订阅类型填充不同的StatusInfo字段，详细内容会放在payload里
+``BlockRange`` 字段意义：
+
+- 如果 ``start_num`` 和 ``end_num`` 都为空，则表示从当前最新区块开始，持续订阅最新区块。
+- 如果 ``start_num`` 为空， ``end_num`` 不为空，则表示从当前最新区块开始，订阅到指定区块，如果``end_num``小与当前区块则什么也不做。
+- 如果 ``start_num`` 不为空， ``end_num`` 为空，则从 ``start_num`` 开始持续订阅。
+- 如果 ``start_num`` 和 ``end_num`` 都不为空，按照指定区块范围订阅，左闭右开。
+
+    需要注意的是过滤字段都是正则表达式，如果需要全匹配名字为 ``counter`` 的合约，``contract`` 字段需要为 ``^counter$`` ，
+    不能为 ``counter`` ，这么写会匹配到名为 ``counter1`` 的合约。
+
+订阅返回的内容格式均为Event，事件的详细内容会放在payload里
 
 .. code-block:: protobuf
     :linenos:
 
     message Event {
-        string id = 1;
-        EventType type = 2;
-        bytes payload = 3;
-        BlockStatusInfo block_status = 4;
-        TransactionStatusInfo tx_status = 5;
-        AccountStatusInfo account_status = 6;
+        bytes payload = 1;
     }
 
-订阅区块时，填充BlockEventRequest的链名、矿工地址、起止高度、以及是否需要详细内容字段。在订阅高度内，每当此矿工打包出块，便会接收到区块的内容
+订阅 ``BLOCK`` 事件时，填充如下内容:
 
 .. code-block:: protobuf
     :linenos:
 
-    message BlockStatusInfo {
+    message FilteredTransaction {
+        string txid = 1;
+        repeated ContractEvent events = 2;
+    }
+
+    message FilteredBlock {
         string bcname = 1;
-        string proposer = 2;
-        int64 height = 3;
-        BlockStatus status = 4;
+        string blockid = 2;
+        int64 block_height = 3; 
+        repeated FilteredTransaction txs = 4;
     }
 
-订阅交易时，可填充TransactionEventRequest的链名、发起方、签名方、以及是否需要详细内容字段，订阅开始后，由指定的账号发起或者有指定账号签名（注意两个条件是逻辑或的关系），便会收到交易内容
 
-.. code-block:: protobuf
-    :linenos:
-
-    message TransactionStatusInfo {
-        string bcname = 1;
-        string initiator = 2;
-        repeated string auth_require = 3;
-        TransactionStatus status = 4;
-    }
-
-订阅账号时，可填充AccountEventRequest的链名、来源方、接收方、以及是否需要详细内容字段，订阅开始后，来源指定账号或者由指定账号接收的（注意两个条件是逻辑或的关系）交易内容均可以收到
-
-.. code-block:: protobuf
-    :linenos:
-
-    message AccountStatusInfo {
-        string bcname = 1;
-        repeated string from_addr = 2;
-        repeated string to_addr = 3;
-        TransactionStatus status = 4;
-    }
-
-三种模式成功订阅后，都可以收到一个全局唯一的订阅id，使用这个id可以构造请求取消此订阅
-
-.. code-block:: protobuf
-    :linenos:
-
-    // UnsubscribeRequest 取消事件订阅请求
-    message UnsubscribeRequest {
-        string id = 1;
-    }
-
-当然，进行订阅的进程退出或被杀死，订阅行为也会停止
+当然，订阅RPC接口断开的时候，订阅行为也会停止
 
 使用事件订阅
 ------------
-使用前，请检查xchain的配置conf/xchain.yaml，pubsubService属性是否为true。
+使用前，请检查xchain的配置conf/xchain.yaml，确保如下有如下配置：
 
-我们在xchain的代码中实现了一个简单的例子，参考 xuperchain/xuperchain/core/test/pubsub 目录，里面有一个示例程序和不同类别订阅需要的参数json文件
+.. code-block:: yaml
+    :linenos:
 
-正常编译xchain即可获得此demo的可执行文件 event_client，按如下命令执行即可
+    # 事件订阅相关配置
+    event:
+        enable: true
+        # 每个ip的最大订阅连接数，为0的话不限连接数
+        addrMaxConn: 5
+
+
+使用命令行订阅事件
+>>>>>>>>>>>>>>>
+
+``xchain-cli`` 的 ``watch`` 指令可以用来监听事件，命令行参数的说明如下：
+
+- ``-f, --filter`` 过滤器字段，JSON格式的，字段解释见 ``message BlockFilter``
+- ``--oneline``         是否将事件打印在一行，方便命令行解析
+- ``--skip-empty-tx``   默认watch命令会打印所有的block，即使block里面没有交易，这么做是为了方面做断点记录，``--skip-empty-tx`` 参数可以不打印不包含交易的block
+
+如下是一些例子
+
+1. 订阅所有的新块
 
 .. code-block:: bash
     :linenos:
 
-    ./event_client -c subscribe -f accountEventSubscribe.json -h localhost:37101
-    ./event_client -c unsubscribe -id xxxxxxxxxxxxxxxxxxx
+    ./xchain-cli watch 
 
-示例程序中调用的便是上一小节介绍的订阅rpc接口
+2. 订阅名字为 ``counter`` 的合约
+
+.. code-block:: bash
+    :linenos:
+
+    ./xchain-cli watch -f '{"contract":"^counter$"}'
+
+3. 订阅 ``counter`` 合约的 ``increase`` 合约事件
+
+.. code-block:: bash
+    :linenos:
+
+    ./xchain-cli watch -f '{"contract":"^counter$", "event_name":"^increase$"}'
+
+4. 订阅区块高度从100开始的事件（断点续传）
+
+.. code-block:: bash
+    :linenos:
+
+    ./xchain-cli watch -f '{"range":{"start":"100"}}'
+
+5. 订阅区块高度区间为[100, 200)的事件
+
+.. code-block:: bash
+    :linenos:
+
+    ./xchain-cli watch -f '{"range":{"start":"100", "end":"200"}}'
