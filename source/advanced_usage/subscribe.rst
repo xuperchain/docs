@@ -51,6 +51,11 @@
         string to_addr = 15;
     }
 
+    message BlockRange {
+        string start = 1;
+        string end = 2;
+    }
+
 其中各个字段的说明如下：
 
 - ``bcname`` 链名，必填字段
@@ -59,7 +64,7 @@
 - ``exclude_tx_event`` 是否去掉ContractEvent数据
 - ``contract`` 匹配合约名字，为空的话匹配所有合约
 - ``event_name`` 匹配合约事件名字，为空的话匹配所有合约事件name
-- ``initiator`` 匹配合约发起者地址，为空的话匹配所有合约发起者
+- ``initiator`` 匹配交易发起者地址，为空的话匹配所有交易发起者
 - ``auth_require`` 匹配交易的auth_require中的任何一个地址，为空匹配所有
 - ``from_addr`` 匹配转账发起者地址，为空的话匹配所有转账发起者
 - ``to_addr`` 匹配转账接受者地址，为空的匹配所有转账接受者
@@ -71,6 +76,7 @@
 - 如果 ``start_num`` 不为空， ``end_num`` 为空，则从 ``start_num`` 开始持续订阅。
 - 如果 ``start_num`` 和 ``end_num`` 都不为空，按照指定区块范围订阅，左闭右开。
 
+.. note::
     需要注意的是过滤字段都是正则表达式，如果需要全匹配名字为 ``counter`` 的合约，``contract`` 字段需要为 ``^counter$`` ，
     不能为 ``counter`` ，这么写会匹配到名为 ``counter1`` 的合约。
 
@@ -88,6 +94,12 @@
 .. code-block:: protobuf
     :linenos:
 
+    message ContractEvent {
+        string contract = 1;
+        string name = 2;
+        bytes body = 3;
+    }
+    
     message FilteredTransaction {
         string txid = 1;
         repeated ContractEvent events = 2;
@@ -105,7 +117,7 @@
 
 使用事件订阅
 ------------
-使用前，请检查xchain的配置conf/xchain.yaml，确保如下有如下配置：
+使用前，请检查xchain的配置conf/xchain.yaml，确保有如下配置：
 
 .. code-block:: yaml
     :linenos:
