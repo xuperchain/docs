@@ -1,0 +1,563 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>10. 搭建XPoA共识的超级链网络 &mdash; xuperchain-doc  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/stat.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="1. 电子存证合约" href="../developing_apps/eleccert.html" />
+    <link rel="prev" title="9. 非事务场景跨链使用文档" href="cross_chain.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> xuperchain-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">XuperChain介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/brief.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/modules.html">2. 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/datastruct.html">3. 核心数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/smart_contracts.html">4. 智能合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/permission_system.html">5. 权限系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/privacy.html">6. 隐私和保密</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/perfomance.html">7. 性能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/summary.html">8. 总结</a></li>
+</ul>
+<p class="caption"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">1. XuperChain环境部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#basic-operation">2. XuperChain基本操作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">技术设计文档:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/XuperModel.html">1. XuperModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/XuperBridge.html">2. XuperBridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/xvm.html">3. XVM虚拟机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/permission_model.html">4. 账号权限控制模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/p2p.html">5. 超级链p2p网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/authentication.html">6. 身份认证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/proposal.html">7. 提案和投票机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/crypto.html">8. 密码学和隐私保护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/extension.html">9. 插件机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/consensus.html">10. 超级链共识框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/chained_bft.html">11. Chained-BFT共识公共组件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/xpos.html">12. XPoS共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/xpoa.html">13. XPoA共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/single_pow.html">14. Single及PoW共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/regulatory.html">15. 超级链监管机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/multidisk.html">16. 多盘散列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/group.html">17. 平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../design_documents/cross_chain.html">18. 超级链跨链技术</a></li>
+</ul>
+<p class="caption"><span class="caption-text">进阶使用</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contract_accounts.html">1. 合约账号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-nodes.html">2. 多节点部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_contracts.html">3. 创建合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initiate_proposals.html">4. 发起提案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multi-disks.html">5. 配置变更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parallel_chain.html">6. 使用平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscribe.html">7. 使用事件订阅功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readonly_queries.html">8. 只读跨链场景使用文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross_chain.html">9. 非事务场景跨链使用文档</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">10. 搭建XPoA共识的超级链网络</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">10.1. 搭建XPoA共识网络</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#p2p">10.1.1. p2p网络配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keys">10.1.2. 更新各节点的keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">10.1.3. 配置创世块</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xchain">10.1.4. 创建链并启动xchain</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">10.2. 验证集合合约部署和调用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">10.2.1. 创建合约账号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">10.2.2. 编译合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">10.2.3. 部署合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">10.2.4. 增加候选人</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">10.2.5. 查看候选人</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">10.2.6. 更新候选人</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">10.2.7. 删除候选人</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">10.2.8. 查看当前正在出块的候选人</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">10.3. 常见问题</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">开发应用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/eleccert.html">1. 电子存证合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/erc721.html">2. 数字资产交易</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperCDT.html">1. 智能合约SDK使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XdevManual.html">2. 智能合约开发详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperRPC.html">3. XuperChain RPC 接口使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">超级链测试环境</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/description.html">1. 超级链测试环境说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/guides.html">2. 超级链测试环境使用指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">其他</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operations_guides.html">1. 操作指导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.html">2. 视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands_reference.html">3. 指令介绍(API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQs.html">4. 常见问题解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vocabulary.html">5. 词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons.html">6. 超级链小课堂</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">xuperchain-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>10. 搭建XPoA共识的超级链网络</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/advanced_usage/construct-XPoA.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="xpoa">
+<h1>10. 搭建XPoA共识的超级链网络<a class="headerlink" href="#xpoa" title="永久链接至标题">¶</a></h1>
+<p>XPoA是为许可链设计的共识算法，XPoA共识算法的原理可以参考超级链的设计文档 <a class="reference external" href="../design_documents/xpoa.html">XPoA技术文档</a> 。许可链指的是所有参与链系统的节点，都需经过许可，未经过许可的节点不可接入系统。下面介绍下如何搭建一个XPoA共识的超级链网络。</p>
+<div class="section" id="id2">
+<h2>10.1. 搭建XPoA共识网络<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="p2p">
+<h3>10.1.1. p2p网络配置<a class="headerlink" href="#p2p" title="永久链接至标题">¶</a></h3>
+<p>以搭建3节点网络为例，拷贝xuperchain编译产出的output到node1~node3。每个节点需修改配置文件 <em>conf/xchain.yaml</em> 中p2p一节，使用p2pv1，p2pv1是为许可链设计的p2p网络插件。</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">p2p</span><span class="p">:</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">p2pv1</span>
+  <span class="c1"># port是节点p2p网络监听的默认端口，如果在一台机器上部署注意端口配置不要冲突，</span>
+  <span class="c1"># node1配置的是47101，node2、node3可以分别设置为47102、47103</span>
+  <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">47101</span>
+  <span class="c1"># 不使用证书</span>
+  <span class="nt">isUseCert</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="c1"># 配置网络中所有节点的neturl, 格式ip:port, 也加上本节点的neturl</span>
+  <span class="nt">staticNodes</span><span class="p">:</span>
+    <span class="nt">xuper</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;127.0.0.1:47101&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;127.0.0.1:47102&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;127.0.0.1:47103&quot;</span>
+</pre></div>
+</div>
+<p>注意，如果节点分布在不同的机器之上，需要把网络地址中的本地ip改为机器的实际ip。</p>
+</div>
+<div class="section" id="keys">
+<h3>10.1.2. 更新各节点的keys<a class="headerlink" href="#keys" title="永久链接至标题">¶</a></h3>
+<p>由于节点目录下的keys都是默认的，node1保持不变，更新node2、node3的keys。更新前需手动删掉data/keys目录。更新keys命令如下：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./xchain-cli account newkeys
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>10.1.3. 配置创世块<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>XuperChain系统支持可插拔共识，通过修改创世块的参数，可以创建一个以XPoA为共识的链。创世块配置位于 <em>data/config/xuper.json</em> ，修改genesis_consensus一节。各个配置参数详解配置说明如下所示：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+    <span class="s2">&quot;version&quot;</span> : <span class="s2">&quot;1&quot;</span>,
+    <span class="s2">&quot;predistribution&quot;</span>:<span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;address&quot;</span> : <span class="s2">&quot;dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN&quot;</span>,
+            <span class="s2">&quot;quota&quot;</span> : <span class="s2">&quot;100000000000000000000&quot;</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;maxblocksize&quot;</span> : <span class="s2">&quot;128&quot;</span>,
+    <span class="s2">&quot;award&quot;</span> : <span class="s2">&quot;1000000&quot;</span>,
+    <span class="s2">&quot;decimals&quot;</span> : <span class="s2">&quot;8&quot;</span>,
+    <span class="s2">&quot;award_decay&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;height_gap&quot;</span>: <span class="m">31536000</span>,
+        <span class="s2">&quot;ratio&quot;</span>: <span class="m">1</span>
+    <span class="o">}</span>,
+    <span class="s2">&quot;gas_price&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;cpu_rate&quot;</span>: <span class="m">1000</span>,
+        <span class="s2">&quot;mem_rate&quot;</span>: <span class="m">1000000</span>,
+        <span class="s2">&quot;disk_rate&quot;</span>: <span class="m">1</span>,
+        <span class="s2">&quot;xfee_rate&quot;</span>: <span class="m">1</span>
+    <span class="o">}</span>,
+    <span class="s2">&quot;new_account_resource_amount&quot;</span>: <span class="m">1000</span>,
+    <span class="s2">&quot;genesis_consensus&quot;</span>:<span class="o">{</span>
+        <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;xpoa&quot;</span>,
+        <span class="s2">&quot;config&quot;</span>: <span class="o">{</span>
+            // 声明共识的起始时间戳，建议设置为一个刚过去不久的时间戳，更新前10位
+            <span class="s2">&quot;timestamp&quot;</span>: <span class="s2">&quot;1590636296000000000&quot;</span>,
+            // 每个矿工连续出块的出块间隔
+            <span class="s2">&quot;period&quot;</span>:<span class="s2">&quot;3000&quot;</span>,
+            // 每一轮内每个矿工轮值任期内连续出块的个数
+            <span class="s2">&quot;block_num&quot;</span>:<span class="s2">&quot;10&quot;</span>,
+            // xpoa共识依赖的合约名称，无需修改
+            <span class="s2">&quot;contract_name&quot;</span>:<span class="s2">&quot;xpoa_validates&quot;</span>,
+            // xpoa共识查询候选人的合约方法，无需修改
+            <span class="s2">&quot;method_name&quot;</span>:<span class="s2">&quot;get_validates&quot;</span>,
+            // 指定第一轮初始矿工，所指定的初始矿工需要在网络中存在，不然系统轮到该节点出块时会没有节点出块
+            <span class="s2">&quot;init_proposer&quot;</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">&quot;address&quot;</span> : <span class="s2">&quot;dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN&quot;</span>
+                    , <span class="s2">&quot;neturl&quot;</span> : <span class="s2">&quot;10.26.29.40:47101&quot;</span>
+                <span class="o">}</span>,
+                <span class="o">{</span>
+                    <span class="s2">&quot;address&quot;</span> : <span class="s2">&quot;VSML7NenZnGZgCEwtbQDKDSrPHhT5wsu6&quot;</span>
+                    , <span class="s2">&quot;neturl&quot;</span> : <span class="s2">&quot;10.26.29.40:47102&quot;</span>
+                <span class="o">}</span>,
+                <span class="o">{</span>
+                    <span class="s2">&quot;address&quot;</span> : <span class="s2">&quot;bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3&quot;</span>
+                    , <span class="s2">&quot;neturl&quot;</span> : <span class="s2">&quot;10.26.29.40:47103&quot;</span>
+                <span class="o">}</span>
+            <span class="o">]</span>,
+            // 使用chained-bft
+            <span class="s2">&quot;bft_config&quot;</span>: <span class="o">{}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>将修改好的1份xuper.json拷贝到另外2个节点的data/config目录下。</p>
+<p>注意，拷贝配置内容到xuper.json时需去掉注释。</p>
+</div>
+<div class="section" id="xchain">
+<h3>10.1.4. 创建链并启动xchain<a class="headerlink" href="#xchain" title="永久链接至标题">¶</a></h3>
+<p>检查data/blockchain 目录下内容为空之后，创建链并启动所有节点。命令如下：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 创建xuper链</span>
+./xchain-cli createChain
+<span class="c1"># 启动服务节点</span>
+nohup ./xchain <span class="p">&amp;</span>
+<span class="c1"># check服务运行状况，修改-H后参数，可以查询每个节点状态</span>
+<span class="k">for</span><span class="o">((</span><span class="nv">i</span><span class="o">=</span><span class="m">1</span><span class="p">;</span>i&lt;<span class="o">=</span><span class="m">3</span><span class="p">;</span>i++<span class="o">))</span><span class="p">;</span><span class="k">do</span>
+./xchain-cli status -H <span class="m">127</span>.0.0.1:3710<span class="nv">$i</span> <span class="p">|</span>grep -i height
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>通过变更-H 参数，查看每个节点的状态，若所有节点高度都是一致变化的，则证明环境状态正常。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>10.2. 验证集合合约部署和调用<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>XPoA共识算法中，候选人的变更依赖”验证集合”合约，所以需要部署”验证集合”合约。通过调用合约中的add_validate方法新增候选人、del_validate方法删除候选人、update_validate方法更新候选人neturl、get_validates方法查询候选人列表。通过设置合约方法的ACL，可以限制哪些用户具有变更候选人的权限，设置方法参考 <a class="reference external" href="../advanced_usage/create_contracts.html#acl">设置合约方法的ACL</a>。</p>
+<div class="section" id="id5">
+<h3>10.2.1. 创建合约账号<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>合约账号用来做合约的管理，创建合约账号，并给合约账号转账。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 创建合约账号</span>
+<span class="o">[</span>work@<span class="o">]</span>$ node1 -&gt; ./xchain-cli account new --account <span class="m">1111111111111111</span> --fee <span class="m">1000</span> -H <span class="m">127</span>.0.0.1:37101
+<span class="c1"># 执行结果</span>
+<span class="c1"># contract response:</span>
+<span class="c1">#         {</span>
+<span class="c1">#             &quot;pm&quot;: {</span>
+<span class="c1">#                 &quot;rule&quot;: 1,</span>
+<span class="c1">#                 &quot;acceptValue&quot;: 1.0</span>
+<span class="c1">#             },</span>
+<span class="c1">#             &quot;aksWeight&quot;: {</span>
+<span class="c1">#                 &quot;dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN&quot;: 1.0</span>
+<span class="c1">#             }</span>
+<span class="c1">#         }</span>
+
+<span class="c1"># The gas you cousume is: 1000</span>
+<span class="c1"># The fee you pay is: 1000</span>
+<span class="c1"># Tx id: eb9924c85a16d72f5daf6e6feabb130ef9c8a3ce8f507db08dcb726111aef74f</span>
+<span class="c1"># account name: XC1111111111111111@xuper</span>
+
+<span class="c1"># 给合约账号转账</span>
+<span class="o">[</span>work@<span class="o">]</span>$ node1 -&gt; ./xchain-cli transfer --to XC1111111111111111@xuper --amount <span class="m">100000000</span> -H <span class="m">127</span>.0.0.1:37101
+<span class="c1"># 执行结果</span>
+<span class="c1"># ec6fa53446a8c6ab0d8d45f2bba80c7e5122341ce9b0c85779f80ce1a55f37b6</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>10.2.2. 编译合约<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>“验证集合”合约源码位于core/contractsdk/cpp/example/xpoa_validates，执行如下命令编译合约，编译结果为xpoa_validates.wasm。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># prj是xuperchain源码所在目录，设定环境变量</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$prj</span>/xuperchain/output:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">XDEV_ROOT</span><span class="o">=</span><span class="nv">$prj</span>/xuperchain/core/contractsdk/cpp
+<span class="c1"># 编译合约</span>
+<span class="nb">cd</span> <span class="nv">$prj</span>/xuperchain/core/contractsdk/cpp/example/xpoa_validates
+xdev build
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>10.2.3. 部署合约<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>部署合约，并设置node1、node2为初始候选人。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>work@<span class="o">]</span>$ node1 -&gt; ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname xpoa_validates --arg <span class="s1">&#39;{&quot;addresss&quot;:&quot;dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN;VSML7NenZnGZgCEwtbQDKDSrPHhT5wsu6&quot;,&quot;neturls&quot;:&quot;127.0.0.1:47101;127.0.0.1:47102&quot;}&#39;</span> ./xpoa_validates.wasm --fee <span class="m">222065</span> -H <span class="m">127</span>.0.0.1:37101
+<span class="c1"># 执行结果</span>
+<span class="c1"># contract response: initialize succeed</span>
+<span class="c1"># The gas you cousume is: 221920</span>
+<span class="c1"># The fee you pay is: 222065</span>
+<span class="c1"># Tx id: 4f9f11afcf080199b93d5f308b6dc0e07ce5b9099c36cbf9b4edb2ee398bcfa3</span>
+</pre></div>
+</div>
+<p>参数说明：</p>
+<ul class="simple">
+<li><strong>wasm deploy</strong>：部署wasm合约</li>
+<li><strong>–account XC1111111111111111&#64;xuper</strong>：此为部署wasm合约的账号</li>
+<li><strong>–cname xpoa_validates</strong> ：合约名称，需与xuper.json中配置的contract_name参数一致</li>
+<li><strong>–arg</strong> ：此为传入合约的参数，这里设置初始矿工，所指定的初始矿工需要在网络中存在，多个矿工用分号间隔，且address与netrul要 一一对应。</li>
+<li><strong>./xpoa_validates.wasm</strong> ：是编译合约产出的文件</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>10.2.4. 增加候选人<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>以添加node3为候选人为例，添加后等待1分钟，调查看候选人命令，查看是否添加成功。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>work@<span class="o">]</span>$ node1 -&gt; ./xchain-cli wasm invoke xpoa_validates --method add_validate --args <span class="s1">&#39;{&quot;address&quot;:&quot;bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3&quot;,&quot;neturl&quot;:&quot;127.0.0.1:47103&quot;}&#39;</span> --fee <span class="m">300</span> -H <span class="m">127</span>.0.0.1:37101
+<span class="c1"># 执行结果</span>
+<span class="c1"># contract response: {&quot;address&quot;:&quot;bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3&quot;,&quot;neturl&quot;:&quot;127.0.0.1:47103&quot;}</span>
+<span class="c1"># The gas you cousume is: 252</span>
+<span class="c1"># The fee you pay is: 300</span>
+<span class="c1"># Tx id: 5a3993d0e001aa0b140b204c013c6ea0b9741f8e1dfe81db71887579d63ce785</span>
+</pre></div>
+</div>
+<p>参数说明：</p>
+<ul class="simple">
+<li><strong>wasm invoke</strong>：调用合约</li>
+<li><strong>–method add_validate</strong>：调用add_validate方法</li>
+<li><strong>–args</strong>：传入的参数，填写待添加候选人的address和neturl</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>10.2.5. 查看候选人<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>查询结果中，候选人按字典序排列。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>work@<span class="o">]</span>$ node1 -&gt; ./xchain-cli wasm invoke xpoa_validates --method get_validates -H <span class="m">127</span>.0.0.1:37101
+<span class="c1"># 执行结果</span>
+<span class="c1"># contract response: {&quot;proposers&quot;:[{&quot;address&quot;:&quot;VSML7NenZnGZgCEwtbQDKDSrPHhT5wsu6&quot;,&quot;neturl&quot;:&quot;127.0.0.1:47102&quot;},{&quot;address&quot;:&quot;bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3&quot;,&quot;neturl&quot;:&quot;127.0.0.1:47103&quot;},{&quot;address&quot;:&quot;dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN&quot;,&quot;neturl&quot;:&quot;127.0.0.1:47101&quot;}]}</span>
+<span class="c1"># The gas you cousume is: 439</span>
+<span class="c1"># You need add fee</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>wasm invoke</strong>：调用合约</li>
+<li><strong>–method get_validates</strong>：调用get_validates方法</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>10.2.6. 更新候选人<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>候选人的netrul发生变化后，需要更新。以更新node3的neturl为例，比如更新为localhost:47103。修改后等待1分钟，调查看候选人命令，查看是否修改成功。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>work@<span class="o">]</span>$ node1 -&gt; ./xchain-cli wasm invoke xpoa_validates --method update_validate -a <span class="s1">&#39;{&quot;address&quot;:&quot;bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3&quot;,&quot;neturl&quot;:&quot;localhost:47103&quot;}&#39;</span> --fee <span class="m">300</span> -H <span class="m">127</span>.0.0.1:37101
+<span class="c1"># 执行结果</span>
+<span class="c1"># contract response: {&quot;address&quot;:&quot;bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3&quot;,&quot;neturl&quot;:&quot;localhost:47103&quot;}</span>
+<span class="c1"># The gas you cousume is: 263</span>
+<span class="c1"># The fee you pay is: 300</span>
+<span class="c1"># Tx id: 6e6289c513169cd32c44fa05bb06c0eba0f37f05acd5eb6ae4573ae266363b76</span>
+</pre></div>
+</div>
+<p>参数说明：</p>
+<ul class="simple">
+<li><strong>wasm invoke</strong>：调用合约</li>
+<li><strong>–method update_validate</strong>：调用update_validate方法</li>
+<li><strong>–args</strong>：传入的参数，填写待更新候选人的address和neturl</li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3>10.2.7. 删除候选人<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>将node3从候选人集合删除。删除后等待1分钟，调查看候选人命令，查看是否删除成功。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>work@<span class="o">]</span>$ node1 -&gt; ./xchain-cli wasm invoke xpoa_validates --method del_validate -a <span class="s1">&#39;{&quot;address&quot;:&quot;bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3&quot;}&#39;</span> --fee <span class="m">300</span> -H <span class="m">127</span>.0.0.1:37101
+<span class="c1"># 执行结果</span>
+<span class="c1"># contract response: ok</span>
+<span class="c1"># The gas you cousume is: 128</span>
+<span class="c1"># The fee you pay is: 300</span>
+<span class="c1"># Tx id: a033b1c4b548c3515a29b5d643fdad20cc778c71a75a95869ddaae067177d7c4</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>wasm invoke</strong>：调用合约</li>
+<li><strong>–method del_validate</strong>：调用del_validate方法</li>
+<li><strong>–args</strong>：传入的参数，填写待删除候选人的address和neturl</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>10.2.8. 查看当前正在出块的候选人<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<p>通过日志，可查看当前正在出块的候选人。示例如下，其中proposer是正在出块候选人。并且，多个候选人按字典序轮值出块。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>work@<span class="o">]</span>$ node1 -&gt; tailf logs/xchain.log<span class="p">|</span>grep <span class="s2">&quot;bft NewView&quot;</span>
+<span class="nv">t</span><span class="o">=</span><span class="m">2020</span>-06-28T17:04:24+0800 <span class="nv">lvl</span><span class="o">=</span>info <span class="nv">msg</span><span class="o">=</span><span class="s2">&quot;bft NewView&quot;</span> <span class="nv">module</span><span class="o">=</span>xchain <span class="nv">viewNum</span><span class="o">=</span><span class="m">550</span> dpm.currentView<span class="o">=</span><span class="m">550</span> <span class="nv">proposer</span><span class="o">=</span>bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3 <span class="nv">preProposer</span><span class="o">=</span>VSML7NenZnGZgCEwtbQDKDSrPHhT5wsu6 <span class="nv">err</span><span class="o">=</span>nil
+
+<span class="nv">t</span><span class="o">=</span><span class="m">2020</span>-06-28T17:04:27+0800 <span class="nv">lvl</span><span class="o">=</span>info <span class="nv">msg</span><span class="o">=</span><span class="s2">&quot;bft NewView&quot;</span> <span class="nv">module</span><span class="o">=</span>xchain <span class="nv">viewNum</span><span class="o">=</span><span class="m">551</span> dpm.currentView<span class="o">=</span><span class="m">551</span> <span class="nv">proposer</span><span class="o">=</span>bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3 <span class="nv">preProposer</span><span class="o">=</span>VSML7NenZnGZgCEwtbQDKDSrPHhT5wsu6 <span class="nv">err</span><span class="o">=</span>nil
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>10.3. 常见问题<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li>端口冲突：注意如果在一台机器上部署多个节点，各个节点的RPC监听端口以及p2p监听端口都需要设置地不相同，避免冲突；</li>
+<li>节点公私钥冲突：注意网络中不同节点./data/keys下的文件内容都应该不一样，这个文件夹是节点在网络中的唯一标识，每个节点需要独自生成，否则网络启动异常；</li>
+<li>遇到The gas you cousume is: XXXX, You need add fee 通过加–fee XXXX 参数附加资源；</li>
+<li>Chained-Bft算法要求3个矿工的集群，不可以有矿工故障，所以如果使用更新候选人接口将节点neturl更新错误，将无法出块，需删除data/blockchain 目录下内容后，从10.1.4节开始重新部署环境。</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../developing_apps/eleccert.html" class="btn btn-neutral float-right" title="1. 电子存证合约" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cross_chain.html" class="btn btn-neutral float-left" title="9. 非事务场景跨链使用文档" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, xuper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. XuperChain环境部署 &mdash; xuperchain-doc  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/stat.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. XuperModel" href="design_documents/XuperModel.html" />
+    <link rel="prev" title="8. 总结" href="introduction/summary.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xuperchain-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">XuperChain介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction/brief.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/modules.html">2. 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/datastruct.html">3. 核心数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/smart_contracts.html">4. 智能合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/permission_system.html">5. 权限系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/privacy.html">6. 隐私和保密</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/perfomance.html">7. 性能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/summary.html">8. 总结</a></li>
+</ul>
+<p class="caption"><span class="caption-text">快速入门</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. XuperChain环境部署</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#env-prepare">1.1. 准备环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#env-compiling">1.2. 编译XuperChain</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#basic-operation">2. XuperChain基本操作</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#xchain">2.1. 部署xchain服务</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-chain">2.1.1. 创建链</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#svr-start">2.1.2. 启动服务</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#svr-status">2.1.3. 确认服务状态</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage">2.2. 基本功能的使用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-account">2.2.1. 创建新账号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#balance">2.2.2. 查询资源余额</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transfer">2.2.3. 转账</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#querytx">2.2.4. 查询交易信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#block">2.2.5. 查询block信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multisig">2.2.6. 发起多重签名交易</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">技术设计文档:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/XuperModel.html">1. XuperModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/XuperBridge.html">2. XuperBridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/xvm.html">3. XVM虚拟机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/permission_model.html">4. 账号权限控制模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/p2p.html">5. 超级链p2p网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/authentication.html">6. 身份认证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/proposal.html">7. 提案和投票机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/crypto.html">8. 密码学和隐私保护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/extension.html">9. 插件机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/consensus.html">10. 超级链共识框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/chained_bft.html">11. Chained-BFT共识公共组件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/xpos.html">12. XPoS共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/single_pow.html">13. Single及PoW共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/regulatory.html">14. 超级链监管机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/multidisk.html">15. 多盘散列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/group.html">16. 平行链与群组</a></li>
+</ul>
+<p class="caption"><span class="caption-text">进阶使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/contract_accounts.html">1. 合约账号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/multi-nodes.html">2. 多节点部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/create_contracts.html">3. 创建合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/initiate_proposals.html">4. 发起提案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/multi-disks.html">5. 配置变更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/parallel_chain.html">6. 使用平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/subscribe.html">7. 使用事件订阅功能</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发应用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="developing_apps/eleccert.html">1. 电子存证合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developing_apps/erc721.html">2. 数字资产交易</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development_manuals/XuperCDT.html">1. 智能合约SDK使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_manuals/XuperRPC.html">2. XuperChain RPC 接口使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">超级链测试环境</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="test_network/description.html">1. 超级链测试环境说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test_network/guides.html">2. 超级链测试环境使用指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">其他</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="operations_guides.html">1. 操作指导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="video.html">2. 视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands_reference.html">3. 指令介绍(API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">4. 常见问题解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocabulary.html">5. 词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons.html">6. 超级链小课堂</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">xuperchain-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1. XuperChain环境部署</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>本章节将指导您获取XuperChain的代码并部署一个基础的可用环境，还会展示一些基本操作</p>
+<div class="section" id="xuperchain">
+<span id="env-deploy"></span><h1>1. XuperChain环境部署<a class="headerlink" href="#xuperchain" title="永久链接至标题">¶</a></h1>
+<div class="section" id="env-prepare">
+<span id="id1"></span><h2>1.1. 准备环境<a class="headerlink" href="#env-prepare" title="永久链接至标题">¶</a></h2>
+<p>XuperChain主要由Golang开发，需要首先准备编译运行的环境</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>安装go语言编译环境，版本为1.11或更高</dt>
+<dd><ul class="first last">
+<li>下载地址：<a class="reference external" href="https://golang.org/dl/">golang</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>安装git</dt>
+<dd><ul class="first last">
+<li>下载地址：<a class="reference external" href="https://git-scm.com/download">git</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="env-compiling">
+<span id="id2"></span><h2>1.2. 编译XuperChain<a class="headerlink" href="#env-compiling" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p class="first">使用git下载源码到本地</p>
+<blockquote>
+<div><ul class="simple">
+<li>git clone <a class="reference external" href="https://github.com/xuperchain/xuperchain.git">https://github.com/xuperchain/xuperchain.git</a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">执行命令</p>
+</li>
+</ul>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> src/github.com/xuperchain/xuperchain
+make
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li>在output目录得到产出xchain和xchain-cli</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>可能需要配置go语言环境变量（$GOROOT, $PATH）</p>
+<dl class="docutils">
+<dt>GOPATH问题报错（go1.11版本之后无需关注）</dt>
+<dd><ul class="first last simple">
+<li>在1.11版本之前需要配置。配置成以下形式：</li>
+<li>export GOPATH=xxx/github.com/xuperchain/xuperchain</li>
+</ul>
+</dd>
+</dl>
+<p class="last">GCC版本需要升级到4或5以上</p>
+</div>
+</div>
+</div>
+<div class="section" id="basic-operation">
+<span id="id3"></span><h1>2. XuperChain基本操作<a class="headerlink" href="#basic-operation" title="永久链接至标题">¶</a></h1>
+<p>在output下，主要目录有data, logs, conf, plugins等, 二进制文件有xchain，xchain-cli</p>
+<p>各目录的功能如下表：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">目录名</th>
+<th class="head">功能</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>output/</td>
+<td>节点根目录</td>
+</tr>
+<tr class="row-odd"><td>├─ conf</td>
+<td>xchain.yaml: xchain服务的配置信息（注意端口冲突）
+plugins.conf: 插件的配置信息</td>
+</tr>
+<tr class="row-even"><td>├─ data</td>
+<td>数据的存放目录，创世块信息，以及共识和合约的样例</td>
+</tr>
+<tr class="row-odd"><td>│  ···   ├─ blockchain</td>
+<td>账本目录</td>
+</tr>
+<tr class="row-even"><td>│  ···   ├─ keys</td>
+<td>此节点的地址，具有全局唯一性</td>
+</tr>
+<tr class="row-odd"><td>│  ···   ├─ netkeys</td>
+<td>此节点的网络标识ID，具有全局唯一性</td>
+</tr>
+<tr class="row-even"><td>│  ···   └─ config</td>
+<td>包括创始的共识，初始的资源数，矿工奖励机制等</td>
+</tr>
+<tr class="row-odd"><td>├─ logs</td>
+<td>程序日志目录</td>
+</tr>
+<tr class="row-even"><td>├─ plugins</td>
+<td>so扩展的存放目录</td>
+</tr>
+<tr class="row-odd"><td>├─ xchain</td>
+<td>xchain服务的二进制文件</td>
+</tr>
+<tr class="row-even"><td>├─ xchain-cli</td>
+<td>xchain客户端工具</td>
+</tr>
+<tr class="row-odd"><td>└─ wasm2c</td>
+<td>wasm工具（智能合约会用到）</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="xchain">
+<span id="svr-deploy"></span><h2>2.1. 部署xchain服务<a class="headerlink" href="#xchain" title="永久链接至标题">¶</a></h2>
+<div class="section" id="create-chain">
+<span id="id4"></span><h3>2.1.1. 创建链<a class="headerlink" href="#create-chain" title="永久链接至标题">¶</a></h3>
+<p>在启动xchain服务之前，我们首先需要创建一条链（创世区块），xchain客户端工具提供了此功能</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 创建xuper链</span>
+./xchain-cli createChain
+</pre></div>
+</td></tr></table></div>
+<div class="figure align-center" id="id13">
+<img alt="创建链" src="https://xchain-xuperunion.bj.bcebos.com/learning/createChain.gif" />
+<p class="caption"><span class="caption-text">创建链</span></p>
+</div>
+<p>这样我们就使用 config/xuper.json 中的配置创建了一条链（此时 data/blockchain 中会生成 xuper 目录，里面即是我们创建的链的账本等文件）</p>
+</div>
+<div class="section" id="svr-start">
+<span id="id5"></span><h3>2.1.2. 启动服务<a class="headerlink" href="#svr-start" title="永久链接至标题">¶</a></h3>
+<p>启动服务命令十分简单，还可以配合多种参数使用，详见命令行的 -h 输出</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 启动服务节点</span>
+nohup ./xchain <span class="p">&amp;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="svr-status">
+<span id="id6"></span><h3>2.1.3. 确认服务状态<a class="headerlink" href="#svr-status" title="永久链接至标题">¶</a></h3>
+<p>按照默认配置，xchain服务会监听37101端口，可以使用如下命令查看xchain服务的运行状态</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># check服务运行状况</span>
+./xchain-cli status -H <span class="m">127</span>.0.0.1:37101
+</pre></div>
+</td></tr></table></div>
+<div class="figure align-center" id="id14">
+<img alt="查看状态" src="https://xchain-xuperunion.bj.bcebos.com/learning/status.gif" />
+<p class="caption"><span class="caption-text">查看运行状态</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="basic-usage">
+<span id="id7"></span><h2>2.2. 基本功能的使用<a class="headerlink" href="#basic-usage" title="永久链接至标题">¶</a></h2>
+<div class="section" id="create-account">
+<span id="id8"></span><h3>2.2.1. 创建新账号<a class="headerlink" href="#create-account" title="永久链接至标题">¶</a></h3>
+<p>xchain中，账号分为普通账号和“合约账号”，这里先介绍普通账号的创建，命令如下</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 创建普通用户, 包含地址，公钥，私钥</span>
+./xchain-cli account newkeys --output data/bob
+<span class="c1"># 在bob目录下会看到文件address，publickey，privatekey生成</span>
+</pre></div>
+</td></tr></table></div>
+<div class="figure align-center" id="id15">
+<img alt="创建账号" src="https://xchain-xuperunion.bj.bcebos.com/learning/newkey.gif" />
+<p class="caption"><span class="caption-text">创建账号</span></p>
+</div>
+</div>
+<div class="section" id="balance">
+<span id="id9"></span><h3>2.2.2. 查询资源余额<a class="headerlink" href="#balance" title="永久链接至标题">¶</a></h3>
+<p>对于普通账号，可使用如下命令查询账号资源余额，其中 -H 参数为xchain服务的地址</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./xchain-cli account balance --keys data/keys -H <span class="m">127</span>.0.0.1:37101
+</pre></div>
+</td></tr></table></div>
+<div class="figure align-center" id="id16">
+<img alt="查询余额" src="https://xchain-xuperunion.bj.bcebos.com/learning/balance.gif" />
+<p class="caption"><span class="caption-text">查询余额</span></p>
+</div>
+</div>
+<div class="section" id="transfer">
+<span id="id10"></span><h3>2.2.3. 转账<a class="headerlink" href="#transfer" title="永久链接至标题">¶</a></h3>
+<p>转账操作需要提供源账号的私钥目录，也就类似“1.2.4.1”中生成的目录，这里注意到并不需要提供目标账号的任何密钥，只需要提供地址即可</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># --keys 从此地址 转给 --to地址 --amount 钱</span>
+./xchain-cli transfer --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount <span class="m">10</span> --keys data/keys/ -H <span class="m">127</span>.0.0.1:37101
+</pre></div>
+</td></tr></table></div>
+<p>命令执行的返回是转账操作的交易id（txid）</p>
+<div class="figure align-center" id="id17">
+<img alt="普通转账" src="https://xchain-xuperunion.bj.bcebos.com/learning/transfer.gif" />
+<p class="caption"><span class="caption-text">普通转账操作</span></p>
+</div>
+</div>
+<div class="section" id="querytx">
+<span id="id11"></span><h3>2.2.4. 查询交易信息<a class="headerlink" href="#querytx" title="永久链接至标题">¶</a></h3>
+<p>通过以下命令可以查询交易的信息，包括交易状态、交易的源和目标账号、交易的金额、所在的区块（如果已上链）等内容</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 可查询上一步生成的txid的交易信息</span>
+./xchain-cli tx query cbbda2606837c950160e99480049e2aec3e60689a280b68a2d253fdd8a6ce931 -H <span class="m">127</span>.0.0.1:37101
+</pre></div>
+</td></tr></table></div>
+<div class="figure align-center" id="id18">
+<img alt="查询交易" src="https://xchain-xuperunion.bj.bcebos.com/learning/querytx.gif" />
+<p class="caption"><span class="caption-text">查询交易</span></p>
+</div>
+</div>
+<div class="section" id="block">
+<span id="queryblock"></span><h3>2.2.5. 查询block信息<a class="headerlink" href="#block" title="永久链接至标题">¶</a></h3>
+<p>通过blockid可以查询区块的相关信息，包括区块内打包的交易、所在链的高度、前驱/后继区块的id等内容</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 可查询上一步交易所在的block id信息</span>
+./xchain-cli block 0354240c8335e10d8b48d76c0584e29ab604cfdb7b421d973f01a2a49bb67fee -H <span class="m">127</span>.0.0.1:37101
+</pre></div>
+</td></tr></table></div>
+<div class="figure align-center" id="id19">
+<img alt="查询区块" src="https://xchain-xuperunion.bj.bcebos.com/learning/queryblock.gif" />
+<p class="caption"><span class="caption-text">查询区块</span></p>
+</div>
+</div>
+<div class="section" id="multisig">
+<span id="id12"></span><h3>2.2.6. 发起多重签名交易<a class="headerlink" href="#multisig" title="永久链接至标题">¶</a></h3>
+<p>对于需要多个账号签名才可以生效的交易，需要先发起多重签名交易，收集需要的签名，然后再发出</p>
+<p>对需要收集签名的账号地址，需要事先维护在一个文件中（假定名为addr_list），每个地址一行</p>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">YDYBchKWXpG7HSkHy4YoyzTJnd3hTFBgG</span>
+<span class="go">ZAmWoJViiNn5pKz32m2MVgmPnSpgLia7z</span>
+</pre></div>
+</td></tr></table></div>
+<p>假设要发起一笔转账操作</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 从账号发起</span>
+./xchain-cli multisig gen --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount <span class="m">100</span> -A addr_list
+<span class="c1"># 从合约账号发起</span>
+./xchain-cli multisig gen --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount <span class="m">100</span> -A addr_list --from XC11111111111111@xuper
+</pre></div>
+</td></tr></table></div>
+<p>这样会生成一个tx.out文件，包含了需发起的交易内容</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 各方在签名之前可以check 原始交易是否ok，查看visual.out</span>
+./xchain-cli multisig check --input tx.out --output visual.out
+</pre></div>
+</td></tr></table></div>
+<p>然后收集需要的签名</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 首先需要发起者自己的签名</span>
+./xchain-cli multisig sign --tx tx.out --output my.sign
+<span class="c1"># 假设addr_list中的地址对应的私钥存放在alice、bob中</span>
+./xchain-cli multisig sign --keys data/account/alice --tx tx.out --output alice.sign
+./xchain-cli multisig sign --keys data/account/bob --tx tx.out --output bob.sign
+</pre></div>
+</td></tr></table></div>
+<p>最后将交易和收集好的签名发出</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># send后第一个参数是发起者的签名文件，第二个参数是需要收集的签名文件，均为逗号分割</span>
+./xchain-cli multisig send --tx tx.out my.sign alice.sign,bob.sign
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="design_documents/XuperModel.html" class="btn btn-neutral float-right" title="1. XuperModel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction/summary.html" class="btn btn-neutral float-left" title="8. 总结" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, xuper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

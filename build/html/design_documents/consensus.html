@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>10. 超级链共识框架 &mdash; xuperchain-doc  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/stat.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="11. Chained-BFT共识公共组件" href="chained_bft.html" />
+    <link rel="prev" title="9. 插件机制" href="extension.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> xuperchain-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">XuperChain介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/brief.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/modules.html">2. 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/datastruct.html">3. 核心数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/smart_contracts.html">4. 智能合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/permission_system.html">5. 权限系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/privacy.html">6. 隐私和保密</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/perfomance.html">7. 性能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/summary.html">8. 总结</a></li>
+</ul>
+<p class="caption"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">1. XuperChain环境部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#basic-operation">2. XuperChain基本操作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">技术设计文档:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="XuperModel.html">1. XuperModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XuperBridge.html">2. XuperBridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xvm.html">3. XVM虚拟机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permission_model.html">4. 账号权限控制模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p.html">5. 超级链p2p网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">6. 身份认证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">7. 提案和投票机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">8. 密码学和隐私保护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">9. 插件机制</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">10. 超级链共识框架</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">10.1. 区块链共识机制概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">10.2. 超级链共识框架概览</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">10.3. 超级链共识矩阵</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">10.4. 超级链共识主流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">10.5. 接口介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">10.5.1. 共识基础接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">10.5.2. 共识安全接口</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chained_bft.html">11. Chained-BFT共识公共组件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xpos.html">12. XPoS共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xpoa.html">13. XPoA共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="single_pow.html">14. Single及PoW共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regulatory.html">15. 超级链监管机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multidisk.html">16. 多盘散列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group.html">17. 平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross_chain.html">18. 超级链跨链技术</a></li>
+</ul>
+<p class="caption"><span class="caption-text">进阶使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/contract_accounts.html">1. 合约账号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-nodes.html">2. 多节点部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/create_contracts.html">3. 创建合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/initiate_proposals.html">4. 发起提案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-disks.html">5. 配置变更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/parallel_chain.html">6. 使用平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/subscribe.html">7. 使用事件订阅功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/readonly_queries.html">8. 只读跨链场景使用文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/cross_chain.html">9. 非事务场景跨链使用文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/construct-XPoA.html">10. 搭建XPoA共识的超级链网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/xchain-performance.html">11. xchain性能测试使用文档</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发应用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/eleccert.html">1. 电子存证合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/erc721.html">2. 数字资产交易</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperCDT.html">1. 智能合约SDK使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XdevManual.html">2. 智能合约开发详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperRPC.html">3. XuperChain RPC 接口使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">超级链测试环境</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/description.html">1. 超级链测试环境说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/guides.html">2. 超级链测试环境使用指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">其他</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operations_guides.html">1. 操作指导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.html">2. 视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands_reference.html">3. 指令介绍(API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQs.html">4. 常见问题解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vocabulary.html">5. 词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons.html">6. 超级链小课堂</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">xuperchain-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>10. 超级链共识框架</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/design_documents/consensus.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>10. 超级链共识框架<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>10.1. 区块链共识机制概述<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>区块链系统多数采用去中心化的分布式设计，节点是分散在各处，系统需要设计一套完善的制度，以维护系统的执行顺序与公平性，统一区块链的版本，并奖励提供资源维护区块链的使用者，以及惩罚恶意的危害者。这样的制度，必须依赖某种方式来证明，是由谁取得了一个区块链的打包权(或称记帐权)，并且可以获取打包这一个区块的奖励;又或者是谁意图进行危害，就会获得一定的惩罚，这些都是区块链系统的共识机制需要解决的问题。</p>
+<p>随着区块链应用落地场景越来越多，很多适应不同应用场景的共识算法先后被提出。但是在当前的技术背景下，功能过于全面的共识算法无法真正可用。在新一代区块链共识机制的设计过程中，根据实际应用场景，有的放矢的选择去中心化、节能、安全等设计原则，对一些原则支持强弱进行取舍，将一定程度上提升系统的整体运行效率。</p>
+<p>我们超级链设计上是一个通用的区块链框架，用户可以方便地进行二次开发定制。超级链的共识模块设计上是一个能够复用底层共识安全的共识框架，用户基于这样的框架可以轻松地定义其自己的链，而不需要考虑底层的共识安全和网络安全。</p>
+</div>
+<div class="section" id="id3">
+<h2>10.2. 超级链共识框架概览<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<img alt="../_images/consensus-1.png" class="align-center" src="../_images/consensus-1.png" />
+<p>上图是超级链共识模块的整体架构图，自底向上主要包括3层：</p>
+<div class="line-block">
+<div class="line">1. <strong>共识公共组件层</strong>：该层主要是不同共识可以共用的组件，包括共识公共节点Consensus、Interface、Chained-BFT、GPS原子钟等，它可以为链提供底层的共识安全性保障；</div>
+<div class="line">2. <strong>共识类型层</strong>：中间层为超级链以及支持或者即将支持的共识类型，主要包括TDPoS、Pow、授权共识等，基于底层的共识安全能力。在这一层，用户可以定义有自己特色的共识类型，如类似TDPoS这种选举机制的共识，也可以定义Stakeing等的相关逻辑；</div>
+<div class="line">3. <strong>可插拔共识层</strong>：最上层是可插拔共识的运行态，包括Step Consensus 和Pluggable Consensus两个实例，该层主要负责维护了链从创建到当前高度的共识的所有升级历史。超级链的共识升级主要依赖系统的提案和投票机制，详情请查看 <a class="reference external" href="proposal.html">提案和投票机制文档</a></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>10.3. 超级链共识矩阵<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>目前超级链主要支持了四种共识，总结如下:</p>
+</div>
+<div class="section" id="id6">
+<h2>10.4. 超级链共识主流程<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>超级链的是一个多链架构，其中单个链的主要逻辑在 <code class="docutils literal notranslate"><span class="pre">core/xchaincore.go</span></code> 文件中，其中与共识模块交互的函数主要有2个，分别是 <code class="docutils literal notranslate"><span class="pre">Miner()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">SendBlock()</span></code> ：</p>
+<ol class="arabic simple">
+<li>Miner(): 这个函数的主要功能有2点，首先判断自己是否为当前的矿工，当判断自己是矿工时需要进行区块打包。</li>
+<li>SendBlock(): 这个函数是节点收到区块时的核心处理逻辑，当节点收到一个区块时会调用共识模块的相关接口进行区块有效性的验证，当验证通过后会将区块写入到账本中。</li>
+</ol>
+<img alt="../_images/consensus-2.png" class="align-center" src="../_images/consensus-2.png" />
+<p>超级链的共识整体流程如上图所示，主要包括7个步骤：</p>
+<ol class="arabic simple">
+<li>用户提交交易到网络，交易执行完后会进入未确认状态，并记录在交易的未确认列表中TxPool中;</li>
+<li>节点的Miner流程通过访问Consensus模块判断自己是否为当前的矿工；</li>
+<li>当节点判断自己是矿工时需要从TxPool中拉取交易并进行区块的打包；</li>
+<li>当矿工完成打包后会将区块广播给其他的验证节点，同时会通过步骤7将区块写入到账本；</li>
+<li>如果某个时刻其他节点判断自己是矿工，同样地会按照上述1-5流程进行区块打包，打包完后会将区块广播给该节点；</li>
+<li>节点收到区块后，会调用consensus模块进行区块的有效性验证；</li>
+<li>矿工打包完后或者验证节点收到一个有效的区块后，将区块写入账本；</li>
+</ol>
+</div>
+<div class="section" id="id7">
+<h2>10.5. 接口介绍<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>整个共识框架主要有2套接口，分别是共识基础接口和共识安全接口，适用的场景不同。</p>
+<p>场景一：用户希望定义自己的共识功能并独立负责共识安全；那么用户仅需要实现共识基础接口；
+场景二：用户希望定义自己的共识功能，但是希望框架底层能帮助保证共识安全；那么用户需要实现共识基础接口和共识安全接口；</p>
+<div class="section" id="id8">
+<h3>10.5.1. 共识基础接口<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>共识基础接口是共识模块的核心接口，是与core模块交互的主要部分。其中最核心的部分主要是 <code class="docutils literal notranslate"><span class="pre">CompeteMaster</span></code> 和 <code class="docutils literal notranslate"><span class="pre">CheckMinerMatch</span></code> 两个。 <code class="docutils literal notranslate"><span class="pre">CompeteMaster</span></code> 是一个节点判断自己是否为主的主要逻辑， <code class="docutils literal notranslate"><span class="pre">CheckMinerMatch</span></code> 是节点收到一个区块验证其区块有效性的主要逻辑。</p>
+<div class="highlight-go notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// consensus/base/consensusinterface.go</span>
+<span class="kd">type</span> <span class="nx">ConsensusInterface</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="nx">Type</span><span class="p">()</span> <span class="kt">string</span>
+    <span class="nx">Version</span><span class="p">()</span> <span class="kt">int64</span>
+    <span class="nx">InitCurrent</span><span class="p">(</span><span class="nx">block</span> <span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">InternalBlock</span><span class="p">)</span> <span class="kt">error</span>
+    <span class="nx">Configure</span><span class="p">(</span><span class="nx">xlog</span> <span class="nx">log</span><span class="p">.</span><span class="nx">Logger</span><span class="p">,</span> <span class="nx">cfg</span> <span class="o">*</span><span class="nx">config</span><span class="p">.</span><span class="nx">NodeConfig</span><span class="p">,</span> <span class="nx">consCfg</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{},</span>
+        <span class="nx">extParams</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{})</span> <span class="kt">error</span>
+    <span class="nx">CompeteMaster</span><span class="p">(</span><span class="nx">height</span> <span class="kt">int64</span><span class="p">)</span> <span class="p">(</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">bool</span><span class="p">)</span>
+    <span class="nx">CheckMinerMatch</span><span class="p">(</span><span class="nx">header</span> <span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Header</span><span class="p">,</span> <span class="nx">in</span> <span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">InternalBlock</span><span class="p">)</span> <span class="p">(</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="nx">ProcessBeforeMiner</span><span class="p">(</span><span class="nx">timestamp</span> <span class="kt">int64</span><span class="p">)</span> <span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{},</span> <span class="kt">bool</span><span class="p">)</span>
+    <span class="nx">ProcessConfirmBlock</span><span class="p">(</span><span class="nx">block</span> <span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">InternalBlock</span><span class="p">)</span> <span class="kt">error</span>
+    <span class="nx">GetCoreMiners</span><span class="p">()</span> <span class="p">[]</span><span class="o">*</span><span class="nx">MinerInfo</span>
+    <span class="nx">GetStatus</span><span class="p">()</span> <span class="o">*</span><span class="nx">ConsensusStatus</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id9">
+<h3>10.5.2. 共识安全接口<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>共识安全接口是保证底层共识安全的核心接口，共识框架底层支持了 <code class="docutils literal notranslate"><span class="pre">Hotstuff</span></code> 算法的的高性能的共识安全模块 <code class="docutils literal notranslate"><span class="pre">Chained-BFT</span></code> 。暴露出了 <code class="docutils literal notranslate"><span class="pre">PacemakerInterface</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ExternalInterface</span></code> 接口，其中 <code class="docutils literal notranslate"><span class="pre">PacemakerInterface</span></code> 是 <code class="docutils literal notranslate"><span class="pre">Chained-BFT</span></code> 的活性保证，此外为了扩展 <code class="docutils literal notranslate"><span class="pre">Chained-BFT</span></code> 安全模块能够应用于更多的仲裁类型， 底层 <code class="docutils literal notranslate"><span class="pre">Chained-BFT</span></code> 设计上不需要理解仲裁的具体内容，通过 <code class="docutils literal notranslate"><span class="pre">ExternalInterface</span></code> 会与外层的共识进行通信，接口的具体定义如下，更详细的内容可以参见 <code class="docutils literal notranslate"><span class="pre">Chained-BFT</span></code> 的介绍。</p>
+<div class="highlight-go notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// consensus/common/chainedbft/liveness/pacemaker_interface.go</span>
+<span class="c1">// PacemakerInterface is the interface of Pacemaker. It responsible for generating a new round.</span>
+<span class="c1">// We assume Pacemaker in all correct replicas will have synchronized leadership after GST.</span>
+<span class="c1">// Safty is entirely decoupled from liveness by any potential instantiation of Packmaker.</span>
+<span class="c1">// Different consensus have different pacemaker implement</span>
+<span class="kd">type</span> <span class="nx">PacemakerInterface</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="c1">// NextNewView sends new view msg to next leader</span>
+    <span class="c1">// It used while leader changed.</span>
+    <span class="nx">NextNewView</span><span class="p">(</span><span class="nx">viewNum</span> <span class="kt">int64</span><span class="p">,</span> <span class="nx">proposer</span><span class="p">,</span> <span class="nx">preProposer</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">error</span>
+    <span class="c1">// NextNewProposal generate new proposal directly while the leader haven&#39;t changed.</span>
+    <span class="nx">NextNewProposal</span><span class="p">(</span><span class="nx">proposalID</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">data</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">error</span>
+    <span class="c1">// UpdateQCHigh update QuorumCert high of this node.</span>
+    <span class="c1">//UpdateQCHigh() error</span>
+    <span class="c1">// CurretQCHigh return current QuorumCert high of this node.</span>
+    <span class="nx">CurrentQCHigh</span><span class="p">(</span><span class="nx">proposalID</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">QuorumCert</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="c1">// CurrentView return current vie of this node.</span>
+    <span class="nx">CurrentView</span><span class="p">()</span> <span class="kt">int64</span>
+    <span class="c1">// UpdateValidatorSet update the validator set of BFT</span>
+    <span class="nx">UpdateValidatorSet</span><span class="p">(</span><span class="nx">validators</span> <span class="p">[]</span><span class="o">*</span><span class="nx">cons_base</span><span class="p">.</span><span class="nx">CandidateInfo</span><span class="p">)</span> <span class="kt">error</span>
+<span class="p">}</span>
+<span class="c1">// consensus/common/chainedbft/external/external_interface.go</span>
+<span class="c1">// ExternalInterface is the interface that chainedbft can communicate with external interface</span>
+<span class="c1">// external consensus need to implements this.</span>
+<span class="kd">type</span> <span class="nx">ExternalInterface</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="c1">// CallPreQc call external consensus for the PreQc with the given Qc</span>
+    <span class="c1">//  PreQc is the the given QC&#39;s ProposalMsg&#39;s JustifyQC</span>
+    <span class="nx">CallPreQc</span><span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">QuorumCert</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">QuorumCert</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="c1">// CallProposalMsg call external consensus for the marshal format of proposalMsg&#39;s parent block</span>
+    <span class="nx">CallPreProposalMsg</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="c1">// CallPrePreProposalMsg call external consensus for the marshal format of proposalMsg&#39;s grandpa&#39;s block</span>
+    <span class="nx">CallPrePreProposalMsg</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="c1">// CallVerifyQc call external consensus for proposalMsg verify with the given QC</span>
+    <span class="nx">CallVerifyQc</span><span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">QuorumCert</span><span class="p">)</span> <span class="p">(</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="c1">// CallProposalMsgWithProposalID call  external consensus for proposalMsg  with the given ProposalID</span>
+    <span class="nx">CallProposalMsgWithProposalID</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span> <span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="c1">// IsFirstProposal return true if current proposal is the first proposal of bft</span>
+    <span class="c1">// First proposal could have empty or nil PreQC</span>
+    <span class="nx">IsFirstProposal</span><span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">QuorumCert</span><span class="p">)</span> <span class="p">(</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chained_bft.html" class="btn btn-neutral float-right" title="11. Chained-BFT共识公共组件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="extension.html" class="btn btn-neutral float-left" title="9. 插件机制" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, xuper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

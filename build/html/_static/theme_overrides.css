@@ -1,0 +1,77 @@
+/* override table width restrictions */
+@media screen and (min-width: 767px) {
+
+   .wy-table-responsive table td {
+      /* !important prevents the common CSS stylesheets from overriding
+         this as on RTD they are loaded after this stylesheet */
+      white-space: normal !important;
+   }
+
+   .wy-table-responsive {
+      overflow: visible !important;
+   }
+
+   .myclass {
+      border: 2px solid #0f488c;
+      border-radius: 10px;
+      margin: 15px auto;
+      padding: 10px;
+      width: 400px;
+   }
+
+   .title {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin: 5px;
+   }
+
+   .text {
+      padding: 0 5px;
+   }
+
+   .banner {
+      margin-bottom: 5px !important;
+   }
+
+   .number {
+      font-weight: bold;
+      text-align: center;
+      font-size: 20px;
+      font-style: oblique;
+      color: #0f488c;
+
+   }
+}
+
+.myclass {
+   border: 2px solid #0f488c;
+   border-radius: 10px;
+   margin: 15px auto;
+   padding: 10px;
+   max-width: 400px;
+}
+
+.title {
+   font-size: 18px;
+   font-weight: bold;
+   text-align: center;
+   margin: 5px;
+}
+
+.text {
+   padding: 0 5px;
+}
+
+.banner {
+   margin-bottom: 5px !important;
+}
+
+.number {
+   font-weight: bold;
+   text-align: center;
+   font-size: 20px;
+   font-style: oblique;
+   color: #0f488c;
+
+}

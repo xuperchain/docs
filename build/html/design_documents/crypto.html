@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. 密码学和隐私保护 &mdash; xuperchain-doc  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/stat.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="9. 插件机制" href="extension.html" />
+    <link rel="prev" title="7. 提案和投票机制" href="proposal.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> xuperchain-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">XuperChain介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/brief.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/modules.html">2. 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/datastruct.html">3. 核心数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/smart_contracts.html">4. 智能合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/permission_system.html">5. 权限系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/privacy.html">6. 隐私和保密</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/perfomance.html">7. 性能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/summary.html">8. 总结</a></li>
+</ul>
+<p class="caption"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">1. XuperChain环境部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#basic-operation">2. XuperChain基本操作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">技术设计文档:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="XuperModel.html">1. XuperModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XuperBridge.html">2. XuperBridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xvm.html">3. XVM虚拟机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permission_model.html">4. 账号权限控制模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p.html">5. 超级链p2p网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">6. 身份认证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">7. 提案和投票机制</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. 密码学和隐私保护</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">8.1. 背景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">8.2. 密码学基础</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">8.2.1. 哈希函数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ecc">8.2.2. ECC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">8.2.3. 多重签名和环签名</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">8.3. 超级链中密码学的使用</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">8.3.1. 用户公私钥账户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">8.3.2. 数据签名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">8.3.3. 通信加密</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">8.4. 密码学模块</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#crypto-provider-interface">8.4.1. Crypto Provider Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">8.4.2. 密码学插件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">8.4.3. 国密插件使用方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">9. 插件机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">10. 超级链共识框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chained_bft.html">11. Chained-BFT共识公共组件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xpos.html">12. XPoS共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="single_pow.html">13. Single及PoW共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regulatory.html">14. 超级链监管机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multidisk.html">15. 多盘散列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group.html">16. 平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross_chain.html">17. 超级链跨链技术</a></li>
+</ul>
+<p class="caption"><span class="caption-text">进阶使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/contract_accounts.html">1. 合约账号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-nodes.html">2. 多节点部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/create_contracts.html">3. 创建合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/initiate_proposals.html">4. 发起提案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-disks.html">5. 配置变更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/parallel_chain.html">6. 使用平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/subscribe.html">7. 使用事件订阅功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/readonly_queries.html">8. 只读跨链场景使用文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/cross_chain.html">9. 非事务场景跨链使用文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/construct-XPoA.html">10. 搭建XPoA共识的超级链网络</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发应用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/eleccert.html">1. 电子存证合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/erc721.html">2. 数字资产交易</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperCDT.html">1. 智能合约SDK使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XdevManual.html">2. 智能合约开发详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperRPC.html">3. XuperChain RPC 接口使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">超级链测试环境</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/description.html">1. 超级链测试环境说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/guides.html">2. 超级链测试环境使用指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">其他</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operations_guides.html">1. 操作指导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.html">2. 视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands_reference.html">3. 指令介绍(API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQs.html">4. 常见问题解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vocabulary.html">5. 词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons.html">6. 超级链小课堂</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">xuperchain-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>8. 密码学和隐私保护</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/design_documents/crypto.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>8. 密码学和隐私保护<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>8.1. 背景<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>密码学技术是区块链的核心基础技术之一，承担着区块链不可篡改和去中心化验证等特性的底层支撑。在超级链中，密码学技术广泛应用在账户体系、交易签名、数据隐私保护等方面，主要以ECC(椭圆曲线密码体系)以及多种Hash散列算法为基础，发展出的一个单独的模块。</p>
+</div>
+<div class="section" id="id3">
+<h2>8.2. 密码学基础<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h3>8.2.1. 哈希函数<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">加密哈希函数(Hash</span> <span class="pre">Function)</span></code> 是适用于密码学的哈希散列函数，是现代密码学的基本工具。它是一种数学算法，将任意大小的数据（通常称为“消息”）映射到固定大小的二进制串（称之为“散列值”，“散列”或“消息摘要”），并且是单向的功能，即一种实际上不可逆转的功能。理想情况下，查找生成给定哈希的消息的唯一方法是尝试对可能的输入进行暴力搜索，以查看它们是否产生匹配，或使用匹配哈希的彩虹表。</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">MD5</span></code> : 摘要长度为128bit，由于容易受到碰撞攻击，目前使用越来越少。</li>
+<li><code class="docutils literal notranslate"><span class="pre">SHA256</span></code> : SHA系列哈希算法由美国国家安全局制定，具有多个hash算法标准，可以产生160~512bit不等的哈希摘要。目前在区块链中使用较多的是SHA256，摘要长度为256bit，具有较高的抗碰撞攻击安全性。</li>
+<li><code class="docutils literal notranslate"><span class="pre">RIPEMD-160</span></code> : 产生长度为160bit的摘要串。 相比于美国国家安全局设计的SHA-1和SHA-2算法，RIPEMD-160的设计原理是开放的。</li>
+</ul>
+<p>关于一些典型的Hash算法的对比，可以参考 <a class="reference external" href="https://en.wikipedia.org/wiki/SHA-1#Comparison_of_SHA_functions">这里</a> 。</p>
+</div>
+<div class="section" id="ecc">
+<h3>8.2.2. ECC<a class="headerlink" href="#ecc" title="永久链接至标题">¶</a></h3>
+<p>构建区块链的去中心化交易，需要一种加密算法，使交易发起人使用持有的密钥对交易数据进行数字签名，而交易验证者只需要知道交易发起人的公开信息，即可对交易有效性进行验证，确定该交易确实来自交易发起者。这种场景在密码学中称之为`公开密钥加密`，也称之为非对称密钥加密。</p>
+<p>常见的公开密钥算法如RSA、ECC(Elliptic Curve Cryptography，缩写为 ECC)等，RSA起步较早，此前在非对称加密领域使用范围最广，例如目前的SSL证书大多采用RSA算法。而在ECC算法问世后，由于在抗攻击性、资源消耗等方面相比RSA具有更好的表现，其使用也越来越广泛。</p>
+<p>公钥密码算法一般都基于一个数学难题，比如RSA的依据是给定两个数p, q很容易相乘得到N， 当N足够大时，对N进行因式分解则相对困难的多。<strong>ECC是建立在基于椭圆曲线的离散对数问题上的密码体制，给定椭圆曲线上的一个点P，一个整数k，求解Q=kP很容易；给定一个点P、Q，知道Q=kP，求整数k却是一个难题</strong>。具体的理论知识可以参考 <a class="reference external" href="https://en.wikipedia.org/wiki/Elliptic-curve_cryptography">椭圆曲线密码学</a>。</p>
+<p>椭圆曲线密码学包含了多种密码学算法，下面列出在超级链中涉及到的一些算法：</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">ECIES</span></code> (Elliptic Curve Integrated Encryption Scheme): 椭圆曲线集成加密算法，主要用于基于椭圆曲线的数据加解密。</li>
+<li><code class="docutils literal notranslate"><span class="pre">ECDH</span></code> (Elliptic Curve Diffie–Hellman): 基于Diffie–Hellman算法的一种密钥协商算法，定义了双方如何安全的生成和交换密钥。</li>
+<li><code class="docutils literal notranslate"><span class="pre">ECDSA</span></code> (Elliptic Curve Digital Signature Algorithm): 是使用椭圆曲线密码学实现的DSA(数字签名算法)，一般发起人对消息摘要使用私钥签名，验证者可以通过公钥对签名有效性进行验证。</li>
+</ul>
+<p>椭圆曲线算法由于采用的椭圆曲线的不同，具有多种不同的算法标准，典型的如：</p>
+<ul class="simple">
+<li>NIST标准，典型的曲线如P-256/P-384/P-521等；</li>
+<li>SECG标准，典型的如Secp256k1/Secp256r1/ secp192k1/ secp192r1等；</li>
+<li>ECC25519，主要指Ed25519数字签名和Curve25519密钥协商标准等；</li>
+<li>国产密码算法，中国国家密码局制定的密码学算法标准，典型的如SM2/3/4等。</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>8.2.3. 多重签名和环签名<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>多重签名是指在数字签名中，有时需要多个用户对同一个交易进行签名和认证，例如某些合约账户下的数据需要多个人授权才能修改或转账。</p>
+<p>在密码学中，通过多重签名可以将多个用户的授权签名信息压缩在同一个签名中，这样相比于每个用户产生一个签名的数据体量会小很多，因此其验签计算、网络传输的资源开销也会少很多。</p>
+<p>环签名是一种数字签名技术，环签名的一个安全属性是无法通过计算还原出一组用户中具体使用私钥签名的用户。也就是说，使用环签名技术可以使一组用户中的某一个人对消息进行签名，而并不会泄露签名者是这组用户中的哪个人。环签名与组签名类似，但在两个关键方面有所不同：第一，单个签名具有匿名性; 第二，任何一批用户都可以作为一个组使用，无需额外设置。</p>
+<p>在实际使用中，多重签名主要用作多人实名授权的交易，通过产生更小的签名数据提升网络传输和计算效率，而环签名则主要用于对交易隐私保护和匿名性有要求的交易场景中。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>8.3. 超级链中密码学的使用<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>密码学作为区块链系统的底层基础技术，在很多方面都会使用到。这里介绍几个超级链中几个密码学典型的使用场景。</p>
+<div class="section" id="id9">
+<h3>8.3.1. 用户公私钥账户<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>超级链的用户账户体系基于非对称公私钥对，每个用户账户对应这一组公私钥对，并采用一定的哈希算法将公钥摘要成一个字符串作为用户账户地址(address)。</p>
+<img alt="../_images/crypto-1.png" src="../_images/crypto-1.png" />
+<p>超级链中公私钥对使用椭圆曲线算法生成，用户账户地址主要使用SHA256和RIPEMD-160哈希算法生成。</p>
+<p>考虑到密钥不具备可读性，为了帮助用户保存密钥，超级链实现了BIP39提案的助记词技术。</p>
+<ul class="simple">
+<li>助记词的生成过程：首先生成一个长度在128~256bit之间的随机熵，由此在助记词表中选出对应的单词列表，形成助记词。</li>
+<li>助记词产生私钥：使用基于口令的密钥派生算法PBKDF2，将上述生成的助记词和用户指定的密钥作为密钥派生算法参数，生成长度为512bit的种子，以此种子作为生成密钥的随机参数，便产生了了从助记词生成的私钥。</li>
+<li>通过助记词恢复密钥：由于用户持有生成密钥的助记词和口令，因此在用户私钥遗忘或丢失时，可以通过同样的助记词和口令，执行助记词产生私钥的过程，从而恢复出账户密钥。</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>8.3.2. 数据签名<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>超级链中，每个交易都需要交易发起人以及交易背书人的签名；在每个块生成时，也需要加上打包块的节点的签名。</p>
+<ul class="simple">
+<li>交易签名： 基于交易数据摘要，会包含交易输入输出、合约调用、合约读写集、发起人和背书人信息等，并将交易数据序列化后的字节数组使用双重SHA256得到摘要数据，最后对摘要数据用ECDSA或其他数字签名算法产生交易签名。</li>
+<li>块签名：基于区块数据摘要，会包含区块元信息如前序块Hash值、交易Merkle树根、打包时间、出块节点等数据，并在序列化后使用双重SHA256得到摘要数据，最后对摘要数据用ECDSA或其他数字签名算法产生区块签名。</li>
+</ul>
+<img alt="../_images/crypto-2.png" src="../_images/crypto-2.png" />
+</div>
+<div class="section" id="id11">
+<h3>8.3.3. 通信加密<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>超级链底层采用P2P网络传播交易和区块数据，在一些许可区块链网络场景中，需要对节点间的数据传输进行加密提升安全和隐私性，因此超级链的P2P连接支持基于ECDH的密钥交换算法的TLS连接。</p>
+<p>ECDH的原理是交换双方可以在不共享任何秘密的情况下协商出一个密钥，双方只要知道对方的公钥，就能和自己的私钥通过计算得出同一份数据，而这份数据就可以作为双方接下来对称加密的密钥。</p>
+<img alt="../_images/crypto-3.png" src="../_images/crypto-3.png" />
+<p>超级链P2P网络通过ECDH建立通信加密通道的过程如上图所示：</p>
+<ul class="simple">
+<li>第一阶段是Propose阶段，这一阶段，对等节点间互相交换双方永久公钥PK。</li>
+<li>第二阶段是Exchange阶段，本质是基于ECDH的密钥交换。双方通过ECC算法随机生成一组临时密钥对(tempPK, tempSK)，然后用自己的永久私钥对临时公钥tempPK进行签名并交换。这时，双方可以通过第一步的公钥进行验签，同时拿到供本次会话使用的临时公钥。使用临时公钥的好处是一话一密，即使本次会话密钥泄露也不会导致以前的加密数据被破解。ECDH算法使得双方通过对方的公钥和自己的私钥，可以获得一致的共享密钥SharedKey。</li>
+<li>第三阶段是Verify阶段。双方使用ShareKey产生两组密钥Key1，Key2分别作为读写密钥，并使用支持的对称加密算法(AES/blowfish)加密传输第一步中发送给对方的Nonce，而接收方则使用刚才协商的密钥对数据解密，并验证Nonce是不是等于第一步中自己发送给对方的值。</li>
+</ul>
+<p>通过这三次握手，双方建立了加密通信通道，并且节点间通信加密信道满足一话一密的高安全等级。</p>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>8.4. 密码学模块<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<div class="section" id="crypto-provider-interface">
+<h3>8.4.1. Crypto Provider Interface<a class="headerlink" href="#crypto-provider-interface" title="永久链接至标题">¶</a></h3>
+<p>密码学作为区块链系统的底层技术，相对比较独立。考虑到超级链作为区块链底层系统方案的模块化目标，我们将密码学相关的功能设计成一个单独的模块，并通过插件化技术实现了模块可插拔、插件可替换。</p>
+<p>因此，超级链首先抽象出了统一的密码学相关的功能，并在此之上定义了统一的密码学接口，我们称之为Crypto Provider Interface，并通过CryptoClient接口向上层区块链系统系统密码学功能。CryptoClient目前由一组接口构成：</p>
+<div class="highlight-go notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// CryptoClient is the interface of all Crypto functions</span>
+<span class="kd">type</span> <span class="nx">CryptoClient</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="nx">CryptoCore</span>
+    <span class="nx">KeyUtils</span>
+    <span class="nx">AccountUtils</span>
+    <span class="nx">MultiSig</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>整个CryptoClient由四部分功能接口组成：</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">CryptoCore</span></code> ： 主要提供包括加解密、签名等密码学核心功能；</li>
+<li><code class="docutils literal notranslate"><span class="pre">KeyUtils</span></code> : 主要提供公私钥相关工具，例如密钥对象和JSON、文件格式之间的转换等；</li>
+<li><code class="docutils literal notranslate"><span class="pre">AccountUtils</span></code> : 主要提供账户相关的功能接口，例如创建账户、助记词导出私钥等；</li>
+<li><code class="docutils literal notranslate"><span class="pre">MultiSig</span></code> : 主要提供多重签名、环签名相关功能接口。</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h3>8.4.2. 密码学插件<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>由于抽象出了统一的密码学模块和接口，在此基础上实现插件化就比较容易。目前超级链已经实现了包括 <em>Nist P256 + ECDSA/Schnorr</em> 以及 <em>国密</em> 等多种密码学插件，并且已经开源了 <em>Nist P256 + ECDSA/Schnorr*和*国密</em> 算法实现，并分别提供了密码学插件。</p>
+<p>为了方便框架使用密码学插件，超级链在 <strong>crypto/client</strong> 包中封装了一层密码学插件管理器，支持创建指定类型的密码学对象，或者通过公私钥自动识别需要加载的插件类型。通过密码学插件管理器，可以支持隔绝框架对密码学插件的感知，对上层框架提供一种无缝的使用体验。</p>
+<p>超级链中默认密码学插件使用的是Nist P256 + ECDSA，在不额外指定的情况下，超级链启动后会加载默认密码学插件。</p>
+<p>之前说过，通过密码学插件管理器可以按照公私钥自动识别需要加载的插件类型，那么超级链如何根据密钥来判断应该使用哪种密码学插件呢？其实，不同的密码学插件是通过密钥中的曲线类型来确定的，目前系统中定义了三种不同的曲线类型：</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">P-256</span></code> : 使用Nist P256+ECDSA的默认插件；</li>
+<li><code class="docutils literal notranslate"><span class="pre">P-256-SN</span></code> : 使用Nist P256 + Schnorr签名的插件，可以提供更高的签名验签性能;</li>
+<li><code class="docutils literal notranslate"><span class="pre">SM2-P-256</span></code> : 使用SM2/3/4的国密插件，符合中国国家密码局制定的密码学标准。</li>
+</ul>
+<p>实际使用中，可以通过创建链时的配置中的密码学类型指定使用哪种密码学插件，以schnorr签名为例，在创世块配置中添加下述配置即可：</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s2">&quot;crypto&quot;</span>: <span class="s2">&quot;schnorr&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>在cli命令行工具中已经支持了通过命令行参数 <strong>–cryptotype</strong> 指定密码学插件的类型，例如需要创建一个使用Nist P256 + Schnorr的密码学插件的用户账户，可以使用下述命令行：</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./xchain-cli account newkeys --output data/tmpkey --cryptotype schnorr
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id14">
+<h3>8.4.3. 国密插件使用方法<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p>目前我们开源的国密密码学插件支持SM2/SM3/SM4算法，并且国密插件支持对Nist P256算法生成的地址和签名数据进行验签。</p>
+<p>如果要创建一个基于国密算法的链，需要完成以下几个步骤：</p>
+<ol class="arabic simple">
+<li>首先确认使用了v3.7以上的XuperChain版本，并且编译产出中包含了*plugins/crypto/crypto-gm.so.1.0.0*，在插件配置*conf/plugins.conf*中确认包含如下配置内容：</li>
+</ol>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">{</span>
+<span class="s2">&quot;crypto&quot;</span>:<span class="o">[</span>
+    ....,
+    <span class="o">{</span>
+        <span class="s2">&quot;subtype&quot;</span>: <span class="s2">&quot;gm&quot;</span>,
+        <span class="s2">&quot;path&quot;</span>: <span class="s2">&quot;plugins/crypto/crypto-gm.so.1.0.0&quot;</span>,
+        <span class="s2">&quot;version&quot;</span>: <span class="s2">&quot;1.0.0&quot;</span>,
+        <span class="s2">&quot;ondemand&quot;</span>: <span class="nb">false</span>
+    <span class="o">}]</span>，
+    ....
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>2. 首先对每个节点创建一个基于国密算法生成的节点私钥和地址。
+注意，<em>data/keys*目录原来保存的是默认密码学插件生成的私钥，可以删除原私钥目录，或者使用</em>-f*参数强制覆盖原私钥。如果不希望覆盖原节点密钥，可以在*–output*参数后面指定新的私钥目录。私钥生成后，可以查看私钥文件，其中*Curvname*应该是**SM2-P-256**。</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./xchain-cli account newkeys --output data/keys --cryptotype gm
+</pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="3">
+<li>修改待创建链的创世块配置，通过**crypto**字段指定默认密码学插件为国密插件，并修改矿工地址为新生成的国密私钥对应的地址。一般默认创世块配置位于*data/config/xuper.json*，修改创世块配置：</li>
+</ol>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">{</span>
+    ...,
+    <span class="s2">&quot;predistribution&quot;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">&quot;address&quot;</span>: <span class="s2">&quot;此处替换为国密address&quot;</span>,
+            <span class="s2">&quot;quota&quot;</span>: <span class="s2">&quot;100000000000000000000&quot;</span>
+        <span class="o">}</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;crypto&quot;</span>: <span class="s2">&quot;gm&quot;</span>,
+    ...,
+    <span class="s2">&quot;genesis_consensus&quot;</span>: <span class="o">{</span>
+        <span class="s2">&quot;name&quot;</span>: <span class="s2">&quot;tdpos&quot;</span>,
+        <span class="s2">&quot;config&quot;</span>: <span class="o">{</span>
+            ...,
+            <span class="s2">&quot;init_proposer&quot;</span>: <span class="o">{</span>
+                <span class="s2">&quot;1&quot;</span>: <span class="o">[</span>
+                    <span class="s2">&quot;此处替换为国密address&quot;</span>
+                <span class="o">]</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="4">
+<li>创建链并启动：</li>
+</ol>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./xchain-cli createChain
+nohup ./xchain <span class="p">&amp;</span>
+</pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="5">
+<li>使用命令行进行操作时，需要通过*–cryptotype*参数指定加密类型为国密，例如transfer命令。</li>
+</ol>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>./xchain-cli transfer --to alice --amount <span class="m">1</span> --keys data/keys --cryptotype gm
+</pre></div>
+</td></tr></table></div>
+<ol class="arabic simple" start="6">
+<li>目前国密只支持使用Go SDK调用，后续会支持更多SDK。</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="extension.html" class="btn btn-neutral float-right" title="9. 插件机制" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="proposal.html" class="btn btn-neutral float-left" title="7. 提案和投票机制" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, xuper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
