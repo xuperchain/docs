@@ -1,0 +1,639 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>18. 超级链跨链技术 &mdash; xuperchain-doc  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/stat.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="1. 合约账号" href="../advanced_usage/contract_accounts.html" />
+    <link rel="prev" title="17. 平行链与群组" href="group.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> xuperchain-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">XuperChain介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/brief.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/modules.html">2. 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/datastruct.html">3. 核心数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/smart_contracts.html">4. 智能合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/permission_system.html">5. 权限系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/privacy.html">6. 隐私和保密</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/perfomance.html">7. 性能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/summary.html">8. 总结</a></li>
+</ul>
+<p class="caption"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">1. XuperChain环境部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#basic-operation">2. XuperChain基本操作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">技术设计文档:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="XuperModel.html">1. XuperModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XuperBridge.html">2. XuperBridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xvm.html">3. XVM虚拟机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permission_model.html">4. 账号权限控制模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p.html">5. 超级链p2p网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">6. 身份认证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">7. 提案和投票机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">8. 密码学和隐私保护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">9. 插件机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">10. 超级链共识框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chained_bft.html">11. Chained-BFT共识公共组件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xpos.html">12. XPoS共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xpoa.html">13. XPoA共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="single_pow.html">14. Single及PoW共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regulatory.html">15. 超级链监管机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multidisk.html">16. 多盘散列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group.html">17. 平行链与群组</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">18. 超级链跨链技术</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">18.1. 背景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">18.2. 什么是跨链</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">18.2.1. 常见的跨链互操作类型</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">18.2.1.1. 跨链资产互换</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">18.2.1.2. 跨链资产转移</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">18.2.1.3. 跨链任意数据</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">18.3. 主流跨链方案</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">18.3.1. 跨链技术的主要挑战</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">18.3.2. 主流的跨链方案</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">18.3.2.1. 公证人模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">18.3.2.2. 侧链/中继模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">18.3.2.3. 异步模式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">18.3.2.4. 同步模式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">18.4. 超级链跨链方案</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id16">18.4.1. 跨链域名解析</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">18.4.1.1. 跨链寻址协议</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">18.4.1.2. 链名解析合约</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">18.4.2. 只读事务场景跨链</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">18.4.2.1. 整体方案</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">18.4.2.2. 背书和验证</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">18.4.2.3. 使用说明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">18.4.3. 非事务场景跨链</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id25">18.4.3.1. 什么是非事务性场景跨链</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">18.4.3.2. 整体方案</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">18.4.3.3. 梅克尔证明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id28">18.4.3.4. 链上中继合约</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id29">18.4.3.5. 中继同步进程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30">18.4.3.6. 使用说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id31">18.4.3.7. 事务场景跨链</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">进阶使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/contract_accounts.html">1. 合约账号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-nodes.html">2. 多节点部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/create_contracts.html">3. 创建合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/initiate_proposals.html">4. 发起提案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-disks.html">5. 配置变更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/parallel_chain.html">6. 使用平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/subscribe.html">7. 使用事件订阅功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/readonly_queries.html">8. 只读跨链场景使用文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/cross_chain.html">9. 非事务场景跨链使用文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/construct-XPoA.html">10. 搭建XPoA共识的超级链网络</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发应用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/eleccert.html">1. 电子存证合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/erc721.html">2. 数字资产交易</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperCDT.html">1. 智能合约SDK使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XdevManual.html">2. 智能合约开发详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperRPC.html">3. XuperChain RPC 接口使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">超级链测试环境</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/description.html">1. 超级链测试环境说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/guides.html">2. 超级链测试环境使用指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">其他</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operations_guides.html">1. 操作指导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.html">2. 视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands_reference.html">3. 指令介绍(API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQs.html">4. 常见问题解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vocabulary.html">5. 词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons.html">6. 超级链小课堂</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">xuperchain-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>18. 超级链跨链技术</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/design_documents/cross_chain.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>18. 超级链跨链技术<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>18.1. 背景<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>近年来，随着区块链行业的蓬勃发展，产生了很多区块链系统，这些系统底层协议各不相同。并且随着区块链被被纳入新基建的范畴， 如火如荼的区块链改造运动更加活跃，正在形成一个个新的数据孤岛无论这些孤岛是基于相同的底层系统还是不同的底层系统，其数据互通都非常困困难，因此，迫切需要一个解决方案能够系统地解决多链之间融合的问题，从而实现不同链之间地价值互通。</p>
+</div>
+<div class="section" id="id3">
+<h2>18.2. 什么是跨链<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>跨链（Cross-Chain），简单来说就是通过一定的技术措施实现相对独立的不同区块链系统之间数据和资产的链接互通。常见的跨链解决方案一般是针对资产类，实现不同链之间任意数据的跨链互通难度会更高</p>
+<div class="section" id="id4">
+<h3>18.2.1. 常见的跨链互操作类型<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id5">
+<h4>18.2.1.1. 跨链资产互换<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<img alt="../_images/cross_chain_1.png" class="align-center" src="../_images/cross_chain_1.png" />
+</div>
+<div class="section" id="id6">
+<h4>18.2.1.2. 跨链资产转移<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<img alt="../_images/cross_chain_2.png" class="align-center" src="../_images/cross_chain_2.png" />
+</div>
+<div class="section" id="id7">
+<h4>18.2.1.3. 跨链任意数据<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<img alt="../_images/cross_chain_3.png" class="align-center" src="../_images/cross_chain_3.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>18.3. 主流跨链方案<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id9">
+<h3>18.3.1. 跨链技术的主要挑战<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>生效的原子性
+对两个网络分别发起交易tx1、交易tx2，如何保证要么都不生效，要么都生效。可以通过经典的两阶段提交来完成， 两个交易互为锚点，锚点超过一段时间仍然无效，就可以发起对交易的回滚。</li>
+<li>锚点有效性校验
+所有节点对锚点的有效性达成没有分歧的判断，不能依赖远程访问证明，由于网络不稳定因素可能会造成验证难的问题。</li>
+<li>合约验证的不确定性
+一般的区块链系统，每个节点都会验证交易，以防止作恶。所以如果一个合约嵌入了外部链的合约调用，那么在验证阶段，如何确保各个节点验证的结果的一致性，是否会依赖外链的稳定性，这些问题都需要解决。</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id10">
+<h3>18.3.2. 主流的跨链方案<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>一般地通过哈希时间锁可以保证跨链交易的原子性。对于两个比较独立的区块链系统，一般的需要依赖一个第三方组件实现信息的交互。根据第三方组件是否执行验证可以分为两种模式，分为公证人模式、侧链/中继模式和哈希锁定模式。根据不同链的交易是异步生效还是同步生效，可以分为异步模式和同步模式。</p>
+<div class="section" id="id11">
+<h4>18.3.2.1. 公证人模式<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<p>由一个或者一组节点作为公证人参与到两条链中，进行双方交易的收集和验证。其优点是简单，缺点是弱中心化，如下图所示：</p>
+<img alt="../_images/cross_chain_4.png" class="align-center" src="../_images/cross_chain_4.png" />
+</div>
+<div class="section" id="id12">
+<h4>18.3.2.2. 侧链/中继模式<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<p>侧链/中继链模式是2014年BlockStream提出的一种跨链方案。其与公证人模式最大的区别在于其验证是在目标链进行，通过双向锚定的方式实现资产在不同链之间的转移。目标链的验证方式各不相同，比如BTC-Relay使用的是SPV技术。</p>
+<img alt="../_images/cross_chain_5.png" class="align-center" src="../_images/cross_chain_5.png" />
+</div>
+<div class="section" id="id13">
+<h4>18.3.2.3. 异步模式<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<p>以太坊上很多预言机类的DApp的实现方式采用的是异步模式。简单来说，是指发起调用的是一个函数，处理调用结果的是另一个回调函数，如下图所示：</p>
+<img alt="../_images/cross_chain_6.png" class="align-center" src="../_images/cross_chain_6.png" />
+<p>异步调用场景下，一个完整流程需要3笔交易：首先发送交易tx1到A链，A链代码执行到跨链调用会发出一个事件，并且声明了回调函数。</p>
+<p>由一个中间件（单例）订阅到事件后，发起对B链调用的交易tx2，tx2上链成功后， 中间件在触发回调函数调用Tx3.</p>
+<p>异步的缺点是业务逻辑被迫拆成很多碎片，交互次数多，编程不友好。</p>
+</div>
+<div class="section" id="id14">
+<h4>18.3.2.4. 同步模式<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>同步模式目前业界没有比较统一的方案，一般地区块链的上的合约在每个节点都会重复执行，如何保证重复执行的结果确定性，且具备幂等性、无副作用是一个难解决的问题。但是现在很多区块链系统采取的是预执行再提交的方式，比如超级链和Fabric，基于这种事务模式比较容易同步模式的跨链，下面是同步模式的示意图：</p>
+<img alt="../_images/cross_chain_7.png" class="align-center" src="../_images/cross_chain_7.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id15">
+<h2>18.4. 超级链跨链方案<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<p>超级链是一个易于编程的区块链框架，可以方便地定制新的功能。基于此框架，超级链设计了一个轻量级的跨链方案，通过合约和一些基础库组成了一个完整的跨链方案，适用于不同的跨链应用场景。</p>
+<img alt="../_images/cross_chain_8.png" class="align-center" src="../_images/cross_chain_8.png" />
+<p>超级链的跨链方案主要包括3层， 分别是基础库层、账本层和合约层。其中基础库层和账本层属于超级链的内核层，是超级链框架提供的一些基础能力，包括跨链域名解析协议、梅克尔proof校验、异构区块头解析协议、事务预锁定等。合约层是使用用户合约实现的合约基础库，主要是区块头管理合约、链名解析合约、去中心化身份管理等能力。通过这些功能套件的组装，我们可以应用于不同的使用场景。</p>
+<p>通过对用户实际需求的调研，我们抽象出三种不同的跨链场景，分别是只读事务场景跨链、非事务场景跨链和事务场景跨链。并通过上述合约和基础库的能力设计了满足不同场景的解决方案，下面会进行详细的介绍。</p>
+<div class="section" id="id16">
+<h3>18.4.1. 跨链域名解析<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<p>跨链涉及到不同链资源的互操作，由于不同的链的协议各部相同，为了实现对不同链的资源进行统一定义，超级链定义了如下跨链寻址协议，结合着链名解析合约，便可以实现对任何协议链的统一资源寻址。</p>
+<div class="section" id="id17">
+<h4>18.4.1.1. 跨链寻址协议<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h4>
+<div class="highlight-c++ notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    <span class="p">[</span><span class="nl">chain_scheme</span><span class="p">:][</span><span class="c1">//chain_name][path][?query]</span>
+</pre></div>
+</td></tr></table></div>
+<ul>
+<li><p class="first">chain_scheme：跨链链类型标识符，用于标识链的具体类型，比如： xuper 表示所跨链链接的链的类型是超级链。</p>
+</li>
+<li><p class="first">chain_name：所跨链的链名，定位某一个具体的链，同一Scheme下链名是唯一的；</p>
+</li>
+<li><p class="first">path：不同Scheme的链类型扩展字段；</p>
+</li>
+<li><p class="first">query：用于定位某个链内的某项资源，比如对于超级链，声明调用的合约名、方法名和参数等信息；</p>
+<blockquote>
+<div><p>下面举例说明：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>xuper://chain1?module=wasm&amp;bcname=xuper&amp;contract_name=counter&amp;method_name=increase
+xuper: 表示被访问的目标链为XuperChain；
+chain1: 表示被访问的目标链的链名；
+module: 表示被访问目标xuper链被访问合约的vm为wasm;
+bcname: 表示被访问目标xuper链的子链名；
+contract_name: 表示被访问目标xuper链合约名；
+method_name：表示被访问目标xuper链合约方法名；
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>目前超级链仅开源了超级链搭建的网络之间的跨链互操作，后续会逐步开源与其他链之间的互操作能力。</p>
+</div>
+<div class="section" id="id18">
+<h4>18.4.1.2. 链名解析合约<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+<p>为了实现跨链请求，仅有上面的链名跨链寻址协议是不够的，在跨链发起的原链上还需要部署一个链名解析合约，该合约目前也已开源 <a class="reference external" href="https://github.com/xuperchain/xuperchain/blob/master/core/contractsdk/cpp/example/naming/src/naming.cc">链名解析合约</a>。</p>
+<div class="highlight-go notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// 注册一个网络，同时包含网络初始meta信息</span>
+<span class="nx">RegisterChain</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">chain_meta</span><span class="p">)</span>
+<span class="c1">// 更新一个网络的meta信息，比如修改网络的背书策略</span>
+<span class="nx">UpdateChain</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">chain_meta</span><span class="p">)</span>
+<span class="c1">// 根据网络名解析所有背书节点</span>
+<span class="nx">Resolve</span><span class="p">(</span><span class="nx">chain_name</span><span class="p">)</span> <span class="o">*</span><span class="nx">CrossQueryMeta</span>
+<span class="c1">// 插入一个背书节点</span>
+<span class="nx">AddEndorsor</span><span class="p">(</span><span class="nx">chain_name</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span>
+<span class="c1">// 更新背书节点信息</span>
+<span class="nx">UpdateEndorsor</span><span class="p">(</span><span class="nx">chain_name</span><span class="p">,</span> <span class="nx">address</span><span class="p">,</span> <span class="nx">info</span><span class="p">)</span>
+<span class="c1">// 删除背书节点</span>
+<span class="nx">DeleteEndorsor</span><span class="p">(</span><span class="nx">chain_name</span><span class="p">,</span> <span class="nx">address</span><span class="p">)</span>
+<span class="c1">// 目标网络meta信息</span>
+<span class="nx">message</span> <span class="nx">CrossChainMeta</span> <span class="p">{</span>
+        <span class="kt">string</span> <span class="kd">type</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kt">int64</span> <span class="nx">min_endorsor_num</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 目标网络背书信息</span>
+<span class="nx">message</span> <span class="nx">CrossEndorsor</span> <span class="p">{</span>
+        <span class="kt">string</span> <span class="nx">address</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kt">string</span> <span class="nx">pub_key</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="nx">tring</span> <span class="nx">host</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>   <span class="c1">// ip+port</span>
+<span class="p">}</span>
+<span class="c1">// 目标网络CrossQuery完整信息</span>
+<span class="nx">message</span> <span class="nx">CrossQueryMeta</span> <span class="p">{</span>
+        <span class="nx">CrossChainMeta</span> <span class="nx">chain_meta</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nx">repeated</span> <span class="nx">CrossEndorsor</span> <span class="nx">endorsors</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="id20">
+<h3>18.4.2. 只读事务场景跨链<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id21">
+<h4>18.4.2.1. 整体方案<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h4>
+<p>在大部分使用场景下，用户仅希望从一个链能够查询到另一个链的数据，并且能够满足稳定性、幂等性和安全性，我们称为只读事务跨链。</p>
+<p>只读事务跨链的典型场景包括身份认证、资质认证等；</p>
+<p>为了满足上述要求，我们采取了目标链背书的方式，如下图所示：</p>
+<img alt="../_images/cross_chain_9.png" class="align-center" src="../_images/cross_chain_9.png" />
+<p>完整的步骤如下：</p>
+<ol class="arabic simple">
+<li>用户在原链发起预执行，合约内部调用”cross_query”原语，访问目标链Hello()合约；</li>
+<li>原链内部解析到”cross_query”原语后会调用跨链寻址合约解析目标链链接和背书信息；</li>
+<li>原链访问目标链的背书服务；</li>
+<li>目标链背书服务内部访问Hello()合约，得到Response并进行签名，返回给原链；</li>
+<li>原链继续执行合约，并返回预执行结果给用户；</li>
+<li>用户组装完整的交易提交给原链网络；</li>
+</ol>
+</div>
+<div class="section" id="id22">
+<h4>18.4.2.2. 背书和验证<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
+<p>超级链的合约采用的是先预执行再提交的二阶段处理过程，参看 （<a class="reference external" href="https://xuperchain.readthedocs.io/zh/latest/design_documents/XuperModel.html">https://xuperchain.readthedocs.io/zh/latest/design_documents/XuperModel.html</a>）。</p>
+<p><strong>预执行阶段</strong>，原链节点会远程访问目标链背书服务，背书服务会预执行该合约并且对合约结果进行签名背书，原链会将该合约的结果和背书信息写进写集中一个特殊的bucket中。</p>
+<p><strong>提交阶段</strong>，不需要再进行远程调用，原链节点在验证合约时，首先会解析出该特殊的写集中的跨链结果和背书签名信息，以填充合约执行的上下文环境，当执行到只读跨链原语时，原链节点不再进行远程调用，而是验证预执行的背书签名，当签名满足背书策略的要求后，就直接使用写集中的跨链合约结果继续后续的合约逻辑，否则验证失败。</p>
+</div>
+<div class="section" id="id23">
+<h4>18.4.2.3. 使用说明<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h4>
+<blockquote>
+<div><a class="reference external" href="https://xuperchain.readthedocs.io/zh/latest/advanced_usage/readonly_queries.html">https://xuperchain.readthedocs.io/zh/latest/advanced_usage/readonly_queries.html</a></div></blockquote>
+</div>
+</div>
+<div class="section" id="id24">
+<h3>18.4.3. 非事务场景跨链<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id25">
+<h4>18.4.3.1. 什么是非事务性场景跨链<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h4>
+<p>非事务场景跨链是指跨链行为并不是要求不同链上的交易具备事务性，即不要求不同链上的跨链交易同时生效或同时失败，跨链交易只对当时被跨链的交易状态进行确认，并根据目标交易状态执行交易后续操作。</p>
+<p>举例来讲，在A链上发起的交易tx1执行成功后，发起B链上的交易tx2，但tx2执行失败并不会影响tx1，即不会发生tx1回滚。这种存在依赖的交易，但不保证多个交易执行满足事务性的场景，是典型的非事务跨链。</p>
+<p>非事务跨链的典型场景比如身份验证、预言机、资产跨链转移等等，在技术上主要强调跨链交易的存在性证明，但对跨链交易的原子性没有要求。</p>
+</div>
+<div class="section" id="id26">
+<h4>18.4.3.2. 整体方案<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h4>
+<p>非事务跨链典型技术是通过中继实现对目标链数据的数据同步和交易存在性验证，类似BTCRelay。在超级链中，我们也实现了一套中继机制，通过对目标链的区块头同步，以及梅克尔验证技术，可以做到在原链上直接验证目标链的交易是否存在。</p>
+<dl class="docutils">
+<dt>如下图是中继机制的整体结构，主要分为以下两个部分：</dt>
+<dd><ul class="first last simple">
+<li><strong>链上中继合约(XuperRelayer)</strong>：部署在原链上的一个智能合约，会保存目标链的所有块头信息，并提供基于梅克尔证明的目标链交易存在性验证。</li>
+<li><strong>中继同步进程(Relay Process)</strong>：在目标链和原链之间，会有一个或多个中继进程，持续监听目标链的最新出块信息，并抽取出块头信息写入</li>
+</ul>
+</dd>
+</dl>
+<img alt="../_images/cross_chain_10.png" class="align-center" src="../_images/cross_chain_10.png" />
+<p>以一个典型的资产转移的场景为例，首先在B链上发起tx1交易，然后原链上发起tx2交易。tx2交易成功的前提条件是确认tx1交易已经生效。因此整个跨链交易生效流程：</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>用户首先在目标链提交tx1交易；</li>
+<li>当tx1交易打包在块中后，中继同步进程会将块头同步到原链上，并保存在链上中继合约中；</li>
+<li>用户在原链上发起资产转移交易tx2，同时在合约参数中填写tx1的信息以及tx1的梅克尔路径；</li>
+<li>原链中的用户合约通过跨合约调用调用链上中继合约，进行梅克尔验证，如果证明tx1确实存在在目标链中，则返回验证成功，否则返回验证失败；</li>
+<li>用户合约在拿到tx1验证成功的结果后，执行后续资产转移操作，并返回结果。</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id27">
+<h4>18.4.3.3. 梅克尔证明<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h4>
+<p>在超级链中，区块头保存了块中所有交易的txid构造出的梅克尔树的树根。下图是一颗区块中的梅克尔树举例，区块中的8个交易是梅克尔树的叶子节点，按照交易顺序，每两个相邻的交易的txid通过SHA256计算出梅克尔树的父节点id，依次向上直到计算出了梅克尔树根。在这个树形结构中，任何一个节点的id都直接和自己的父子节点相关，因此树中任何一个节点数据的修改，都会导致整个梅克尔树的树根变化。</p>
+<img alt="../_images/cross_chain_11.png" class="align-center" src="../_images/cross_chain_11.png" />
+<p>交易的验证方只需要知道待验证交易tx1的txid，tx1所在块的block1，并知道从tx1所在梅克尔树的叶子节点开始到梅克尔树根的路径上所有兄弟节点的hash值，就可以计算出梅克尔树根。例如我们要验证梅克尔树中绿色节点9Dog的存在性，那么我们同时给出从9Dog到梅克尔树根的路径上的所有兄弟节点数组[1FXq, ec20, 8f74]，则从下而上:</p>
+<div class="highlight-go notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>    Hash(1FXq+9Dog) ⇒ 781a
+Hash(ec20+781a) ⇒ 5c71
+Hash(5c71+8f74) ⇒ 6c0a
+</pre></div>
+</td></tr></table></div>
+<p>在得到计算出的根Hash后，我们从链上中继合约中获取之前已经保存的block1对应的区块头中的梅克尔树根，如果也是6c0a则证明验证通过，否则验证不通过。</p>
+</div>
+<div class="section" id="id28">
+<h4>18.4.3.4. 链上中继合约<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h4>
+<p>链上中继合约是跨链存在性证明的核心，提供对目标链中的区块头同步存储，并通过梅克尔验证技术提供交易查询接口。链上中继合约主要解决三个问题，交易的真实性、及时性证明、区块头分叉管理。</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>真实性证明</strong>：即证明交易确实存在，主要通过Merkle Proof证明交易是否真的存在于链中以及是否在主干上。</li>
+<li><strong>及时性证明</strong>：即证明交易是否确认，跟目标链采用的共识算法相关。对于同步Byzantine类共识算法，及时性是内置的，只要交易在区块头中，那么交易必定在原链处于上链状态。对于PoW类共识算法，一般要求交易所在块距主干最新高度相差6个块以上。</li>
+<li><strong>区块头分叉管理</strong>：对同步的区块头按照树形结构维护依赖关系，并根据目标链的主干选择算法即使调整目标链的主干区块状态。</li>
+</ul>
+</div></blockquote>
+<p>目前的跨链实现支持了对超级链同构链的链上中继合约，代码位于 <a class="reference external" href="https://github.com/xuperchain/xuperchain/tree/master/core/contractsdk/cpp/example/xuper_relayer">https://github.com/xuperchain/xuperchain/tree/master/core/contractsdk/cpp/example/xuper_relayer</a> 目录中。主要实现了对XPoS共识的区块头分叉管理和存在性证明，目前该功能仍处于实验状态，后续版本中会持续增加新的共识和异构链的支持。</p>
+<p>合约主要接口如下：</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="27%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">接口名</th>
+<th class="head">参数</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>initialize</td>
+<td>无</td>
+<td>合约初始化函数</td>
+</tr>
+<tr class="row-odd"><td>initAnchorBlockHe
+ader</td>
+<td>blockHeader: 区块头数据</td>
+<td>初始化锚点区块头，锚点区块头一般是初始化后写入的第一个区块头，目
+标链不一定需要从创世块开始同步，因此有了锚点区块的概念。</td>
+</tr>
+<tr class="row-even"><td>putBlockHeader</td>
+<td>blockHeader: 区块头数据</td>
+<td>写入一个新区块头信息，会自动验证区块头数据是否正确并进行分叉管理</td>
+</tr>
+<tr class="row-odd"><td>verifyTx</td>
+<td>blockid: 待验证交易的区块id
+txid:待验证的交易id
+proofPath:待验证交易的梅克尔路
+径上的兄弟节点hash
+txIndex:待验证交易在区块所有交
+易中的序号</td>
+<td>交易验证接口，通过梅克尔证明验证他链上的交易id是否真实有效</td>
+</tr>
+<tr class="row-even"><td>printBlockHeader</td>
+<td>blockid: 区块id</td>
+<td>打印指定区块id的区块头信息</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id29">
+<h4>18.4.3.5. 中继同步进程<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h4>
+<p>中继同步进程相对简单，主要通过对目标链的出块监听，将最新区块中的区块头信息抽取出来，并同步到原链中。
+中继同步进程的代码位于https://github.com/xuperchain/xuperchain/tree/master/core/cmd/relayer。</p>
+</div>
+<div class="section" id="id30">
+<h4>18.4.3.6. 使用说明<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h4>
+<blockquote>
+<div><a class="reference external" href="https://xuperchain.readthedocs.io/zh/latest/advanced_usage/cross_chain.html">https://xuperchain.readthedocs.io/zh/latest/advanced_usage/cross_chain.html</a></div></blockquote>
+</div>
+<div class="section" id="id31">
+<h4>18.4.3.7. 事务场景跨链<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../advanced_usage/contract_accounts.html" class="btn btn-neutral float-right" title="1. 合约账号" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="group.html" class="btn btn-neutral float-left" title="17. 平行链与群组" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, xuper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

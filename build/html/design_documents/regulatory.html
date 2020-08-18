@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>15. 超级链监管机制 &mdash; xuperchain-doc  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/stat.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="16. 多盘散列" href="multidisk.html" />
+    <link rel="prev" title="14. Single及PoW共识" href="single_pow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> xuperchain-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">XuperChain介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/brief.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/modules.html">2. 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/datastruct.html">3. 核心数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/smart_contracts.html">4. 智能合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/permission_system.html">5. 权限系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/privacy.html">6. 隐私和保密</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/perfomance.html">7. 性能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/summary.html">8. 总结</a></li>
+</ul>
+<p class="caption"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">1. XuperChain环境部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#basic-operation">2. XuperChain基本操作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">技术设计文档:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="XuperModel.html">1. XuperModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XuperBridge.html">2. XuperBridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xvm.html">3. XVM虚拟机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permission_model.html">4. 账号权限控制模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p.html">5. 超级链p2p网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">6. 身份认证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">7. 提案和投票机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">8. 密码学和隐私保护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">9. 插件机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">10. 超级链共识框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chained_bft.html">11. Chained-BFT共识公共组件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xpos.html">12. XPoS共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xpoa.html">13. XPoA共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="single_pow.html">14. Single及PoW共识</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">15. 超级链监管机制</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">15.1. 监管机制概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">15.2. 监管机制使用说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">15.2.1. 创世块配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">15.2.2. 搭建网络</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reserved">15.2.3. 部署Reserved合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">15.2.4. Reserved合约调用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="multidisk.html">16. 多盘散列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group.html">17. 平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross_chain.html">18. 超级链跨链技术</a></li>
+</ul>
+<p class="caption"><span class="caption-text">进阶使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/contract_accounts.html">1. 合约账号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-nodes.html">2. 多节点部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/create_contracts.html">3. 创建合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/initiate_proposals.html">4. 发起提案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-disks.html">5. 配置变更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/parallel_chain.html">6. 使用平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/subscribe.html">7. 使用事件订阅功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/readonly_queries.html">8. 只读跨链场景使用文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/cross_chain.html">9. 非事务场景跨链使用文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/construct-XPoA.html">10. 搭建XPoA共识的超级链网络</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发应用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/eleccert.html">1. 电子存证合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/erc721.html">2. 数字资产交易</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperCDT.html">1. 智能合约SDK使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XdevManual.html">2. 智能合约开发详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperRPC.html">3. XuperChain RPC 接口使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">超级链测试环境</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/description.html">1. 超级链测试环境说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/guides.html">2. 超级链测试环境使用指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">其他</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operations_guides.html">1. 操作指导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.html">2. 视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands_reference.html">3. 指令介绍(API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQs.html">4. 常见问题解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vocabulary.html">5. 词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons.html">6. 超级链小课堂</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">xuperchain-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>15. 超级链监管机制</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/design_documents/regulatory.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>15. 超级链监管机制<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>15.1. 监管机制概述<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>超级链是一个具备政府监管能力的区块链系统。在设计上我们需要充分考虑监管和安全问题，做到安全可控。基于此我们超级链底层设计了一个监管合约的机制，通过该机制，超级链具备了对链上用户的实名、交易的安全检查等监管能力。</p>
+<p>超级链在初始化时候，可以通过创世块配置的方式，配置这条链是否需要支持监管类型。对于配置了监管合约的链，这个链上所有的事务发起，无论是转账还是合约调用，系统会默认插入监管合约的执行，执行结果体现在读写集中，执行过程不消耗用户资源，执行结果所有节点可验证。</p>
+<p>目前超级链支持的监管合约主要有以下几个：</p>
+<ul class="simple">
+<li>实名制合约: identity</li>
+<li>DApp封禁合约: banned</li>
+<li>合规性检查合约: complianceCheck</li>
+<li>交易封禁合约: forbidden</li>
+</ul>
+<p><strong>下面将会以实名合约为例对监管合约的使用步骤进行说明</strong></p>
+</div>
+<div class="section" id="id3">
+<h2>15.2. 监管机制使用说明<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h3>15.2.1. 创世块配置<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>创世块配置新增 <code class="docutils literal notranslate"><span class="pre">reserved_contracts</span></code> 配置，内容如下：</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s2">&quot;reserved_contracts&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;module_name&quot;</span><span class="p">:</span> <span class="s2">&quot;wasm&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contract_name&quot;</span><span class="p">:</span> <span class="s2">&quot;identity&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;verify&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="p">:{}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</td></tr></table></div>
+<p>这个配置中配置了 <code class="docutils literal notranslate"><span class="pre">identity</span></code> 监管合约。</p>
+</div>
+<div class="section" id="id5">
+<h3>15.2.2. 搭建网络<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>搭建网络的方式与以前的方式没有区别，用户可以依据需求选择搭建单节点网络还是多节点网络。</p>
+<p>搭建网络参见如下链接：
+<a class="reference external" href="quickstart.html#xchain">单节点网络搭建</a>
+<a class="reference external" href="../advanced_usage/multi-nodes.html">多节点网络搭建</a></p>
+</div>
+<div class="section" id="reserved">
+<h3>15.2.3. 部署Reserved合约<a class="headerlink" href="#reserved" title="永久链接至标题">¶</a></h3>
+<p><strong>1. 编译实名合约</strong></p>
+<p>实名合约代码路径如下：<a class="reference external" href="https://github.com/xuperchain/xuperchain/blob/master/core/contractsdk/cpp/reserved/identity.cc">core/contractsdk/cpp/reserved/identity.cc</a></p>
+<p>实名合约实名的对象是一个具体的ak。</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">cd</span> ./contractsdk/cpp
+cp reserved/identity.cc example
+./build.sh
+</pre></div>
+</td></tr></table></div>
+<p>编译好的产出为 ./build 文件夹下的identity.wasm文件。</p>
+<p><strong>2. 创建合约账户</strong></p>
+<p>在XuperChain中所有的合约都是部署在具体的某个账户下的，所以，为了部署实名合约，我们需要首先创建一个合约账户，注意，这里账户的拥有者可以修改其内合约Method的ACL权限管理策略，通过这种机制实现对谁可以添加实名状态和删除实名状态的控制。
+这里是由超级链的 <a class="reference external" href="../advanced_usage/multi-nodes.html">多节点网络搭建</a> 支持的。</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 快速创建合约方式：</span>
+./xchain-cli account new --account <span class="m">1111111111111111</span>
+</pre></div>
+</td></tr></table></div>
+<p><strong>3. 部署实名合约</strong></p>
+<p>部署合约需要消耗资源，所以先给上述合约账户转移一笔资源，然后在合约内部署上面的合约：</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 1  转移资源</span>
+./xchain-cli transfer --to XC1111111111111111@xuper --amount <span class="m">100000</span>
+<span class="c1"># 2 部署实名合约</span>
+<span class="c1"># 通过 -a 的creator参数，可以初始化被实名的ak。</span>
+./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname identity -H localhost:37101 identity.wasm -a <span class="s1">&#39;{&quot;creator&quot;:&quot;addr1&quot;}&#39;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">上述实名合约初始化的被实名的address需要和实名合约添加实名信息保持相同，否则会由于初始实名的ak和添加实名权控不一致而导致系统无法添加新的实名状态。</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>15.2.4. Reserved合约调用<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>实名合约部署完成后，就可以进行实名合约信息的添加和删除了</p>
+<p><strong>1. 添加实名信息</strong></p>
+<p>合约调用json文件如下:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;module_name&quot;</span><span class="p">:</span> <span class="s2">&quot;wasm&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;contract_name&quot;</span><span class="p">:</span> <span class="s2">&quot;identity&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;register_aks&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;args&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;aks&quot;</span><span class="p">:</span><span class="s2">&quot;ak1,ak2&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>具体步骤如下：</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 1: 生成原始交易</span>
+./xchain-cli multisig gen --desc identity_add.json --host localhost:37101 --fee <span class="m">1000</span> --output tx_add.out
+<span class="c1"># 2: 本地签名</span>
+./xchain-cli multisig sign --output tx_add_my.sign --tx tx_add.out
+<span class="c1"># 3: 交易发送</span>
+./xchain-cli multisig send tx_add_my.sign --host localhost:37101 --tx tx_add.out
+</pre></div>
+</td></tr></table></div>
+<p><strong>2. 删除实名信息</strong></p>
+<p>合约调用json文件如下:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;module_name&quot;</span><span class="p">:</span> <span class="s2">&quot;wasm&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;contract_name&quot;</span><span class="p">:</span> <span class="s2">&quot;identity&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;unregister_aks&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;args&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;aks&quot;</span><span class="p">:</span><span class="s2">&quot;ak1,ak2&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>具体步骤如下：</p>
+<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 1: 生成原始交易</span>
+./xchain-cli multisig gen --desc identity_del.json --host localhost:37101 --fee <span class="m">1000</span> --output tx_del.out
+<span class="c1"># 2: 本地签名</span>
+./xchain-cli multisig sign --output tx_del_my.sign --tx tx_del.out
+<span class="c1"># 3: 交易发送</span>
+./xchain-cli multisig send tx_del_my.sign tx_del_compliance_sign.out --host localhost:37101 --tx tx_del.out
+</pre></div>
+</td></tr></table></div>
+<p><strong>3. 实名信息验证</strong></p>
+<p>当用户向网络发起事务请求时，网络会验证交易中的 <code class="docutils literal notranslate"><span class="pre">initiator</span></code> 和 <code class="docutils literal notranslate"><span class="pre">auth_require</span></code> 字段是否都经过实名，如果都经过实名，则通过，否则，失败。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="multidisk.html" class="btn btn-neutral float-right" title="16. 多盘散列" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="single_pow.html" class="btn btn-neutral float-left" title="14. Single及PoW共识" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, xuper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

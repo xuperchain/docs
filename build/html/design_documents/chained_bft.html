@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>11. Chained-BFT共识公共组件 &mdash; xuperchain-doc  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/stat.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="12. XPoS共识" href="xpos.html" />
+    <link rel="prev" title="10. 超级链共识框架" href="consensus.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> xuperchain-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">XuperChain介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/brief.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/modules.html">2. 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/datastruct.html">3. 核心数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/smart_contracts.html">4. 智能合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/permission_system.html">5. 权限系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/privacy.html">6. 隐私和保密</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/perfomance.html">7. 性能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/summary.html">8. 总结</a></li>
+</ul>
+<p class="caption"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">1. XuperChain环境部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#basic-operation">2. XuperChain基本操作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">技术设计文档:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="XuperModel.html">1. XuperModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XuperBridge.html">2. XuperBridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xvm.html">3. XVM虚拟机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permission_model.html">4. 账号权限控制模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p.html">5. 超级链p2p网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">6. 身份认证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">7. 提案和投票机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">8. 密码学和隐私保护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">9. 插件机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">10. 超级链共识框架</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. Chained-BFT共识公共组件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">11.1. 概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">11.2. 核心数据结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smr">11.3. Smr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#safety-rule">11.4. Safety Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pacemakerinterface">11.5. PacemakerInterface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="xpos.html">12. XPoS共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xpoa.html">13. XPoA共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="single_pow.html">14. Single及PoW共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regulatory.html">15. 超级链监管机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multidisk.html">16. 多盘散列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group.html">17. 平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cross_chain.html">18. 超级链跨链技术</a></li>
+</ul>
+<p class="caption"><span class="caption-text">进阶使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/contract_accounts.html">1. 合约账号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-nodes.html">2. 多节点部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/create_contracts.html">3. 创建合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/initiate_proposals.html">4. 发起提案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-disks.html">5. 配置变更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/parallel_chain.html">6. 使用平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/subscribe.html">7. 使用事件订阅功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/readonly_queries.html">8. 只读跨链场景使用文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/cross_chain.html">9. 非事务场景跨链使用文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/construct-XPoA.html">10. 搭建XPoA共识的超级链网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/xchain-performance.html">11. xchain性能测试使用文档</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发应用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/eleccert.html">1. 电子存证合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/erc721.html">2. 数字资产交易</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperCDT.html">1. 智能合约SDK使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XdevManual.html">2. 智能合约开发详解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperRPC.html">3. XuperChain RPC 接口使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">超级链测试环境</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/description.html">1. 超级链测试环境说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/guides.html">2. 超级链测试环境使用指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">其他</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operations_guides.html">1. 操作指导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.html">2. 视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands_reference.html">3. 指令介绍(API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQs.html">4. 常见问题解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vocabulary.html">5. 词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons.html">6. 超级链小课堂</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">xuperchain-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>11. Chained-BFT共识公共组件</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/design_documents/chained_bft.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chained-bft">
+<h1>11. Chained-BFT共识公共组件<a class="headerlink" href="#chained-bft" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>11.1. 概述<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>在 <a class="reference external" href="consensus.html">超级链共识框架</a> 一文中介绍了超级链底层有一个共识的公共组件叫chained-bft，其是Hotstuff算法的实现。HotStuff是一种简洁而优雅的bft改进算法。它具有以下优点：</p>
+<ul class="simple">
+<li>它的设计中将liveness和safty解耦开来，使得非常方便与其他的共识进行扩展；</li>
+<li>将bft过程拆解成3阶段，每个阶段都是o(n)的通信；</li>
+<li>它允许一个节点处于不同的view，并且将view的切换与区块结合起来，使得其能够实现异步共识，进一步提升共识的效率。</li>
+</ul>
+<p>这样一个chained-bft可以在给定主集合的场景下确保网络的共识安全性，并且通过与外层共识配合工作实现共识的活性保证。</p>
+<p><strong>Xuperchain现有基于Chained-BFT的共识算法</strong></p>
+<p>目前基于chained-BFT的算法有：XPoA、XPoS</p>
+<p><strong>chained-BFT中区块需要在三个块后才被最终一致确认</strong></p>
+<p>HotStuff中明确了基本算法Basic HotStuff和链式算法Chained-HotStuff的概念，其中Chained-HotStuff是Basic HotStuff的流水线链式结构，也是超级链chained-BFT的算法原型。</p>
+<p>和PBFT一样，Basic HotStuff也被分成了三个阶段: Prepare、Pre-Commit、Commit，如下图所示。</p>
+<img alt="../_images/chained_bft.jpg" class="align-center" src="../_images/chained_bft.jpg" />
+<p>Chained-Hotstuff并发操作了原本的Basic HotStuff，将上一视图在所在阶段的信息发给下一视图的Leader，从而形成了流水线操作，增加效率。</p>
+<p>正因为Basic HotStuff分为三个阶段，在完成三阶段的信息过程后，才最终形成一执行，即在当前视图在三个视图之后才最终完成了信息收集与执行。在chained-BFT中，视图与区块高度是一致绑定的，因此一个区块需要在三个区块后才被确认。</p>
+</div>
+<div class="section" id="id3">
+<h2>11.2. 核心数据结构<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-go notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">enum</span> <span class="nx">QCState</span> <span class="p">{</span>
+    <span class="nx">NEW_VIEW</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">PREPARE</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="nx">PRE_COMMIT</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">COMMIT</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="nx">DECIDE</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// QuorumCert is a data type that combines a collection of signatures from replicas.</span>
+<span class="nx">message</span> <span class="nx">QuorumCert</span> <span class="p">{</span>
+    <span class="c1">// The id of block this QC certified.</span>
+    <span class="nx">bytes</span> <span class="nx">BlockId</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="c1">// The current type of this QC certified.</span>
+    <span class="c1">// the type contains `NEW_VIEW`, `PREPARE`,`PRE_COMMIT`, `COMMIT`, `DECIDE`.</span>
+    <span class="nx">State</span> <span class="nx">Type</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="c1">// The view number of this QC certified.</span>
+    <span class="kt">int64</span> <span class="nx">ViewNumber</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="c1">// SignInfos is the signs of the leader gathered from replicas</span>
+    <span class="c1">// of a specifically certType.</span>
+    <span class="nx">QCSignInfos</span> <span class="nx">SignInfos</span>  <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// QCSignInfos is the signs of the leader gathered from replicas of a specifically certType.</span>
+<span class="c1">// A slice of signs is used at present.</span>
+<span class="c1">// TODO zq: It will be change to Threshold-Signatures</span>
+<span class="c1">// after Crypto lib support Threshold-Signatures.</span>
+<span class="nx">message</span> <span class="nx">QCSignInfos</span> <span class="p">{</span>
+    <span class="c1">// QCSignInfos</span>
+    <span class="kd">map</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="nx">SignInfo</span><span class="p">&gt;</span> <span class="nx">QCSignInfos</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// SignInfo is the signature information of the</span>
+<span class="nx">message</span> <span class="nx">SignInfo</span> <span class="p">{</span>
+<span class="kt">string</span> <span class="nx">Address</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">string</span> <span class="nx">PublicKey</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">bytes</span>  <span class="nx">Sign</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// ChainedBftMessage is the message of the protocal</span>
+<span class="c1">// In hotstuff, there are two kinds of messages, &quot;NEW_VIEW_Message&quot; and &quot;QC_Message&quot;.</span>
+<span class="c1">// In XuperChain, there is only one kind of message, &quot;NEW_VIEW. The &quot;QC_Message&quot; is resuded with &quot;BroadcastBlock&quot; message.</span>
+<span class="nx">message</span> <span class="nx">ChainedBftMessage</span> <span class="p">{</span>
+    <span class="c1">// Message Type</span>
+    <span class="nx">QCState</span> <span class="nx">Type</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="c1">// Justify is the QC of the leader gathered, send to next leader.</span>
+    <span class="nx">QuorumCert</span> <span class="nx">Justify</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// ChainedBftMessage is the vote message of</span>
+<span class="nx">message</span> <span class="nx">ChainedBftVoteMessage</span> <span class="p">{</span>
+    <span class="c1">// The id of block this message vote for.</span>
+    <span class="nx">bytes</span> <span class="nx">BlockId</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="c1">// Replica will sign the QCMessage if the QuorumCert if valid.</span>
+    <span class="nx">SignInfo</span> <span class="nx">signature</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>整个chained-bft中主要包括三部分，分别是状态机 <code class="docutils literal notranslate"><span class="pre">Smr</span></code> 、 <code class="docutils literal notranslate"><span class="pre">SafetyRules</span></code> 和 <code class="docutils literal notranslate"><span class="pre">PacemakerInterface</span></code> 。</p>
+</div>
+<div class="section" id="smr">
+<h2>11.3. Smr<a class="headerlink" href="#smr" title="永久链接至标题">¶</a></h2>
+<p>Smr是 <code class="docutils literal notranslate"><span class="pre">chained-bft</span></code> 的核心实例。他的主要的作用有以下几点：</p>
+<ol class="arabic simple">
+<li>维护节点链的chained-bft共识状态机；</li>
+<li>在外层共识的驱动下发起 <code class="docutils literal notranslate"><span class="pre">NewView</span></code> 和 <code class="docutils literal notranslate"><span class="pre">NewProposal</span></code> 等消息并更新本地状态；</li>
+<li>处理其他验证节点的消息并更新本地状态；</li>
+</ol>
+<img alt="../_images/chained-bft.png" class="align-center" src="../_images/chained-bft.png" />
+</div>
+<div class="section" id="safety-rule">
+<h2>11.4. Safety Rule<a class="headerlink" href="#safety-rule" title="永久链接至标题">¶</a></h2>
+<p>Safety Rule 是一个验证节点是否要接受一个新的Proposal的安全性规则，主要有三条：</p>
+<ol class="arabic simple">
+<li>判断当前Proposal的View值是否大于本地locked Proposal的View值；</li>
+<li>验证当前Proposal中上一个Proposal的投票信息有效性和投票个数是否大于系统矿工数目的2/3；</li>
+<li>验证当前Proposal的ProposalMsg是否有效；</li>
+</ol>
+<p>当一个验证节点收到一个新的提案时，如果满足上述 <code class="docutils literal notranslate"><span class="pre">Safety</span> <span class="pre">Rule</span></code> 的认证，则会给这个提案进行投票，否则拒绝这次提案。</p>
+</div>
+<div class="section" id="pacemakerinterface">
+<h2>11.5. PacemakerInterface<a class="headerlink" href="#pacemakerinterface" title="永久链接至标题">¶</a></h2>
+<p>Hotstuff算法的一大特点就是将共识的liveness和safety分开。PacemakerInterface是Hotstuff算法Pacemaker的接口定义，外层共识通过实现这些接口，可以推进内层共识的状态轮转。不同的外层共识可以有不同的实现。目前超级链已经实现了DPoS+Hotstuff，具体的方案如下所示：</p>
+<img alt="../_images/pacemaker.png" class="align-center" src="../_images/pacemaker.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="xpos.html" class="btn btn-neutral float-right" title="12. XPoS共识" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="consensus.html" class="btn btn-neutral float-left" title="10. 超级链共识框架" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, xuper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

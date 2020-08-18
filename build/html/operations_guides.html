@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. 操作指导 &mdash; xuperchain-doc  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/stat.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="2. 视频教程" href="video.html" />
+    <link rel="prev" title="2. 超级链测试环境使用指南" href="test_network/guides.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> xuperchain-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">XuperChain介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction/brief.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/modules.html">2. 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/datastruct.html">3. 核心数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/smart_contracts.html">4. 智能合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/permission_system.html">5. 权限系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/privacy.html">6. 隐私和保密</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/perfomance.html">7. 性能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/summary.html">8. 总结</a></li>
+</ul>
+<p class="caption"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">1. XuperChain环境部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html#basic-operation">2. XuperChain基本操作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">技术设计文档:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/XuperModel.html">1. XuperModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/XuperBridge.html">2. XuperBridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/xvm.html">3. XVM虚拟机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/permission_model.html">4. 账号权限控制模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/p2p.html">5. 超级链p2p网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/authentication.html">6. 身份认证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/proposal.html">7. 提案和投票机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/crypto.html">8. 密码学和隐私保护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/extension.html">9. 插件机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/consensus.html">10. 超级链共识框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/chained_bft.html">11. Chained-BFT共识公共组件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/xpos.html">12. XPoS共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/single_pow.html">13. Single及PoW共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/regulatory.html">14. 超级链监管机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/multidisk.html">15. 多盘散列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design_documents/group.html">16. 平行链与群组</a></li>
+</ul>
+<p class="caption"><span class="caption-text">进阶使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/contract_accounts.html">1. 合约账号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/multi-nodes.html">2. 多节点部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/create_contracts.html">3. 创建合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/initiate_proposals.html">4. 发起提案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/multi-disks.html">5. 配置变更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/parallel_chain.html">6. 使用平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_usage/subscribe.html">7. 使用事件订阅功能</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发应用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="developing_apps/eleccert.html">1. 电子存证合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developing_apps/erc721.html">2. 数字资产交易</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development_manuals/XuperCDT.html">1. 智能合约SDK使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_manuals/XuperRPC.html">2. XuperChain RPC 接口使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">超级链测试环境</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="test_network/description.html">1. 超级链测试环境说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test_network/guides.html">2. 超级链测试环境使用指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">其他</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. 操作指导</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#xuperchain">1.1. 如何获取XuperChain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.2. 如何升级软件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.3. 配置文件说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#core">1.4. core目录各文件说明</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="video.html">2. 视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands_reference.html">3. 指令介绍(API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">4. 常见问题解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vocabulary.html">5. 词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons.html">6. 超级链小课堂</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">xuperchain-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1. 操作指导</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/operations_guides.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>1. 操作指导<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="xuperchain">
+<h2>1.1. 如何获取XuperChain<a class="headerlink" href="#xuperchain" title="永久链接至标题">¶</a></h2>
+<p>目前XuperChain已经发布了2个版本，最新版本为v3.2，可以在github获取发布包</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/xuperchain/xuperchain/releases/tag/v3.2.0">XuperChain v3.2</a></li>
+<li><a class="reference external" href="https://github.com/xuperchain/xuperchain/releases/tag/v3.1.0">XuperChain v3.1</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>1.2. 如何升级软件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>当版本升级时，需要更新为新版本的代码，并重新编译，然后将 plugins文件夹, 二进制文件xchain，xchain-cli 全部替换后全部重新启动即可，注意多节点模式下需要先启动bootNodes节点。</p>
+</div>
+<div class="section" id="id3">
+<h2>1.3. 配置文件说明<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>XuperChain的配置文件默认读取有3个优先级：</p>
+<ul class="simple">
+<li>默认配置：系统中所有配置项都有默认的配置信息，这个是优先级最低的配置；</li>
+<li>配置文件：通过读取配置文件的方式，可以覆盖系统中默认的参数配置，默认的配置文件为 ./conf/xchain.yaml；</li>
+<li>启动参数：有一些参数支持启动参数的方式设置，该设置方式的优先级最高，会覆盖配置文件中的配置项；</li>
+</ul>
+<div class="highlight-yaml notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">log</span><span class="p">:</span>
+<span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logs // 日志输出目录</span>
+<span class="nt">filename</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xchain // 日志文件名</span>
+<span class="nt">console</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true //是否答应console日志</span>
+<span class="nt">level </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trace // 日志等级，debug &lt; trace &lt; info &lt; warn &lt; error &lt; crit</span>
+<span class="nt">tcpServer</span><span class="p">:</span>
+<span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">:57404 // 节点RPC服务监听端口</span>
+<span class="nt">p2pv2</span><span class="p">:</span>
+<span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">47404 // 节点p2p网络监听的端口</span>
+<span class="nt">bootNodes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/ip4/127.0.0.1/tcp/47401/p2p/QmXRyKS1BFmneUEuwxmEmHyeCSb7r7gSNZ28gmDXbTYEXK  // 节点加入网络链接的种子节点的netUrl</span>
+<span class="nt">miner</span><span class="p">:</span>
+<span class="nt">keypath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./data/keys //节点address目录</span>
+<span class="nt">datapath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./data/blockchain //账本存储目录</span>
+<span class="nt">utxo</span><span class="p">:</span>
+<span class="nt">cachesize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5000 //Utxo内存cache大小设置</span>
+<span class="nt">tmplockSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60 //GenerateTx的临时锁定期限，默认是60秒</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="core">
+<h2>1.4. core目录各文件说明<a class="headerlink" href="#core" title="永久链接至标题">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="3%" />
+<col width="97%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">模块</th>
+<th class="head">功能及子文件说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>acl</td>
+<td>acl查询 account_acl.go 查询合约账号ACL的接口定义 acl_manager.go 查询合约账号ACL,合约方法ACL的具体实现 contract_acl.go 查询合约方法ACL的接口定义</td>
+</tr>
+<tr class="row-odd"><td>cmd</td>
+<td>XuperChain命令行功能集合，比如多重签名、交易查询、区块查询、合约部署、合约调用、余额查询等</td>
+</tr>
+<tr class="row-even"><td>common</td>
+<td>公共组件 batch_chan.go 将交易批量写入到channel中 common.go 获取序列化后的交易/区块的大小 lru_cache.go lru cache实现 util.go 去重string切片中的元素</td>
+</tr>
+<tr class="row-odd"><td>config</td>
+<td>系统配置文件 config.go 包括日志配置、Tcp配置、P2p配置、矿工配置、Utxo配置、Fee配置、合约配置、控制台配置、节点配置、raft配置等</td>
+</tr>
+<tr class="row-even"><td>consensus</td>
+<td>共识模块 base 共识算法接口定义 consensus.go 可插拔共识实现 tdpos dpos共识算法的具体实现 single single共识算法的具体实现</td>
+</tr>
+<tr class="row-odd"><td>contract</td>
+<td>智能合约 contract.go 智能合约接口定义 contract_mgr.go 创建智能合约实例 kernel 系统级串行智能合约 proposal 提案 wasm wasm虚拟机</td>
+</tr>
+<tr class="row-even"><td>core</td>
+<td>xchaincore.go 区块链的业务逻辑实现 xchainmg.go 负责管理多条区块链 xchainmg_validate.go 对区块、交易、智能合约的合法性验证业务逻辑 sync.go 节点主动向其它节点同步区块业务逻辑 xchaincore_net.go 通过广播形式向周围节点要区块 xchainmg_net.go 注册接收的消息类型 xchainmg_util.go 权限验证</td>
+</tr>
+<tr class="row-odd"><td>crypto</td>
+<td>密码学模块 account 生成用户账号 client 密码学模块的客户端接口 config 定义创建账号时产生的助记词中的标记符的值，及其所对应的椭圆曲线密码学算法的类 hash hash算法 sign 签名相关 utils 常用功能</td>
+</tr>
+<tr class="row-even"><td>global</td>
+<td>全局方法/变量 common.go 全局方法 global.go 全局变量</td>
+</tr>
+<tr class="row-odd"><td>kv</td>
+<td>存储接口与实现 kvdb 单盘存储 mstorage 多盘存储</td>
+</tr>
+<tr class="row-even"><td>ledger</td>
+<td>账本模块 genesis.go 创世区块相关实现 ledger.go 账本核心业务逻辑实现 ledger_hash.go 账本涉及的hash实现，如生成Merkle树，生成区块ID</td>
+</tr>
+<tr class="row-odd"><td>log</td>
+<td>日志模块 log.go 创建日志实例</td>
+</tr>
+<tr class="row-even"><td>p2pv2</td>
+<td>p2p网络模块 pb p2p网络消息的pb定义 config.go p2p网络配置 filter.go p2p网络节点过滤实现 server.go p2p网络对外接口实现 stream.go p2p网络流的定义与实现 subscriber.go p2p网络消息订阅定义与实现 util.go p2p网络的全局方法 handlerMap.go p2p网络消息处理入口 node.go p2p网络节点定义与实现 stream_pool.go p2p网络节点对应的流定义与实现 type.go p2p网络对外接口定义</td>
+</tr>
+<tr class="row-odd"><td>permission</td>
+<td>权限验证模块 permission.go 权限验证的业务逻辑实现 ptree 权限树 rule 权限模型 utils 通用工具</td>
+</tr>
+<tr class="row-even"><td>pluginmgr</td>
+<td>插件管理模块 pluginmgr.go 插件管理的业务逻辑实现 xchainpm.go 插件初始化工作</td>
+</tr>
+<tr class="row-odd"><td>replica</td>
+<td>多副本模块 replica.go 多副本raft业务逻辑实现</td>
+</tr>
+<tr class="row-even"><td>server</td>
+<td>util.go 通用工具实现，如获取远程节点ip</td>
+</tr>
+<tr class="row-odd"><td>xuper3</td>
+<td>contract contract/bridge xuperbridge定义与实现 contract/kernel 系统级合约(走预执行) contract/vm.go 虚拟机接口定义</td>
+</tr>
+<tr class="row-even"><td>xuper3</td>
+<td>xmodel xmodel实现 xmodel/pb 版本数据pb定义 xmodel/dbutils.go xmodel通用方法 xmodel/env.go 预执行环境初始化 xmodel/xmodel_cache.go model cache实现 xmodel/xmodel_iterator.go model迭代器实现 xmodel/xmodel_verify.go 读写集验证 xmodel/interface.go xmodel接口定 xmodel/versioned_data.go 版本数据 xmodel/xmodel_cache_iterator.go model cache迭代器 xmodel/xmodel.go model业务逻辑实现</td>
+</tr>
+<tr class="row-odd"><td>vendor</td>
+<td>依赖的三方库</td>
+</tr>
+<tr class="row-even"><td>utxo</td>
+<td>utxo模块 acl_valid_verify.go acl验证业务逻辑实现，包括SetAccountAcl, SetMethodAcl, 合约调用时的权限验证 topsort.go 交易集合的拓扑排序实现 txhash 交易相关的hash async.go 异步处理 tx_contract_generator.go 合约交易操作 utxo_cache.go utxo cache实现 utxo_item.go utxo表定义 withdraw.go 赎回实现 tx_contract_verifier.go 合约交易操作</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="video.html" class="btn btn-neutral float-right" title="2. 视频教程" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="test_network/guides.html" class="btn btn-neutral float-left" title="2. 超级链测试环境使用指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, xuper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
