@@ -5,7 +5,7 @@
 简介
 ----------
 
-百度超级链是一个支持多语言合约的区块链框架，有多种语言来供大家选择使用开发智能合约。目前超级链的智能合约可以使用c++ 、 go 以及 java语言来编写，c++ 和 go 支持 wasm合约，go 和 java支持native合约。c++ 合约合约性能会更好些，go 合约在易用性上更好，java 合约的开发者会更多些。大家可以根据需要选择自己喜欢的语言来编写智能合约，这篇文章会通过一步步的指引来帮助大家使用c++ 、go 或者 java 来编写超级链的智能合约，在阅读完文章后，希望大家对如何编写，部署和测试超级链的智能合约有初步的认识。  
+百度超级链是一个支持多语言合约的区块链框架，有多种语言来供大家选择使用开发智能合约。目前超级链的智能合约可以使用solidity、c++、go以及 java语言来编写，solidity为EVM合约，c++和go 支持 wasm合约，go和java支持native合约。solidity合约应用最为广泛，完美兼容以太坊开源社区以及相关开发工具，c++合约合约性能会更好些，go合约在易用性上更好，java合约的开发者会更多些。大家可以根据需要选择自己喜欢的语言来编写智能合约，这篇文章会通过一步步的指引来帮助大家使用solidity、c++、go或者java来编写超级链的智能合约，在阅读完文章后，希望大家对如何编写，部署和测试超级链的智能合约有初步的认识。  
 
 或使用超级链XuperOS，支持合约可视化管理、在线上链。 `点击了解 <https://xchain.baidu.com/n/console#/xuperos/contracts?type=mine>`_ 
 
@@ -190,14 +190,120 @@ xdev提供了一个默认的c++合约工程模板
 小结
 ^^^^^^^^^^^^
 
-通过本节的学习，我们快速掌握了如果编译，部署和调用合约，在下面的章节里面我们学些如果使用c++、go或者java语言来编写智能合约。
+通过本节的学习，我们快速掌握了如果编译，部署和调用合约，在下面的章节里面我们学些如果使用solidity、c++、go或者java语言来编写智能合约。
 
 合约编写详解
 ---------------
 
-XuperChain目前主要支持两种编译成wasm格式的合约语言， **c++** 和 **go**，以及 两种native合约 **go** 和 **java** ，合约框架的整体结构是一致的，在不同语言上的表现形式不太一样，但熟悉一种语言的SDK之后很容易迁移到其他语言。
+XuperChain目前主要支持以太坊solidity合约，两种编译成wasm格式的合约语言， **c++** 和 **go**，以及两种native合约 **go** 和 **java** ，合约框架的整体结构是一致的，在不同语言上的表现形式不太一样，但熟悉一种语言的SDK之后很容易迁移到其他语言。
 
-下面大概说明如何编写这三种类型的合约
+下面大概说明如何编写这四种类型的合约
+
+Solidity合约
+^^^^^^^^^^^^
+
+如果本地搭建超级链环境，在部署、调用solidity合约之前，请先查看`conf/xchain.yaml` 中evm一节，确保evm合约功能开启。
+
+.. code-block:: yaml
+    :linenos:
+
+    # evm合约配置
+    evm:
+        driver: "evm"
+        enable: true     
+
+编译环境准备
+>>>>>>>>>>>>>
+
+安装solc编译器，请参见**https://solidity-cn.readthedocs.io/zh/latest/installing-solidity.html**。
+
+    .. code-block:: bash
+
+        solc --version
+        // solc, the solidity compiler commandline interface
+        // Version: 0.5.9+commit.c68bc34e.Darwin.appleclang
+        // 以上打印说明编译器安装成功
+
+以counter合约为例来看如何编写一个Solidity合约。
+
+合约样例
+>>>>>>>>>>>>>
+
+代码在 **contractsdk/evm/example/Counter.sol**
+
+.. code-block:: c++
+    :linenos:
+	
+    pragma solidity >=0.0.0;
+
+    contract Counter {
+        address owner;
+        mapping (string => uint256) values;
+
+        constructor() public{
+            owner = msg.sender;
+        }
+
+        function increase(string memory key) public payable{
+            values[key] = values[key] + 1;
+        }
+
+        function get(string memory key) view public returns (uint) {
+            return values[key];
+        }
+
+        function getOwner() view public returns (address) {
+            return owner;
+        }
+
+    }
+
+代码
+>>>>>>>>>>>>>>
+
+    - solidity合约相关文档请参见 **https://github.com/ethereum/solidity** 。
+
+    - 更多的Solidity语言合约例子在超级链项目的 **core/contractsdk/evm/example** 以及 **https://github.com/OpenZeppelin/openzeppelin-contracts** 里面寻找。
+
+合约编译
+>>>>>>>>>>>
+
+Solidity合约使用如下命令来编译合约
+
+.. code-block:: go
+    :linenos:
+	
+    // 通过solc编译合约源码
+    solc --bin --abi Counter.sol -o .
+    // 合约二进制文件和abi文件分别存放在当前目录下，Counter.bin和Counter.abi
+
+- ``--bin`` ：表示需要生成合约二进制文件
+- ``--abi`` ：表示需要生成合约abi文件，用于合约方法以及参数编解码
+- ``-o``：表示编译结果输出路径
+
+合约部署
+>>>>>>>>>>>>>
+Solidity合约部署完整命令如下
+
+.. code-block:: bash
+    :linenos:
+	
+    $ ./xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 Counter.bin --abi Counter.abi
+
+- ``--abi`` ：表示合约abi文件
+
+合约调用
+>>>>>>>>>>>>>
+.. code-block:: bash
+    :linenos:
+	
+    // 合约increase方法调用
+    $ ./xchain-cli evm invoke --method increase -a '{"key":"stones"}' counterevm --fee 22787517 --abi Counter.abi
+    // 合约get方法调用
+    $ ./xchain-cli evm query --method get -a '{"key":"stones"}' counterevm --abi Counter.abi
+
+- ``--abi`` ：表示合约abi文件
+
 
 C++合约
 ^^^^^^^^^^^^
@@ -516,7 +622,7 @@ java合约的调用跟c++、go合约参数一致。
 小结
 ^^^^^^^^^
 
-在这个章节里面我们学习了如何使用c++、go和java语言来编写合约，更多的合约例子可以在对应语言SDK的example目录里面寻找，在下一章节我们学习如果给合约编写单元测试。
+在这个章节里面我们学习了如何使用solidity、c++、go和java语言来编写合约，更多的合约例子可以在对应语言SDK的example目录里面寻找，在下一章节我们学习如果给合约编写单元测试。
 
 合约单测
 -----------
