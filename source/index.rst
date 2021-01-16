@@ -9,7 +9,7 @@ XuperChain文档
 
 .. toctree::
    :maxdepth: 2
-   :caption: XuperChain介绍:
+   :caption:概览:
    :numbered:
 
    introduction/brief.rst
@@ -24,14 +24,14 @@ XuperChain文档
 
 .. toctree::
     :maxdepth: 2
-    :caption: 快速入门
+    :caption: 快速开始
     :numbered:
 
     quickstart.rst
 
 .. toctree::
     :maxdepth: 2
-    :caption: 技术设计文档:
+    :caption: 概念:
     :numbered:
 
     design_documents/XuperModel
@@ -56,7 +56,7 @@ XuperChain文档
 
 .. toctree::
     :maxdepth: 2
-    :caption: 进阶使用
+    :caption: 合约开发基础
     :numbered:
 
     advanced_usage/contract_accounts.rst
@@ -74,7 +74,7 @@ XuperChain文档
 
 .. toctree::
     :maxdepth: 2
-    :caption: 开发应用
+    :caption: 管理生产环境网络
     :numbered:
 
     developing_apps/eleccert.rst
@@ -82,7 +82,7 @@ XuperChain文档
 
 .. toctree::
     :maxdepth: 2
-    :caption: 开发手册
+    :caption: 合约开发进阶
     :numbered:
 
     development_manuals/XuperCDT.rst
@@ -91,7 +91,7 @@ XuperChain文档
 
 .. toctree::
     :maxdepth: 1
-    :caption: 超级链测试环境
+    :caption: 设计文档
     :numbered:
 
     test_network/description.rst
@@ -99,7 +99,7 @@ XuperChain文档
 
 .. toctree::
     :maxdepth: 1
-    :caption: 其他
+    :caption: 贡献指南
     :numbered:
 
     operations_guides.rst
@@ -109,6 +109,17 @@ XuperChain文档
     vocabulary.rst
     lessons.rst
 
+.. toctree::
+    :maxdepth: 1
+    :caption: 参考手册
+    :numbered:
+
+    operations_guides.rst
+    video.rst
+    commands_reference.rst
+    FAQs.rst
+    vocabulary.rst
+    lessons.rst
 
 Indices and tables
 ==================
