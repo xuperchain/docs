@@ -1,0 +1,56 @@
+
+.. _env-deploy:
+
+开发第一个超级链合约
+------------------
+
+.. _env-prepare:
+
+JAVA 合约开发
+^^^^^^^^
+
+c++ 合约开发
+^^^^^^^^
+
+golang 合约开发
+^^^^^^^^
+
+solidity 合约开发
+^^^^^^^^
+
+XuperChain主要由Golang开发，需要首先准备编译运行的环境
+
+- 安装go语言编译环境，版本为1.11或更高
+    - 下载地址：`golang <https://golang.org/dl/>`_
+- 安装git
+    - 下载地址：`git <https://git-scm.com/download>`_
+
+.. _env-compiling:
+
+
+- 使用git下载源码到本地
+
+    - git clone https://github.com/xuperchain/xuperchain.git
+
+- 执行命令
+
+.. code-block:: bash
+    :linenos:
+
+    cd src/github.com/xuperchain/xuperchain
+    make
+
+- 在output目录得到产出xchain和xchain-cli
+
+
+.. note::
+    可能需要配置go语言环境变量（$GOROOT, $PATH）
+
+    GOPATH问题报错（go1.11版本之后无需关注）
+        - 在1.11版本之前需要配置。配置成以下形式：
+        - export GOPATH=xxx/github.com/xuperchain/xuperchain
+        
+    GCC版本需要升级到4或5以上
+
+
+.. _basic-operation:

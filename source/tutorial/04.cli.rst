@@ -1,0 +1,8 @@
+使用 xchain-cli
+==========================
+
+
+使用 xchain-cli 管理账号
+使用 xchain-cli 管理交易
+使用 xchain-cli 管理合约
+使用 xchain-cli 订阅事件

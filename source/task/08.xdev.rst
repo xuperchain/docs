@@ -1,0 +1,136 @@
+
+快速体验
+---------------
+
+在开始编写智能合约之前首先通过一个简单的例子来给大家演示合约是如何从代码到字节码，以及如何部署到链上，如何发起对智能合约的调用。
+我们使用一个c++合约为例来展示如何编译、部署、调用合约。
+
+创建合约工程
+^^^^^^^^^^^^^^^^^
+::
+
+    xdev工具是随xuperchain发布的一个合约编译和测试工具，在编译完xuperchain之后生成在output目录。
+
+-----------
+
+xdev提供了一个默认的c++合约工程模板
+
+.. code-block:: bash
+    :linenos:
+    
+    $ xdev init hello-cpp
+
+ 
+这个命令创建了一个hello-cpp的合约工程
+
+编译合约
+^^^^^^^^^^^^^^^
+::
+
+    第一次编译的时间会长一点，因为xdev需要下载编译器镜像，以及编译超级链的标准库。
+
+
+.. code-block:: bash
+    :linenos:
+	
+    $ xdev build -o hello.wasm
+    CC main.cc
+    LD wasm
+
+
+编译结果为hello.wasm，后面我们使用这个文件来部署合约
+
+部署合约
+^^^^^^^^^^^^^
+
+.. code-block:: bash
+    :linenos:
+	
+    $ ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname hello  --fee 5200000 --runtime c ./hello-cpp/hello.wasm
+    contract response: initialize succeed
+    The gas you cousume is: 151875
+    The fee you pay is: 5200000
+    Tx id: 8c33a91c5cf564a28e7b62cad827ba91e19abf961702659dd8b70a3fb872bdf1
+
+
+此命令看起来很长，但是其中很多参数都有默认值，我们先来看一下参数的含义：
+
+    - **wasm deploy** ：此为部署wasm合约的命令参数，不做过多解释
+    - **--account XC1111111111111111@xuper** ：此为部署wasm合约的账号（只有合约账号才能进行合约的部署）
+    - **--cname hello** ：这里的hello是指部署后在链上的合约名字，可以自行命名（但有规则，长度在4～16字符）
+    - **--runtime c** 指明我们部署的是一个c++代码编译的合约，如果是go合约这里填 **go** 即可。
+    - **--fee** 为我们部署这个合约所需要的xuper
+    - 最后的hello.wasm是合约编译好的文件
+
+调用合约
+^^^^^^^^^^^^^
+
+.. code-block:: bash
+    :linenos:
+	
+    $ ./xchain-cli wasm invoke --method hello --fee 110000 hello
+    contract response: hello world
+    The gas you cousume is: 35
+    The fee you pay is: 110000
+    Tx id: d8989ad1bfd2d08bd233b7a09a544cb07976fdf3429144c42f6166d28e9ff695
+
+
+参数解释如下：
+
+    - **wasm invoke** 表示我们要调用一个合约
+    - **--method hello** 表示我们要调用合约的 **hello** 方法
+    - **--fee** 指明我们这次调用合约花费的xuper
+    - 最后的参数指明我们调用的合约名字 **hello**
+
+
+
+合约单测
+-----------
+
+如果每次测试合约都需要部署到链上再发起调用会特别麻烦，xdev工具提供了单测能力，可以脱离链上环境运行合约。
+
+test目录下放着合约测试文件，文件以 .test.js结尾，可以有多个测试文件。
+以hello-cpp目录下的test/hello.test.js为例，文件内容如下:
+
+.. code-block:: c++
+    :linenos:
+	
+    var assert = require("assert");
+    Test("hello", function (t) {
+        var contract;
+        t.Run("deploy", function (tt) {
+            contract = xchain.Deploy({
+                name: "hello",
+                code: "../hello.wasm",
+                lang: "c",
+                init_args: {}
+            })
+        });
+        t.Run("invoke", function (tt) {
+            resp = contract.Invoke("hello", {});
+            assert.equal(resp.Body, "hello world");
+        })
+    })
+
+
+使用Test函数来定义测试case，hello为测试名字, 匿名js function作为测试的body。
+全局对象xchain是我们跟xchain环境打交道的入口，xchain.Deploy用来部署一个合约到xchain环境，返回的contract对象，调用contract.Invoke方法即可调用合约。
+Deploy和Invoke方法都是通过抛出异常的方式来处理错误，测试框架会自动捕获错误来结束测试case。t.Run可以定义子测试case。
+
+使用如下命令来启动测试
+
+.. code-block:: bash
+    :linenos:
+	
+    $ cd hello-cpp
+    $ xdev test # 测试test目录下的所有case
+    === RUN   hello
+    === RUN   hello/deploy
+    === RUN   hello/invoke
+    --- PASS: hello (0.11s)
+        --- PASS: hello/deploy (0.07s)
+        --- PASS: hello/invoke (0.02s)
+    PASS
+
+
+

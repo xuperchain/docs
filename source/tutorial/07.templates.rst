@@ -1,0 +1,9 @@
+使用合约模板
+====
+
+.. toctree::
+    :caption: 接下来
+    :titlesonly:
+
+    templates/erc721.rst
+    templates/eleccert.rst

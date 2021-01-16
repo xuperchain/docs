@@ -4,126 +4,117 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-XuperChain文档
+XuperChain 文档
 =================
 
 .. toctree::
-   :maxdepth: 2
-   :caption:概览:
-   :numbered:
+    :caption: 概览
+    :titlesonly:
 
-   introduction/brief.rst
-   introduction/modules.rst
-   introduction/datastruct.rst
-   introduction/smart_contracts.rst
-   introduction/permission_system.rst
-   introduction/privacy.rst
-   introduction/perfomance.rst
-   introduction/trusted_ledger_intro.rst
-   introduction/summary.rst
+    introduction/01.brief.rst
+    introduction/02.advantage.rst
+    introduction/03.application.rst
+    introduction/04.next.rst
 
 .. toctree::
-    :maxdepth: 2
     :caption: 快速开始
-    :numbered:
+    :maxdepth: 1
+    :titlesonly:
 
-    quickstart.rst
 
-.. toctree::
-    :maxdepth: 2
-    :caption: 概念:
-    :numbered:
-
-    design_documents/XuperModel
-    design_documents/XuperBridge
-    design_documents/xvm.rst
-    design_documents/permission_model.rst
-    design_documents/p2p.rst
-    design_documents/authentication.rst
-    design_documents/proposal.rst
-    design_documents/crypto.rst
-    design_documents/extension.rst
-    design_documents/consensus.rst
-    design_documents/chained_bft.rst
-    design_documents/xpos.rst
-    design_documents/xpoa.rst
-    design_documents/single_pow.rst
-    design_documents/regulatory.rst
-    design_documents/multidisk.rst
-    design_documents/group.rst
-    design_documents/cross_chain.rst
-    design_documents/trusted_ledger_design.rst
+    quickstart/01.deploy.rst
+    quickstart/02.contract.rst
 
 .. toctree::
-    :maxdepth: 2
-    :caption: 合约开发基础
-    :numbered:
+    :caption: 概念
+    :titlesonly:
 
-    advanced_usage/contract_accounts.rst
-    advanced_usage/multi-nodes.rst
-    advanced_usage/create_contracts.rst
-    advanced_usage/initiate_proposals.rst
-    advanced_usage/multi-disks.rst
-    advanced_usage/parallel_chain.rst
-    advanced_usage/subscribe.rst
-    advanced_usage/readonly_queries.rst
-    advanced_usage/cross_chain.rst
-    advanced_usage/construct-XPoA.rst
-    advanced_usage/trusted_ledger_advanced_usage.rst
-    advanced_usage/monitoring.rst
+    concepts/00.blockchain101.rst
+    concepts/01.account.rst
+    concepts/02.permission.rst
+    concepts/03.consensus.rst
+    concepts/04.contract.rst
+    concepts/05.cryptography.rst
+    concepts/06.chain-manage.rst
+    concepts/07.trusted-ledger.rst
+    concepts/08.on-chain-goverance.rst
 
 .. toctree::
-    :maxdepth: 2
-    :caption: 管理生产环境网络
-    :numbered:
+    :caption: 教程
+    :titlesonly:
 
-    developing_apps/eleccert.rst
-    developing_apps/erc721.rst
+    tutorial/01.account.rst
+    tutorial/02.contract-development.rst
+    tutorial/03.sdk.rst
+    tutorial/04.cli.rst
+    tutorial/05.api.rst
+    tutorial/06.cdt.rst
+    tutorial/07.templates.rst
+
 
 .. toctree::
-    :maxdepth: 2
-    :caption: 合约开发进阶
-    :numbered:
+    :caption: 部署
+    :titlesonly:
 
-    development_manuals/XuperCDT.rst
-    development_manuals/XdevManual.rst
-    development_manuals/XuperRPC.rst
+    deployment/01.guide.rst
+    deployment/02.parallel-chain.rst
+    deployment/03.regulatory.rst
+    deployment/04.quota.rst
+    deployment/05.upgrade.rst
+    deployment/06.monitoring.rst
+    deployment/08.on-chain-governance.rst
+    deployment/09.trouble-shooting.rst
+
+.. toctree::
+    :caption: 任务
+    :titlesonly:
+
+    task/01.subscribe.rst
+    task/02.vscode.rst
+    task/03.trusted-ledger-advanced-usage.rst
+    task/04.cross-chain.rst
+    task/05.readonly-queries.rst
+    task/06.sandbox.rst
+    task/07.privacy.rst
+
+.. toctree::
+    :caption: 设计
+    :titlesonly:
+
+    design/01.datastruct.rst
+    design/02.consensus.rst
+    design/03.p2p.rst
+    design/04.vm.rst
+    design/05.permission-model.rst
+    design/06.chain.rst
+    design/07.plugin.rst
+    design/09.multi-disk.rst
 
 .. toctree::
     :maxdepth: 1
-    :caption: 设计文档
-    :numbered:
+    :caption: 贡献
+    :titlesonly:
 
-    test_network/description.rst
-    test_network/guides.rst
-
-.. toctree::
-    :maxdepth: 1
-    :caption: 贡献指南
-    :numbered:
-
-    operations_guides.rst
-    video.rst
-    commands_reference.rst
-    FAQs.rst
-    vocabulary.rst
-    lessons.rst
+    contribution/00.pre-contribution.rst
+    contribution/01.documentation.rst
+    contribution/02.plugins.rst
+    contribution/03.sdk.rst
+    contribution/04.forum.rst
+    contribution/05.core.rst
+    contribution/06.activity.rst
+    contribution/07.contribution-list.rst
 
 .. toctree::
     :maxdepth: 1
-    :caption: 参考手册
-    :numbered:
+    :caption: 参考
+    :titlesonly:
 
-    operations_guides.rst
-    video.rst
-    commands_reference.rst
-    FAQs.rst
-    vocabulary.rst
-    lessons.rst
+    reference/00.command.rst
+    reference/01.rpc.rst
+    reference/02.faq.rst
+    reference/03.lessons.rst
+    reference/04.video.rst
+    reference/05.vocabulary.rst
+    reference/06.xchain-performance.rst
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

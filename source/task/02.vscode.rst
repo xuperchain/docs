@@ -1,0 +1,72 @@
+VSCode编辑器集成
+====
+
+配置编译和测试task
+^^^^^^^^^^^^^^^^^^^^^
+
+为了方便在vscode里面编译和测试合约，在 **.vscode/tasks.json** 里面添加如下内容
+
+.. code-block:: json
+    :linenos:
+	
+    {
+        // See https://go.microsoft.com/fwlink/?LinkId=733558
+        // for the documentation about the tasks.json format
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "xdev build",
+                "type": "shell",
+                "command": "xdev build -p",
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                },
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                }
+            },
+            {
+                "label": "xdev test",
+                "type": "shell",
+                "command": "xdev test",
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            }
+        ]
+    }
+
+
+
+编译合约
+^^^^^^^^^^^^^^
+
+Run Build Task(⇧⌘B)来启动构建
+
+.. image:: ../images/xdev-build1.gif
+    :align: center
+
+跑合约单测
+^^^^^^^^^^^^^
+
+调用Run Task命令之后，选择xdev test来触发单元测试
+
+.. image:: ../images/xdev-test.gif
+    :align: center
+
+
+代码补全
+^^^^^^^^^^^^^^
+
+为了让vscode帮我们自动补全代码，需要做如下配置，在项目的.vscode/settings.json文件里面加上这一个配置
+
+.. code-block:: go
+    :linenos:
+	
+    {
+        "C_Cpp.default.compileCommands": "${workspaceFolder}/compile_commands.json"
+    }
+
+
+之后就能用vscode的自动补全功能了.
