@@ -26,7 +26,7 @@ XuperChain 文档
     quickstart/02.contract.rst
 
 .. toctree::
-    :caption: 概念
+    :caption: 基本概念
     :titlesonly:
 
     concepts/00.blockchain101.rst
@@ -40,7 +40,7 @@ XuperChain 文档
     concepts/08.on-chain-goverance.rst
 
 .. toctree::
-    :caption: 教程
+    :caption: 合约开发教程
     :titlesonly:
 
     tutorial/01.account.rst
@@ -53,7 +53,7 @@ XuperChain 文档
 
 
 .. toctree::
-    :caption: 部署
+    :caption: 部署生产环境网络
     :titlesonly:
 
     deployment/01.guide.rst
@@ -66,7 +66,7 @@ XuperChain 文档
     deployment/09.trouble-shooting.rst
 
 .. toctree::
-    :caption: 任务
+    :caption: 高级合约开发
     :titlesonly:
 
     task/01.subscribe.rst
@@ -78,7 +78,7 @@ XuperChain 文档
     task/07.privacy.rst
 
 .. toctree::
-    :caption: 设计
+    :caption: 超级链实现原理
     :titlesonly:
 
     design/01.datastruct.rst
@@ -92,7 +92,7 @@ XuperChain 文档
 
 .. toctree::
     :maxdepth: 1
-    :caption: 贡献
+    :caption: 贡献指南
     :titlesonly:
 
     contribution/00.pre-contribution.rst
@@ -106,7 +106,7 @@ XuperChain 文档
 
 .. toctree::
     :maxdepth: 1
-    :caption: 参考
+    :caption: 参考手册
     :titlesonly:
 
     reference/00.command.rst
