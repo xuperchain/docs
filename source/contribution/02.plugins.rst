@@ -18,7 +18,7 @@
 
 插件框架用以根据需求创建插件实例，考虑到超级链单进程多链、插件多实例多版本等需求，整体设计
 
-.. image:: ../images/extension.png
+.. image:: /images/extension.png
 
 模块和插件定义
 ^^^^^^^^^^^^^^

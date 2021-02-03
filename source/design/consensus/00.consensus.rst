@@ -1,7 +1,7 @@
 超级链共识框架概览
 ------------------
 
-.. image:: ../images/consensus-1.png
+.. image:: /images/consensus-1.png
     :align: center
 
 上图是超级链共识模块的整体架构图，自底向上主要包括3层：
@@ -34,7 +34,7 @@
 1. Miner(): 这个函数的主要功能有2点，首先判断自己是否为当前的矿工，当判断自己是矿工时需要进行区块打包。
 2. SendBlock(): 这个函数是节点收到区块时的核心处理逻辑，当节点收到一个区块时会调用共识模块的相关接口进行区块有效性的验证，当验证通过后会将区块写入到账本中。
 
-.. image:: ../images/consensus-2.png
+.. image:: /images/consensus-2.png
     :align: center
 
 超级链的共识整体流程如上图所示，主要包括7个步骤：

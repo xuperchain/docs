@@ -24,7 +24,7 @@ Mesatee：Memory Safe TEE(Mesatee)是百度基于Intel SGX设计的内存安全�
 
 下图是可信账本的系统架构设计
 
-.. image:: ../images/trusted_ledger.png
+.. image:: /images/trusted_ledger.png
 	:align: center
 	
 

@@ -5,7 +5,7 @@
 
 超级链开放网络为开发者提供了合约开发、编译、部署、管理的一站式可视化集成环境，下面介绍如何在开放网络上开发部署智能合约。
 
-.. image:: ../images/xuperos-dashboard.png
+.. image:: /images/xuperos-dashboard.png
     :align: center
 
 账户注册
@@ -14,7 +14,7 @@
     1. 在超级链官网 https://xchain.baidu.com/ 使用百度账号登录，如果没有百度账号请先注册。
     #. 进入超级链开放网络控制台，第一次登录的用户，平台会为用户创建区块链账户，请按照创建账户指引文档完成安全码设置，并记录自己的助记词和私钥。
 
-.. image:: ../images/xuperos-create-account.png
+.. image:: /images/xuperos-create-account.png
     :align: center
 	
 创建合约账户
@@ -23,7 +23,7 @@
     1. 在工作台，选择「开放网络 —> 合约管理」，点击「创建合约账户」
     #. 进入创建合约账户页，输入安全码后点击「确认创建」，系统自动生成账户名称后，即创建完毕 
 	
-.. image:: ../images/xuperos-no-account.png
+.. image:: /images/xuperos-no-account.png
     :align: center
 	
 	
@@ -37,7 +37,7 @@
        + 模板合约；选择模板后，只需在模板代码中填写相关参数即可（参考模板详情完成参数填写）
        + 自定义合约；在编辑器内完成C++语言的合约编辑即可
 
-.. image:: ../images/xuperos-create-contract.png
+.. image:: /images/xuperos-create-contract.png
     :align: center
 
 3. 进入安装流程，用户需按合约代码完成预执行操作。点击「开始验证」，执行通过会进入安装确认页
@@ -45,7 +45,7 @@
         + 模板合约；系统会提供模板的函数，只需填写参数即可（可参考模板详情）
         + 自定义合约；根据页面操作说明，完成函数、参数填写 
 
-.. image:: ../images/xuperos-install-contract.png
+.. image:: /images/xuperos-install-contract.png
     :align: center
 
 4. 进入确认安装页，页面显示安装合约预计消耗的余额。点击「安装合约」将合约上链，上链过程需要等待10S左右。安装完成后，在合约管理列表中可看到合约状态变更为‘安装成功’，即该合约已完成安装。

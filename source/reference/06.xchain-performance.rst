@@ -6,7 +6,7 @@ xchain性能测试使用文档
 --------------
 - xchain 由三个独立机器节点组成，xbench从另1台机器发压到1个node节点
 
-.. image:: ../images/xchain-performance-1.PNG
+.. image:: /images/xchain-performance-1.PNG
     :align: center
 
 - node节点机器硬件配置
@@ -238,7 +238,7 @@ generate转账性能
 
 性能数据：7025 tps
 
-.. image:: ../images/xchain-performance-2.PNG
+.. image:: /images/xchain-performance-2.PNG
     :align: center
 
 查询账户性能
@@ -269,7 +269,7 @@ generate转账性能
 
 性能数据：13138 tps
     
-.. image:: ../images/xchain-performance-3.PNG
+.. image:: /images/xchain-performance-3.PNG
     :align: center
 
 合约调用性能
@@ -300,7 +300,7 @@ generate转账性能
 
 性能数据：4122 tps
 
-.. image:: ../images/xchain-performance-4.PNG
+.. image:: /images/xchain-performance-4.PNG
     :align: center
 
 异步阻塞模式
@@ -340,7 +340,7 @@ generate转账性能
     
 性能数据：12808 tps
         
-.. image:: ../images/xchain-performance-5.PNG
+.. image:: /images/xchain-performance-5.PNG
     :align: center
         
 query查询账户性能
@@ -370,7 +370,7 @@ query查询账户性能
 
 性能数据：13115 tps
         
-.. image:: ../images/xchain-performance-6.PNG
+.. image:: /images/xchain-performance-6.PNG
     :align: center
     
 invoke合约调用性能
@@ -399,5 +399,5 @@ invoke合约调用性能
 
 性能数据：4241 tps
         
-.. image:: ../images/xchain-performance-7.PNG
+.. image:: /images/xchain-performance-7.PNG
     :align: center

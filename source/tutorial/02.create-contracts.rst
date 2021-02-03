@@ -73,7 +73,7 @@
 
         账号的acl查询如下：
 
-        .. figure:: ../images/checkacl.gif
+        .. figure:: /images/checkacl.gif
             :alt: 查询acl
             :align: center
 
@@ -114,7 +114,7 @@
 
         运行效果如下
 
-        .. figure:: ../images/deploywasm.gif
+        .. figure:: /images/deploywasm.gif
             :alt: 发起wasm合约部署
             :align: center
 
@@ -132,7 +132,7 @@
 
         运行效果如下
 
-        .. figure:: ../images/signtx.gif
+        .. figure:: /images/signtx.gif
             :alt: 对tx签名
             :align: center
 
@@ -154,7 +154,7 @@
 
         运行效果如下
 
-        .. figure:: ../images/sendtx.gif
+        .. figure:: /images/sendtx.gif
             :alt: 发送部署交易
             :align: center
 

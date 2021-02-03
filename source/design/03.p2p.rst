@@ -24,7 +24,7 @@ p2p网络概述
 
 超级链消息采用Protobuf定义，整个消息包括2部分，分别是消息头 ``MessageHeader`` 和消息体 ``MessageData`` ，具体如下所示：
 
-.. image:: ../images/p2p-msg.png
+.. image:: /images/p2p-msg.png
     :align: center
 
 其proto消息定义如下：
@@ -59,7 +59,7 @@ p2p网络概述
 
 超级链p2p网络模块与其他模块的交互如图所示，以libp2p模式为例：
 
-.. image:: ../images/p2p-relation.png
+.. image:: /images/p2p-relation.png
     :align: center
 
 上图左边是Xuper的启动流程，其中InitP2PServer的流程为启动P2P的核心流程，如右半部分所示，右半部分主要包括4个阶段，分别为：
@@ -76,7 +76,7 @@ p2p网络概述
 
 用户提交的交易消息在超级链网络中传输的处理流程如下所示：
 
-.. image:: ../images/p2p-flow.png
+.. image:: /images/p2p-flow.png
     :align: center
 
 用户通过RPC将交易提交到网络中，交易执行成功后会通过p2p模块广播给网络中的其他节点。

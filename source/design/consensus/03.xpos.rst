@@ -16,7 +16,7 @@ XPoS是超级链的一种改进型的DPoS算法，他是在一段预设的时间
 
 节点角色
 
-.. image:: ../images/tdpos.png
+.. image:: /images/tdpos.png
     :align: center
     :width: 300px
 
@@ -56,7 +56,7 @@ XPoS是超级链的一种改进型的DPoS算法，他是在一段预设的时间
 
 每一轮开始的第一个区块会自动触发检票的交易，该交易会进行下一轮候选人的检票，被选举出的节点会按照既定的时间片协同出块，每一个区块都会请求所有验证节点的验证。XPoS的时间片切分如下图所示：
 
-.. image:: ../images/tdpos-slice.png
+.. image:: /images/tdpos-slice.png
     :align: center
 
 为了降低切主时容易造成分叉，XPoS将出块间隔分成了3个，如上图所示：

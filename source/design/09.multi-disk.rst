@@ -19,7 +19,7 @@ LevelDB数据模型分析
 
 - **SST文件**：磁盘数据存储文件。分为Level 0到Level N多层，每一层包含多个SST文件；单个SST文件容量随层次增加成倍增长；文件内数据有序；其中Level0的SST文件由Immutable直接Dump产生，其他Level的SST文件由其上一层的文件和本层文件归并产生；SST文件在归并过程中顺序写生成，生成后仅可能在之后的归并中被删除，而不会有任何的修改操作。
 
-.. image:: ../images/leveldb.png
+.. image:: /images/leveldb.png
     :align: center
     :width: 600px
 
@@ -31,7 +31,7 @@ Leveldb的数据主要是存储在SST(Sorted String Table)文件中，写放大�
 
 举个例子，假设某sst文件名是12345.ldb，而节点机器有3块盘用于存储（/disk1, /disk2, /disk3)，那么就将改sst文件放置在 (12345 % 3) + 1, 也就是disk1盘上
 
-.. image:: ../images/leveldb2.png
+.. image:: /images/leveldb2.png
     :align: center
     :width: 600px
 

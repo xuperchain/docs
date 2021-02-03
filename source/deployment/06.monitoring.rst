@@ -44,7 +44,7 @@
 
    a. 修改 prometheus.yml 文件，添加如下配置，指向prometheus端口:
 
-   .. image:: ../images/monitoring-1.png  
+   .. image:: /images/monitoring-1.png  
        :align: center
 
 
@@ -57,25 +57,25 @@
    
    b. p2p_flow_in 
 
-   .. image:: ../images/monitoring-2.png 
+   .. image:: /images/monitoring-2.png 
        :align: center
 
 
    c. p2p_flow_out
 
-   .. image:: ../images/monitoring-3.png
+   .. image:: /images/monitoring-3.png
        :align: center
 
 
    d. rpc_flow_in
 
-   .. image:: ../images/monitoring-4.png
+   .. image:: /images/monitoring-4.png
        :align: center
 
 
    e. rpc_flow_out
 
-   .. image:: ../images/monitoring-5.png
+   .. image:: /images/monitoring-5.png
        :align: center
 
 使用 Grafana 查看监控

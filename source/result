@@ -1,0 +1,189 @@
+design/consensus/03.xpos.rst:19:.. image:: ../images/tdpos.png
+design/consensus/03.xpos.rst:59:.. image:: ../images/tdpos-slice.png
+design/consensus/00.consensus.rst:4:.. image:: ../images/consensus-1.png
+design/consensus/00.consensus.rst:37:.. image:: ../images/consensus-2.png
+design/chain/08.group-chain.rst:23:.. image:: ../images/parallel.png
+design/consensus/05.proposal.rst:5:.. figure:: ../images/proposal-1.png
+design/consensus/05.proposal.rst:19:.. figure:: ../images/proposal-2.png
+design/01.datastruct.rst:21:.. image:: ../images/block-img.png
+design/01.datastruct.rst:152:.. image:: ../images/tx-img.png
+design/01.datastruct.rst:213:.. image:: ../images/xupermodel.png
+design/01.datastruct.rst:252:.. figure:: ../images/xupermodel.png
+design/01.datastruct.rst:260:.. figure:: ../images/xupermodel_contract.png
+design/03.p2p.rst:27:.. image:: ../images/p2p-msg.png
+design/03.p2p.rst:62:.. image:: ../images/p2p-relation.png
+design/03.p2p.rst:79:.. image:: ../images/p2p-flow.png
+design/07.plugin.rst:21:.. image:: ../images/extension.png
+design/chain/06.cross-chain.rst:19:.. image:: ../images/cross_chain_1.png
+design/chain/06.cross-chain.rst:24:.. image:: ../images/cross_chain_2.png
+design/chain/06.cross-chain.rst:29:.. image:: ../images/cross_chain_3.png
+design/chain/06.cross-chain.rst:57:.. image:: ../images/cross_chain_4.png
+design/chain/06.cross-chain.rst:65:.. image:: ../images/cross_chain_5.png
+design/chain/06.cross-chain.rst:73:.. image:: ../images/cross_chain_6.png
+design/chain/06.cross-chain.rst:86:.. image:: ../images/cross_chain_7.png
+design/chain/06.cross-chain.rst:93:.. image:: ../images/cross_chain_8.png
+design/chain/06.cross-chain.rst:178:.. image:: ../images/cross_chain_9.png
+design/chain/06.cross-chain.rst:223:.. image:: ../images/cross_chain_10.png
+design/chain/06.cross-chain.rst:240:.. image:: ../images/cross_chain_11.png
+design/consensus/02.chained_bft.rst:26:.. image:: ../images/chained_bft.jpg
+design/consensus/02.chained_bft.rst:101:.. image:: ../images/chained-bft.png
+design/consensus/02.chained_bft.rst:120:.. image:: ../images/pacemaker.png
+design/05.permission-model.rst:22:.. figure:: ../images/acl-intro.png
+design/05.permission-model.rst:65:.. figure:: ../images/acl-arch.png
+design/05.permission-model.rst:167:.. figure:: ../images/authentication.png
+design/vm/01.xvm.rst:34:.. figure:: /images/xvm_compile.png
+design/vm/01.xvm.rst:148:.. figure:: ../images/wasm-c++-memory.png
+design/vm/01.xvm.rst:157:.. figure:: ../images/symbol_resolve.png
+design/vm/01.xvm.rst:167:.. figure:: ../images/gowasm.png
+design/vm/02.XuperBridge.rst:10:.. figure:: ../images/contract.png
+design/vm/02.XuperBridge.rst:22:.. figure:: ../images/contract-com.png
+design/vm/02.XuperBridge.rst:33:.. figure:: ../images/contract-socket.png
+design/vm/02.XuperBridge.rst:42:.. figure:: ../images/contract-wasm.png
+introduction/01.brief.rst:15:.. figure:: ../images/arch.png
+deployment/06.monitoring.rst:47:   .. image:: ../images/monitoring-1.png  
+deployment/06.monitoring.rst:60:   .. image:: ../images/monitoring-2.png 
+deployment/06.monitoring.rst:66:   .. image:: ../images/monitoring-3.png
+deployment/06.monitoring.rst:72:   .. image:: ../images/monitoring-4.png
+deployment/06.monitoring.rst:78:   .. image:: ../images/monitoring-5.png
+design/09.multi-disk.rst:22:.. image:: ../images/leveldb.png
+design/09.multi-disk.rst:34:.. image:: ../images/leveldb2.png
+tutorial/02.create-contracts.rst:76:        .. figure:: ../images/checkacl.gif
+tutorial/02.create-contracts.rst:117:        .. figure:: ../images/deploywasm.gif
+tutorial/02.create-contracts.rst:135:        .. figure:: ../images/signtx.gif
+tutorial/02.create-contracts.rst:157:        .. figure:: ../images/sendtx.gif
+_build/html/design/consensus/03.xpos.html:276:<a class="reference internal image-reference" href="design/consensus/../images/tdpos.png"><img alt="design/consensus/../images/tdpos.png" class="align-center" src="design/consensus/../images/tdpos.png" style="width: 300px;" /></a>
+_build/html/design/consensus/03.xpos.html:310:<img alt="design/consensus/../images/tdpos-slice.png" class="align-center" src="design/consensus/../images/tdpos-slice.png" />
+_build/html/design/consensus/02.chained_bft.html:279:<img alt="design/consensus/../images/chained_bft.jpg" class="align-center" src="design/consensus/../images/chained_bft.jpg" />
+_build/html/design/consensus/02.chained_bft.html:396:<img alt="design/consensus/../images/chained-bft.png" class="align-center" src="design/consensus/../images/chained-bft.png" />
+_build/html/design/consensus/02.chained_bft.html:411:<img alt="design/consensus/../images/pacemaker.png" class="align-center" src="design/consensus/../images/pacemaker.png" />
+_build/html/design/consensus/00.consensus.html:265:<img alt="design/consensus/../images/consensus-1.png" class="align-center" src="design/consensus/../images/consensus-1.png" />
+_build/html/design/consensus/00.consensus.html:315:<img alt="design/consensus/../images/consensus-2.png" class="align-center" src="design/consensus/../images/consensus-2.png" />
+_build/html/design/chain/06.cross-chain.html:265:<img alt="design/chain/../images/cross_chain_1.png" class="align-center" src="design/chain/../images/cross_chain_1.png" />
+_build/html/design/chain/06.cross-chain.html:269:<img alt="design/chain/../images/cross_chain_2.png" class="align-center" src="design/chain/../images/cross_chain_2.png" />
+_build/html/design/chain/06.cross-chain.html:273:<img alt="design/chain/../images/cross_chain_3.png" class="align-center" src="design/chain/../images/cross_chain_3.png" />
+_build/html/design/chain/06.cross-chain.html:298:<img alt="design/chain/../images/cross_chain_4.png" class="align-center" src="design/chain/../images/cross_chain_4.png" />
+_build/html/design/chain/06.cross-chain.html:303:<img alt="design/chain/../images/cross_chain_5.png" class="align-center" src="design/chain/../images/cross_chain_5.png" />
+_build/html/design/chain/06.cross-chain.html:308:<img alt="design/chain/../images/cross_chain_6.png" class="align-center" src="design/chain/../images/cross_chain_6.png" />
+_build/html/design/chain/06.cross-chain.html:316:<img alt="design/chain/../images/cross_chain_7.png" class="align-center" src="design/chain/../images/cross_chain_7.png" />
+_build/html/design/chain/06.cross-chain.html:323:<img alt="design/chain/../images/cross_chain_8.png" class="align-center" src="design/chain/../images/cross_chain_8.png" />
+_build/html/design/chain/06.cross-chain.html:424:<img alt="design/chain/../images/cross_chain_9.png" class="align-center" src="design/chain/../images/cross_chain_9.png" />
+_build/html/design/chain/06.cross-chain.html:466:<img alt="design/chain/../images/cross_chain_10.png" class="align-center" src="design/chain/../images/cross_chain_10.png" />
+_build/html/design/chain/06.cross-chain.html:481:<img alt="design/chain/../images/cross_chain_11.png" class="align-center" src="design/chain/../images/cross_chain_11.png" />
+_build/html/design/chain/08.group-chain.html:269:<a class="reference internal image-reference" href="design/chain/../images/parallel.png"><img alt="design/chain/../images/parallel.png" class="align-center" src="design/chain/../images/parallel.png" style="width: 500px;" /></a>
+_build/html/design/consensus/05.proposal.html:266:<img alt="design/consensus/../images/proposal-1.png" src="design/consensus/../images/proposal-1.png" />
+_build/html/design/consensus/05.proposal.html:276:<img alt="design/consensus/../images/proposal-2.png" src="design/consensus/../images/proposal-2.png" />
+_build/html/_sources/design/consensus/03.xpos.rst.txt:19:.. image:: ../images/tdpos.png
+_build/html/_sources/design/consensus/03.xpos.rst.txt:59:.. image:: ../images/tdpos-slice.png
+_build/html/design/vm/01.xvm.html:429:<a class="reference internal image-reference" href="design/vm/../images/wasm-c++-memory.png"><img alt="c++合约的内存分布" src="design/vm/../images/wasm-c++-memory.png" style="width: 100px;" /></a>
+_build/html/design/vm/01.xvm.html:434:<a class="reference internal image-reference" href="design/vm/../images/symbol_resolve.png"><img alt="xvm符号解析" src="design/vm/../images/symbol_resolve.png" style="width: 300px;" /></a>
+_build/html/design/vm/01.xvm.html:441:<a class="reference internal image-reference" href="design/vm/../images/gowasm.png"><img alt="go合约运行时结构" src="design/vm/../images/gowasm.png" style="width: 400px;" /></a>
+_build/html/design/vm/02.XuperBridge.html:262:<a class="reference internal image-reference" href="design/vm/../images/contract.png"><img alt="XuperBridge" src="design/vm/../images/contract.png" style="width: 300px;" /></a>
+_build/html/design/vm/02.XuperBridge.html:269:<a class="reference internal image-reference" href="design/vm/../images/contract-com.png"><img alt="合约双向通信" src="design/vm/../images/contract-com.png" style="width: 300px;" /></a>
+_build/html/design/vm/02.XuperBridge.html:277:<a class="reference internal image-reference" href="design/vm/../images/contract-socket.png"><img alt="合约socket" src="design/vm/../images/contract-socket.png" style="width: 400px;" /></a>
+_build/html/design/vm/02.XuperBridge.html:284:<a class="reference internal image-reference" href="design/vm/../images/contract-wasm.png"><img alt="WASM合约" src="design/vm/../images/contract-wasm.png" style="width: 500px;" /></a>
+_build/html/_sources/design/consensus/00.consensus.rst.txt:4:.. image:: ../images/consensus-1.png
+_build/html/_sources/design/consensus/00.consensus.rst.txt:37:.. image:: ../images/consensus-2.png
+_build/html/_sources/design/consensus/05.proposal.rst.txt:5:.. figure:: ../images/proposal-1.png
+_build/html/_sources/design/consensus/05.proposal.rst.txt:19:.. figure:: ../images/proposal-2.png
+_build/html/_sources/design/consensus/02.chained_bft.rst.txt:26:.. image:: ../images/chained_bft.jpg
+_build/html/_sources/design/consensus/02.chained_bft.rst.txt:101:.. image:: ../images/chained-bft.png
+_build/html/_sources/design/consensus/02.chained_bft.rst.txt:120:.. image:: ../images/pacemaker.png
+_build/html/_sources/design/vm/01.xvm.rst.txt:34:.. figure:: /images/xvm_compile.png
+_build/html/_sources/design/vm/01.xvm.rst.txt:148:.. figure:: ../images/wasm-c++-memory.png
+_build/html/_sources/design/vm/01.xvm.rst.txt:157:.. figure:: ../images/symbol_resolve.png
+_build/html/_sources/design/vm/01.xvm.rst.txt:167:.. figure:: ../images/gowasm.png
+_build/html/_sources/design/09.multi-disk.rst.txt:22:.. image:: ../images/leveldb.png
+_build/html/_sources/design/09.multi-disk.rst.txt:34:.. image:: ../images/leveldb2.png
+_build/html/_sources/design/03.p2p.rst.txt:27:.. image:: ../images/p2p-msg.png
+_build/html/_sources/design/03.p2p.rst.txt:62:.. image:: ../images/p2p-relation.png
+_build/html/_sources/design/03.p2p.rst.txt:79:.. image:: ../images/p2p-flow.png
+_build/html/_sources/design/chain/08.group-chain.rst.txt:23:.. image:: ../images/parallel.png
+_build/html/_sources/design/chain/06.cross-chain.rst.txt:19:.. image:: ../images/cross_chain_1.png
+_build/html/_sources/design/chain/06.cross-chain.rst.txt:24:.. image:: ../images/cross_chain_2.png
+_build/html/_sources/design/chain/06.cross-chain.rst.txt:29:.. image:: ../images/cross_chain_3.png
+_build/html/_sources/design/chain/06.cross-chain.rst.txt:57:.. image:: ../images/cross_chain_4.png
+_build/html/_sources/design/chain/06.cross-chain.rst.txt:65:.. image:: ../images/cross_chain_5.png
+_build/html/_sources/design/chain/06.cross-chain.rst.txt:73:.. image:: ../images/cross_chain_6.png
+_build/html/_sources/design/chain/06.cross-chain.rst.txt:86:.. image:: ../images/cross_chain_7.png
+_build/html/_sources/design/chain/06.cross-chain.rst.txt:93:.. image:: ../images/cross_chain_8.png
+_build/html/_sources/design/chain/06.cross-chain.rst.txt:178:.. image:: ../images/cross_chain_9.png
+_build/html/_sources/design/chain/06.cross-chain.rst.txt:223:.. image:: ../images/cross_chain_10.png
+_build/html/_sources/design/chain/06.cross-chain.rst.txt:240:.. image:: ../images/cross_chain_11.png
+_build/html/_sources/design/vm/02.XuperBridge.rst.txt:10:.. figure:: ../images/contract.png
+_build/html/_sources/design/vm/02.XuperBridge.rst.txt:22:.. figure:: ../images/contract-com.png
+_build/html/_sources/design/vm/02.XuperBridge.rst.txt:33:.. figure:: ../images/contract-socket.png
+_build/html/_sources/design/vm/02.XuperBridge.rst.txt:42:.. figure:: ../images/contract-wasm.png
+_build/html/_sources/design/01.datastruct.rst.txt:21:.. image:: ../images/block-img.png
+_build/html/_sources/design/01.datastruct.rst.txt:152:.. image:: ../images/tx-img.png
+_build/html/_sources/design/01.datastruct.rst.txt:213:.. image:: ../images/xupermodel.png
+_build/html/_sources/design/01.datastruct.rst.txt:252:.. figure:: ../images/xupermodel.png
+_build/html/_sources/design/01.datastruct.rst.txt:260:.. figure:: ../images/xupermodel_contract.png
+_build/html/_sources/design/07.plugin.rst.txt:21:.. image:: ../images/extension.png
+_build/html/_sources/deployment/06.monitoring.rst.txt:47:   .. image:: ../images/monitoring-1.png  
+_build/html/_sources/deployment/06.monitoring.rst.txt:60:   .. image:: ../images/monitoring-2.png 
+_build/html/_sources/deployment/06.monitoring.rst.txt:66:   .. image:: ../images/monitoring-3.png
+_build/html/_sources/deployment/06.monitoring.rst.txt:72:   .. image:: ../images/monitoring-4.png
+_build/html/_sources/deployment/06.monitoring.rst.txt:78:   .. image:: ../images/monitoring-5.png
+_build/html/_sources/concepts/07.trusted-ledger.rst.txt:27:.. image:: ../images/trusted_ledger.png
+_build/html/_sources/tutorial/02.create-contracts.rst.txt:76:        .. figure:: ../images/checkacl.gif
+_build/html/_sources/tutorial/02.create-contracts.rst.txt:117:        .. figure:: ../images/deploywasm.gif
+_build/html/_sources/tutorial/02.create-contracts.rst.txt:135:        .. figure:: ../images/signtx.gif
+_build/html/_sources/tutorial/02.create-contracts.rst.txt:157:        .. figure:: ../images/sendtx.gif
+_build/html/_sources/task/05.open-network.rst.txt:8:.. image:: ../images/xuperos-dashboard.png
+_build/html/_sources/task/05.open-network.rst.txt:17:.. image:: ../images/xuperos-create-account.png
+_build/html/_sources/task/05.open-network.rst.txt:26:.. image:: ../images/xuperos-no-account.png
+_build/html/_sources/task/05.open-network.rst.txt:40:.. image:: ../images/xuperos-create-contract.png
+_build/html/_sources/task/05.open-network.rst.txt:48:.. image:: ../images/xuperos-install-contract.png
+_build/html/_sources/contribution/02.plugins.rst.txt:21:.. image:: ../images/extension.png
+_build/html/_sources/task/02.vscode.rst.txt:47:.. image:: ../images/xdev-build1.gif
+_build/html/_sources/task/02.vscode.rst.txt:55:.. image:: ../images/xdev-test.gif
+_build/html/_sources/reference/06.xchain-performance.rst.txt:9:.. image:: ../images/xchain-performance-1.PNG
+_build/html/_sources/reference/06.xchain-performance.rst.txt:241:.. image:: ../images/xchain-performance-2.PNG
+_build/html/_sources/reference/06.xchain-performance.rst.txt:272:.. image:: ../images/xchain-performance-3.PNG
+_build/html/_sources/reference/06.xchain-performance.rst.txt:303:.. image:: ../images/xchain-performance-4.PNG
+_build/html/_sources/reference/06.xchain-performance.rst.txt:343:.. image:: ../images/xchain-performance-5.PNG
+_build/html/_sources/reference/06.xchain-performance.rst.txt:373:.. image:: ../images/xchain-performance-6.PNG
+_build/html/_sources/reference/06.xchain-performance.rst.txt:402:.. image:: ../images/xchain-performance-7.PNG
+_build/html/_sources/concepts/05.crypto.rst.txt:66:.. image:: ../images/crypto-1.png
+_build/html/_sources/concepts/05.crypto.rst.txt:84:.. image:: ../images/crypto-2.png
+_build/html/_sources/concepts/05.crypto.rst.txt:93:.. image:: ../images/crypto-3.png
+_build/html/_sources/introduction/01.brief.rst.txt:15:.. figure:: ../images/arch.png
+_build/html/_sources/contribution/00.pre-contribution.rst.txt:723:.. image:: ../images/xdev-build1.gif
+_build/html/_sources/contribution/00.pre-contribution.rst.txt:731:.. image:: ../images/xdev-test.gif
+_build/html/_sources/contribution/00.pre-contribution.rst.txt:757:.. image:: ../images/xuperos-dashboard.png
+_build/html/_sources/contribution/00.pre-contribution.rst.txt:766:.. image:: ../images/xuperos-create-account.png
+_build/html/_sources/contribution/00.pre-contribution.rst.txt:775:.. image:: ../images/xuperos-no-account.png
+_build/html/_sources/contribution/00.pre-contribution.rst.txt:789:.. image:: ../images/xuperos-create-contract.png
+_build/html/_sources/contribution/00.pre-contribution.rst.txt:797:.. image:: ../images/xuperos-install-contract.png
+_build/html/_sources/task/cross-chain/04.cross-chain.rst.txt:65:.. image:: /images/merkle_tree.png
+_build/html/_sources/design/05.permission-model.rst.txt:22:.. figure:: ../images/acl-intro.png
+_build/html/_sources/design/05.permission-model.rst.txt:65:.. figure:: ../images/acl-arch.png
+_build/html/_sources/design/05.permission-model.rst.txt:167:.. figure:: ../images/authentication.png
+_build/html/reference/03.lessons.html:252:<a class="banner reference internal image-reference" href="reference/images/b.png"><img alt="reference/images/b.png" class="banner align-center" src="reference/images/b.png" style="width: 450px;" /></a>
+concepts/07.trusted-ledger.rst:27:.. image:: ../images/trusted_ledger.png
+concepts/05.crypto.rst:66:.. image:: ../images/crypto-1.png
+concepts/05.crypto.rst:84:.. image:: ../images/crypto-2.png
+concepts/05.crypto.rst:93:.. image:: ../images/crypto-3.png
+task/02.vscode.rst:47:.. image:: ../images/xdev-build1.gif
+task/02.vscode.rst:55:.. image:: ../images/xdev-test.gif
+contribution/00.pre-contribution.rst:723:.. image:: ../images/xdev-build1.gif
+contribution/00.pre-contribution.rst:731:.. image:: ../images/xdev-test.gif
+contribution/00.pre-contribution.rst:757:.. image:: ../images/xuperos-dashboard.png
+contribution/00.pre-contribution.rst:766:.. image:: ../images/xuperos-create-account.png
+contribution/00.pre-contribution.rst:775:.. image:: ../images/xuperos-no-account.png
+contribution/00.pre-contribution.rst:789:.. image:: ../images/xuperos-create-contract.png
+contribution/00.pre-contribution.rst:797:.. image:: ../images/xuperos-install-contract.png
+contribution/02.plugins.rst:21:.. image:: ../images/extension.png
+task/05.open-network.rst:8:.. image:: ../images/xuperos-dashboard.png
+task/05.open-network.rst:17:.. image:: ../images/xuperos-create-account.png
+task/05.open-network.rst:26:.. image:: ../images/xuperos-no-account.png
+task/05.open-network.rst:40:.. image:: ../images/xuperos-create-contract.png
+task/05.open-network.rst:48:.. image:: ../images/xuperos-install-contract.png
+task/cross-chain/04.cross-chain.rst:65:.. image:: /images/merkle_tree.png
+reference/06.xchain-performance.rst:9:.. image:: ../images/xchain-performance-1.PNG
+reference/06.xchain-performance.rst:241:.. image:: ../images/xchain-performance-2.PNG
+reference/06.xchain-performance.rst:272:.. image:: ../images/xchain-performance-3.PNG
+reference/06.xchain-performance.rst:303:.. image:: ../images/xchain-performance-4.PNG
+reference/06.xchain-performance.rst:343:.. image:: ../images/xchain-performance-5.PNG
+reference/06.xchain-performance.rst:373:.. image:: ../images/xchain-performance-6.PNG
+reference/06.xchain-performance.rst:402:.. image:: ../images/xchain-performance-7.PNG

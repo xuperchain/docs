@@ -44,7 +44,7 @@ VSCode编辑器集成
 
 Run Build Task(⇧⌘B)来启动构建
 
-.. image:: ../images/xdev-build1.gif
+.. image:: /images/xdev-build1.gif
     :align: center
 
 跑合约单测
@@ -52,7 +52,7 @@ Run Build Task(⇧⌘B)来启动构建
 
 调用Run Task命令之后，选择xdev test来触发单元测试
 
-.. image:: ../images/xdev-test.gif
+.. image:: /images/xdev-test.gif
     :align: center
 
 

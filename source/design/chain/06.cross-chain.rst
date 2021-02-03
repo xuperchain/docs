@@ -16,17 +16,17 @@
 
 跨链资产互换
 >>>>>>>>>>>>>>>>>>>
-.. image:: ../images/cross_chain_1.png
+.. image:: /images/cross_chain_1.png
     :align: center
 
 跨链资产转移
 >>>>>>>>>>>>>>>>>>>>
-.. image:: ../images/cross_chain_2.png
+.. image:: /images/cross_chain_2.png
     :align: center
 
 跨链任意数据
 >>>>>>>>>>>>>>>>>>
-.. image:: ../images/cross_chain_3.png
+.. image:: /images/cross_chain_3.png
     :align: center
 
 主流跨链方案
@@ -54,7 +54,7 @@
 
 由一个或者一组节点作为公证人参与到两条链中，进行双方交易的收集和验证。其优点是简单，缺点是弱中心化，如下图所示：
 
-.. image:: ../images/cross_chain_4.png
+.. image:: /images/cross_chain_4.png
     :align: center
 
 侧链/中继模式
@@ -62,7 +62,7 @@
 
 侧链/中继链模式是2014年BlockStream提出的一种跨链方案。其与公证人模式最大的区别在于其验证是在目标链进行，通过双向锚定的方式实现资产在不同链之间的转移。目标链的验证方式各不相同，比如BTC-Relay使用的是SPV技术。
 
-.. image:: ../images/cross_chain_5.png
+.. image:: /images/cross_chain_5.png
     :align: center
 
 异步模式
@@ -70,7 +70,7 @@
 
 以太坊上很多预言机类的DApp的实现方式采用的是异步模式。简单来说，是指发起调用的是一个函数，处理调用结果的是另一个回调函数，如下图所示：
 
-.. image:: ../images/cross_chain_6.png
+.. image:: /images/cross_chain_6.png
     :align: center
 
 异步调用场景下，一个完整流程需要3笔交易：首先发送交易tx1到A链，A链代码执行到跨链调用会发出一个事件，并且声明了回调函数。
@@ -83,14 +83,14 @@
 >>>>>>>>>>>>>>
 同步模式目前业界没有比较统一的方案，一般地区块链的上的合约在每个节点都会重复执行，如何保证重复执行的结果确定性，且具备幂等性、无副作用是一个难解决的问题。但是现在很多区块链系统采取的是预执行再提交的方式，比如超级链和Fabric，基于这种事务模式比较容易同步模式的跨链，下面是同步模式的示意图：
 
-.. image:: ../images/cross_chain_7.png
+.. image:: /images/cross_chain_7.png
     :align: center
 
 超级链跨链方案
 -----------------------
 超级链是一个易于编程的区块链框架，可以方便地定制新的功能。基于此框架，超级链设计了一个轻量级的跨链方案，通过合约和一些基础库组成了一个完整的跨链方案，适用于不同的跨链应用场景。
 
-.. image:: ../images/cross_chain_8.png
+.. image:: /images/cross_chain_8.png
     :align: center
 
 超级链的跨链方案主要包括3层， 分别是基础库层、账本层和合约层。其中基础库层和账本层属于超级链的内核层，是超级链框架提供的一些基础能力，包括跨链域名解析协议、梅克尔proof校验、异构区块头解析协议、事务预锁定等。合约层是使用用户合约实现的合约基础库，主要是区块头管理合约、链名解析合约、去中心化身份管理等能力。通过这些功能套件的组装，我们可以应用于不同的使用场景。
@@ -175,7 +175,7 @@
 
 为了满足上述要求，我们采取了目标链背书的方式，如下图所示：
 
-.. image:: ../images/cross_chain_9.png
+.. image:: /images/cross_chain_9.png
     :align: center
 
 完整的步骤如下：
@@ -220,7 +220,7 @@
 	- **链上中继合约(XuperRelayer)**：部署在原链上的一个智能合约，会保存目标链的所有块头信息，并提供基于梅克尔证明的目标链交易存在性验证。
 	- **中继同步进程(Relay Process)**：在目标链和原链之间，会有一个或多个中继进程，持续监听目标链的最新出块信息，并抽取出块头信息写入
 
-.. image:: ../images/cross_chain_10.png
+.. image:: /images/cross_chain_10.png
     :align: center
 
 
@@ -237,7 +237,7 @@
 
 在超级链中，区块头保存了块中所有交易的txid构造出的梅克尔树的树根。下图是一颗区块中的梅克尔树举例，区块中的8个交易是梅克尔树的叶子节点，按照交易顺序，每两个相邻的交易的txid通过SHA256计算出梅克尔树的父节点id，依次向上直到计算出了梅克尔树根。在这个树形结构中，任何一个节点的id都直接和自己的父子节点相关，因此树中任何一个节点数据的修改，都会导致整个梅克尔树的树根变化。
 
-.. image:: ../images/cross_chain_11.png
+.. image:: /images/cross_chain_11.png
     :align: center
 
 交易的验证方只需要知道待验证交易tx1的txid，tx1所在块的block1，并知道从tx1所在梅克尔树的叶子节点开始到梅克尔树根的路径上所有兄弟节点的hash值，就可以计算出梅克尔树根。例如我们要验证梅克尔树中绿色节点9Dog的存在性，那么我们同时给出从9Dog到梅克尔树根的路径上的所有兄弟节点数组[1FXq, ec20, 8f74]，则从下而上:

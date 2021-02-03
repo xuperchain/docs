@@ -20,7 +20,7 @@
 
 平行链的群组特性通过白名单机制来实现，在网络层进行过滤。平行链的群组架构，如下图
 
-.. image:: ../images/parallel.png
+.. image:: /images/parallel.png
     :align: center
     :width: 500px
 

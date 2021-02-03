@@ -23,7 +23,7 @@ HotStuff中明确了基本算法Basic HotStuff和链式算法Chained-HotStuff的
 
 和PBFT一样，Basic HotStuff也被分成了三个阶段: Prepare、Pre-Commit、Commit，如下图所示。
 
-.. image:: ../images/chained_bft.jpg
+.. image:: /images/chained_bft.jpg
     :align: center
 
 Chained-Hotstuff并发操作了原本的Basic HotStuff，将上一视图在所在阶段的信息发给下一视图的Leader，从而形成了流水线操作，增加效率。
@@ -98,7 +98,7 @@ Smr是 ``chained-bft`` 的核心实例。他的主要的作用有以下几点：
 2. 在外层共识的驱动下发起 ``NewView`` 和 ``NewProposal`` 等消息并更新本地状态；
 3. 处理其他验证节点的消息并更新本地状态；
 
-.. image:: ../images/chained-bft.png
+.. image:: /images/chained-bft.png
     :align: center
 
 Safety Rule
@@ -117,5 +117,5 @@ PacemakerInterface
 
 Hotstuff算法的一大特点就是将共识的liveness和safety分开。PacemakerInterface是Hotstuff算法Pacemaker的接口定义，外层共识通过实现这些接口，可以推进内层共识的状态轮转。不同的外层共识可以有不同的实现。目前超级链已经实现了DPoS+Hotstuff，具体的方案如下所示：
 
-.. image:: ../images/pacemaker.png
+.. image:: /images/pacemaker.png
     :align: center

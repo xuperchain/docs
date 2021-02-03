@@ -7,7 +7,7 @@ XuperBridge
 
 XuperBridge为所有合约提供统一的合约接口，从抽象方式上类似于linux内核对应于应用程序，内核代码是一份，应用程序可以用各种语言实现，比如go,c。类比到合约上就是各种合约的功能，如KV访问，QueryBlock, QueryTx等，这些请求都会通过跟xchain通信的方式来执行，这样在其上实现的各种合约虚拟机只需要做纯粹的无状态合约代码执行。
 
-.. figure:: ../images/contract.png
+.. figure:: /images/contract.png
     :alt: XuperBridge
     :align: center
     :width: 300px
@@ -19,7 +19,7 @@ XuperBridge为所有合约提供统一的合约接口，从抽象方式上类似
 
 xchain进程需要调用合约虚拟机来执行具体的合约代码，合约虚拟机也需要跟xchain进程通信来进行具体的系统调用，如KV获取等，这是一个双向通信的过程。
 
-.. figure:: ../images/contract-com.png
+.. figure:: /images/contract-com.png
     :alt: 合约双向通信
     :align: center
     :width: 300px
@@ -30,7 +30,7 @@ xchain进程需要调用合约虚拟机来执行具体的合约代码，合约�
 
 - 在native合约里面由于合约是跑在docker容器里面的独立进程，因此牵扯到跨进程通信，这里选用了unix socket作为跨进程通信的传输层，xchain在启动合约进程的时候把syscall的socket地址以及合约进程的socket地址传递给合约进程，合约进程一方面监听在unix socket上等待xchain调用自己运行合约代码，另一方面通过xchain的unix socket创建一个指向xchain syscall服务的grpc客户端来进行系统调用。
 
-.. figure:: ../images/contract-socket.png
+.. figure:: /images/contract-socket.png
     :alt: 合约socket
     :align: center
     :width: 400px
@@ -39,7 +39,7 @@ xchain进程需要调用合约虚拟机来执行具体的合约代码，合约�
 
 - 在WASM虚拟机里面情况有所不同，WASM虚拟机是以library的方式链接到xchain二进制里面，所以虚拟机和xchain在一个进程空间，通信是在xchain和WASM虚拟机之间进行的，这里牵扯到xchain的数据跟虚拟机里面数据的交换，在实现上是通过WASM自己的模块机制实现的，xchain实现了一个虚拟的WASM模块，合约代码执行到外部模块调用的时候就转到对应的xchain函数调用，由于xchain和合约代码的地址空间不一样，还是牵扯到序列化和反序列化的动作。
 
-.. figure:: ../images/contract-wasm.png
+.. figure:: /images/contract-wasm.png
     :alt: WASM合约
     :align: center
     :width: 500px

@@ -31,8 +31,8 @@ WASM字节码的运行有两种方式，一种是解释执行，一种是编译�
 
 XVM选用的是编译执行模式。
 
-.. figure:: ../images/xvm_compile.png
-    :alt: XVM编译加载流程
+.. figure:/images/xvm_compile.png
+    :alt: XVM编译加载流程l
     :align: center
     :width: 600px
     
@@ -145,7 +145,7 @@ c++因为没有runtime，因此运行环境相对比较简单，只需要设置�
 
 c++合约的内存分布
 
-.. figure:: ../images/wasm-c++-memory.png
+.. figure:: /images/wasm-c++-memory.png
     :alt: c++合约的内存分布
     :align: center
     :width: 100px
@@ -154,7 +154,7 @@ c++合约的内存分布
 
 普通调用如何在xvm解释
 
-.. figure:: ../images/symbol_resolve.png
+.. figure:: /images/symbol_resolve.png
     :alt: xvm符号解析
     :align: center
     :width: 300px
@@ -164,7 +164,7 @@ c++合约的内存分布
 go运行环境
 ^^^^^^^^^^
 
-.. figure:: ../images/gowasm.png
+.. figure:: /images/gowasm.png
     :alt: go合约运行时结构
     :align: center
     :width: 400px

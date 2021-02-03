@@ -2,7 +2,7 @@
 提案和投票机制
 ==============
 
-.. figure:: ../images/proposal-1.png
+.. figure:: /images/proposal-1.png
     :align: center
 
     图1：提案和投票机制示意图
@@ -16,7 +16,7 @@ Step3：为了防止机制被滥用，被投票的事务的需要冻结参与者
 共识可升级
 ----------
 
-.. figure:: ../images/proposal-2.png
+.. figure:: /images/proposal-2.png
     :align: center
 
     图2：XuperChain提案机制进行共识升级

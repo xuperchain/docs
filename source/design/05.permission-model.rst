@@ -19,7 +19,7 @@
 
 系统会首先识别用户，然后根据被操作对象的ACL的信息来决定用户能否对其进行哪些操作
 
-.. figure:: ../images/acl-intro.png
+.. figure:: /images/acl-intro.png
     :alt: ACL简介
     :align: center
     
@@ -62,7 +62,7 @@
 系统设计
 --------
 
-.. figure:: ../images/acl-arch.png
+.. figure:: /images/acl-arch.png
     :alt: ACL架构
     :align: center
     
@@ -164,7 +164,7 @@ Xuperchain节点之间存在双重身份：P2P节点ID和Xuperchain address，�
 P2P建立连接过程
 ---------------
 
-.. figure:: ../images/authentication.png
+.. figure:: /images/authentication.png
     :alt: 连接建立时序
     :align: center
     
