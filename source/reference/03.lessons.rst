@@ -2,7 +2,7 @@
 超级链小课堂
 ============
 
-.. image:: images/b.png
+.. image:: /images/b.png
     :width: 450px
     :align: center
     :class: banner

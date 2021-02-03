@@ -24,6 +24,7 @@ XuperChain 文档
 
     quickstart/01.deploy.rst
     quickstart/02.contract.rst
+    quickstart/03.basic-operations.rst
 
 .. toctree::
     :caption: 基本概念
