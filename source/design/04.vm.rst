@@ -1,9 +1,9 @@
 虚拟机框架
-===
+=======
 
 .. toctree::
     :caption: 接下来
     :titlesonly:
 
-    design/vm/01.xvm.rst
-    design/vm/02.XuperBridge.rst
+    vm/01.xvm.rst
+    vm/02.XuperBridge.rst

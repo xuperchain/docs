@@ -34,7 +34,7 @@ XuperChain 文档
     concepts/02.permission.rst
     concepts/03.consensus.rst
     concepts/04.contract.rst
-    concepts/05.cryptography.rst
+    concepts/05.crypto.rst
     concepts/06.chain-manage.rst
     concepts/07.trusted-ledger.rst
     concepts/08.on-chain-goverance.rst
@@ -45,6 +45,8 @@ XuperChain 文档
 
     tutorial/01.account.rst
     tutorial/02.contract-development.rst
+    tutorial/02.create-contracts.rst
+    tutorial/03.contract-sdk.rst
     tutorial/03.sdk.rst
     tutorial/04.cli.rst
     tutorial/05.api.rst
@@ -73,9 +75,9 @@ XuperChain 文档
     task/02.vscode.rst
     task/03.trusted-ledger-advanced-usage.rst
     task/04.cross-chain.rst
-    task/05.readonly-queries.rst
+    task/05.open-network.rst
     task/06.sandbox.rst
-    task/07.privacy.rst
+    task/08.xdev.rst
 
 .. toctree::
     :caption: 超级链实现原理

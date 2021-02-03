@@ -62,7 +62,7 @@ proto文件位于 xuperchain/core/contractsdk/cpp/example/xuper_relayer/src/rela
 
 对于查询交易的方法，除了所在区块id外，还需要传入一个“梅克尔路径”。对于梅克尔树的定义，这里不再赘述，可参考 `Merkle_tree <https://en.wikipedia.org/wiki/Merkle_tree>`_ ，在梅克尔树中，待验证交易的txid是存在于某个叶子结点中的，我们需要给出此叶子结点合并计算hash至根节点的路径，以下图为例
 
-.. image:: ../images/merkle_tree.png
+.. image:: images/merkle_tree.png
     :align: center
     :width: 600px
 
