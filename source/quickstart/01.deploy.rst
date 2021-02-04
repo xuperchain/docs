@@ -5,8 +5,9 @@
 .. _env-prepare:
 
 
-使用预编译发型版
+使用预编译版
 ^^^^^^^^^^^^^^
+为什么要使用预编译版本呢? 去掉算了
 
 .. tabs::
 
@@ -32,6 +33,7 @@
 
 
 使用容器搭建单节点网络
+为什么需要搭建单节点的网络呢？直接去掉就好了
 ^^^^^^^^^^^^^^
 .. code-block:: bash
     :linenos:
@@ -40,12 +42,20 @@
 
 
 
-使用 docker-compose 搭建多节点网络
+使用 docker-compose 体验超级链完整功能
 ^^^^^^^^^^^^^^
+.. 
+  这里选择docker-compose 的原因有两个
+  一个是可以启动多个服务，包括 prometheus/grafana 等，后续的钱包服务也可以加进来
+  不用考虑依赖项(jdk/jre/emcc/wasm2c/golang/maven)，不用考虑合约类型和语言差异,以及golang 版本等等问题
 
 .. code-block:: bash
     :linenos:
 
-    docker-dompose -f https://xxxxxcontent.github.com/xuperchain/xuperchain 
+    docker-compose -f https://xxxxxcontent.github.com/xuperchain/xuperchain 
 
-本地浏览器打开 https://127.0.0.
+设置命令别名::
+
+  alias xchain-cli=docker exec -it xchain xchain-cli
+
+本地浏览器打开 http://127.0.0.1:3000 查看有关 dashboard，

@@ -1,56 +1,145 @@
 
 .. _env-deploy:
 
-开发第一个超级链合约
-------------------
+快速开始
+=============
 
-.. _env-prepare:
+搭建超级链本地网络
+^^^^^^^^^^^^^^
+..
+  这里选择docker-compose 的原因有两个
+  一个是可以启动多个服务，包括 prometheus/grafana 等，后续的钱包服务也可以加进来
+  不用考虑依赖项(jdk/jre/emcc/wasm2c/golang/maven)，不用考虑合约类型和语言差异,以及golang 版本等等问题
 
-JAVA 合约开发
-^^^^^^^^
-
-c++ 合约开发
-^^^^^^^^
-
-golang 合约开发
-^^^^^^^^
-
-solidity 合约开发
-^^^^^^^^
-
-XuperChain主要由Golang开发，需要首先准备编译运行的环境
-
-- 安装go语言编译环境，版本为1.11或更高
-    - 下载地址：`golang <https://golang.org/dl/>`_
-- 安装git
-    - 下载地址：`git <https://git-scm.com/download>`_
-
-.. _env-compiling:
+安装 `docker-compose <http://cnn.com>`_ 后
 
 
-- 使用git下载源码到本地
+命令行执行如下命令::
 
-    - git clone https://github.com/xuperchain/xuperchain.git
+    git clone https://github.com/xuperchain/quickstart.git
+    cd quickstart 
+    docker-compsoe up -d 
 
-- 执行命令
+本地浏览器打开 http://127.0.0.1:3000 查看有关 dashboard
 
-.. code-block:: bash
-    :linenos:
+设置命令别名::
 
-    cd src/github.com/xuperchain/xuperchain
-    make
+  alias xchain-cli=docker exec -it xchain xchain-cli
 
-- 在output目录得到产出xchain和xchain-cli
+    可以添加到bashrc 或者 zshrc 里
 
+合约基本操作
+^^^^^^^^^^^^^^^^
+xuperchain 支持不同的语言(java/golang/c++/solidity) 和合约类型(evm/native/wasm)。
+我们以及golang 和 java 的native 合约， c++ 的 wasm 合约以及solidity 的evm 合约展示合约的基本操作。完整的语言-合约相容矩阵见xxxxx
 
-.. note::
-    可能需要配置go语言环境变量（$GOROOT, $PATH）
+..
+    安装依赖
+    ^^^^^^^^
 
-    GOPATH问题报错（go1.11版本之后无需关注）
-        - 在1.11版本之前需要配置。配置成以下形式：
-        - export GOPATH=xxx/github.com/xuperchain/xuperchain
+    后续 xdev 作为统一构建工具，这些东西都不需要了
+
+    .. tabs::
+
+        .. tab:: JAVA
+
         
-    GCC版本需要升级到4或5以上
+        .. tab:: C++
+
+            C++
+
+        .. tab:: GO
+
+            GO
+
+        .. tab:: Solidity
+
+            Solidity
 
 
-.. _basic-operation:
+编译合约
+-------
+..
+后边会统一成 xdev build,现在是在容器里进行的 build
+
+.. tabs::
+
+    .. tab:: JAVA
+
+        在命令行执行:: 
+
+            make -C java 
+    
+    .. tab:: C++
+    
+        在命令行执行:: 
+
+            make -C cpp
+
+    .. tab:: GO
+
+        在命令行执行:: 
+
+            make -C go
+
+    .. tab:: Solidity
+
+        在命令行执行:: 
+        
+            make -C evm 
+
+
+    编译的产物在 build 目录下
+
+合约部署
+--------
+.. tabs::
+
+    .. tab:: JAVA
+
+        xchain-cli native deploy 
+    
+    .. tab:: C++
+
+        xchain-cli wasm deploy xxxxxx
+
+    .. tab:: GO
+
+        xchain-cli 
+
+    .. tab:: Solidity
+
+        Solidity
+    
+    .. tab:: Python 
+
+        敬请期待
+
+合约调用
+--------
+.. tabs::
+
+    .. tab:: JAVA
+
+        命令行执行::
+
+            xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
+    
+    .. tab:: C++
+
+        命令行执行::
+        
+
+            xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
+
+    .. tab:: GO
+
+        命令行执行::
+
+            xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
+
+    .. tab:: Solidity
+
+        命令行执行::    
+
+            xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
