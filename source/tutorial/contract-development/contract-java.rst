@@ -140,3 +140,35 @@ native合约和wasm合约在合约部署和合约执行上通过 **native** 和 
 
 java合约的调用跟c++、go合约参数一致。
 
+
+4. 合约调用
+
+    调用native合约。针对不同语言实现的native合约，调用方式相同。通过合约名直接发起合约调用和查询
+
+    .. code-block:: bash
+
+        # 调用golang native合约，Increase方法，golangcounter为合约名
+        xchain-cli native invoke --method Increase -a '{"key":"test"}' golangcounter --fee 10
+        # 调用结果
+        # contract response: 1
+        # The gas you cousume is: 6
+        # The fee you pay is: 10
+        # Tx id: b387e2247780a5f5da1070a931b37c4fc7f1b68c072768053a43cffe36f2e0fb
+
+        # 调用golang native合约，Get方法，golangcounter为合约名
+        xchain-cli native query --method Get -a '{"key":"test"}' golangcounter
+        # 调用结果
+        # contract response: 1
+
+        # 调用java native合约，increase方法，javacounter为合约名
+        xchain-cli native invoke --method increase -a '{"key":"test"}' javacounter --fee 10
+        # 调用结果
+        # contract response: 1
+        # The gas you cousume is: 6
+        # The fee you pay is: 10
+        # Tx id: 4b46d9b1292481dcac3b504d5f8031e4eff44d8514c9508f121145cfa141d9db
+
+        # 调用java native合约，get方法，javacounter为合约名
+        xchain-cli native query --method get -a '{"key":"test"}' javacounter
+        # 调用结果
+        # contract response: 1146398290725d36631aa70f731bc3174e6484a9a

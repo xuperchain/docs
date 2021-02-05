@@ -21,10 +21,9 @@ XuperChain 文档
     :maxdepth: 1
     :titlesonly:
 
-
     quickstart/01.deploy.rst
-    quickstart/02.contract.rst
-    quickstart/03.basic-operations.rst
+    quickstart/02.basic-operations.rst
+    quickstart/03.contract.rst
 
 .. toctree::
     :caption: 基本概念
@@ -38,25 +37,25 @@ XuperChain 文档
     concepts/05.crypto.rst
     concepts/06.chain-manage.rst
     concepts/07.trusted-ledger.rst
+..
     concepts/08.on-chain-goverance.rst
 
 .. toctree::
-    :caption: 合约开发教程
+    :caption: 开发教程
     :titlesonly:
 
     tutorial/01.account.rst
     tutorial/02.contract-development.rst
     tutorial/02.create-contracts.rst
-    tutorial/03.contract-sdk.rst
     tutorial/03.sdk.rst
     tutorial/04.cli.rst
-    tutorial/05.api.rst
-    tutorial/06.cdt.rst
+..    tutorial/05.api.rst
+..    tutorial/06.cdt.rst
     tutorial/07.templates.rst
 
 
 .. toctree::
-    :caption: 部署生产环境网络
+    :caption: 高级网络管理
     :titlesonly:
 
     deployment/01.guide.rst
@@ -72,13 +71,13 @@ XuperChain 文档
     :caption: 高级合约开发
     :titlesonly:
 
-    task/01.subscribe.rst
     task/02.vscode.rst
     task/03.trusted-ledger-advanced-usage.rst
     task/04.cross-chain.rst
     task/05.open-network.rst
     task/06.sandbox.rst
     task/08.xdev.rst
+    task/09.advanced-crypyo.rst
 
 .. toctree::
     :caption: 超级链实现原理
@@ -106,6 +105,7 @@ XuperChain 文档
     contribution/05.core.rst
     contribution/06.activity.rst
     contribution/07.contribution-list.rst
+    contribution/08.from-source.rst
 
 .. toctree::
     :maxdepth: 1
@@ -115,9 +115,8 @@ XuperChain 文档
     reference/00.command.rst
     reference/01.rpc.rst
     reference/02.faq.rst
+    reference/03.contract-sdk.rst
     reference/03.lessons.rst
     reference/04.video.rst
     reference/05.vocabulary.rst
     reference/06.xchain-performance.rst
-
-

@@ -62,4 +62,3 @@ p2p网络配置
     
     guide/01.xpoa.rst
     guide/02.xpos.rst
-    guide/03.from-source.rst

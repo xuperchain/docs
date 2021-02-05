@@ -1,0 +1,62 @@
+
+命令行基本操作
+^^^^^^^^^^^^^^
+
+.. _create-account:
+
+创建新账号
+>>>>>>>>>>>>
+
+.. code-block:: bash
+
+    xchain-cli account newkeys --output data/bob
+    
+    
+.. _balance:
+
+查询资源余额
+>>>>>>>>>>>>
+
+.. code-block:: bash
+
+    xchain-cli account balance 
+
+
+.. _transfer:
+
+转账
+>>>>
+
+.. code-block:: bash
+    
+    xchain-cli transfer --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount 10 
+
+
+.. _querytx:
+
+查询交易信息
+>>>>>>>>>>>>
+
+通过以下命令可以查询交易的信息，包括交易状态、交易的源和目标账号、交易的金额、所在的区块（如果已上链）等内容
+
+.. code-block:: bash
+    :linenos:
+
+    # 可查询上一步生成的txid的交易信息
+    xchain-cli tx query cbbda2606837c950160e99480049e2aec3e60689a280b68a2d253fdd8a6ce931 
+
+
+.. _queryblock:
+
+查询区块信息
+>>>>>>>>>>>>>
+
+通过blockid可以查询区块的相关信息
+
+.. code-block:: bash
+
+    xchain-cli block 0354240c8335e10d8b48d76c0584e29ab604cfdb7b421d973f01a2a49bb67fee 
+
+接下来
+
+使用命令行和链交互
