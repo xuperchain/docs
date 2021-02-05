@@ -59,16 +59,15 @@ XuperChain 文档
     :titlesonly:
 
     deployment/01.guide.rst
-    deployment/02.parallel-chain.rst
     deployment/03.regulatory.rst
-    deployment/04.quota.rst
+..    deployment/04.quota.rst
     deployment/05.upgrade.rst
     deployment/06.monitoring.rst
     deployment/08.on-chain-governance.rst
-    deployment/09.trouble-shooting.rst
+..    deployment/09.trouble-shooting.rst
 
 .. toctree::
-    :caption: 高级合约开发
+    :caption: 高级开发教程
     :titlesonly:
 
     task/02.vscode.rst

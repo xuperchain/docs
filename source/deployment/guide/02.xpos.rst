@@ -90,7 +90,7 @@ XuperChain系统支持可插拔共识，通过修改创世块的参数，可以�
     :linenos:
 
     # 这里转账的目标地址可以任意，转给自己也可以，注意冻结参数为-1，表示永久冻结
-    ./xchain-cli multisig gen --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=nominate.json --amount=10000000000000000 --frozen -1 -A addr_list --output nominate.tx
+    xchain-clii multisig gen --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=nominate.json --amount=10000000000000000 --frozen -1 -A addr_list --output nominate.tx
 
 命令会生成交易内容，然后对其进行签名
 
@@ -98,9 +98,9 @@ XuperChain系统支持可插拔共识，通过修改创世块的参数，可以�
     :linenos:
 
     # 提名者签名
-    ./xchain-cli multisig sign --tx nominate.tx --output nominate.sign --keys path/to/nominate
+    xchain-clii multisig sign --tx nominate.tx --output nominate.sign --keys path/to/nominate
     # 候选人签名
-    ./xchain-cli multisig sign --tx nominate.tx --output candidate.sign --keys path/to/candidate
+    xchain-clii multisig sign --tx nominate.tx --output candidate.sign --keys path/to/candidate
 
 然后将生成的交易发送
 
@@ -108,7 +108,7 @@ XuperChain系统支持可插拔共识，通过修改创世块的参数，可以�
     :linenos:
 
     # send 后面的签名有两个参数，第一个为发起方的签名，第二个为需要收集的签名（列表逗号分隔）
-    ./xchain-cli multisig send --tx nominate.tx nominate.sign nominate.sign,candidate.sign
+    xchain-clii multisig send --tx nominate.tx nominate.sign nominate.sign,candidate.sign
 
 发送交易会返回一个txid，这里需要记录下来，后面可能会用到
 
@@ -135,7 +135,7 @@ XuperChain系统支持可插拔共识，通过修改创世块的参数，可以�
     :linenos:
 
     # 同样，转账目标地址可任意填写，转给自己也可以
-    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=vote.json --amount=1 --frozen -1
+    xchain-clii transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=vote.json --amount=1 --frozen -1
 
 根据共识算法配置的候选人集合大小（上面配置中的"proposer_num"字段，假设为n），每一轮出块结束后系统都会查看被提名的候选人数目是否达到n，如果没有达到则继续按上一轮的顺序出块；如果达到n则会统计得票靠前的n个节点为新一轮的矿工集合
 
@@ -163,7 +163,7 @@ Json格式的配置又来了
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=thaw.json --amount=1
+    xchain-clii transfer --to=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN --desc=thaw.json --amount=1
 
 TDPOS结果查询
 ^^^^^^^^^^^^^
@@ -174,39 +174,39 @@ TDPOS结果查询
 
 .. code-block:: bash
 
-    ./xchain-cli tdpos query-candidates
+    xchain-clii tdpos query-candidates
 
 2. 查看某一轮的出块顺序
 
 .. code-block:: bash
 
-    ./xchain-cli tdpos query-checkResult -t=30
+    xchain-clii tdpos query-checkResult -t=30
 
 3. 查询提名信息：某地址发起提名的记录
 
 .. code-block:: bash
 
-    ./xchain-cli tdpos query-nominate-records -a=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
+    xchain-clii tdpos query-nominate-records -a=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
 
 4. 被提名查询：某个候选人被提名的记录
 
 .. code-block:: bash
 
-    ./xchain-cli tdpos query-nominee-record -a=RU7Qv3CrecW5waKc1ZWYnEuTdJNjHc43u
+    xchain-clii tdpos query-nominee-record -a=RU7Qv3CrecW5waKc1ZWYnEuTdJNjHc43u
 
 5. 某选民的有效投票记录
 
 .. code-block:: bash
 
-    ./xchain-cli tdpos query-vote-records -a=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
+    xchain-clii tdpos query-vote-records -a=dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
 
 6. 某候选人被投票记录
 
 .. code-block:: bash
 
-    ./xchain-cli tdpos query-voted-records -a=RU7Qv3CrecW5waKc1ZWYnEuTdJNjHc43u
+    xchain-clii tdpos query-voted-records -a=RU7Qv3CrecW5waKc1ZWYnEuTdJNjHc43u
 
-各种查询命令的详细参数列表可以通过 ./xchain-cli tdpos -h 查询
+各种查询命令的详细参数列表可以通过 xchain-clii tdpos -h 查询
 
 常见问题
 --------

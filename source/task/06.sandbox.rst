@@ -1,5 +1,5 @@
 
-超级链测试环境使用指南
+使用测试网络
 ======================
 
 测试环境说明
@@ -22,7 +22,7 @@
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli account balance dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN -H 14.215.179.74:37101
+    xchain-cli account balance dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN -H 14.215.179.74:37101
 
 关于测试资源
 ------------
@@ -44,14 +44,14 @@
 
 在data/keys下会有一个默认的个人账号(AK)，包括address(你的地址)、private.key(你的私钥)、public.key(你的公钥)，建议按照如下命令重新生成一个独有的个人账号。
 
-- 指定私钥目录：在data/test_demo下生成address、private.key、public.key: ./xchain-cli account newkeys --output data/test_demo
+- 指定私钥目录：在data/test_demo下生成address、private.key、public.key: xchain-cli account newkeys --output data/test_demo
 - 覆盖默认目录： 覆盖data/keys下的文件，需要先删除data/keys目录，然后重新生成新的address、private.key、public.key
 
 .. code-block:: bash
     :linenos:
     
     rm -r data/keys
-    ./xchain-cli account newkeys 
+    xchain-cli account newkeys 
 
 个人账号地址默认在data/keys/address文件中，可通过cat data/keys/address 查看自己的个人账号地址。
 
@@ -90,28 +90,28 @@
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli multisig gen --desc newAccount.json -H 14.215.179.74:37101 --fee 1000 --output rawTx.out
+    xchain-cli multisig gen --desc newAccount.json -H 14.215.179.74:37101 --fee 1000 --output rawTx.out
 
 - Step3: 向黄反服务获取签名，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig get --tx ./rawTx.out --host 14.215.179.74:37101 --output complianceCheck.out
+    xchain-cli multisig get --tx ./rawTx.out --host 14.215.179.74:37101 --output complianceCheck.out
 
 - Step4: 自己对原始交易签名，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig sign --tx ./rawTx.out --output my.sign
+    xchain-cli multisig sign --tx ./rawTx.out --output my.sign
 
 - Step5: 将原始交易以及签名发送出去，命令如下：
 
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli multisig send my.sign complianceCheck.out --tx ./rawTx.out -H 14.215.179.74:37101
+    xchain-cli multisig send my.sign complianceCheck.out --tx ./rawTx.out -H 14.215.179.74:37101
 
 .. note::
     ``Step5`` 中放签名的地方：第一个my.sign签名对应的是交易发起者(Initiator)，第二个complianceCheck.out签名对应的是需要背书(AuthRequire)的地址，发起者签名和背书签名用空格分开，如果需要多个账号背书，那么多个背书签名用,隔开，且签名顺序需要与data/acl/addrs中的地址顺序一致。
@@ -121,7 +121,7 @@
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli account query --host 14.215.179.74:37101
+    xchain-cli account query --host 14.215.179.74:37101
 
 设置合约账号ACL
 ^^^^^^^^^^^^^^^
@@ -135,28 +135,28 @@
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig gen --desc accountAclSet.json -H 14.215.179.74:37101 --fee 10 --output rawTx.out
+    xchain-cli multisig gen --desc accountAclSet.json -H 14.215.179.74:37101 --fee 10 --output rawTx.out
 
 - Step2: 向黄反服务获取签名，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig get --tx ./rawTx.out --host 14.215.179.74:37101 --output complianceCheck.out
+    xchain-cli multisig get --tx ./rawTx.out --host 14.215.179.74:37101 --output complianceCheck.out
 
 - Step3: 自己对原始交易签名，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig sign --tx ./rawTx.out --output my.sign
+    xchain-cli multisig sign --tx ./rawTx.out --output my.sign
 
 - Step4: 将原始交易以及签名发送出去，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig send my.sign complianceCheck.out,my.sign --tx ./rawTx.out -H 14.215.179.74:37101
+    xchain-cli multisig send my.sign complianceCheck.out,my.sign --tx ./rawTx.out -H 14.215.179.74:37101
 
 accountAclSet.json模版如下：
 
@@ -206,7 +206,7 @@ accountAclSet.json模版如下：
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig gen --to XC1234098776890651@xuper --amount 150000 --output rawTx.out --host 14.215.179.74:37101
+    xchain-cli multisig gen --to XC1234098776890651@xuper --amount 150000 --output rawTx.out --host 14.215.179.74:37101
 
 其中: --amount是转出的测试资源数量，--to是接收测试资源的账号名。如果转出方不是./data/keys下的默认地址，则可以使用--from指定转账来源账号，并将该来源地址的签名在multisig send时写在Initiator的位置。
 
@@ -215,28 +215,28 @@ accountAclSet.json模版如下：
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig get --tx ./rawTx.out --output complianceCheck.out --host 14.215.179.74:37101
+    xchain-cli multisig get --tx ./rawTx.out --output complianceCheck.out --host 14.215.179.74:37101
 
 - Step3: 自己对原始交易签名，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig sign --tx ./rawTx.out --output my.sign
+    xchain-cli multisig sign --tx ./rawTx.out --output my.sign
 
 - Step4: 将原始交易以及签名发送出去，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig send my.sign complianceCheck.out --tx ./rawTx.out -H 14.215.179.74:37101
+    xchain-cli multisig send my.sign complianceCheck.out --tx ./rawTx.out -H 14.215.179.74:37101
 
 - Step5: 查询合约账号的测试资源数额，确定转账成功：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli account balance XC1234098776890651@xuper -H 14.215.179.74:37101
+    xchain-cli account balance XC1234098776890651@xuper -H 14.215.179.74:37101
 
 合约部署
 ^^^^^^^^
@@ -260,28 +260,28 @@ Step1: 生成部署合约的原始交易，命令如下：
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli wasm deploy --account XC1234098776890651@xuper --cname counter -H 14.215.179.74:37101 -m ./counter --arg '{"creator":"xchain"}' --output contractRawTx.out --fee 137493
+    xchain-cli wasm deploy --account XC1234098776890651@xuper --cname counter -H 14.215.179.74:37101 -m ./counter --arg '{"creator":"xchain"}' --output contractRawTx.out --fee 137493
 
 Step2: 向黄反服务获取签名，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig get --tx ./contractRawTx.out --host 14.215.179.74:37101 --output complianceCheck.out
+    xchain-cli multisig get --tx ./contractRawTx.out --host 14.215.179.74:37101 --output complianceCheck.out
 
 Step3: 自己对原始交易签名，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig sign --tx ./contractRawTx.out --output my.sign
+    xchain-cli multisig sign --tx ./contractRawTx.out --output my.sign
 
 Step4: 将原始交易以及签名发送出去，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig send my.sign complianceCheck.out,my.sign --tx ./contractRawTx.out -H 14.215.179.74:37101
+    xchain-cli multisig send my.sign complianceCheck.out,my.sign --tx ./contractRawTx.out -H 14.215.179.74:37101
 
 合约调用
 ^^^^^^^^
@@ -293,30 +293,30 @@ Step4: 将原始交易以及签名发送出去，命令如下：
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig gen --desc counterIncrease.json -H 14.215.179.74:37101 --fee 85 --output rawTx.out
+    xchain-cli multisig gen --desc counterIncrease.json -H 14.215.179.74:37101 --fee 85 --output rawTx.out
     # 或者这样
-    ./xchain-cli wasm invoke -a '{"key":"counter"}' --method increase counter -H 14.215.179.74:37101 --fee 85 -m --output rawTx.out
+    xchain-cli wasm invoke -a '{"key":"counter"}' --method increase counter -H 14.215.179.74:37101 --fee 85 -m --output rawTx.out
 
 - Step2: 向黄反服务获取签名，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig get --tx ./rawTx.out --host 14.215.179.74:37101 --output complianceCheck.out
+    xchain-cli multisig get --tx ./rawTx.out --host 14.215.179.74:37101 --output complianceCheck.out
 
 - Step3: 自己对原始交易签名，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig sign --tx ./rawTx.out --output my.sign
+    xchain-cli multisig sign --tx ./rawTx.out --output my.sign
 
 - Step4: 将原始交易以及签名发送出去，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig send my.sign complianceCheck.out --tx ./rawTx.out -H 14.215.179.74:37101
+    xchain-cli multisig send my.sign complianceCheck.out --tx ./rawTx.out -H 14.215.179.74:37101
 
 counterIncrese.json模板，如下：
 
@@ -345,28 +345,28 @@ counterIncrese.json模板，如下：
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig gen --desc methodAclSet.json -H 14.215.179.74:37101 --fee 10 --output rawTx.out
+    xchain-cli multisig gen --desc methodAclSet.json -H 14.215.179.74:37101 --fee 10 --output rawTx.out
 
 - Step2: 向黄反服务获取签名，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig get --tx ./rawTx.out --host 14.215.179.74:37101 --output complianceCheck.out
+    xchain-cli multisig get --tx ./rawTx.out --host 14.215.179.74:37101 --output complianceCheck.out
 
 - Step3: 自己对原始交易签名，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig sign --tx ./rawTx.out --output my.sign
+    xchain-cli multisig sign --tx ./rawTx.out --output my.sign
 
 - Step4: 将原始交易以及签名发送出去，命令如下：
 
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli multisig send my.sign complianceCheck.out,my.sign --tx ./rawTx.out -H 14.215.179.74:37101
+    xchain-cli multisig send my.sign complianceCheck.out,my.sign --tx ./rawTx.out -H 14.215.179.74:37101
 
 methodAclSet.json的模版，如下：
 
@@ -421,10 +421,6 @@ FAQ
         service docker resteart
 
 
-.. _description:
-
-超级链测试环境说明
-==================
 
 区块链是信任的连接器， 通过区块链可以做到很多之前中心化信息系统做不到的事情，使得参与者可以凭借这个“连接器”完成成可信环境的构建和价值的安全流转。然而，目前多数公链的性能和安全不足以支撑各行各业的诸多场景，百度超级链（XuperChain）是百度自主研发的区块链技术，目前已启动测试环境对外公开测试，欢迎各界开发者使用我们的产品并且提出宝贵意见。
 
@@ -485,7 +481,7 @@ FAQ
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli account balance dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN -H 14.215.179.74:37101
+    xchain-cli account balance dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN -H 14.215.179.74:37101
 
 如何开发智能合约
 ^^^^^^^^^^^^^^^^
