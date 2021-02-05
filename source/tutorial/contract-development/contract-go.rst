@@ -326,7 +326,6 @@ Go合约的调用跟c++合约参数一致。
         Call(module, contract, method string, args map[string][]byte) (*Response, error)
     }
 
-对于C++版本的合约，可以参考代码 contractsdk/cpp/example/counter.cc 原理和Golang合约是一致的
 
 
 

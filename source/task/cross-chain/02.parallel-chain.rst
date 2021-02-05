@@ -1,5 +1,5 @@
 
-使用平行链
+平行链
 ================
 
 创建平行链
@@ -38,7 +38,7 @@
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli transfer --to HelloChain --amount 100 --desc createChain.json
+    xchain-cli transfer --to HelloChain --amount 100 --desc createChain.json
 
 获取group_chain合约
 -------------------
@@ -77,21 +77,21 @@ step1: 在xuper链部署GroupChain合约
     :linenos:
 
     # 需要使用合约账号，部署编译好的合约文件
-    ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname group_chain ./group_chain.wasm --fee xxx
+    xchain-cli wasm deploy --account XC1111111111111111@xuper --cname group_chain ./group_chain.wasm --fee xxx
 
 step2: 调用GroupChain合约的AddNode方法将<ip1,add1>,<ip2,add2>加入白名单
 
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli wasm invoke group_chain --method addNode -a '{"bcname":"HelloChain", "ip":"ip1", "address":"addr1"}'
-    ./xchain-cli wasm invoke group_chain --method addNode -a '{"bcname":"HelloChain", "ip":"ip2", "address":"addr2"}'
+    xchain-cli wasm invoke group_chain --method addNode -a '{"bcname":"HelloChain", "ip":"ip1", "address":"addr1"}'
+    xchain-cli wasm invoke group_chain --method addNode -a '{"bcname":"HelloChain", "ip":"ip2", "address":"addr2"}'
 
 step3: 调用GroupChain合约的AddChain确保HelloChain具备群组特性
 
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli wasm invoke group_chain --method addChain -a '{"bcname":"HelloChain"}'
+    xchain-cli wasm invoke group_chain --method addChain -a '{"bcname":"HelloChain"}'
 
 至此即完成了群组的设置，只有<ip1,add1>,<ip2,add2>两个节点可以获取平行链HelloChain的内容了。

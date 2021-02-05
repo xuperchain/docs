@@ -6,5 +6,5 @@
     :titlesonly:
 
     sdk/01.go.rst
-    sdk/02.cpp.rst
+    sdk/02.python.rst
     sdk/03.java.rst

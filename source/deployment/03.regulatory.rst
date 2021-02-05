@@ -76,7 +76,7 @@
     :linenos:
 
     # 快速创建合约方式：
-    ./xchain-cli account new --account 1111111111111111
+    xchain-clii account new --account 1111111111111111
 
 **3. 部署实名合约**
 
@@ -86,10 +86,10 @@
     :linenos:
 
     # 1  转移资源
-    ./xchain-cli transfer --to XC1111111111111111@xuper --amount 100000
+    xchain-clii transfer --to XC1111111111111111@xuper --amount 100000
     # 2 部署实名合约
     # 通过 -a 的creator参数，可以初始化被实名的ak。
-    ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname identity -H localhost:37101 identity.wasm -a '{"creator":"addr1"}'
+    xchain-clii wasm deploy --account XC1111111111111111@xuper --cname identity -H localhost:37101 identity.wasm -a '{"creator":"addr1"}'
 
 .. note:: 上述实名合约初始化的被实名的address需要和实名合约添加实名信息保持相同，否则会由于初始实名的ak和添加实名权控不一致而导致系统无法添加新的实名状态。
 
@@ -120,11 +120,11 @@ Reserved合约调用
     :linenos:
 
     # 1: 生成原始交易
-    ./xchain-cli multisig gen --desc identity_add.json --host localhost:37101 --fee 1000 --output tx_add.out
+    xchain-clii multisig gen --desc identity_add.json --host localhost:37101 --fee 1000 --output tx_add.out
     # 2: 本地签名
-    ./xchain-cli multisig sign --output tx_add_my.sign --tx tx_add.out
+    xchain-clii multisig sign --output tx_add_my.sign --tx tx_add.out
     # 3: 交易发送
-    ./xchain-cli multisig send tx_add_my.sign --host localhost:37101 --tx tx_add.out
+    xchain-clii multisig send tx_add_my.sign --host localhost:37101 --tx tx_add.out
 
 **2. 删除实名信息**
 
@@ -148,11 +148,11 @@ Reserved合约调用
     :linenos:
 
     # 1: 生成原始交易
-    ./xchain-cli multisig gen --desc identity_del.json --host localhost:37101 --fee 1000 --output tx_del.out
+    xchain-clii multisig gen --desc identity_del.json --host localhost:37101 --fee 1000 --output tx_del.out
     # 2: 本地签名
-    ./xchain-cli multisig sign --output tx_del_my.sign --tx tx_del.out
+    xchain-clii multisig sign --output tx_del_my.sign --tx tx_del.out
     # 3: 交易发送
-    ./xchain-cli multisig send tx_del_my.sign tx_del_compliance_sign.out --host localhost:37101 --tx tx_del.out
+    xchain-clii multisig send tx_del_my.sign tx_del_compliance_sign.out --host localhost:37101 --tx tx_del.out
 
 **3. 实名信息验证**
 

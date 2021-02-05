@@ -2,63 +2,13 @@
 网络管理
 ==========
 
-在阅读本节前，请先阅读“快速入门”，当中介绍了创建单节点网络的创建，在该基础上，搭建一个SINGLE共识的多节点网络，其他节点只要新增p2p网络bootNodes配置即可。如果你想搭建一个TDPoS共识的链，仅需要修改创世块参数中“genesis_consensus”配置参数即可。下面将详细介绍相关操作步骤。
 
-p2p网络配置
------------
-
-我们以搭建3个节点的网络为例来说明（其实搭建更多节点的原理是一致的），首先需要有一个节点作为“bootNode”，其他节点启动前都配置这个“bootNode”的地址即可实现
-
-对于bootNode节点，我们需要先获取它的netURL，具体命令如下：
-
-.. code-block:: bash
-    :linenos:
-
-    ./xchain-cli netURL get -H 127.0.0.1:37101
-
-如果不是以默认配置启动的，我们需要先生成它的netURL，然后再获取
-
-.. code-block:: bash
-    :linenos:
-
-    ./xchain-cli netURL gen         #重新生成本地节点的网络私钥
-    ./xchain-cli netURL preview     #显示本地节点的p2p地址
-
-如此我们会获得一个类似于 
-``/ip4/127.0.0.1/tcp/47101/p2p/QmVxeNubpg1ZQjQT8W5yZC9fD7ZB1ViArwvyGUB53sqf8e`` 
-样式的返回
-
-对其他的节点，我们需要修改其服务配置 `conf/xchain.yaml` 中p2p一节
-
-.. code-block:: yaml
-    :linenos:
-
-    p2p:
-        module: p2pv2
-        // port是节点p2p网络监听的默认端口，如果在一台机器上部署注意端口配置不要冲突，
-        // node1配置的是47101，node2和node3可以分别设置为47102和47103
-        port: 47102
-        // 节点加入网络所连接的种子节点的链接信息，
-        bootNodes:
-        - "/ip4/127.0.0.1/tcp/47101/p2p/QmVxeNubpg1ZQjQT8W5yZC9fD7ZB1ViArwvyGUB53sqf8e"
-
-.. note::
-    需要注意的是，如果节点分布在不同的机器之上，需要把netUrl中的本地ip改为机器的实际ip
-
-修改完配置后，即可在每一个节点使用相同配置创建链，然后分别启动bootNode和其他节点，即完成了多节点环境的部署
-
-这里可以使用系统状态的命令检查环境是否正常
-
-.. code-block:: bash
-    :linenos:
-
-    ./xchain-cli status -H 127.0.0.1:37101
-
-通过变更 -H 参数，查看每个节点的状态，若所有节点高度都是一致变化的，则证明环境部署成功
 
 .. toctree::
     :caption: Guide
     :titlesonly:
     
+    guide/01.multi-node.rst
     guide/01.xpoa.rst
     guide/02.xpos.rst
+    guide/05.proposal.rst

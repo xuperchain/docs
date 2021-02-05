@@ -37,7 +37,7 @@ p2p网络配置
 
 .. code-block:: shell
 
-	./xchain-cli account newkeys
+	xchain-clii account newkeys
 
 
 配置创世块
@@ -116,12 +116,12 @@ XuperChain系统支持可插拔共识，通过修改创世块的参数，可以�
 .. code-block:: shell
 
 	# 创建xuper链
-	./xchain-cli createChain
+	xchain-clii createChain
 	# 启动服务节点
 	nohup ./xchain &
 	# check服务运行状况，修改-H后参数，可以查询每个节点状态
 	for((i=1;i<=3;i++));do
-	./xchain-cli status -H 127.0.0.1:3710$i |grep -i height
+	xchain-clii status -H 127.0.0.1:3710$i |grep -i height
 	done
 
 
@@ -140,7 +140,7 @@ XPoA共识算法中，候选人的变更依赖"验证集合"合约，所以需�
 .. code-block:: shell
 
 	# 创建合约账号
-	[work@]$ node1 -> ./xchain-cli account new --account 1111111111111111 --fee 1000 -H 127.0.0.1:37101
+	[work@]$ node1 -> xchain-clii account new --account 1111111111111111 --fee 1000 -H 127.0.0.1:37101
 	# 执行结果
 	# contract response:
 	#         {
@@ -159,7 +159,7 @@ XPoA共识算法中，候选人的变更依赖"验证集合"合约，所以需�
 	# account name: XC1111111111111111@xuper
 
 	# 给合约账号转账
-	[work@]$ node1 -> ./xchain-cli transfer --to XC1111111111111111@xuper --amount 100000000 -H 127.0.0.1:37101
+	[work@]$ node1 -> xchain-clii transfer --to XC1111111111111111@xuper --amount 100000000 -H 127.0.0.1:37101
 	# 执行结果
 	# ec6fa53446a8c6ab0d8d45f2bba80c7e5122341ce9b0c85779f80ce1a55f37b6
 
@@ -186,7 +186,7 @@ XPoA共识算法中，候选人的变更依赖"验证集合"合约，所以需�
 
 .. code-block::  shell
 
-	[work@]$ node1 -> ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname xpoa_validates --arg '{"addresss":"dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN;VSML7NenZnGZgCEwtbQDKDSrPHhT5wsu6","neturls":"127.0.0.1:47101;127.0.0.1:47102"}' ./xpoa_validates.wasm --fee 222065 -H 127.0.0.1:37101
+	[work@]$ node1 -> xchain-clii wasm deploy --account XC1111111111111111@xuper --cname xpoa_validates --arg '{"addresss":"dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN;VSML7NenZnGZgCEwtbQDKDSrPHhT5wsu6","neturls":"127.0.0.1:47101;127.0.0.1:47102"}' ./xpoa_validates.wasm --fee 222065 -H 127.0.0.1:37101
 	# 执行结果
 	# contract response: initialize succeed
 	# The gas you cousume is: 221920
@@ -209,7 +209,7 @@ XPoA共识算法中，候选人的变更依赖"验证集合"合约，所以需�
 
 .. code-block:: shell
 
-	[work@]$ node1 -> ./xchain-cli wasm invoke xpoa_validates --method add_validate --args '{"address":"bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3","neturl":"127.0.0.1:47103"}' --fee 300 -H 127.0.0.1:37101
+	[work@]$ node1 -> xchain-clii wasm invoke xpoa_validates --method add_validate --args '{"address":"bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3","neturl":"127.0.0.1:47103"}' --fee 300 -H 127.0.0.1:37101
 	# 执行结果
 	# contract response: {"address":"bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3","neturl":"127.0.0.1:47103"}
 	# The gas you cousume is: 252
@@ -230,7 +230,7 @@ XPoA共识算法中，候选人的变更依赖"验证集合"合约，所以需�
 
 .. code-block:: shell
 
-	[work@]$ node1 -> ./xchain-cli wasm invoke xpoa_validates --method get_validates -H 127.0.0.1:37101
+	[work@]$ node1 -> xchain-clii wasm invoke xpoa_validates --method get_validates -H 127.0.0.1:37101
 	# 执行结果
 	# contract response: {"proposers":[{"address":"VSML7NenZnGZgCEwtbQDKDSrPHhT5wsu6","neturl":"127.0.0.1:47102"},{"address":"bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3","neturl":"127.0.0.1:47103"},{"address":"dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN","neturl":"127.0.0.1:47101"}]}
 	# The gas you cousume is: 439
@@ -247,7 +247,7 @@ XPoA共识算法中，候选人的变更依赖"验证集合"合约，所以需�
 
 .. code-block:: shell
 
-	[work@]$ node1 -> ./xchain-cli wasm invoke xpoa_validates --method update_validate -a '{"address":"bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3","neturl":"localhost:47103"}' --fee 300 -H 127.0.0.1:37101
+	[work@]$ node1 -> xchain-clii wasm invoke xpoa_validates --method update_validate -a '{"address":"bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3","neturl":"localhost:47103"}' --fee 300 -H 127.0.0.1:37101
 	# 执行结果
 	# contract response: {"address":"bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3","neturl":"localhost:47103"}
 	# The gas you cousume is: 263
@@ -267,7 +267,7 @@ XPoA共识算法中，候选人的变更依赖"验证集合"合约，所以需�
 
 .. code-block:: shell
 
-	[work@]$ node1 -> ./xchain-cli wasm invoke xpoa_validates --method del_validate -a '{"address":"bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3"}' --fee 300 -H 127.0.0.1:37101
+	[work@]$ node1 -> xchain-clii wasm invoke xpoa_validates --method del_validate -a '{"address":"bg3KLC3YCmvLWBCNAVHGHLfk3qeWEdoD3"}' --fee 300 -H 127.0.0.1:37101
 	# 执行结果
 	# contract response: ok
 	# The gas you cousume is: 128

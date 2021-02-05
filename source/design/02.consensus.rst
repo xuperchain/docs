@@ -21,4 +21,3 @@
     consensus/02.chained_bft.rst
     consensus/02.xpoa.rst
     consensus/03.xpos.rst
-    consensus/05.proposal.rst

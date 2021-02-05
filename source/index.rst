@@ -31,7 +31,6 @@ XuperChain 文档
 
     concepts/00.blockchain101.rst
     concepts/01.account.rst
-    concepts/02.permission.rst
     concepts/03.consensus.rst
     concepts/04.contract.rst
     concepts/05.crypto.rst
@@ -43,19 +42,19 @@ XuperChain 文档
 .. toctree::
     :caption: 开发教程
     :titlesonly:
-
+    
+    tutorial/04.cli.rst
     tutorial/01.account.rst
     tutorial/02.contract-development.rst
     tutorial/02.create-contracts.rst
     tutorial/03.sdk.rst
-    tutorial/04.cli.rst
 ..    tutorial/05.api.rst
 ..    tutorial/06.cdt.rst
     tutorial/07.templates.rst
 
 
 .. toctree::
-    :caption: 高级网络管理
+    :caption: 网络管理
     :titlesonly:
 
     deployment/01.guide.rst
