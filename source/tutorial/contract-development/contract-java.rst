@@ -172,3 +172,74 @@ java合约的调用跟c++、go合约参数一致。
         xchain-cli native query --method get -a '{"key":"test"}' javacounter
         # 调用结果
         # contract response: 1146398290725d36631aa70f731bc3174e6484a9a
+
+3. 部署合约
+
+    部署native合约。针对不同语言实现的合约，主要通过 ``--runtime`` 字段进行区分
+
+    .. code-block:: bash
+
+        # 部署golang native合约
+        xchain-cli native deploy --account XC1111111111111111@xuper -a '{"creator":"XC1111111111111111@xuper"}' --fee 15587517 --runtime go counter --cname golangcounter
+        # 部署结果
+        # contract response: ok
+        # The gas you cousume is: 14311874
+        # The fee you pay is: 15587517
+        # Tx id: af0d46f6df2edba4d9d9d07e1db457e5267274b1c9fe0611bb994c0aa7931933
+
+        # 部署java native合约
+        xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java counter-0.1.0-jar-with-dependencies.jar --cname javacounter
+        # 部署结果
+        # contract response: ok
+        # The gas you cousume is: 14311876
+        # The fee you pay is: 15587517
+        # Tx id: 875d2c9129973a1c64811d7a5a55ca80743102abc30d19f012656fa52ee0f4f7
+
+    - ``--runtime go`` ：表示部署的是golang native合约
+    - ``--runtime java``：表示部署的是java native合约
+
+2. 编译合约 - Java
+
+    编译Java sdk：Java版本不低于Java1.8版本
+    
+    包管理器：maven，mvn版本3.6+
+
+    .. code-block:: bash
+
+        # 编译java sdk
+        cd contractsdk/java
+        mvn install -f pom.xml
+        # 产出二进制文件target/java-contract-sdk-0.1.0.jar，并自动安装到mvn本地仓库下
+
+    编译native合约时，我们以contractsdk/java/example中的counter合约为例
+
+    .. code-block:: bash
+
+        cd contractsdk/java/example/counter
+        mvn package -f pom.xml
+        # 产出二进制文件target/counter-0.1.0-jar-with-dependencies.jar，用于合约部署
+
+部署native合约
+--------------
+
+如果本地搭建超级链环境，在部署、调用native合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。
+
+.. code-block:: yaml
+    :linenos:
+
+    # 管理native合约的配置
+    native:
+        enable: true
+
+        # docker相关配置
+        docker:
+            enable:false
+            # 合约运行的镜像名字
+            imageName: "docker.io/centos:7.5.1804"
+            # cpu核数限制，可以为小数
+            cpus: 1
+            # 内存大小限制
+            memory: "1G"
+        # 停止合约的等待秒数，超时强制杀死
+        stopTimeout: 3
+
