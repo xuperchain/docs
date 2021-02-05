@@ -1,36 +1,23 @@
 接下来
 ====
 
-.. toctree::
-    :caption: 我是区块链小白
-    :titlesonly:
 
-    /tutorial/07.templates.rst
+我是区块链小白
+>>>>>>>>>>>>
 
 
-.. toctree::
-    :caption: 我是合约开发者
-    :titlesonly:
-
-    /tutorial/07.templates.rst
+我是合约开发者
+>>>>>>>>>>>>>
 
 
-.. toctree::
-    :caption: 我是网络管理者
-    :titlesonly:
-
-    /tutorial/07.templates.rst
-
-.. toctree::
-    :caption: 我有其他链的使用经验
-    :titlesonly:
-
-    /tutorial/07.templates.rst
+我是网络管理者
+>>>>>>>>>>>>
 
 
-.. toctree::
-    :caption: 我想成为超级链的贡献者
-    :titlesonly:
-    
-    /tutorial/07.templates.rst
+我有其他链的使用经验
+>>>>>>>>>>>>>>>>>
+
+我想成为超级链的贡献者
+>>>>>>>>>>>>>>>>>
+
 

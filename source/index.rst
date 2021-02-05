@@ -9,7 +9,6 @@ XuperChain 文档
 
 .. toctree::
     :caption: 概览
-    :titlesonly:
 
     introduction/01.brief.rst
     introduction/02.advantage.rst
