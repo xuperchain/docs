@@ -1,5 +1,5 @@
 
-智能合约SDK使用说明
+合约SDK参考
 ===================
 
 XuperChain为方便用户开发属于自己的智能合约，提供了一整套SDK套件，即XuperCDT（XuperChain Crontract Development Toolkit），包含C++语言、Go语言和Java语言

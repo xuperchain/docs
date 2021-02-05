@@ -111,9 +111,9 @@ XuperChain 文档
 
     reference/00.command.rst
     reference/01.rpc.rst
-    reference/02.faq.rst
     reference/03.contract-sdk.rst
     reference/03.lessons.rst
     reference/04.video.rst
-    reference/05.vocabulary.rst
     reference/06.xchain-performance.rst
+    reference/02.faq.rst
+    reference/05.vocabulary.rst
