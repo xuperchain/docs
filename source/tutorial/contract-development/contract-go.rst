@@ -328,12 +328,6 @@ Go合约的调用跟c++合约参数一致。
 
 对于C++版本的合约，可以参考代码 contractsdk/cpp/example/counter.cc 原理和Golang合约是一致的
 
-.. note::
-    除了 Initialize 外的其他函数，是可以自行定义函数名的，可参考contractsdk/go/example/counter/counter.go中的具体实例，在之后调用合约时写明函数名即可
-
-
-
-
 
 
 
