@@ -1,5 +1,5 @@
 
-RPC 接口
+RPC 参考
 ===========================
 
 XuperChain为方便用户深度使用超级链的各项功能，提供了多语言版本的SDK（`JS <https://github.com/xuperchain/xuper-sdk-js>`_，`Golang <https://github.com/xuperchain/xuper-sdk-go>`_，`C# <https://github.com/xuperchain/xuper-sdk-csharp>`_，`Java <https://github.com/xuperchain/xuper-java-sdk>`_，`Python <https://github.com/xuperchain/xuper-python-sdk>`_），这里我们以Golang为例来介绍一下XuperChain的RPC接口使用方式。

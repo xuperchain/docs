@@ -1,17 +1,19 @@
 
+.. _xdev:
+
 使用合约开发套件
 ---------------
 
-在开始编写智能合约之前首先通过一个简单的例子来给大家演示合约是如何从代码到字节码，以及如何部署到链上，如何发起对智能合约的调用。
-我们使用一个c++合约为例来展示如何编译、部署、调用合约。
+安装 xdev 工具
+^^^^^^^^^^^^^^^^^
+.. code-block:: bash
+    :linenos:
+
+    $ go get -u -v github.com/xuperchain/xuperchain/core/cmd/xdev
 
 创建合约工程
 ^^^^^^^^^^^^^^^^^
 ::
-
-    xdev工具是随xuperchain发布的一个合约编译和测试工具，在编译完xuperchain之后生成在output目录。
-
------------
 
 xdev提供了一个默认的c++合约工程模板
 
@@ -92,7 +94,6 @@ Deploy和Invoke方法都是通过抛出异常的方式来处理错误，测试�
 ^^^^^^^^^^^^^
 
 .. code-block:: bash
-    :linenos:
 	
     $ xchain-cli wasm deploy --account XC1111111111111111@xuper --cname hello  --fee 5200000 --runtime c ./hello-cpp/hello.wasm
     contract response: initialize succeed
@@ -114,7 +115,6 @@ Deploy和Invoke方法都是通过抛出异常的方式来处理错误，测试�
 ^^^^^^^^^^^^^
 
 .. code-block:: bash
-    :linenos:
 	
     $ xchain-cli wasm invoke --method hello --fee 110000 hello
     contract response: hello world

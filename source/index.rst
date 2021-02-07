@@ -35,8 +35,10 @@ XuperChain 文档
     concepts/05.crypto.rst
     concepts/06.chain-manage.rst
     concepts/07.trusted-ledger.rst
+    concepts/09.p2p.rst
 ..
     concepts/08.on-chain-goverance.rst
+
 
 .. toctree::
     :caption: 开发教程
@@ -68,13 +70,7 @@ XuperChain 文档
     :caption: 高级开发教程
     :titlesonly:
 
-    task/02.vscode.rst
-    task/03.trusted-ledger-advanced-usage.rst
-    task/04.cross-chain.rst
-    task/05.open-network.rst
-    task/06.sandbox.rst
-    task/08.xdev.rst
-    task/09.advanced-crypyo.rst
+    task/00.advanced-contract-development.rst
 
 .. toctree::
     :caption: 超级链实现原理

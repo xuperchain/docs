@@ -1,6 +1,8 @@
 使用命令行工具
 ==========================
 
+.. _xchain-cli:
+
 .. toctree::
     :caption: 目录
     :titlesonly:
