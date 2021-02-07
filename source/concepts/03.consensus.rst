@@ -1,5 +1,5 @@
 .. _concepts/consensus:
 
 
-共识与挖矿
+共识
 ====

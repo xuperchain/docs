@@ -8,6 +8,7 @@
     deployment/01.guide.rst
     deployment/03.regulatory.rst
     deployment/06.monitoring.rst
+    deployment/06.chain-manage.rst
     deployment/08.on-chain-governance.rst
 
 ..    deployment/04.quota.rst

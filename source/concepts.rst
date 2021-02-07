@@ -9,7 +9,6 @@
     concepts/03.consensus.rst
     concepts/04.contract.rst
     concepts/05.crypto.rst
-    concepts/06.chain-manage.rst
     concepts/07.trusted-ledger.rst
     concepts/09.p2p.rst
 

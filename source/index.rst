@@ -18,7 +18,7 @@ XuperChain 文档
    deployment.rst
    tasks.rst
    design.rst
-   contribution/00.contribution.rst
+   contribution.rst
    reference/00.reference.rst
 
 

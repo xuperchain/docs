@@ -1,11 +1,10 @@
 .. _concepts/chain-manage:
 
 
-链管理
+平行链与跨链
 ==============
 
 .. toctree::
-    :caption: 目录
     :titlesonly:
     
     chain/01.cross-chain.rst

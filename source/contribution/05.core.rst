@@ -1,3 +1,94 @@
 
 成为超级链核心开发
 ==========================
+
+从源码编译超级链
+----------------
+
+XuperChain主要由Golang开发，需要首先准备编译运行的环境
+
+- 安装go语言编译环境， 下载地址：`golang <https://golang.org/dl/>`_ 版本为 1.11 或更高，推荐使用 1.13
+-     GCC版本需要升级到4或5以上
+
+
+.. _env-compiling:
+
+编译 XuperChain
+^^^^^^^^^^^^^^
+
+- 使用git下载源码到本地
+
+    git clone https://github.com/xuperchain/xuperchain.git
+    cd xuperchain
+    make
+
+
+设置环境变量, 方便全局使用
+--------
+
+    export XCHAIN_ROOT=`pwd`/output
+    export PATH= ${XCHAIN_ROOT}/bin:${PATH}
+
+
+
+
+在output下，主要目录有data, logs, conf, plugins等, 二进制文件有xchain，xchain-cli
+
+各目录的功能如下表：
+
++------------------------+---------------------------------------------------------------+
+| 目录名                 | 功能                                                          |
++========================+===============================================================+
+| output/                | 节点根目录                                                    |
++------------------------+---------------------------------------------------------------+
+| ├─ conf                | xchain.yaml: xchain服务的配置信息（注意端口冲突）             |
+|                        | plugins.conf: 插件的配置信息                                  |
++------------------------+---------------------------------------------------------------+
+| ├─ data                | 数据的存放目录，创世块信息，以及共识和合约的样例              |
++------------------------+---------------------------------------------------------------+
+| │  ···   ├─ blockchain | 账本目录                                                      |
++------------------------+---------------------------------------------------------------+
+| │  ···   ├─ keys       | 此节点的地址，具有全局唯一性                                  |
++------------------------+---------------------------------------------------------------+
+| │  ···   ├─ netkeys    | 此节点的网络标识ID，具有全局唯一性                            |
++------------------------+---------------------------------------------------------------+
+| │  ···   └─ config     | 包括创始的共识，初始的资源数，矿工奖励机制等                  |
++------------------------+---------------------------------------------------------------+
+| ├─ logs                | 程序日志目录                                                  |
++------------------------+---------------------------------------------------------------+
+| ├─ plugins             | so扩展的存放目录                                              |
++------------------------+---------------------------------------------------------------+
+| ├─ xchain              | xchain服务的二进制文件                                        |
++------------------------+---------------------------------------------------------------+
+| ├─ xchain-cli          | xchain客户端工具                                              |
++------------------------+---------------------------------------------------------------+
+| └─ wasm2c              | wasm工具（智能合约会用到）                                    |
++------------------------+---------------------------------------------------------------+
+
+超级链源码目录解析
+------------------
+
+===========  ==========================
+模块         功能及子文件说明
+===========  ==========================
+acl          acl查询 account_acl.go 查询合约账号ACL的接口定义 acl_manager.go 查询合约账号ACL,合约方法ACL的具体实现 contract_acl.go 查询合约方法ACL的接口定义
+cmd          XuperChain命令行功能集合，比如多重签名、交易查询、区块查询、合约部署、合约调用、余额查询等
+common       公共组件 batch_chan.go 将交易批量写入到channel中 common.go 获取序列化后的交易/区块的大小 lru_cache.go lru cache实现 util.go 去重string切片中的元素
+config       系统配置文件 config.go 包括日志配置、Tcp配置、P2p配置、矿工配置、Utxo配置、Fee配置、合约配置、控制台配置、节点配置、raft配置等
+consensus    共识模块 base 共识算法接口定义 consensus.go 可插拔共识实现 tdpos dpos共识算法的具体实现 single single共识算法的具体实现
+contract     智能合约 contract.go 智能合约接口定义 contract_mgr.go 创建智能合约实例 kernel 系统级串行智能合约 proposal 提案 wasm wasm虚拟机
+core         xchaincore.go 区块链的业务逻辑实现 xchainmg.go 负责管理多条区块链 xchainmg_validate.go 对区块、交易、智能合约的合法性验证业务逻辑 sync.go 节点主动向其它节点同步区块业务逻辑 xchaincore_net.go 通过广播形式向周围节点要区块 xchainmg_net.go 注册接收的消息类型 xchainmg_util.go 权限验证
+crypto       密码学模块 account 生成用户账号 client 密码学模块的客户端接口 config 定义创建账号时产生的助记词中的标记符的值，及其所对应的椭圆曲线密码学算法的类 hash hash算法 sign 签名相关 utils 常用功能
+global       全局方法/变量 common.go 全局方法 global.go 全局变量
+kv           存储接口与实现 kvdb 单盘存储 mstorage 多盘存储
+ledger       账本模块 genesis.go 创世区块相关实现 ledger.go 账本核心业务逻辑实现 ledger_hash.go 账本涉及的hash实现，如生成Merkle树，生成区块ID
+log          日志模块 log.go 创建日志实例
+p2pv2        p2p网络模块 pb p2p网络消息的pb定义 config.go p2p网络配置 filter.go p2p网络节点过滤实现 server.go p2p网络对外接口实现 stream.go p2p网络流的定义与实现 subscriber.go p2p网络消息订阅定义与实现 util.go p2p网络的全局方法 handlerMap.go p2p网络消息处理入口 node.go p2p网络节点定义与实现 stream_pool.go p2p网络节点对应的流定义与实现 type.go p2p网络对外接口定义
+permission   权限验证模块 permission.go 权限验证的业务逻辑实现 ptree 权限树 rule 权限模型 utils 通用工具
+pluginmgr    插件管理模块 pluginmgr.go 插件管理的业务逻辑实现 xchainpm.go 插件初始化工作
+replica      多副本模块 replica.go 多副本raft业务逻辑实现
+server       util.go 通用工具实现，如获取远程节点ip
+xuper3       contract contract/bridge xuperbridge定义与实现 contract/kernel 系统级合约(走预执行) contract/vm.go 虚拟机接口定义
+xuper3       xmodel xmodel实现 xmodel/pb 版本数据pb定义 xmodel/dbutils.go xmodel通用方法 xmodel/env.go 预执行环境初始化 xmodel/xmodel_cache.go model cache实现 xmodel/xmodel_iterator.go model迭代器实现 xmodel/xmodel_verify.go 读写集验证 xmodel/interface.go xmodel接口定 xmodel/versioned_data.go 版本数据 xmodel/xmodel_cache_iterator.go model cache迭代器 xmodel/xmodel.go model业务逻辑实现
+utxo         utxo模块 acl_valid_verify.go acl验证业务逻辑实现，包括SetAccountAcl, SetMethodAcl, 合约调用时的权限验证 topsort.go 交易集合的拓扑排序实现 txhash 交易相关的hash async.go 异步处理 tx_contract_generator.go 合约交易操作 utxo_cache.go utxo cache实现 utxo_item.go utxo表定义 withdraw.go 赎回实现 tx_contract_verifier.go 合约交易操作
+===========  ==========================

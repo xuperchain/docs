@@ -40,8 +40,6 @@ xdev提供了一个默认的c++合约工程模板
     LD wasm
 
 
-编译结果为hello.wasm，后面我们使用这个文件来部署合约
-
 合约单测
 >>>>>>>>
 
@@ -102,35 +100,6 @@ Deploy和Invoke方法都是通过抛出异常的方式来处理错误，测试�
     Tx id: 8c33a91c5cf564a28e7b62cad827ba91e19abf961702659dd8b70a3fb872bdf1
 
 
-此命令看起来很长，但是其中很多参数都有默认值，我们先来看一下参数的含义：
-
-    - **wasm deploy** ：此为部署wasm合约的命令参数，不做过多解释
-    - **--account XC1111111111111111@xuper** ：此为部署wasm合约的账号（只有合约账号才能进行合约的部署）
-    - **--cname hello** ：这里的hello是指部署后在链上的合约名字，可以自行命名（但有规则，长度在4～16字符）
-    - **--runtime c** 指明我们部署的是一个c++代码编译的合约，如果是go合约这里填 **go** 即可。
-    - **--fee** 为我们部署这个合约所需要的xuper
-    - 最后的hello.wasm是合约编译好的文件
-
-调用合约
-^^^^^^^^^^^^^
-
-.. code-block:: bash
-	
-    $ xchain-cli wasm invoke --method hello --fee 110000 hello
-    contract response: hello world
-    The gas you cousume is: 35
-    The fee you pay is: 110000
-    Tx id: d8989ad1bfd2d08bd233b7a09a544cb07976fdf3429144c42f6166d28e9ff695
-
-
-参数解释如下：
-
-    - **wasm invoke** 表示我们要调用一个合约
-    - **--method hello** 表示我们要调用合约的 **hello** 方法
-    - **--fee** 指明我们这次调用合约花费的xuper
-    - 最后的参数指明我们调用的合约名字 **hello**
-
-
 VSCode编辑器集成
 --------------
 
@@ -169,7 +138,6 @@ VSCode编辑器集成
             }
         ]
     }
-
 
 
 编译合约
