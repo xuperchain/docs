@@ -2,15 +2,14 @@
 ====
 
 
-
-我是区块链新手
+XuperChain 基本概念
 -------
 
-    :ref:`了解区块链基本概念<blockchain101>`
+    :ref:`了解 XuperChain 基本概念<blockchain101>`
 
-    :ref:`超级链命令行操作<xchain-cli>`
+    :ref:`XuperChain命令行操作<xchain-cli>`
 
-    :ref:`超级链合约开发详解<contract-development>`
+    :ref:`XuperChain合约开发详解<contract-development>`
 
 我是合约开发者
 -------
@@ -25,24 +24,24 @@
 我是链的管理者
 -------
 
-    :ref:`超级链对等网络<concept-p2p>`
+    :ref:`XuperChain对等网络<concept-p2p>`
 
-    :ref:`超级链网络管理<deployment>`
+    :ref:`XuperChain网络管理<deployment>`
     
 我是其他链的用户
 --------
 
-    :ref:`超级链实现原理<design>`
-    
-    :ref:`超级链应用开发<application-development>`
+    :ref:`XuperChain实现原理<design>`
 
-    从以太坊迁移到超级链 (敬请期待)
+    :ref:`XuperChain应用开发<application-development>`
 
-    从 fabric 迁移到超级链 (敬请期待)
+    从以太坊迁移到 XuperChain (敬请期待)
+
+    从 fabric 迁移到 XuperChain (敬请期待)
 
 我想成为贡献者
 -------
 
-    :ref:`超级链实现原理<design>`
+    :ref:`XuperChain实现原理<design>`
 
-    :ref:`超级链贡献指南<contribution-guide>`
+    :ref:`XuperChain贡献指南<contribution-guide>`

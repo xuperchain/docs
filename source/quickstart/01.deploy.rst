@@ -21,9 +21,7 @@
     docker-compsoe up -d 
 
 ..
-  本地浏览器打开 http://127.0.0.1:3000 查看有关 dashboard
-
-查看链状态
+  本地浏览器打开 http://127.0.0.1:3000 查看有关 dashboard 查看链状态
 
 执行::
 
