@@ -45,9 +45,7 @@ XuperChain 文档
     :titlesonly:
     
     tutorial/04.cli.rst
-    tutorial/01.account.rst
     tutorial/02.contract-development.rst
-    tutorial/02.create-contracts.rst
     tutorial/03.sdk.rst
 ..    tutorial/05.api.rst
 ..    tutorial/06.cdt.rst
@@ -76,14 +74,7 @@ XuperChain 文档
     :caption: 超级链实现原理
     :titlesonly:
 
-    design/01.datastruct.rst
-    design/02.consensus.rst
-    design/03.p2p.rst
-    design/04.vm.rst
-    design/05.permission-model.rst
-    design/06.chain.rst
-    design/07.plugin.rst
-    design/09.multi-disk.rst
+    design/00.design.rst
 
 .. toctree::
     :maxdepth: 1
