@@ -2,13 +2,16 @@
 
 合约开发入门
 ^^^^^^^^^^^^^^^^
-xuperchain 支持不同的语言(java/golang/c++/solidity) 和合约类型(evm/native/wasm)。
-我们以及golang 和 java 的native 合约， c++ 的 wasm 合约以及solidity 的evm 合约展示合约的基本操作。完整的语言-合约相容矩阵见xxxxx
+xuperchain 支持使用
+:ref:`java <tutorial/contract-development-java>` 
+:ref:`go <tutorial/contract-development-go>`
+:ref:`c++ <tutorial/contract-development-cpp>`
+:ref:`solidity <tutorial/contract-development-solidity>`
+等语言进行合约开发，我们以 golang 和 java 的 native 合约， c++ 的 wasm 合约以及 solidity 的 evm 合约为例展示合约的基本操作。完整的语言-合约相容矩阵见 :ref:`tutorial/contract-development`
 
 ..
     安装依赖
     ^^^^^^^^
-
     后续 xdev 作为统一构建工具，这些东西都不需要了
 
     .. tabs::
@@ -32,7 +35,6 @@ xuperchain 支持不同的语言(java/golang/c++/solidity) 和合约类型(evm/n
 编译合约
 -------
 ..
-后边会统一成 xdev build,现在是在容器里进行的 build
 
 .. tabs::
 
@@ -40,28 +42,33 @@ xuperchain 支持不同的语言(java/golang/c++/solidity) 和合约类型(evm/n
 
         在命令行执行:: 
 
-            make -C java 
+            git clone https://github.com/xuperchain/contract-sdk-java.git
+            cd contract-sdk-java/example/counter && mvn package
     
     .. tab:: C++
     
         在命令行执行:: 
 
-            make -C cpp
+            git clone https://github.com/xuperchain/contract-sdk-cpp.git
+            cd contract-sdk-cpp/example/counter && xdev build
 
     .. tab:: GO
 
         在命令行执行:: 
 
-            make -C go
+            git clone https://github.com/xuperchain/contract-sdk-go.git
+            cd contract-sdk-go/example/counter && go build main.go 
 
     .. tab:: Solidity
 
         在命令行执行:: 
         
-            make -C evm 
+            git clone https://github.com/xuperchain/contract-sdk-evm.git
+            cd contract-sdk-emv/example/counter && solc --abi --bin counter.sol
+    
+    .. tab:: Python
 
-
-    编译的产物在 build 目录下
+        敬请期待
 
 合约部署
 --------
@@ -116,7 +123,13 @@ xuperchain 支持不同的语言(java/golang/c++/solidity) 和合约类型(evm/n
 
             xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
 
-接下来
+    .. tab:: Python
 
-超级链基本概念
-超级链合约开发详解
+        敬请期待
+
+接下来
+------
+
+:ref:`区块链基本概念 <concepts>`
+
+:ref:`合约开发详解 <tutorial/contract-development>`

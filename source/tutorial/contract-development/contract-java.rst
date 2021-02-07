@@ -1,3 +1,5 @@
+.. _tutorial/contract-development-java:
+
 Java合约
 ^^^^^^^^^^^^
 

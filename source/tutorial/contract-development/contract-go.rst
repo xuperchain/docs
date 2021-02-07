@@ -1,3 +1,6 @@
+.. _tutorial/contract-development-go:
+
+
 Go合约
 ^^^^^^^^^^^^
 

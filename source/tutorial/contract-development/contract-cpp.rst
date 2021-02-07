@@ -1,3 +1,5 @@
+.. _tutorial/contract-development-cpp:
+
 C++合约
 ^^^^^^^^^^^^
 

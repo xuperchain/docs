@@ -1,4 +1,4 @@
-下面大概说明如何编写这四种类型的合约
+.. _tutorial/contract-development-solidity:
 
 Solidity合约
 ^^^^^^^^^^^^
