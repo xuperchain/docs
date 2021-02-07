@@ -1,17 +1,13 @@
 
-.. _deployment:
 
 
-网络管理
+XuperChain 网络管理
 ==========
 
-
-
 .. toctree::
-    :caption: Guide
+    :caption: 目录
     :titlesonly:
     
     guide/01.multi-node.rst
     guide/01.xpoa.rst
     guide/02.xpos.rst
-    guide/05.proposal.rst
