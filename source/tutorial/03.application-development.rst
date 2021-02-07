@@ -7,6 +7,6 @@
     :caption: 接下来
     :titlesonly:
 
-    sdk/01.go.rst
-    sdk/02.python.rst
-    sdk/03.java.rst
+    application-development/01.go.rst
+    application-development/02.python.rst
+    application-development/03.java.rst

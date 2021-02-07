@@ -5,7 +5,6 @@
 ====
 
 .. toctree::
-    :caption: 接下来
     :titlesonly:
 
     templates/erc721.rst

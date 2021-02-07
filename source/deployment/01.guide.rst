@@ -1,10 +1,9 @@
 
 
-XuperChain 网络管理
+搭建 XuperChain 网络
 ==========
 
 .. toctree::
-    :caption: 目录
     :titlesonly:
     
     guide/01.multi-node.rst

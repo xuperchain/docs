@@ -32,7 +32,7 @@
 
     :ref:`XuperChain实现原理<design>`
 
-    :ref:`XuperChain应用开发<application-development>`
+    :ref:`XuperChain应用开发<tutorial/application-development>`
 
     从以太坊迁移到 XuperChain (敬请期待)
 

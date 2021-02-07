@@ -1,0 +1,16 @@
+.. contribution:
+
+贡献指南
+=========
+
+.. toctree::
+    :titlesonly:
+   00.pre-contribution.rst
+   01.documentation.rst
+   02.plugins.rst
+   03.sdk.rst
+   04.forum.rst
+   05.core.rst
+   06.activity.rst
+   07.contribution-list.rst
+   08.from-source.rst
