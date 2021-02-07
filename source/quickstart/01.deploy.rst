@@ -1,7 +1,7 @@
 
 .. _env-deploy:
 
-搭建本地网络
+搭建本地 XuperChain 网络
 ^^^^^^^^^^^^^^
 
 使用 docker-compose 

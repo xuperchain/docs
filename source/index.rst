@@ -12,10 +12,9 @@
             <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;快速开始</h>
             <br><br>
          
-         - `了解FISCO BCOS区块链 <./docs/introduction.html>`_
-         - `FISCO BCOS 2.X新特性 <./docs/change_log/index.html#fisco-bcos-2-x>`_
-         - `搭建第一个区块链网络 <./docs/installation.html>`_
-         - `开发第一个区块链应用 <./docs/tutorial/sdk_application.html>`_
+         - `搭建本地 XuperChain 网络 <./quickstart/01.deploy.html>`_
+         - `XuperChain 基本链操作 <./quickstart/02.basic-operations.html>`_
+         - `合约开发入门 <./quickstart/03.contract.html>`_
 
    .. container:: card-holder
       
@@ -24,7 +23,7 @@
          .. raw:: html
 
             <br>
-            <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开发手册</h>
+            <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;基本概念</h>
             <br><br>
          
          - `关键概念 <./docs/tutorial/key_concepts.html>`_
@@ -33,152 +32,106 @@
          - `FISCO BCOS Java SDK <./docs/sdk/java_sdk/index.html>`_
          - `问题排查 <./docs/faq/index.html>`_
 
-   .. container:: card-holder-bigger
+   .. container:: card-holder
       
-      .. container:: card-bigger rocket
+      .. container:: card manuals
 
          .. raw:: html
 
             <br>
-            <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;使用工具</h>
+            <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开发教程</h>
             <br><br>
-
-         .. container:: tools 
          
-            .. raw:: html
-         
-               <img src="_images/build_chain.png" class="card-holder" >
-               <div class="tools-holder">
-                  <br>
-                  <h style="font-size: 18px;"><b><a href="./docs/manual/build_chain.html">开发部署工具：区块链网络快速部署工具</a></b></h>
-                  <br><br>
-                  <p>开发部署工具是提供给开发者快速搭建FISCO BCOS区块链网络的脚本工具。</p>
-               </div>
-               <div style="clear:both"></div>
-
-         .. raw:: html
-
-            <hr>
-
-         .. container:: tools 
-
-            .. raw:: html
-         
-               <div class="tools-holder">
-                  <br>
-                  <h style="font-size: 18px;"><b><a href="./docs/console/index.html">命令行交互控制台：节点查询与管理工具</a></b></h>
-                  <br><br>
-                  <p>命令行交互控制台是提供给开发者使用的节点查询与管理的工具。控制台拥有丰富的命令，包括查询区块链状态、管理区块链节点、部署并调用合约等。此外，控制台提供一个合约编译工具，用户可以方便快捷的将Solidity合约文件编译为Java合约文件。</p>
-               </div>
-               <img src="_images/console.png" class="card-holder" >
-               <div style="clear:both"></div>
-
-         .. raw:: html
-
-            <hr>
-
-         .. container:: tools 
-         
-            .. raw:: html
-         
-               <img src="_images/webase-web.png" class="card-holder">
-               <div class="tools-holder">
-                  <h style="font-size: 18px;"><b><a href="./docs/webase/webase.html">WeBASE：图形化的区块链管理工具</a></b></h>
-                  <br><br>
-                  <p>WeBASE(WeBank Blockchain Application Software Extension) 是一套管理FISCO-BCOS联盟链的工具集。WeBASE提供了图形化的管理界面，屏蔽了区块链底层的复杂度，降低区块链使用的门槛，大幅提高区块链应用的开发效率，包含节点前置、节点管理、交易链路，数据导出，Web管理平台等子系统。</p>
-               </div>
-               <div style="clear:both"></div>
-               <br><br>
-
-         .. raw:: html
-
-            <hr>
-
-         .. container:: tools 
-
-            .. raw:: html
-         
-               <div class="tools-holder">
-                  <h style="font-size: 18px;"><b><a href="./docs/browser/index.html">区块链浏览器：区块链数据浏览工具</a></b></h>
-                  <br><br>
-                  <p>区块链浏览器将区块链中的数据可视化，并进行实时展示。方便用户以Web页面的方式，浏览当前区块链中的信息。本浏览器版本适配FISCO BCOS 2.0+，关于2.0+版本的特性可以参考此链接。在使用本浏览器之前需要先理解2.0+版本的群组特性，详情可以参考此链接。</p>
-               </div>
-               <img src="_images/overview.png" class="card-holder" >
-               <div style="clear:both"></div>
-               <br><br>
-
-         .. raw:: html
-            
-            <hr>
-
-         .. container:: tools 
-
-            .. raw:: html
-
-               <img src="_images/toolshow.png" class="card-holder">
-               <div class="tools-holder">
-                  <h style="font-size: 18px;"><b><a href="./docs/enterprise_tools/index.html">运维部署工具：企业级用户的区块链管理工具</a></b></h>
-                  <br><br>
-                  <p>运维部署工具是为企业用户提供的部署、管理和监控多机构多群组联盟链的便捷工具。它面向于真实的多机构生产环境，为了保证机构的密钥安全，运维部署工具提供了一种机构间相互合作部署联盟链方式。</p>
-               </div>
-               <div style="clear:both"></div>
-
-         .. raw:: html
-            
-            <hr>
-
-         .. container:: tools 
-
-            .. raw:: html
-
-               <div class="tools-holder">
-                  <h style="font-size: 18px;"><b><a href="./docs/enterprise_tools/index.html">数据治理通用组件：</a></b></h>
-                  <br><br>
-                  <p>数据治理通用组件的全名是“WeBankBlockchain-Data数据治理通用组件”，它是一套稳定、高效、安全的区块链数据治理组件解决方案，可无缝适配FISCO BCOS区块链底层平台。它由数据导出组件(Data-Export)、数据仓库组件(Data-Stash)、数据对账组件(Data-Reconcile)这三款相互独立、可插拔、可灵活组装的组件所组成，开箱即用，灵活便捷，易于二次开发。</p>
-               </div>
-               <img src="_images/governance.jpg" class="card-holder">
-               <div style="clear:both"></div>
+         - `关键概念 <./docs/tutorial/key_concepts.html>`_
+         - `区块链网络搭建 <./docs/blockchain_dev/index.html>`_
+         - `区块链应用开发 <./docs/app_dev/index.html>`_
+         - `FISCO BCOS Java SDK <./docs/sdk/java_sdk/index.html>`_
+         - `问题排查 <./docs/faq/index.html>`_
 
    .. container:: card-holder
       
-      .. container:: card ref
+      .. container:: card manuals
 
          .. raw:: html
 
             <br>
-            <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系统设计</h>
+            <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网络管理</h>
             <br><br>
          
-         - `整体架构 <./docs/design/architecture/index.html>`_
-         - `共识算法 <./docs/design/consensus/index.html>`_
-         - `交易并行 <./docs/design/parallel/dag.html>`_
-         - `分布式存储 <./docs/design/storage/index.html>`_
-         - `预编译合约 <./docs/design/virtual_machine/precompiled.html>`_
-         - `更多设计文档 <./docs/design/index.html>`_
+         - `关键概念 <./docs/tutorial/key_concepts.html>`_
+         - `区块链网络搭建 <./docs/blockchain_dev/index.html>`_
+         - `区块链应用开发 <./docs/app_dev/index.html>`_
+         - `FISCO BCOS Java SDK <./docs/sdk/java_sdk/index.html>`_
+         - `问题排查 <./docs/faq/index.html>`_
 
    .. container:: card-holder
       
-      .. container:: card rocket
+      .. container:: card manuals
 
          .. raw:: html
 
             <br>
-            <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更多资源</h>
+            <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高级开发教程</h>
             <br><br>
          
-         - `Github主页 <https://github.com/FISCO-BCOS/FISCO-BCOS>`_
-         - `深度解析系列文章 <http://mp.weixin.qq.com/mp/homepage?__biz=MzA3MTI5Njg4Mw==&hid=2&sn=4f6d7251fbc4a73ed600e1d6fd61efc1&scene=18#wechat_redirect>`_
-         - `贡献代码 <https://mp.weixin.qq.com/s/_w_auH8X4SQQWO3lhfNrbQ>`_
-         - `反馈问题 <https://github.com/FISCO-BCOS/FISCO-BCOS/issues>`_
-         - `应用案例集 <https://mp.weixin.qq.com/s/cUjuWf1eGMbG3AFq60CBUA>`_
-         - `微信群 <https://github.com/FISCO-BCOS/FISCO-BCOS-DOC/blob/release-2/images/community/WeChatQR%2Ejpg>`_ 、`公众号 <https://github.com/FISCO-BCOS/FISCO-BCOS-DOC/blob/release-2/images/community/OfficialAccountsQR%2Ejpg>`_
+         - `关键概念 <./docs/tutorial/key_concepts.html>`_
+         - `区块链网络搭建 <./docs/blockchain_dev/index.html>`_
+         - `区块链应用开发 <./docs/app_dev/index.html>`_
+         - `FISCO BCOS Java SDK <./docs/sdk/java_sdk/index.html>`_
+         - `问题排查 <./docs/faq/index.html>`_
 
 
-XuperChain 文档
-=================
+   .. container:: card-holder
+      
+      .. container:: card manuals
+
+         .. raw:: html
+
+            <br>
+            <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;设计原理</h>
+            <br><br>
+         
+         - `关键概念 <./docs/tutorial/key_concepts.html>`_
+         - `区块链网络搭建 <./docs/blockchain_dev/index.html>`_
+         - `区块链应用开发 <./docs/app_dev/index.html>`_
+         - `FISCO BCOS Java SDK <./docs/sdk/java_sdk/index.html>`_
+         - `问题排查 <./docs/faq/index.html>`_
+
+   .. container:: card-holder
+      
+      .. container:: card manuals
+
+         .. raw:: html
+
+            <br>
+            <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贡献指南</h>
+            <br><br>
+         
+         - `关键概念 <./docs/tutorial/key_concepts.html>`_
+         - `区块链网络搭建 <./docs/blockchain_dev/index.html>`_
+         - `区块链应用开发 <./docs/app_dev/index.html>`_
+         - `FISCO BCOS Java SDK <./docs/sdk/java_sdk/index.html>`_
+         - `问题排查 <./docs/faq/index.html>`_
+
+   .. container:: card-holder
+      
+      .. container:: card manuals
+
+         .. raw:: html
+
+            <br>
+            <h style="font-size: 22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;参考手册</h>
+            <br><br>
+         
+         - `关键概念 <./docs/tutorial/key_concepts.html>`_
+         - `区块链网络搭建 <./docs/blockchain_dev/index.html>`_
+         - `区块链应用开发 <./docs/app_dev/index.html>`_
+         - `FISCO BCOS Java SDK <./docs/sdk/java_sdk/index.html>`_
+         - `问题排查 <./docs/faq/index.html>`_
 
 .. toctree::
     :caption: 概览
+    :hidden:
 
     introduction/01.brief.rst
     introduction/02.advantage.rst
@@ -189,6 +142,7 @@ XuperChain 文档
     :caption: 快速开始
     :maxdepth: 1
     :titlesonly:
+    :hidden:
 
     quickstart/01.deploy.rst
     quickstart/02.basic-operations.rst
@@ -197,6 +151,7 @@ XuperChain 文档
 .. toctree::
     :caption: 基本概念
     :titlesonly:
+    :hidden:
 
     concepts/00.blockchain101.rst
     concepts/01.account.rst
@@ -213,6 +168,7 @@ XuperChain 文档
 .. toctree::
     :caption: 开发教程
     :titlesonly:
+    :hidden:
     
     tutorial/04.cli.rst
     tutorial/02.contract-development.rst
@@ -225,6 +181,7 @@ XuperChain 文档
 .. toctree::
     :caption: 网络管理
     :titlesonly:
+    :hidden:
 
     deployment/00.deployment.rst
 
@@ -236,12 +193,14 @@ XuperChain 文档
 .. toctree::
     :caption: 高级开发教程
     :titlesonly:
+    :hidden:
 
     task/00.advanced-contract-development.rst
 
 .. toctree::
     :caption: 超级链实现原理
     :titlesonly:
+    :hidden:
 
     design/00.design.rst
 
@@ -249,6 +208,7 @@ XuperChain 文档
     :maxdepth: 1
     :caption: 贡献指南
     :titlesonly:
+    :hidden:
 
     contribution/00.pre-contribution.rst
     contribution/01.documentation.rst
@@ -264,6 +224,7 @@ XuperChain 文档
     :maxdepth: 1
     :caption: 参考手册
     :titlesonly:
+    :hidden:
 
     reference/00.command.rst
     reference/01.rpc.rst
