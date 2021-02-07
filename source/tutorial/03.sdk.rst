@@ -1,3 +1,5 @@
+.. _application-development:
+
 超级链应用开发
 ====
 

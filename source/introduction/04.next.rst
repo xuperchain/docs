@@ -33,6 +33,8 @@
 --------
 
     :ref:`超级链实现原理<design>`
+    
+    :ref:`超级链应用开发<application-development>`
 
     从以太坊迁移到超级链 (敬请期待)
 
