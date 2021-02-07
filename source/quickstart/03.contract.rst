@@ -1,3 +1,5 @@
+.. quickstart/contract:
+
 合约开发入门
 ^^^^^^^^^^^^^^^^
 xuperchain 支持不同的语言(java/golang/c++/solidity) 和合约类型(evm/native/wasm)。

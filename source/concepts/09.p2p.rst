@@ -1,4 +1,4 @@
-.. _concept-p2p:
+.. _concepts/p2p:
 
 对等网络
 ====

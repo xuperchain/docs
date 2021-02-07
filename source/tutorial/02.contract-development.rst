@@ -1,5 +1,5 @@
 
-.. _contract-development:
+.. _tutorial/contract-development:
 
 合约开发详解
 ==========================

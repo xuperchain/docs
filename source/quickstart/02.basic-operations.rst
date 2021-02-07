@@ -1,4 +1,6 @@
 
+.. _quickstart/basic-operations: 
+
 命令行基本操作
 ^^^^^^^^^^^^^^
 

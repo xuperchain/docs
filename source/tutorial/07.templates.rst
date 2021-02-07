@@ -1,3 +1,6 @@
+.. _tutorial/templates:
+
+
 使用合约模板
 ====
 

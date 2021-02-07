@@ -1,11 +1,10 @@
 接下来
-====
+>>>>>>>>
 
-
-XuperChain 基本概念
+我是区块链新手
 -------
 
-    :ref:`了解 XuperChain 基本概念<blockchain101>`
+    :ref:`了解 XuperChain 基本概念<concepts/blockchain101>`
 
     :ref:`XuperChain命令行操作<xchain-cli>`
 
@@ -24,7 +23,7 @@ XuperChain 基本概念
 我是链的管理者
 -------
 
-    :ref:`XuperChain对等网络<concept-p2p>`
+    :ref:`XuperChain对等网络<concepts/p2p>`
 
     :ref:`XuperChain网络管理<deployment>`
     
@@ -42,6 +41,6 @@ XuperChain 基本概念
 我想成为贡献者
 -------
 
-    :ref:`XuperChain实现原理<design>`
+    :ref:`XuperChain 实现原理<design>`
 
-    :ref:`XuperChain贡献指南<contribution-guide>`
+    :ref:`XuperChain 贡献指南<contribution-guide>`

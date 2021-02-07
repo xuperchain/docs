@@ -1,3 +1,4 @@
+.. _concepts/account:
 
 账号管理
 ========

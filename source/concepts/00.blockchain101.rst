@@ -1,4 +1,4 @@
-.. _blockchain101:
+.. _concepts/blockchain101:
 
 区块链101
 ====

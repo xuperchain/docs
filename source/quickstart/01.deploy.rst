@@ -1,5 +1,5 @@
 
-.. _env-deploy:
+.. _quickstart/deploy:
 
 搭建本地 XuperChain 网络
 ^^^^^^^^^^^^^^

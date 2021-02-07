@@ -1,3 +1,5 @@
+.. _concepts/trusted-ledger:
+
 可信账本
 ==================
 
