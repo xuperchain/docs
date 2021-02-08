@@ -76,19 +76,19 @@ xuperchain 支持使用
 
     .. tab:: JAVA
 
-        xchain-cli native deploy 
+        xchain-cli native deploy --account XC1111111111111111@xuper -a '{"creator":"XC1111111111111111@xuper"}' --fee 15587517 --runtime go counter --cname counter
     
     .. tab:: C++
 
-        xchain-cli wasm deploy xxxxxx
+        xchain-cli evm deploy --account XC1111111111111111@xuper -a '{"creator":"XC1111111111111111@xuper"}' --fee 15587517 --runtime go counter --cname counter
 
     .. tab:: GO
 
-        xchain-cli 
+        xchain-cli native deploy --account XC1111111111111111@xuper -a '{"creator":"XC1111111111111111@xuper"}' --fee 15587517 --runtime go counter --cname counter
 
     .. tab:: Solidity
 
-        Solidity
+        xchain-cli native deploy --account XC1111111111111111@xuper -a '{"creator":"XC1111111111111111@xuper"}' --fee 15587517 --runtime go counter --cname counter
     
     .. tab:: Python 
 
@@ -103,13 +103,16 @@ xuperchain 支持使用
         命令行执行::
 
             xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
+            xchain-cli native invoke --method Get counter --fee 100
     
     .. tab:: C++
 
         命令行执行::
-        
 
-            xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
+            xchain-cli wasm invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
+
+            xchain-cli wasm invoke --method Get -a '{"key":"xuper"}' counter --fee 100
+            
 
     .. tab:: GO
 
@@ -117,11 +120,15 @@ xuperchain 支持使用
 
             xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
 
+            xchain-cli native invoke --method Get -a '{"key":"xuper"}' counter --fee 100
+
     .. tab:: Solidity
 
         命令行执行::    
 
             xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
+
+            xchain-cli evm invoke --abi  --method Get -a '{"key":"xuper"}' counter --fee 100
 
     .. tab:: Python
 

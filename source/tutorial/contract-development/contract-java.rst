@@ -3,6 +3,12 @@
 Java合约
 ^^^^^^^^^^^^
 
+预备知识
+>>>>>>>>
+
+:ref:`tutorial/cli` 
+
+
 java合约目前只支持native合约。
 
 如果本地搭建超级链环境，在部署、调用native合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。

@@ -1,33 +1,33 @@
 接下来
 >>>>>>>>
 
-我是区块链新手
+了解 XuperChain 基本概念
 -------
 
     :ref:`了解 XuperChain 基本概念<concepts/blockchain101>`
 
     :ref:`XuperChain命令行操作<xchain-cli>`
 
-    :ref:`XuperChain合约开发详解<contract-development>`
+    :ref:`XuperChain合约开发详解<tutorial/contract-development>`
 
-我是合约开发者
+在 XuperChain 上开发智能合约
 -------
 
     
     :ref:`使用命令行管理合约<xchain-cli-contract>`
 
-    :ref:`合约开发详解<contract-development>`
+    :ref:`合约开发详解<tutorial/contract-development>`
 
     :ref:`高级合约开发<advanced-contract-development>`
 
-我是链的管理者
+基于 XuperChain 搭建自己的区块链网络
 -------
 
     :ref:`XuperChain对等网络<concepts/p2p>`
 
     :ref:`XuperChain网络管理<deployment>`
     
-我是其他链的用户
+从其他链迁移至 XuperChain
 --------
 
     :ref:`XuperChain实现原理<design>`
@@ -38,7 +38,7 @@
 
     从 fabric 迁移到 XuperChain (敬请期待)
 
-我想成为贡献者
+参与贡献完善 Xuperchain 
 -------
 
     :ref:`XuperChain 实现原理<design>`

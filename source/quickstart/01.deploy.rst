@@ -1,7 +1,10 @@
 
 .. _quickstart/deploy:
 
-搭建本地网络
+搭建本地网络 
+========
+
+搭建本地单节点网络
 ^^^^^^^^^^^^^^
 
 
@@ -59,7 +62,6 @@
 
 查看节点状态
 
-  
 
 使用 docker-compose 
 ------------------- 
@@ -102,6 +104,9 @@
 
 .. _quickstart/basic-operations: 
 
+搭建本地多节点网络
+
+
 基本操作
 --------
 
@@ -112,7 +117,11 @@
 
 .. code-block:: bash
 
-    xchain-cli account newkeys --output data/bob
+    # 创建账号
+    xchain-cli account newkeys  
+
+    # 查看节点地址
+    cat data/address
     
     
 .. _balance:
@@ -126,6 +135,8 @@
 
 
 .. _transfer:
+  .. code-block:: bash
+    
 
 转账
 >>>>

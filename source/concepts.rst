@@ -7,10 +7,10 @@
     :titlesonly:
 
     concepts/00.blockchain101.rst
+    concepts/05.crypto.rst
     concepts/01.account.rst
     concepts/03.consensus.rst
     concepts/04.contract.rst
-    concepts/05.crypto.rst
     concepts/07.trusted-ledger.rst
     concepts/09.p2p.rst
 

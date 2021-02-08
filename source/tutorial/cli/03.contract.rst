@@ -1,4 +1,182 @@
 .. _xchain-cli-contract:
 
+
 使用命令行管理合约
 ==================
+.. _tutorial/cli/contract-accouunt:
+
+管理合约账号
+--------
+创建合约账号
+^^^^^^^^^^^^^^^^^^^^^
+
+合约账号可以用来部署智能合约，创建合约账号是一个上链操作，因此也需要消耗一定量的测试资源。合约账号可以设置为多个个人账号共同持有，只有一个交易中的背书签名满足一定合约账号的ACL要求，才能代表这个合约账号进行操作。关于合约账号和ACL权限相关的内容，可以参考
+
+创建合约账号是一个系统合约，可以通过多重签名的方式发起系统合约调用。系统合约调用需要先创建一个合约调用描述文件，例如下面newAccount.json是一个创建合约账号的描述文件。 newAccount.json文件内容：
+
+.. code-block:: python
+    :linenos:
+
+    {
+        "module_name": "xkernel",
+        "method_name": "NewAccount",
+        "args" : {
+            "account_name": "1234098776890654",  # 说明：16位数字组成的字符串
+            "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 1},\"aksWeight\": {\"dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN\": 1}}"  # 这里的address改成自己的address
+        }
+    }
+ 多重签名需要收集多个账号的签名，在测试环境中主要是需要交易发起者以及黄反服务的签名，因此修改data/acl/addrs文件，将需要收集签名的address写入该文件中。
+
+，命令如下：
+
+.. code-block:: bash
+    
+    # 生成创建合约账号的原始交易
+    xchain-cli multisig gen --desc newAccount.json -H 14.215.179.74:37101 --fee 1000 --output rawTx.out
+    # 对原始交易进行签名
+    xchain-cli multisig sign --tx rawTx.out --output my.sign
+    # 发送原始交易及签名
+    xchain-cli multisig send my.sign complianceCheck.out --tx rawTx.out 
+    # 查看合约账号
+    xchain-cli account query --host 
+
+.. note::
+
+    放签名的地方：第一个my.sign签名对应的是交易发起者(Initiator)，第二个complianceCheck.out签名对应的是需要背书(AuthRequire)的地址，发起者签名和背书签名用空格分开，如果需要多个账号背书，那么多个背书签名用,隔开，且签名顺序需要与data/acl/addrs中的地址顺序一致。
+
+
+设置合约账号ACL
+^^^^^^^^^^^^^^^
+
+设置账号ACL 首先 需要生成ACL 描述
+accountAclSet.json模版如下：
+
+.. code-block:: python
+    :linenos:
+
+    {
+        "module_name": "xkernel",
+        "method_name": "SetAccountAcl",
+        "args" : { 
+            "account_name": "XC1234098776890654@xuper",
+            "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 1},\"aksWeight\": {\"ak1\": 1}}"
+        }   
+    }
+
+.. note::
+
+    前置条件：将合约账号以及合约账号下的有权限的AK以合约账号/address形式以追加方式存放到data/acl/addrs
+设置合约账号 ACL 的命令如下
+
+.. code-block:: bash
+
+    # 生成原始交易
+    xchain-cli multisig gen --desc accountAclSet.json  --fee 10 --output rawTx.out
+
+    # 自己对原始交易签名
+    xchain-cli multisig sign --tx ./rawTx.out --output my.sign
+
+    # 将原始交易以及签名发送出去，
+    xchain-cli multisig send my.sign complianceCheck.out,my.sign --tx ./rawTx.out
+
+
+合约部署
+^^^^^^^^
+
+.. _tutorial/cli/contract-acl:
+
+设置合约接口ACL
+^^^^^^^^^^^^^^^
+
+.. note::
+
+    | 有这么一种场景：合约账号A部署了counter合约，希望只有拿到特定签名的用户才能调用counter的increase方法，因此XuperChain提供对智能合约某个方法进行权限设置
+    | 前置条件：将合约账号以及合约账号下的有权限的AK以合约账号/address形式以追加方式存放到 data/acl/addrs
+
+- Step1: 生成设置合约方法权限(ACL)的原始交易，命令如下：
+
+.. code-block:: bash
+    :linenos:
+    # 生成原始交易
+    xchain-cli multisig gen --desc methodAclSet.json -H 14.215.179.74:37101 --fee 10 --output rawTx.out
+
+    # 自己对原始交易签名
+    xchain-cli multisig sign --tx ./rawTx.out --output my.sign
+
+    # 发送原始交易及签名    
+    xchain-cli multisig send my.sign complianceCheck.out,my.sign --tx ./rawTx.out
+
+methodAclSet.json的模版，如下：
+
+.. code-block:: python
+    :linenos:
+
+    {
+        "module_name": "xkernel",
+        "method_name": "SetMethodAcl",
+        "args" : { 
+            "contract_name": "counter",
+            "method_name": "increase",
+            "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 1},\"aksWeight\": {\"TqnHT6QQnD9rjvqRJehEaAUB3ZwzSFZhR\": 1}}"
+        }   
+    }
+
+设置合约方法的ACL
+------------------
+
+1. 准备desc文件setMethodACL.desc
+
+    .. code-block:: json
+        
+        {
+            "module_name": "xkernel",
+            "method_name": "SetMethodAcl",
+            "args" : {
+                "contract_name": "counter",
+                "method_name": "increase",
+                "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 1.0},\"aksWeight\": {\"UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8\": 1}}"
+                }
+        }
+
+    参数说明：
+
+    - **module_name**： 模块名称，用固定值xkernel 
+    - **method_name** ：方法名称，用固定值SetMethodAcl
+    - **contract_name**：合约名称
+    - **method_name**：合约方法名称
+    - **acl**：合约方法的acl
+
+2. 设置合约方法ACL
+
+    设置合约方法ACL的操作，需符合合约账号的ACL，在3.2节，使用 **XC1111111111111111@xuper** 部署的counter合约，合约账号ACL里 只有1个AK，所以在data/acl/addrs中添加1行，如果合约账号ACL里有多个AK，则填写多行。
+
+    .. code-block:: bash
+
+        echo "XC1111111111111111@xuper/dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN" > data/acl/addrs
+
+    执行如下命令，设置ACL：
+
+    .. code-block:: bash
+
+        xchain-cli multisig gen --desc ./setMethodACL.desc --fee 1 -H 127.0.0.1:37101
+        xchain-cli multisig sign --output sign.out
+        xchain-cli multisig send sign.out sign.out -H 127.0.0.1:37101
+
+3. 查看合约方法ACL
+
+    .. code-block:: bash
+
+            [work@]$ deploy-env -> xchain-cli acl query --contract counter --method increase -H :37101    
+            # 执行结果  
+            # { 
+            #   "pm": { 
+            #     "rule": 1,    
+            #     "acceptValue": 1
+            #   },  
+            #   "aksWeight": {  
+            #     "UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8": 1    
+            #   }   
+            # }
+
+合约调用
+^^^^^^^^

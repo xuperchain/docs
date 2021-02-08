@@ -157,5 +157,9 @@ Crypto Provider Interface
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli account newkeys --output data/tmpkey --cryptotype schnorr
+    xchain-cli account newkeys --output data/tmpkey --cryptotype schnorr
     
+
+接下来
+
+    :ref:`tutorial/cli/multisig`
