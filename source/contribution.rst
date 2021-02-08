@@ -5,6 +5,8 @@
 
 .. toctree::
     :titlesonly:
+    :maxdepth: 1
+    
    contribution/00.pre-contribution.rst
    contribution/01.documentation.rst
    contribution/02.plugins.rst
