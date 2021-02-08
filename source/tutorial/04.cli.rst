@@ -13,8 +13,3 @@
     cli/02.transaction.rst
     cli/03.contract.rst
     cli/04.event.rst
-
-接下来
->>>>>>
-
-使用 SDK 和链进行交互
