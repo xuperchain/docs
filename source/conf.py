@@ -186,3 +186,12 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+
+
+html_context = {
+    "display_github": True,  # Integrate GitHubls
+    "github_user": "xuperchain",  # Username
+    "github_repo": "docs",  # Repo name
+    "github_version": "v3.12",  # Version
+    "conf_py_path": "/source/",  # Path in the checkout to the docs root
+}

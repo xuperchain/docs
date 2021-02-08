@@ -13,7 +13,7 @@ help:
 
 .PHONY: help Makefile serve 
 serve:
-	docker run --rm -t --name xupedocs  -p 8000:8000  -v `pwd`/source:/web xuperdocs
+	docker run --rm -t --name xuperdocs  -p 8000:8000  -v `pwd`/source:/web xuperdocs
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
