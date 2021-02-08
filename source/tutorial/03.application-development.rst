@@ -1,6 +1,6 @@
 .. _tutorial/application-development:
 
-超级链应用开发
+使用 SDK 开发超级链应用
 ====
 
 .. toctree::
