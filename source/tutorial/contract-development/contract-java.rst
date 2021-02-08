@@ -22,20 +22,6 @@ java合约目前只支持native合约。
 
 以counter合约为例来看如何编写一个java合约。        
 
-编译环境准备
->>>>>>>>>>>>>
-
-编译Java sdk：Java版本不低于Java1.8版本
-    
-包管理器：maven，mvn版本3.6+
-
-    .. code-block:: bash
-
-        # 编译java sdk
-        cd contractsdk/java
-        mvn install -f pom.xml
-        # 产出二进制文件target/java-contract-sdk-0.1.0.jar，并自动安装到mvn本地仓库下
-
 合约样例
 >>>>>>>>>>>>>
 
