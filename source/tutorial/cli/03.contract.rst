@@ -1,7 +1,7 @@
 .. _xchain-cli-contract:
 
 
-使用命令行管理合约
+合约管理
 ==================
 .. _tutorial/cli/contract-accouunt:
 

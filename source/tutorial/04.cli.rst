@@ -1,6 +1,6 @@
 .. _tutorial/cli:
 
-使用命令行工具
+XuperChain 基本操作
 ==========================
 
 .. _xchain-cli:
