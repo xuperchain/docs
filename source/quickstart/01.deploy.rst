@@ -104,6 +104,8 @@
 
 .. _quickstart/basic-operations: 
 
+.. 
+
 搭建本地多节点网络
 
 
@@ -143,7 +145,8 @@
 
 .. code-block:: bash
     
-    xchain-cli transfer --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount 10 
+    $ xchain-cli transfer --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount 10 
+    cbbda2606837c950160e99480049e2aec3e60689a280b68a2d253fdd8a6ce931
 
 
 .. _querytx:
@@ -156,7 +159,7 @@
 .. code-block:: bash
     :linenos:
 
-    # 可查询上一步生成的txid的交易信息
+  
     xchain-cli tx query cbbda2606837c950160e99480049e2aec3e60689a280b68a2d253fdd8a6ce931 
 
 
@@ -171,9 +174,23 @@
 
     xchain-cli block 0354240c8335e10d8b48d76c0584e29ab604cfdb7b421d973f01a2a49bb67fee 
 
-接下来
+创建合约账号
+>>>>>>>>>>>>
+.. code-block:: bash
 
-使用命令行和链交互
+    xchain-cli account new --account 1111111111111111 --fee 1000
+
+给合约账号转账
+>>>>>>>>>>>>>>
+.. code-block:: bash
+
+    xchain-cli transfer --to XC1111111111111111@xuper --amount 9999999999999999    # 查看合约账户余额
+
+查询合约账号余额
+>>>>>>>>>>>>>>
+.. code-block:: bash
+
+    xchain-cli account balance  XC1111111111111111@xuper    # 查看合约账户余额
 
 接下来
 ------

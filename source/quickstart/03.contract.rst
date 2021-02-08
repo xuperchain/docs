@@ -32,6 +32,33 @@ xuperchain 支持使用
             Solidity
 
 
+
+开启运行时支持(可选)
+----------------------
+
+XuperChain 默认情况下只启用了 wasm 合约，如果想要尝试 evm 合约和 native 合约，需要修改 conf.xchain.yml 设置 native 和 evm 的 enable 字段为 true，然后重启节点程序
+    
+    .. code-block:: yaml
+        :linenos:
+
+        evm:
+            driver: "evm"
+            enable: false
+
+        # 管理native合约的配置
+        native:
+            enable: false
+
+            # docker相关配置
+            docker:
+                enable: false
+                # 合约运行的镜像名字
+                imageName: "docker.io/centos:7.5.1804"
+                # cpu核数限制，可以为小数
+                cpus: 1
+                # 内存大小限制
+                memory: "1G"
+
 编译合约
 -------
 ..
