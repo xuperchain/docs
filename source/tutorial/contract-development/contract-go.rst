@@ -9,8 +9,6 @@ Go合约
 :ref:`tutorial/cli`
 
 
-以counter合约为例来看如何编写一个go合约。
-
 合约样例
 >>>>>>>>>>>>>
 

@@ -9,18 +9,8 @@ Java合约
 :ref:`tutorial/cli` 
 
 
-java合约目前只支持native合约。
 
-如果本地搭建超级链环境，在部署、调用native合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。
 
-.. code-block:: yaml
-    :linenos:
-
-    # 管理native合约的配置
-    native:
-        enable: true
-
-以counter合约为例来看如何编写一个java合约。        
 
 合约样例
 >>>>>>>>>>>>>
