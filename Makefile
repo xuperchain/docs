@@ -12,6 +12,7 @@ help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 .PHONY: help Makefile serve  release 
+
 serve:
 	docker run --rm -t --name xuperdocs  -p 8000:8000  -v `pwd`/source:/web xuperdocs
 
@@ -19,7 +20,7 @@ build-image:
 	docker build -t xuperdocs  .
 
 release :
-		docker run --rm -it --name xuperdocs-release   -v `pwd`:`pwd`  -w `pwd`  xuperdocs sphinx-versioning build -r master source _build1/html
+		docker run --rm -it --name xuperdocs-release   -v `pwd`:`pwd`  -w `pwd`  xuperdocs sphinx-versioning build -r master source _build/html
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
