@@ -39,7 +39,8 @@ release = u''
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx_tabs.tabs'
+    'sphinx_tabs.tabs',
+    'sphinx_comments'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -194,4 +195,8 @@ html_context = {
     "github_repo": "docs",  # Repo name
     "github_version": "v3.12",  # Version
     "conf_py_path": "/source/",  # Path in the checkout to the docs root
+}
+
+comments_config = {
+    "hypothesis": True
 }
