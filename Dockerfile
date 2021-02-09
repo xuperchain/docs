@@ -5,7 +5,7 @@ RUN  sed -i s/archive.ubuntu.com/mirrors.163.com/g /etc/apt/sources.list
 RUN apt-get update && apt-get install -y python3-pip  git  libssl-dev
 COPY ./requirements.txt requirements.txt
 RUN pip3 install requests  -i https://mirrors.aliyun.com/pypi/simple/ 
-RUN pip3 install --upgrade setuptools==44.1.1
+RUN pip3 install --upgrade setuptools==44.1.1 -i https://mirrors.aliyun.com/pypi/simple/ 
 RUN pip3 install --no-cache-dir  -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ 
 RUN pip3 freeze
 RUN git clone https://github.com/chenfengjin/sphinx-versions.git && cd sphinx-versions && python3 setup.py install 
