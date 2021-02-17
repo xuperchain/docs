@@ -97,6 +97,7 @@ accountAclSet.json模版如下：
 
 .. code-block:: bash
     :linenos:
+    
     # 生成原始交易
     xchain-cli multisig gen --desc methodAclSet.json -H 14.215.179.74:37101 --fee 10 --output rawTx.out
 
