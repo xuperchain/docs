@@ -28,4 +28,4 @@ WORKDIR /web
 
 EXPOSE 8000 35729
 
-CMD ["python3", "/opt/sphinx-server/server.py"]
+CMD ["sphinx-autobuild", "source", "source/_build/html","--host","0.0.0.0"]

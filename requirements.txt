@@ -51,8 +51,9 @@ wcwidth==0.2.5
 
 
 restructuredtext-lint
-Sphinx
 sphinx-comments
 sphinx-tabs
 sphinx-autobuild
 sphinx-rtd-theme
+sphinx-server
+gunicorn

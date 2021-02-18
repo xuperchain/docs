@@ -13,8 +13,11 @@ help:
 
 .PHONY: help Makefile serve  release 
 
+build:
+	docker run --rm -it --name xuperdocs  -p 8000:8000  -v `pwd`:/web xuperdocs make html
+	
 serve:
-	docker run --rm -it --name xuperdocs  -p 8000:8000  -v `pwd`/source:/web xuperdocs
+	docker run --rm -it --name xuperdocs  -p 8000:8000  -v `pwd`:/web xuperdocs
 
 build-image:
 	docker build -t xuperdocs  .
