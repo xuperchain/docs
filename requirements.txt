@@ -9,7 +9,6 @@ chardet==4.0.0
 click==7.1.2
 colorclass==2.2.0
 configobj==5.0.6
-# cryptography==1.2.3
 decorator==4.4.2
 docutils==0.16
 idna==2.10
@@ -33,38 +32,27 @@ prompt-toolkit==3.0.14
 ptyprocess==0.7.0
 pyasn1==0.1.9
 pycodestyle==2.6.0
-# pycurl==7.43.0
 Pygments==2.7.4
-# pygobject==3.20.0
-# PyJWT==1.3.0
-# pylint==2.6.0
 pyparsing==2.4.7
 pyserial==3.0.1
 pytz==2020.5
 PyYAML==3.11
 requests==2.25.1
-six==1.15.0
 snowballstemmer==2.1.0
 
 
-Sphinx==2.2.1
-sphinx-autobuild==0.7.1
-sphinx-rtd-theme==0.4.3
-sphinxcontrib-applehelp==1.0.1
-sphinxcontrib-devhelp==1.0.1
-sphinxcontrib-htmlhelp==1.0.2
-sphinxcontrib-jsmath==1.0.1
-sphinxcontrib-plantuml==0.17.1
-sphinxcontrib-qthelp==1.0.2
-sphinxcontrib-serializinghtml==1.1.3
 
-sphinx-comments==0.0.3
-sphinx-tabs==2.0.1
 
 ssh-import-id==5.5
 static3==0.7.0
 toml==0.10.2
 typed-ast==1.4.2
-virtualenv==15.0.1
 wcwidth==0.2.5
-restructuredtext-lint==1.3.2
+
+
+restructuredtext-lint
+Sphinx
+sphinx-comments
+sphinx-tabs
+sphinx-autobuild
+sphinx-rtd-theme
