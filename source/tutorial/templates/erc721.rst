@@ -31,7 +31,7 @@ ERC721具备哪些功能
 
 Initialize
 
-./xchain-cli wasm invoke -a '下面json中args字段的内容' --method initialize -H localhost:37101 erc721
+xchain-cli wasm invoke -a '下面json中args字段的内容' --method initialize -H localhost:37101 erc721
 
 .. code-block:: python
     :linenos:
@@ -48,7 +48,7 @@ Initialize
 
 Invoke
 
-./xchain-cli native invoke -a 'args内容' --method invoke -H localhost:37101 erc721
+xchain-cli native invoke -a 'args内容' --method invoke -H localhost:37101 erc721
 
 .. code-block:: python
     :linenos:
@@ -90,7 +90,7 @@ Invoke
 
 Query
 
-./xchain-cli native query -a 'args内容' --method query -H localhost:37101 erc721
+xchain-cli native query -a 'args内容' --method query -H localhost:37101 erc721
 
 .. code-block:: python
     :linenos:

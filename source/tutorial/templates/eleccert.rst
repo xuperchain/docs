@@ -70,7 +70,7 @@ Save、Query和Initialize方法的具体实现可以参考代码样例
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli wasm invoke -a '下面json中args字段的内容' --method save -H localhost:37101 eleccert
+    xchain-cli wasm invoke -a '下面json中args字段的内容' --method save -H localhost:37101 eleccert
 
 .. code-block:: python
     :linenos:
@@ -94,7 +94,7 @@ Save、Query和Initialize方法的具体实现可以参考代码样例
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli wasm query -a 'args内容' --method query -H localhost:37101 eleccert
+    xchain-cli wasm query -a 'args内容' --method query -H localhost:37101 eleccert
 
 .. code-block:: python
     :linenos:

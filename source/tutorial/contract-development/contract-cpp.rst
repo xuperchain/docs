@@ -9,7 +9,7 @@ C++合约
 :ref:`tutorial/cli` 
 
 合约样例
->>>>>>>>>>>>>
+
 
 代码在 **contractsdk/cpp/example/counter.cc**
 

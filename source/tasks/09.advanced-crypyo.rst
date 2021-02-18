@@ -27,7 +27,7 @@
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli account newkeys --output data/keys --cryptotype gm
+    xchain-cli account newkeys --output data/keys --cryptotype gm
     
 3. 修改待创建链的创世块配置，通过**crypto**字段指定默认密码学插件为国密插件，并修改矿工地址为新生成的国密私钥对应的地址。一般默认创世块配置位于*data/config/xuper.json*，修改创世块配置：
 
@@ -62,7 +62,7 @@
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli createChain
+    xchain-cli createChain
     nohup ./xchain &
     
 5. 使用命令行进行操作时，需要通过*--cryptotype*参数指定加密类型为国密，例如transfer命令。
@@ -70,6 +70,6 @@
 .. code-block:: bash
     :linenos:
     
-    ./xchain-cli transfer --to alice --amount 1 --keys data/keys --cryptotype gm
+    xchain-cli transfer --to alice --amount 1 --keys data/keys --cryptotype gm
     
 6. 目前国密只支持使用Go SDK调用，后续会支持更多SDK。

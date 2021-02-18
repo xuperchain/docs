@@ -8,12 +8,8 @@ Java合约
 
 :ref:`tutorial/cli` 
 
-
-
-
-
 合约样例
->>>>>>>>>>>>>
+
 
 代码在 **contractsdk/java/example/counter/src/main/java/com/baidu/xuper/example/Counter.java**
 

@@ -9,15 +9,7 @@ Solidity合约
 
 :ref:`tutorial/cli`
 
-如果本地搭建超级链环境，在部署、调用solidity合约之前，请先查看`conf/xchain.yaml` 中evm一节，确保evm合约功能开启。
-
-.. code-block:: yaml
-    :linenos:
-
-    # evm合约配置
-    evm:
-        driver: "evm"
-        enable: true     
+  
 
 编译环境准备
 >>>>>>>>>>>>>
@@ -34,7 +26,7 @@ Solidity合约
 以counter合约为例来看如何编写一个Solidity合约。
 
 合约样例
->>>>>>>>>>>>>
+
 
 代码在 **contractsdk/evm/example/Counter.sol**
 
@@ -95,7 +87,7 @@ Solidity合约部署完整命令如下
 .. code-block:: bash
     :linenos:
 	
-    $ ./xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 Counter.bin --abi Counter.abi
+    $ xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 Counter.bin --abi Counter.abi
 
 - ``--abi`` ：表示合约abi文件
 
@@ -105,9 +97,9 @@ Solidity合约部署完整命令如下
     :linenos:
 	
     // 合约increase方法调用
-    $ ./xchain-cli evm invoke --method increase -a '{"key":"stones"}' counterevm --fee 22787517 --abi Counter.abi
+    $ xchain-cli evm invoke --method increase -a '{"key":"stones"}' counterevm --fee 22787517 --abi Counter.abi
     // 合约get方法调用
-    $ ./xchain-cli evm query --method get -a '{"key":"stones"}' counterevm --abi Counter.abi
+    $ xchain-cli evm query --method get -a '{"key":"stones"}' counterevm --abi Counter.abi
 
 - ``--abi`` ：表示合约abi文件
 
@@ -115,15 +107,6 @@ Solidity合约部署完整命令如下
 部署solidity合约
 --------------
 
-如果本地搭建超级链环境，在部署、调用solidity合约之前，请先查看`conf/xchain.yaml` 中evm一节，确保evm合约功能开启。
-
-.. code-block:: yaml
-    :linenos:
-
-    # evm合约配置
-    evm:
-        driver: "evm"
-        enable: true
 
 1. 编译合约 - Solidity
 

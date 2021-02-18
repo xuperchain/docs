@@ -10,7 +10,7 @@ Go合约
 
 
 合约样例
->>>>>>>>>>>>>
+
 
 代码在 **contractsdk/go/example/counter/counter.go**
 
