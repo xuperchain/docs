@@ -202,28 +202,3 @@ java合约的调用跟c++、go合约参数一致。
         cd contractsdk/java/example/counter
         mvn package -f pom.xml
         # 产出二进制文件target/counter-0.1.0-jar-with-dependencies.jar，用于合约部署
-
-部署native合约
---------------
-
-如果本地搭建超级链环境，在部署、调用native合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。
-
-.. code-block:: yaml
-    :linenos:
-
-    # 管理native合约的配置
-    native:
-        enable: true
-
-        # docker相关配置
-        docker:
-            enable:false
-            # 合约运行的镜像名字
-            imageName: "docker.io/centos:7.5.1804"
-            # cpu核数限制，可以为小数
-            cpus: 1
-            # 内存大小限制
-            memory: "1G"
-        # 停止合约的等待秒数，超时强制杀死
-        stopTimeout: 3
-

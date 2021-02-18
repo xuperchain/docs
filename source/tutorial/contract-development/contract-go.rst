@@ -84,7 +84,7 @@ Go合约使用如下命令来编译合约
 
 .. code-block:: bash
 	
-    $ ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter  --fee 5200000 --runtime go ./hello-go/hello.wasm
+    $ xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter  --fee 5200000 --runtime go ./hello-go/hello.wasm
 
 
 
