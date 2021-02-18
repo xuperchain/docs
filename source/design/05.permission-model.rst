@@ -1,3 +1,4 @@
+.. _design/permission-model:
 
 权限系统
 ================

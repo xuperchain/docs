@@ -6,7 +6,6 @@ XuperChain 基本操作
 .. _xchain-cli:
 
 .. toctree::
-    :caption: 目录
     :titlesonly:
 
     cli/01.account.rst

@@ -1,18 +1,25 @@
 .. _xchain-cli-contract:
 
-
 合约管理
 ==================
 .. _tutorial/cli/contract-accouunt:
 
-管理合约账号
---------
+预备知识
+>>>>>>>>
+    :ref:`concepts/account`
+
+    :ref:`tutorial/cli/multisig`
+
+合约账号管理
+>>>>>>>>>>>>
+
 创建合约账号
 ^^^^^^^^^^^^^^^^^^^^^
 
-合约账号可以用来部署智能合约，创建合约账号是一个上链操作，因此也需要消耗一定量的测试资源。合约账号可以设置为多个个人账号共同持有，只有一个交易中的背书签名满足一定合约账号的ACL要求，才能代表这个合约账号进行操作。关于合约账号和ACL权限相关的内容，可以参考
+合约账号可以用来部署智能合约。
+创建合约账号是一个系统合约，可以通过多重签名的方式发起系统合约调用。创建合约账号是一个上链操作，因此也需要消耗一定量的测试资源。合约账号可以设置为多个个人账号共同持有，只有一个交易中的背书签名满足一定合约账号的ACL要求，才能代表这个合约账号进行操作。
 
-创建合约账号是一个系统合约，可以通过多重签名的方式发起系统合约调用。系统合约调用需要先创建一个合约调用描述文件，例如下面newAccount.json是一个创建合约账号的描述文件。 newAccount.json文件内容：
+系统合约调用需要先创建一个合约调用描述文件，例如下面newAccount.json是一个创建合约账号的描述文件。 newAccount.json文件内容：
 
 .. code-block:: python
     :linenos:
@@ -25,7 +32,8 @@
             "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 1},\"aksWeight\": {\"dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN\": 1}}"  # 这里的address改成自己的address
         }
     }
- 多重签名需要收集多个账号的签名，在测试环境中主要是需要交易发起者以及黄反服务的签名，因此修改data/acl/addrs文件，将需要收集签名的address写入该文件中。
+
+ 多重签名需要收集多个账号的签名，将需要收集签名的address写入该文件中。
 
 ，命令如下：
 
@@ -38,7 +46,7 @@
     # 发送原始交易及签名
     xchain-cli multisig send my.sign complianceCheck.out --tx rawTx.out 
     # 查看合约账号
-    xchain-cli account query --host 
+    xchain-cli account query 
 
 .. note::
 
@@ -80,13 +88,12 @@ accountAclSet.json模版如下：
     xchain-cli multisig send my.sign complianceCheck.out,my.sign --tx ./rawTx.out
 
 
-合约部署
-^^^^^^^^
+
 
 .. _tutorial/cli/contract-acl:
 
-设置合约接口ACL
-^^^^^^^^^^^^^^^
+合约权限管理
+>>>>>>>>>>>>
 
 .. note::
 
@@ -159,33 +166,51 @@ methodAclSet.json的模版，如下：
 
     .. code-block:: bash
 
-        xchain-cli multisig gen --desc ./setMethodACL.desc --fee 1 -H 127.0.0.1:37101
+        xchain-cli multisig gen --desc ./setMethodACL.desc --fee 1 
         xchain-cli multisig sign --output sign.out
-        xchain-cli multisig send sign.out sign.out -H 127.0.0.1:37101
+        xchain-cli multisig send sign.out sign.out 
 
 3. 查看合约方法ACL
 
     .. code-block:: bash
 
-            [work@]$ deploy-env -> xchain-cli acl query --contract counter --method increase -H :37101    
-            # 执行结果  
-            # { 
-            #   "pm": { 
-            #     "rule": 1,    
-            #     "acceptValue": 1
-            #   },  
-            #   "aksWeight": {  
-            #     "UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8": 1    
-            #   }   
-            # }
+            $ xchain-cli acl query --contract counter --method increase  
+             { 
+               "pm": { 
+                 "rule": 1,    
+                 "acceptValue": 1
+               },  
+               "aksWeight": {  
+                 "UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8": 1    
+               }   
+             }
+合约生命周期管理
+>>>>>>>>>>>>>>>>
+
 合约部署
 ^^^^^^^^
+    .. code-block:: bash
 
-合约升级
-^^^^^^^^
+        xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter -m -a '{"creator": "someone"}' counter
+    
+.. note ::
+
+        合约部署的方法随合约语言和合约虚拟机的不同有些许差异，具体见   :ref:`tutorial/contract-development`
+
 
 合约调用
 ^^^^^^^^
+    .. code-block:: bash
 
-合约调用
-^^^^^^^^
+        xchain-cli wasm invoke counter --method get -a '{"key":"zq"}'--fee 100
+
+.. 
+
+    合约升级
+    ^^^^^^^^
+
+接下来
+>>>>>>
+    :ref:`tutorial/contract-development`
+
+    :ref:`超级链权限系统设计<design/permission-model>`

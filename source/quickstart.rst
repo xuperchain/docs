@@ -2,7 +2,6 @@
 ======
 
 .. toctree::
-    :caption: 快速开始
     :maxdepth: 1
     :titlesonly:
 
