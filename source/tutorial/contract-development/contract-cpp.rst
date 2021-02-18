@@ -8,10 +8,13 @@ C++合约
 
 :ref:`tutorial/cli` 
 
-合约样例
+.. note::
+
+    请先完成 :ref:`tutorial/cli`  中的教程，以确设置对应账号和权限
 
 
-代码在 **contractsdk/cpp/example/counter.cc**
+1.合约样例
+>>>>>>>>>>>
 
 .. code-block:: c++
     :linenos:
@@ -81,11 +84,13 @@ C++合约
 更多的c++语言合约例子在超级链项目的 **core/contractsdk/cpp/example** 里面寻找。
 
 2. 编译合约 
+>>>>>>>>>>>
 
     对于C++合约，已提供编译脚本，位于 contractsdk/cpp/build.sh，需要注意的是，脚本依赖从hub.baidubce.com拉取的docker镜像，请在编译前确认docker
 相关环境是可用的
 
 3. 部署wasm合约
+>>>>>>>>>>>
 
     .. code-block:: bash
 

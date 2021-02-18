@@ -9,9 +9,12 @@ Solidity合约
 
 :ref:`tutorial/cli`
 
-  
+.. note::
 
-编译环境准备
+    请先完成 :ref:`tutorial/cli`  中的教程，以确设置对应账号和权限
+    
+
+1.编译环境准备
 >>>>>>>>>>>>>
 
 安装solc编译器，请参见**https://solidity-cn.readthedocs.io/zh/latest/installing-solidity.html**。
@@ -23,12 +26,8 @@ Solidity合约
         // Version: 0.5.9+commit.c68bc34e.Darwin.appleclang
         // 以上打印说明编译器安装成功
 
-以counter合约为例来看如何编写一个Solidity合约。
-
-合约样例
-
-
-代码在 **contractsdk/evm/example/Counter.sol**
+2.合约样例
+>>>>>>>>>>>
 
 .. code-block:: c++
     :linenos:
@@ -57,14 +56,13 @@ Solidity合约
 
     }
 
-代码
->>>>>>>>>>>>>>
+.. note::
 
     - solidity合约相关文档请参见 **https://github.com/ethereum/solidity** 。
 
     - 更多的Solidity语言合约例子在超级链项目的 **core/contractsdk/evm/example** 以及 **https://github.com/OpenZeppelin/openzeppelin-contracts** 里面寻找。
 
-合约编译
+3.合约编译
 >>>>>>>>>>>
 
 Solidity合约使用如下命令来编译合约
@@ -85,66 +83,9 @@ Solidity合约使用如下命令来编译合约
 Solidity合约部署完整命令如下
 
 .. code-block:: bash
-    :linenos:
 	
     $ xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 Counter.bin --abi Counter.abi
 
-- ``--abi`` ：表示合约abi文件
-
-合约调用
->>>>>>>>>>>>>
-.. code-block:: bash
-    :linenos:
-	
-    // 合约increase方法调用
-    $ xchain-cli evm invoke --method increase -a '{"key":"stones"}' counterevm --fee 22787517 --abi Counter.abi
-    // 合约get方法调用
-    $ xchain-cli evm query --method get -a '{"key":"stones"}' counterevm --abi Counter.abi
-
-- ``--abi`` ：表示合约abi文件
-
-
-部署solidity合约
---------------
-
-
-1. 编译合约 - Solidity
-
-    使用solc编译solidity合约。安装solc编译器，请参见**https://solidity-cn.readthedocs.io/zh/latest/installing-solidity.html**。
-
-    .. code-block:: bash
-
-        solc --version
-        // solc, the solidity compiler commandline interface
-        // Version: 0.5.9+commit.c68bc34e.Darwin.appleclang
-        // 以上打印说明编译器安装成功
-
-    编译native合约时，我们以contractsdk/java/example中的counter合约为例
-
-    .. code-block:: bash
-
-        cd contractsdk/evm/example/counter
-        // 通过solc编译合约源码
-        solc --bin --abi Counter.sol -o .
-        // 合约二进制文件和abi文件分别存放在当前目录下，Counter.bin和Counter.abi。
-
-2. 部署合约
-
-    部署solidity合约。
-
-    .. code-block:: bash
-
-        # 部署solidity合约
-        xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 Counter.bin --abi Counter.abi
-        # 其中--abi表示合约的abi文件
-        # 部署结果
-        # contract response: ok
-        # The gas you cousume is: 1789
-        # The fee you pay is: 22787517
-        # Tx id: 78469246d86a92ad47e5c15991a55978075902809346e48533e09a8eb0e3a7e4
-
-    - ``--abi Counter.abi`` ：表示部署需要使用的abi文件，用于合约方法参数编解码
-    - ``-a ``：如果合约需要构造函数，通过-a进行指定。与c++、golang等合约的部署和调用方式相同。
 
 4. 合约调用
 
