@@ -1,0 +1,200 @@
+
+.. _quickstart/deploy:
+
+搭建本地网络 
+========
+
+搭建本地单节点网络
+^^^^^^^^^^^^^^
+
+
+使用预编译版
+-------------
+
+.. tabs::
+
+   .. tab:: Mac OS
+
+        命令行执行以下命令::
+
+
+          # 下载预编译包
+          wget https://xuper.baidu.com/download/xuperchain-dawrin-amd64.tar.gz 
+
+          # 解压二进制文件
+          tar zxvf xuperchain-linux-amd64.tar.gz  
+
+          # 设置 PATH 变量， 方便在其他地方使用命令
+          export XCHAIN_ROOT=`pwd`/output
+          export PATH=${PATH}:${XCHAIN_ROOT}/bin 
+
+          # 创建 xuper 链
+          cd ${XCHAIN_ROOT} 
+          xchain-cli createChain 
+
+          # 启动节点进程
+          xchain 
+
+   .. tab:: Linux 
+
+        命令行执行以下命令::
+
+          # 下载预编译包
+          wget https://xuper.baidu.com/download/xuperchain-linux-amd64.tar.gz 
+
+          # 解压二进制文件  
+          tar zxvf xuperchain-linux-amd64.tar.gz
+
+          # 设置 PATH 变量， 方便在其他地方使用命令 
+          export XCHAIN_ROOT=`pwd`/output 
+          export PATH=${PATH}:${XCHAIN_ROOT}/bin 
+
+          # 创建 xuper 链
+          cd ${XCHAIN_ROOT}
+          xchain-cli createChain 
+
+          # 启动节点进程
+          xchain
+
+命令行打开一个新窗口，执行::
+
+  xchain-cli status 
+
+查看节点状态
+
+
+使用 docker-compose 
+------------------- 
+..
+  这里选择docker-compose 的原因有两个
+  一个是可以启动多个服务，包括 prometheus/grafana 等，后续的钱包服务也可以加进来
+  不用考虑依赖项(jdk/jre/emcc/wasm2c/golang/maven)，不用考虑合约类型和语言差异,以及golang 版本等等问题
+
+.. note::
+  docker-compose 主要用于演示和本地测试，请勿在生产环境中使用
+
+安装 `docker-compose <https://docs.docker.com/compose/>`_ 后
+
+执行如下命令::
+
+    curl https://raw.githubusercontent.com/chenfengjin/xuperchain/docker-compose/docker-compose.yml -o docker-compose.yml
+    docker-compose up -d
+
+.. note::
+
+    如果因为网络原因无法访问 github 导致执行失败，可以尝试将第一条命令换成::
+
+      curl --resolve 'raw.githubusercontent.com:443:199.232.96.133'   https://raw.githubusercontent.com/chenfengjin/xuperchain/docker-compose/docker-compose.yml -o docker-compose.yml
+
+..
+  本地浏览器打开 http://127.0.0.1:3000 查看有关 dashboard 查看链状态
+
+执行::
+
+  docker exec -it xchain xchain-cli status 
+
+
+.. note:: 
+
+  为了方便使用，可以设置命令别名::
+
+    alias xchain-cli=docker exec -it xchain xchain-cli
+
+  也可以将 alais 命令写到 .bashrc 或者 .zshrc 文件中，以便每次启动新终端事件自动执行 alias 命令
+
+.. _quickstart/basic-operations: 
+
+.. 
+
+
+基本操作
+--------
+
+.. _create-account:
+
+创建新账号
+>>>>>>>>>>>>
+
+.. code-block:: bash
+
+    # 创建账号
+    xchain-cli account newkeys  
+
+    # 查看节点地址
+    cat data/address
+    
+    
+.. _balance:
+
+查询资源余额
+>>>>>>>>>>>>
+
+.. code-block:: bash
+
+    xchain-cli account balance 
+
+
+.. _transfer:
+  .. code-block:: bash
+    
+
+转账
+>>>>
+
+.. code-block:: bash
+    
+    $ xchain-cli transfer --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount 10 
+    cbbda2606837c950160e99480049e2aec3e60689a280b68a2d253fdd8a6ce931
+
+
+.. _querytx:
+
+查询交易信息
+>>>>>>>>>>>>
+
+通过以下命令可以查询交易的信息，包括交易状态、交易的源和目标账号、交易的金额、所在的区块（如果已上链）等内容
+
+.. code-block:: bash
+    :linenos:
+
+  
+    xchain-cli tx query cbbda2606837c950160e99480049e2aec3e60689a280b68a2d253fdd8a6ce931 
+
+
+.. _queryblock:
+
+查询区块信息
+>>>>>>>>>>>>>
+
+通过blockid可以查询区块的相关信息
+
+.. code-block:: bash
+
+    xchain-cli block 0354240c8335e10d8b48d76c0584e29ab604cfdb7b421d973f01a2a49bb67fee 
+
+创建合约账号
+>>>>>>>>>>>>
+.. code-block:: bash
+
+    xchain-cli account new --account 1111111111111111 --fee 1000
+
+给合约账号转账
+>>>>>>>>>>>>>>
+.. code-block:: bash
+
+    xchain-cli transfer --to XC1111111111111111@xuper --amount 9999999999999999    # 查看合约账户余额
+
+查询合约账号余额
+>>>>>>>>>>>>>>
+.. code-block:: bash
+
+    xchain-cli account balance  XC1111111111111111@xuper    # 查看合约账户余额
+
+接下来
+------
+
+  命令行基本操作
+
+  区块链基本概念
+
+  网络管理

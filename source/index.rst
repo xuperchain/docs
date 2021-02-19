@@ -4,115 +4,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-XuperChain文档
+XuperChain 文档
 =================
 
 .. toctree::
+   :titlesonly:
    :maxdepth: 2
-   :caption: XuperChain介绍:
-   :numbered:
 
-   introduction/brief.rst
-   introduction/modules.rst
-   introduction/datastruct.rst
-   introduction/smart_contracts.rst
-   introduction/permission_system.rst
-   introduction/privacy.rst
-   introduction/perfomance.rst
-   introduction/trusted_ledger_intro.rst
-   introduction/summary.rst
-
-.. toctree::
-    :maxdepth: 2
-    :caption: 快速入门
-    :numbered:
-
-    quickstart.rst
-
-.. toctree::
-    :maxdepth: 2
-    :caption: 技术设计文档:
-    :numbered:
-
-    design_documents/XuperModel
-    design_documents/XuperBridge
-    design_documents/xvm.rst
-    design_documents/permission_model.rst
-    design_documents/p2p.rst
-    design_documents/authentication.rst
-    design_documents/proposal.rst
-    design_documents/crypto.rst
-    design_documents/extension.rst
-    design_documents/consensus.rst
-    design_documents/chained_bft.rst
-    design_documents/xpos.rst
-    design_documents/xpoa.rst
-    design_documents/single_pow.rst
-    design_documents/regulatory.rst
-    design_documents/multidisk.rst
-    design_documents/group.rst
-    design_documents/cross_chain.rst
-    design_documents/trusted_ledger_design.rst
-
-.. toctree::
-    :maxdepth: 2
-    :caption: 进阶使用
-    :numbered:
-
-    advanced_usage/contract_accounts.rst
-    advanced_usage/multi-nodes.rst
-    advanced_usage/create_contracts.rst
-    advanced_usage/initiate_proposals.rst
-    advanced_usage/multi-disks.rst
-    advanced_usage/parallel_chain.rst
-    advanced_usage/subscribe.rst
-    advanced_usage/readonly_queries.rst
-    advanced_usage/cross_chain.rst
-    advanced_usage/construct-XPoA.rst
-    advanced_usage/trusted_ledger_advanced_usage.rst
-    advanced_usage/monitoring.rst
-
-.. toctree::
-    :maxdepth: 2
-    :caption: 开发应用
-    :numbered:
-
-    developing_apps/eleccert.rst
-    developing_apps/erc721.rst
-
-.. toctree::
-    :maxdepth: 2
-    :caption: 开发手册
-    :numbered:
-
-    development_manuals/XuperCDT.rst
-    development_manuals/XdevManual.rst
-    development_manuals/XuperRPC.rst
-
-.. toctree::
-    :maxdepth: 1
-    :caption: 超级链测试环境
-    :numbered:
-
-    test_network/description.rst
-    test_network/guides.rst
-
-.. toctree::
-    :maxdepth: 1
-    :caption: 其他
-    :numbered:
-
-    operations_guides.rst
-    video.rst
-    commands_reference.rst
-    FAQs.rst
-    vocabulary.rst
-    lessons.rst
+   introduction.rst
+   quickstart.rst
+   concepts.rst
+   tutorial.rst
+   deployment.rst
+   tasks.rst
+   design.rst
+   contribution.rst
+   reference/00.reference.rst
 
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

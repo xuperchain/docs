@@ -1,0 +1,46 @@
+
+升级至最新版本
+========
+
+如何获取 XuperChain
+------------------
+
+
+
+- `XuperChain v3.2 <https://github.com/xuperchain/xuperchain/releases/tag/v3.2.0>`_
+- `XuperChain v3.1 <https://github.com/xuperchain/xuperchain/releases/tag/v3.1.0>`_
+
+如何升级软件
+------------
+
+当版本升级时，需要更新为新版本的代码，并重新编译，然后将 plugins文件夹, 二进制文件xchain，xchain-cli 全部替换后全部重新启动即可，注意多节点模式下需要先启动bootNodes节点。
+
+配置文件说明
+------------
+
+XuperChain的配置文件默认读取有3个优先级：
+
+- 默认配置：系统中所有配置项都有默认的配置信息，这个是优先级最低的配置；
+- 配置文件：通过读取配置文件的方式，可以覆盖系统中默认的参数配置，默认的配置文件为 ./conf/xchain.yaml；
+- 启动参数：有一些参数支持启动参数的方式设置，该设置方式的优先级最高，会覆盖配置文件中的配置项；
+
+.. code-block:: yaml
+    :linenos:
+
+    log:
+    filepath: logs // 日志输出目录
+    filename: xchain // 日志文件名
+    console: true //是否答应console日志
+    level : trace // 日志等级，debug < trace < info < warn < error < crit
+    tcpServer:
+    port: :57404 // 节点RPC服务监听端口
+    p2pv2:
+    port: 47404 // 节点p2p网络监听的端口
+    bootNodes: /ip4/127.0.0.1/tcp/47401/p2p/QmXRyKS1BFmneUEuwxmEmHyeCSb7r7gSNZ28gmDXbTYEXK  // 节点加入网络链接的种子节点的netUrl
+    miner:
+    keypath: ./data/keys //节点address目录
+    datapath: ./data/blockchain //账本存储目录
+    utxo:
+    cachesize: 5000 //Utxo内存cache大小设置
+    tmplockSeconds: 60 //GenerateTx的临时锁定期限，默认是60秒
+

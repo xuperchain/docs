@@ -1,0 +1,4 @@
+.. _concepts/on-chain-goverance:
+
+链上治理
+====

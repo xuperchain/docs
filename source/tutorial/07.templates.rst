@@ -1,0 +1,11 @@
+.. _tutorial/templates:
+
+
+使用合约模板
+====
+
+.. toctree::
+    :titlesonly:
+
+    templates/erc721.rst
+    templates/eleccert.rst

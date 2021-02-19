@@ -1,0 +1,72 @@
+.. _tutorual/cli/account:
+
+账号管理
+==================
+
+创建账号
+--------
+
+创建个人账号(AK)
+^^^^^^^^^^^^^^^^
+
+个人账号(AK)其实是一组公私钥对，个人帐号地址(address)是根据公钥经过一定规则导出的一个散列值。个人账号可以离线生成，不需要上链，只有在个人账号产生测试资源变动时(例如转入了一部分测试资源)才会在UTXO中产生记录。
+
+在data/keys下会有一个默认的个人账号(AK)，包括address(你的地址)、private.key(你的私钥)、public.key(你的公钥)，建议按照如下命令重新生成一个独有的个人账号。
+
+- 指定私钥目录：在data/demo01 下生成address、private.key、public.key: 
+.. code-block:: bash
+
+    $xchain-cli account newkeys --output data/demo01
+    $ cat data/demo01/address && echo
+    ip3eqq8Eiz3DDTRpYRHP4Q72XjvgzZwLf # 这里就是账号的地址
+
+创建合约账号
+^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    $ xchain-cli account new --account 1111111111111111 --fee 1000
+
+    contract response:
+            {
+                "pm": {
+                    "rule": 1,
+                    "acceptValue": 1.0
+                },
+                "aksWeight": {
+                    "dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN": 1.0
+                }
+            }
+
+    The gas you cousume is: 1000
+    The fee you pay is: 1000
+    Tx id: 17f9045a42892e5142b4a609936613cbdc87b196c60ad0ed7775e610b7900736
+    account name: XC1111111111111111@xuper
+
+.. note::
+
+    这里创建的合约账号由当前账号唯一控制，更多合约账号相关的操作请查看 :ref:`tutorial/cli/contract-accouunt`
+
+给账号转账
+--------------
+
+.. code-block:: bash
+
+    $ xchain-cli transfer --to ip3eqq8Eiz3DDTRpYRHP4Q72XjvgzZwLf --amount 9999999999999999
+    115c330c450c354b9ede9debf570c978c1d3c07eaef3a5c42eb9ac087931bb1a
+    $ xchain-cli transfer --to XC1111111111111111@xuper --amount 9999999999999999
+    793e963563c4bf33618ffc7b19cad87da9e46045e9d94ebfee343de0efaf5b3d
+
+查询账号余额
+------------
+.. code-block:: bash 
+
+    $ xchain-cli account balance  XC1111111111111111@xuper # 查询合约账号余额
+    19999999999999998
+    $ xchain-cli account balance  ip3eqq8Eiz3DDTRpYRHP4Q72XjvgzZwLf # 查询普通账号余额
+    9999999999999999
+
+接下来
+------
+
+:ref:`tutorial/cli/contract-accouunt`

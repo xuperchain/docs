@@ -1,0 +1,55 @@
+
+.. _tutorial/contract-development:
+
+合约开发详解
+==========================
+
+XuperChain 通过 XuperBridge 技术实现虚拟机和语言的解耦，从而支持不同的合约开发语言和合约运行时。当前不同语言支持的合约情况为
+
++----------------+----------------------+------------+----------+
+|  语言          |   WASM               |       evm  |    native|
++================+======================+============+==========+
+| GO             |      Y               |    N       |      Y   |
++----------------+----------------------+------------+----------+
+| C++            |      Y               |     N      |      N   |
++----------------+----------------------+------------+----------+
+| JAVA           |       N              |      N     |     Y    |
++----------------+----------------------+------------+----------+
+| Solidity       |       N              |       N    |     N    |
++----------------+----------------------+------------+----------+
+
+
+开启运行时支持
+--------------
+XuperChain 默认情况下只启用了 wasm 合约，如果需要在自己搭建的网络上部署 evm 合约和 native 合约，需要修改 conf.xchain.yml 设置 native 和 evm 的 enable 字段为 true，然后重启节点程序 
+
+
+.. code-block:: yaml
+    :linenos:
+
+    evm:
+        driver: "evm"
+        enable: false
+
+    # 管理native合约的配置
+    native:
+        enable: false   
+
+        # docker相关配置
+        docker:
+            enable: false
+            # 合约运行的镜像名字
+            imageName: "docker.io/centos:7.5.1804"
+            # cpu核数限制，可以为小数
+            cpus: 1
+            # 内存大小限制
+            memory: "1G"
+
+.. toctree::
+    :caption: 接下来
+    :titlesonly:
+
+    contract-development/contract-cpp.rst
+    contract-development/contract-go.rst
+    contract-development/contract-java.rst
+    contract-development/contract-solidity.rst

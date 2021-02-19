@@ -1,0 +1,62 @@
+事件订阅
+================
+
+开启事件订阅功能
+------------
+使用前，请检查xchain的配置conf/xchain.yaml，确保有如下配置：
+
+.. code-block:: yaml
+    :linenos:
+
+    # 事件订阅相关配置
+    event:
+        enable: true
+        # 每个ip的最大订阅连接数，为0的话不限连接数
+        addrMaxConn: 5
+
+
+使用命令行订阅事件
+>>>>>>>>>>>>>>>
+
+``xchain-cli`` 的 ``watch`` 指令可以用来监听事件，命令行参数的说明如下：
+
+- ``-f, --filter`` 过滤器字段，JSON格式的，字段解释见 ``message BlockFilter``
+- ``--oneline``         是否将事件打印在一行，方便命令行解析
+- ``--skip-empty-tx``   默认watch命令会打印所有的block，即使block里面没有交易，这么做是为了方面做断点记录，``--skip-empty-tx`` 参数可以不打印不包含交易的block
+
+如下是一些例子
+
+1. 订阅所有的新块
+
+.. code-block:: bash
+    :linenos:
+
+    xchain-cli watch 
+
+2. 订阅名字为 ``counter`` 的合约
+
+.. code-block:: bash
+    :linenos:
+
+    xchain-cli watch -f '{"contract":"^counter$"}'
+
+3. 订阅 ``counter`` 合约的 ``increase`` 合约事件
+
+.. code-block:: bash
+    :linenos:
+
+    xchain-cli watch -f '{"contract":"^counter$", "event_name":"^increase$"}'
+
+4. 订阅区块高度从100开始的事件（断点续传）
+
+.. code-block:: bash
+    :linenos:
+
+    xchain-cli watch -f '{"range":{"start":"100"}}'
+
+5. 订阅区块高度区间为[100, 200)的事件
+
+.. code-block:: bash
+    :linenos:
+
+    xchain-cli watch -f '{"range":{"start":"100", "end":"200"}}'

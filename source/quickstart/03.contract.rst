@@ -1,0 +1,169 @@
+.. quickstart/contract:
+
+合约开发入门
+^^^^^^^^^^^^^^^^
+xuperchain 支持使用
+:ref:`java <tutorial/contract-development-java>` 
+:ref:`go <tutorial/contract-development-go>`
+:ref:`c++ <tutorial/contract-development-cpp>`
+:ref:`solidity <tutorial/contract-development-solidity>`
+等语言进行合约开发，我们以 golang 和 java 的 native 合约， c++ 的 wasm 合约以及 solidity 的 evm 合约为例展示合约的基本操作。完整的语言-合约相容矩阵见 :ref:`tutorial/contract-development`
+
+..
+    安装依赖
+    ^^^^^^^^
+    后续 xdev 作为统一构建工具，这些东西都不需要了
+
+    .. tabs::
+
+        .. tab:: JAVA
+
+        
+        .. tab:: C++
+
+            C++
+
+        .. tab:: GO
+
+            GO
+
+        .. tab:: Solidity
+
+            Solidity
+
+
+
+开启运行时支持(可选)
+----------------------
+
+XuperChain 默认情况下只启用了 wasm 合约，如果想要尝试 evm 合约和 native 合约，需要修改 conf.xchain.yml 设置 native 和 evm 的 enable 字段为 true，然后重启节点程序
+    
+    .. code-block:: yaml
+        :linenos:
+
+        evm:
+            driver: "evm"
+            enable: false
+
+        # 管理native合约的配置
+        native:
+            enable: false
+
+            # docker相关配置
+            docker:
+                enable: false
+                # 合约运行的镜像名字
+                imageName: "docker.io/centos:7.5.1804"
+                # cpu核数限制，可以为小数
+                cpus: 1
+                # 内存大小限制
+                memory: "1G"
+
+编译合约
+-------
+..
+
+.. tabs::
+
+    .. tab:: JAVA
+
+        在命令行执行:: 
+
+            git clone https://github.com/xuperchain/contract-sdk-java.git
+            cd contract-sdk-java/example/counter && mvn package
+    
+    .. tab:: C++
+    
+        在命令行执行:: 
+
+            git clone https://github.com/xuperchain/contract-sdk-cpp.git
+            cd contract-sdk-cpp/example/counter && xdev build
+
+    .. tab:: GO
+
+        在命令行执行:: 
+
+            git clone https://github.com/xuperchain/contract-sdk-go.git
+            cd contract-sdk-go/example/counter && go build main.go 
+
+    .. tab:: Solidity
+
+        在命令行执行:: 
+        
+            git clone https://github.com/xuperchain/contract-sdk-evm.git
+            cd contract-sdk-emv/example/counter && solc --abi --bin counter.sol
+    
+    .. tab:: Python
+
+        敬请期待
+
+合约部署
+--------
+.. tabs::
+
+    .. tab:: JAVA
+
+        xchain-cli native deploy --account XC1111111111111111@xuper -a '{"creator":"XC1111111111111111@xuper"}' --fee 15587517 --runtime go counter --cname counter
+    
+    .. tab:: C++
+
+        xchain-cli evm deploy --account XC1111111111111111@xuper -a '{"creator":"XC1111111111111111@xuper"}' --fee 15587517 --runtime go counter --cname counter
+
+    .. tab:: GO
+
+        xchain-cli native deploy --account XC1111111111111111@xuper -a '{"creator":"XC1111111111111111@xuper"}' --fee 15587517 --runtime go counter --cname counter
+
+    .. tab:: Solidity
+
+        xchain-cli native deploy --account XC1111111111111111@xuper -a '{"creator":"XC1111111111111111@xuper"}' --fee 15587517 --runtime go counter --cname counter
+    
+    .. tab:: Python 
+
+        敬请期待
+
+合约调用
+--------
+.. tabs::
+
+    .. tab:: JAVA
+
+        命令行执行::
+
+            xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
+            xchain-cli native invoke --method Get counter --fee 100
+    
+    .. tab:: C++
+
+        命令行执行::
+
+            xchain-cli wasm invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
+
+            xchain-cli wasm invoke --method Get -a '{"key":"xuper"}' counter --fee 100
+            
+
+    .. tab:: GO
+
+        命令行执行::
+
+            xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
+
+            xchain-cli native invoke --method Get -a '{"key":"xuper"}' counter --fee 100
+
+    .. tab:: Solidity
+
+        命令行执行::    
+
+            xchain-cli native invoke --method Increate -a '{"key":"xuper"}' counter --fee 100
+
+            xchain-cli evm invoke --abi  --method Get -a '{"key":"xuper"}' counter --fee 100
+
+    .. tab:: Python
+
+        敬请期待
+
+接下来
+------
+
+:ref:`区块链基本概念 <concepts>`
+
+:ref:`合约开发详解 <tutorial/contract-development>`
