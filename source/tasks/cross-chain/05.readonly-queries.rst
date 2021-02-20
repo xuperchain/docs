@@ -27,7 +27,7 @@ A网络搭建
 .. code-block:: go
 	:linenos:
 
-	DEFINE_METHOD(Hello, cross_query) {
+    DEFINE_METHOD(Hello, cross_query) {
 		xchain::Context* ctx = self.context();
 		xchain::Response response;
 		// 合约SDK 增加cross query方法

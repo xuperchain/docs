@@ -5,7 +5,7 @@
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SOURCEDIR     = source
-BUILDDIR      = build
+BUILDDIR      = _build
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -14,13 +14,13 @@ help:
 .PHONY: help Makefile serve  release 
 
 build:
-	docker run --rm -it --name xuperdocs  -p 8000:8000  -v `pwd`:/web xuperdocs make html
+	docker run --rm -it --name xuperdocs  -p 8000:8000  -v `pwd`:`pwd` -w `pwd`  xuperdocs make html
 	
 serve:
 	docker run --rm -it --name xuperdocs  -p 8000:8000  -v `pwd`:/web xuperdocs
 
 lint:
-	docker run --rm -it --name xuperdocs  -p 8000:8000  -v `pwd`:/web xuperdocs doc8 --ignore D001 --ignore D000 source
+	docker run --rm -it --name xuperdocs  -p 8000:8000  -v `pwd`:/web xuperdocs doc8 --ignore D001 --ignore D000 --ignore D002 --ignore D004 --ignore D003 source
 
 build-image:
 	docker build -t xuperdocs  .
