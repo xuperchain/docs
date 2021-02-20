@@ -19,11 +19,14 @@ build:
 serve:
 	docker run --rm -it --name xuperdocs  -p 8000:8000  -v `pwd`:/web xuperdocs
 
+lint:
+	docker run --rm -it --name xuperdocs  -p 8000:8000  -v `pwd`:/web xuperdocs doc8 --ignore D001 --ignore D000 source
+
 build-image:
 	docker build -t xuperdocs  .
-
+	
 release :
-		docker run --rm -it --name xuperdocs-release   -v `pwd`:`pwd`  -w `pwd`  xuperdocs sphinx-versioning build -r master source source/_build/html
+		docker run --rm -it --name xuperdocs-release   -v `pwd`:`pwd`  -w `pwd`  xuperdocs sphinx-versioning build -r v3.9 source source/_build/html
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

@@ -57,3 +57,4 @@ sphinx-autobuild
 sphinx-rtd-theme
 sphinx-server
 gunicorn
+doc8 
