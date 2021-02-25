@@ -28,6 +28,7 @@ XuperChain文档
     :numbered:
 
     quickstart.rst
+    release.rst
 
 .. toctree::
     :maxdepth: 2
