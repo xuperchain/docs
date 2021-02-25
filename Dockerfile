@@ -28,4 +28,4 @@ WORKDIR /web
 
 EXPOSE 8000 35729
 
-CMD ["sphinx-autobuild", "source", "source/_build/html","--host","0.0.0.0"]
+CMD ["sphinx-autobuild", ".", "_build/html","--host","0.0.0.0"]
