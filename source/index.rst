@@ -71,7 +71,7 @@ XuperChain文档
     advanced_usage/construct-XPoA.rst
     advanced_usage/trusted_ledger_advanced_usage.rst
     advanced_usage/monitoring.rst
-    release.rst
+    advanced_usage/release.rst
 
 .. toctree::
     :maxdepth: 2
