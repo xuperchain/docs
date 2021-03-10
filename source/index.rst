@@ -20,6 +20,7 @@ XuperChain 文档
    design.rst
    contribution.rst
    reference/00.reference.rst
+   template.rst
 
 
 
