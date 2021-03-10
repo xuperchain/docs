@@ -40,7 +40,10 @@ release = u''
 # ones.
 extensions = [
     'sphinx_tabs.tabs',
-    'sphinx_comments'
+    'sphinx_comments',
+    'sphinxprettysearchresults',
+    'sphinx.ext.duration',
+    'sphinxcontrib.datatemplates',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
