@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y python3-pip  git  libssl-dev  python3
 
 
 #  seperate clone and install to reduce networking problems by docker build cache 
-RUN HTTP_PROXY=agent.baidu.com:8118 HTTPS_PROXY=agent.baidu.com:8118 git clone https://github.com/chenfengjin/sphinx-versions.git 
+RUN git clone https://hub.fastgit.org/chenfengjin/sphinx-versions.git 
 
 
 COPY ./requirements.txt requirements.txt
