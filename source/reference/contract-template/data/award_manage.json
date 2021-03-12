@@ -1,0 +1,86 @@
+{
+    "id": "award_manage",
+    "name": "数字积分管理合约",
+    "type": 1,
+    "lang": "C++",
+    "version": "1.0.0",
+    "publisher": {
+        "name": "XuperOS"
+    },
+    "publish_time": "2020-01-05",
+    "update_time": "2020-01-05",
+    "downloads": 99,
+    "init_args": {
+        "totalSupply": "1000000000"
+    },
+    "brief": "数字积分管理合约，适用于商户积分等运营活动",
+    "docs": {
+        "description": "数字积分管理合约，适用于商户积分等运营活动。数字积分可以授权、转移，用户可以查询自己的剩余积分。",
+        "functions": [
+            {
+                "name": "initialize",
+                "args": [
+                    "totalSupply: 发行总量。 初始化时,积分全部归合约部署者所有"
+                ],
+                "description": "初始化函数，在合约部署时默认执行, 始化积分管理账户以及总发行量"
+            },
+            {
+                "name": "addAward",
+                "args": [
+                    "amount: 增发容量"
+                ],
+                "description": "增发积分"
+            },
+            {
+                "name": "totalSupply",
+                "args": [],
+                "description": "获取积分总供应量"
+            },
+            {
+                "name": "balance",
+                "args": [
+                    "caller: 合约调用者"
+                ],
+                "description": "取caller的积分余额"
+            },
+            {
+                "name": "allowance",
+                "args": [
+                    "from: 被消费积分的一方",
+                    "to: 消费积分的一方"
+                ],
+                "description": "查询to用户能消费from用户的积分数量"
+            },
+            {
+                "name": "transfer",
+                "args": [
+                    "from: 转移积分的一方",
+                    "to: 收积分的一方",
+                    "token: 转移积分数量"
+                ],
+                "description": "from账户给to账户转token数量的积分"
+            },
+            {
+                "name": "transferFrom",
+                "args": [
+                    "from: 被转积分账户",
+                    "caller: 合约调用者",
+                    "to: 收积分账户",
+                    "token: 转移的积分数量"
+                ],
+                "description": "从授权账户from转移数量为token的积分给to账户"
+            },
+            {
+                "name": "approve",
+                "args": [
+                    "from: 被转积分账户",
+                    "caller: 合约调用者",
+                    "to: 收积分账户",
+                    "token: 转移的积分数量"
+                ],
+                "description": "允许to账户从from账户转移token数量的积分"
+            }
+        ]
+    },
+    "code_link": "https://xuperos.cdn.bcebos.com/contract/code/award_manage.cc"
+}
