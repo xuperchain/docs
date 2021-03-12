@@ -13,6 +13,7 @@ RUN python3 -m pip install --upgrade setuptools==44.1.1
 RUN python3 -m pip install --no-cache-dir  -r requirements.txt
 RUN cd sphinx-versions && python3 setup.py install 
 
+COPY bin/server.py /opt/sphinx-server/
 COPY ./.sphinx-server.yml /opt/sphinx-server/
 
 ENV LC_ALL=C.UTF-8
