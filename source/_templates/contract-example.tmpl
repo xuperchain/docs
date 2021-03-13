@@ -1,19 +1,19 @@
 .. -*- mode: rst -*-
 
-Static Heading
---------------
+简介
+----
 
-Individual Item
-~~~~~~~~~~~~~~~
+{{ data['brief'] }}
 
-{{ data['key1'] }}
 
-List of Items
+函数
 ~~~~~~~~~~~~~
 
-{% for item in data['key2'] %}
-- {{item}}
-{% endfor %}
+{{ make_list_table_from_mappings(
+[('One', 'name'), ('Two', 'args'), ('Three', 'description')],
+data['docs']["functions"],
+title='Table from series of mappings',
+) }}
 
 Nested List Table
 ~~~~~~~~~~~~~~~~~
