@@ -367,6 +367,45 @@ del
     }
 
 
+4. 在合约中使用 JSON 
+"""""""""""""""""""""
+
+  XuperChain SDK 包含了 json 相关的库，可以在合约中方便地使用 json 进行序列化和反序列化。
+
+  使用 json 的例子如下
+
+.. code:: cpp
+
+    #include "xchain/json/json.h"
+    #include "xchain/xchain.h"
+
+    struct Features : xchain::Contract {
+    };
+
+    DEFINE_METHOD(Features, json_load_dump) {
+        xchain::Context *ctx = self.context();
+        const std::string v = ctx->arg("value");
+        auto j = xchain::json::parse(v);
+        ctx->ok(j.dump());
+    }
+
+    DEFINE_METHOD(Features, json_literal) {
+        xchain::Context *ctx = self.context();
+        xchain::json j = {
+                {"int",    3},
+                {"float",  3.14},
+                {"string", "hello"},
+                {"array",  {"hello", "world"}},
+                {"object", {{"key", "value"}}},
+                {"true",   true},
+                {"false",  false},
+                {"null",   nullptr},
+        };
+        ctx->ok(j.dump());
+    }
+
+关于 json 库更多的内容可以查看  `文档 <https://github.com/nlohmann/json>`_ 
+
 Go接口API
 ---------
 
