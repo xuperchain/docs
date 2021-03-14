@@ -1,33 +1,17 @@
 合约模板参考
 ============
 
-.. datatemplate:json:: contract-template/data/award_manage.json
-   :template: contract-example.tmpl
 
-.. datatemplate:json:: contract-template/data/charity_demo.json
-   :template: contract-example.tmpl
+.. toctree::
+      :titlesonly:
+      :glob:
 
-.. datatemplate:json:: contract-template/data/counter-sol.json
-   :template: contract-example.tmpl
-
-.. datatemplate:json:: contract-template/data/counter.json
-   :template: contract-example.tmpl
-
-.. datatemplate:json:: contract-template/data/game_assets.json
-   :template: contract-example.tmpl
-
-.. datatemplate:json:: contract-template/data/hash_deposit.json
-   :template: contract-example.tmpl
-
-
-.. datatemplate:json:: contract-template/data/luck_draw.json
-   :template: contract-example.tmpl
-
-.. datatemplate:json:: contract-template/data/score_record.json
-   :template: contract-example.tmpl
-
-.. datatemplate:json:: contract-template/data/short_content.json
-   :template: contract-example.tmpl
-
-.. datatemplate:json:: contract-template/data/source_trace.json
-   :template: contract-example.tmpl
+      contract-template/award_manage.rst
+      contract-template/charity_demo.rst
+      contract-template/counter.rst
+      contract-template/game_assets.rst
+      contract-template/hash_deposit.rst
+      contract-template/luck_draw.rst
+      contract-template/score_record.rst
+      contract-template/short_content.rst
+      contract-template/source_trace.rst
