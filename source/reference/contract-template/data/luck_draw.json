@@ -20,7 +20,7 @@
             {
                 "name": "initialize",
                 "args": [
-                    "admin: string, 初始化指定商品管理员，仅有该管理员才可以创建和变更商品"
+                    "admin: string, 初始化指定商品管理员，仅有该管理员才可以发起抽奖"
                 ],
                 "description": "初始化函数，在合约部署时默认执行"
             },
