@@ -86,8 +86,7 @@ C++合约
 2. 编译合约 
 >>>>>>>>>>>
 
-    对于C++合约，已提供编译脚本，位于 contractsdk/cpp/build.sh，需要注意的是，脚本依赖从hub.baidubce.com拉取的docker镜像，请在编译前确认docker
-相关环境是可用的
+    对于C++合约，已提供编译脚本，位于 contractsdk/cpp/build.sh，需要注意的是，脚本依赖从hub.baidubce.com拉取的docker镜像，请在编译前确认docker 相关环境是可用的
 
 3. 部署wasm合约
 >>>>>>>>>>>
@@ -97,4 +96,41 @@ C++合约
         xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter -m -a '{"creator": "someone"}' --name xuper counter
 
 
+4. 在合约中使用 json
+>>>>>>>>>>>>>>>>>>>>>>
 
+  XuperChain SDK 包含了 json 相关的库，可以在合约中方便地使用 json 进行序列化和反序列化。
+
+  使用 json 的例子如下
+
+.. code:: cpp
+
+    #include "xchain/json/json.h"
+    #include "xchain/xchain.h"
+
+    struct Features : xchain::Contract {
+    };
+
+    DEFINE_METHOD(Features, json_load_dump) {
+        xchain::Context *ctx = self.context();
+        const std::string v = ctx->arg("value");
+        auto j = xchain::json::parse(v);
+        ctx->ok(j.dump());
+    }
+
+    DEFINE_METHOD(Features, json_literal) {
+        xchain::Context *ctx = self.context();
+        xchain::json j = {
+                {"int",    3},
+                {"float",  3.14},
+                {"string", "hello"},
+                {"array",  {"hello", "world"}},
+                {"object", {{"key", "value"}}},
+                {"true",   true},
+                {"false",  false},
+                {"null",   nullptr},
+        };
+        ctx->ok(j.dump());
+    }
+
+关于 json 库更多的内容可以查看  `文档 <https://github.com/nlohmann/json>`_ 
