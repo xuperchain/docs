@@ -28,9 +28,9 @@
                 "name": "addScore",
                 "args": [
                     "user_id: string, 学生的主键id",
-                    "data: string, 学生的成绩信息(json格式string)"
+                    "data: string, 学生的成绩信息"
                 ],
-                "description": "将学生成绩在链上持久化存储"
+                "description": "将学生成绩在链上持久化存储，只有 owner 有写入权限"
             },
             {
                 "name": "queryScore",
