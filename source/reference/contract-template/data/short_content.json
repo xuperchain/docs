@@ -25,7 +25,7 @@
                 "args": [
                     "user_id: string, 用户名",
                     "title: string, 标题(不超过100个字符)",
-                    "topic: string 类别(不超过36个字符)",
+                    "topic: string 主题(不超过36个字符)",
                     "content:具体内容(不超过3000个字符)"
                 ],
                 "description": "将用户参数{user_id,title,topic}持久化存储"
@@ -42,17 +42,17 @@
                 "args": [
                     "user_id: string, 用户名",
                     "title: string, 标题",
-                    "topic: string 类别"
+                    "topic: string 主题"
                 ],
-                "description": "按照标题粒度查询内容，用户名是必须的,查询的是指定的一篇短内容"
+                "description": "按照标题粒度查询内容，用户名,主题，标题都是必须的,查询的是指定的一篇短内容"
             },
             {
                 "name": "queryByTopic",
                 "args": [
                     "user_id: string, 用户名",
-                    "topic: string 类别"
+                    "topic: string 主题"
                 ],
-                "description": "按照主题粒度查询内容，用户名是必须的,查询的是一个集合"
+                "description": "按照主题粒度查询内容，用户名，主题都是必须的,查询的是一个集合"
             }
         ]
     },
