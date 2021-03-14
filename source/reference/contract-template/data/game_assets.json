@@ -59,7 +59,7 @@
                     "to: string, 装备接收者",
                     "assetid: string, 装备id"
                 ],
-                "description": "系统新生成的新装备，发放给特定用户，只能由管理员调用"
+                "description": "tradeAsset 交易装备给特定用户，只能由装备拥有者调用"
             }
         ]
     },
