@@ -27,7 +27,7 @@
             {
                 "name": "donate",
                 "args": [
-                    "donor: string, 捐款人id（注意不能包含%字符）",
+                    "donor: string, 捐款人id（注意不能包含/字符）",
                     "amount: string, 捐款金额",
                     "timestamp: string, 捐款时间",
                     "comments: string, 备注信息"
