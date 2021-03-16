@@ -103,7 +103,7 @@ evm 版本合约，可以参考代码   contractsdk/java/evm/Counter.sol
 
 4. 合约调用
 
-    调用native合约。针对不同语言实现的native合约，调用方式相同。通过合约名直接发起合约调用和查询
+    针对不同语言实现的native合约，调用方式相同。通过合约名直接发起合约调用和查询
 
     .. code-block:: bash
 
