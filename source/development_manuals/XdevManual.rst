@@ -462,7 +462,7 @@ Go合约使用如下命令来编译合约
 .. code-block:: go
     :linenos:
 	
-    GOOS=js GOARCH=wasm go build -o hello.wasm
+    go build -o hello
 
 
 合约部署
@@ -472,7 +472,7 @@ Go合约部署唯一跟c++合约不一样的地方在于 **--runtime** 参数，
 .. code-block:: bash
     :linenos:
 	
-    $ ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname hello  --fee 5200000 --runtime go ./hello-go/hello.wasm
+    $ ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname hello  --fee 5200000 --runtime go ./hello-go/hello
 
 
 Go合约的调用跟c++合约参数一致。

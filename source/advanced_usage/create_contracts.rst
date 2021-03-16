@@ -49,19 +49,11 @@
 部署wasm合约
 ------------
 
-1. 编译合约 - Golang
-
-    注意合约编译环境与源码编译环境一致，编译参数如下
-
-    .. code-block:: bash
-
-        GOOS=js GOARCH=wasm go build XXX.go
-
-2. 编译合约 - C++
+1. 编译合约
 
     对于C++合约，已提供编译脚本，位于 contractsdk/cpp/build.sh，需要注意的是，脚本依赖从hub.baidubce.com拉取的docker镜像，请在编译前确认docker相关环境是可用的
 
-3. 部署wasm合约
+2. 部署合约
 
     将编译好的合约二进制文件（以counter为例）放到目录node/data/blockchain/${chain name}/wasm/下，这里我们默认的链名 ${chain name}=xuper
 
