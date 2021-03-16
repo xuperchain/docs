@@ -472,7 +472,7 @@ Go合约部署唯一跟c++合约不一样的地方在于 **--runtime** 参数，
 .. code-block:: bash
     :linenos:
 	
-    $ ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname hello  --fee 5200000 --runtime go ./hello-go/hello
+    $ ./xchain-cli native deploy --account XC1111111111111111@xuper --cname hello  --fee 5200000 --runtime go ./hello-go/hello
 
 
 Go合约的调用跟c++合约参数一致。
