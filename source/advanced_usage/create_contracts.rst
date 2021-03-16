@@ -185,14 +185,14 @@ evm 版本合约，可以参考代码   contractsdk/java/evm/Counter.sol
     .. code-block:: bash
 
         # 调用solidity合约，increase方法，counterevm为合约名
-        $ ./xchain-cli evm invoke --method increase -a '{"key":"test"}' counterevm --fee 22787517 --abi Counter.abi
+        $ ./xchain-cli evm invoke --method increase -a '{"key":"test"}' counterevm --fee 22787517
         contract response:
         The gas you cousume is: 65
         The fee you pay is: 22787517
         Tx id: 94655ab00188de70c3ef2f91b9db0d156142ce92f91a5da20f0f1fc7830fb700
 
         # 调用solidity合约，get方法，counterevm为合约名
-        $ ./xchain-cli native query --method Get -a '{"key":"test"}' counterevm --abi Counter.abi
+        $ ./xchain-cli native query --method Get -a '{"key":"test"}' counterevm
         # 调用结果，其中0表示返回值的次序，1为返回值
         # key,value: 0 1
 
