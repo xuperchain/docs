@@ -153,7 +153,7 @@ evm 版本合约，可以参考代码   contractsdk/java/evm/Counter.sol
         // solc, the solidity compiler commandline interface
         // Version: 0.5.9+commit.c68bc34e.Darwin.appleclang
 
-    编译 EVM 合约时，我们以contractsdk/evm/example中的counter合约为例
+    我们以contractsdk/evm/example中的counter合约为例
 
     .. code-block:: bash
 
