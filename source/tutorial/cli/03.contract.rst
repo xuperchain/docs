@@ -38,15 +38,15 @@
 ，命令如下：
 
 .. code-block:: bash
-    
+
     # 生成创建合约账号的原始交易
     xchain-cli multisig gen --desc newAccount.json -H 14.215.179.74:37101 --fee 1000 --output rawTx.out
     # 对原始交易进行签名
     xchain-cli multisig sign --tx rawTx.out --output my.sign
     # 发送原始交易及签名
-    xchain-cli multisig send my.sign complianceCheck.out --tx rawTx.out 
+    xchain-cli multisig send my.sign complianceCheck.out --tx rawTx.out
     # 查看合约账号
-    xchain-cli account query 
+    xchain-cli account query
 
 .. note::
 
@@ -65,10 +65,10 @@ accountAclSet.json模版如下：
     {
         "module_name": "xkernel",
         "method_name": "SetAccountAcl",
-        "args" : { 
+        "args" : {
             "account_name": "XC1234098776890654@xuper",
             "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 1},\"aksWeight\": {\"ak1\": 1}}"
-        }   
+        }
     }
 
 .. note::
@@ -104,14 +104,14 @@ accountAclSet.json模版如下：
 
 .. code-block:: bash
     :linenos:
-    
+
     # 生成原始交易
     xchain-cli multisig gen --desc methodAclSet.json -H 14.215.179.74:37101 --fee 10 --output rawTx.out
 
     # 自己对原始交易签名
     xchain-cli multisig sign --tx ./rawTx.out --output my.sign
 
-    # 发送原始交易及签名    
+    # 发送原始交易及签名
     xchain-cli multisig send my.sign complianceCheck.out,my.sign --tx ./rawTx.out
 
 methodAclSet.json的模版，如下：
@@ -122,11 +122,11 @@ methodAclSet.json的模版，如下：
     {
         "module_name": "xkernel",
         "method_name": "SetMethodAcl",
-        "args" : { 
+        "args" : {
             "contract_name": "counter",
             "method_name": "increase",
             "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 1},\"aksWeight\": {\"TqnHT6QQnD9rjvqRJehEaAUB3ZwzSFZhR\": 1}}"
-        }   
+        }
     }
 
 设置合约方法的ACL
@@ -135,7 +135,7 @@ methodAclSet.json的模版，如下：
 1. 准备desc文件setMethodACL.desc
 
     .. code-block:: json
-        
+
         {
             "module_name": "xkernel",
             "method_name": "SetMethodAcl",
@@ -148,7 +148,7 @@ methodAclSet.json的模版，如下：
 
     参数说明：
 
-    - **module_name**： 模块名称，用固定值xkernel 
+    - **module_name**： 模块名称，用固定值xkernel
     - **method_name** ：方法名称，用固定值SetMethodAcl
     - **contract_name**：合约名称
     - **method_name**：合约方法名称
@@ -166,23 +166,23 @@ methodAclSet.json的模版，如下：
 
     .. code-block:: bash
 
-        xchain-cli multisig gen --desc ./setMethodACL.desc --fee 1 
+        xchain-cli multisig gen --desc ./setMethodACL.desc --fee 1
         xchain-cli multisig sign --output sign.out
-        xchain-cli multisig send sign.out sign.out 
+        xchain-cli multisig send sign.out sign.out
 
 3. 查看合约方法ACL
 
     .. code-block:: bash
 
-            $ xchain-cli acl query --contract counter --method increase  
-             { 
-               "pm": { 
-                 "rule": 1,    
+            $ xchain-cli acl query --contract counter --method increase
+             {
+               "pm": {
+                 "rule": 1,
                  "acceptValue": 1
-               },  
-               "aksWeight": {  
-                 "UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8": 1    
-               }   
+               },
+               "aksWeight": {
+                 "UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8": 1
+               }
              }
 合约生命周期管理
 >>>>>>>>>>>>>>>>
@@ -192,7 +192,7 @@ methodAclSet.json的模版，如下：
     .. code-block:: bash
 
         xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter -m -a '{"creator": "someone"}' counter
-    
+
 .. note ::
 
         合约部署的方法随合约语言和合约虚拟机的不同有些许差异，具体见   :ref:`tutorial/contract-development`
@@ -204,7 +204,7 @@ methodAclSet.json的模版，如下：
 
         xchain-cli wasm invoke counter --method get -a '{"key":"zq"}'--fee 100
 
-.. 
+..
 
     合约升级
     ^^^^^^^^

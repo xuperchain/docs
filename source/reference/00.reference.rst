@@ -14,3 +14,4 @@
     06.xchain-performance.rst
     02.faq.rst
     05.vocabulary.rst
+    contract-template.rst
