@@ -32,7 +32,7 @@ evm 版本合约，可以参考代码   contractsdk/java/evm/Counter.sol
 
     .. code-block:: bash
 
-        $./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter -m -a '{"creator": "someone"}' counter
+        $./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter -a '{"creator": "someone"}' counter
 
     运行时会提示手续费的数目，使用 --fee 参数传入即可
 
