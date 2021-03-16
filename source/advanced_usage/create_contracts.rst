@@ -73,7 +73,7 @@ evm 版本合约，可以参考代码   contractsdk/java/evm/Counter.sol
 
 2. 编译合约 - Java
 
-    编译native合约时，我们以contractsdk/java/example中的counter合约为例
+    我们以contractsdk/java/example中的counter合约为例
 
     .. code-block:: bash
 
