@@ -60,7 +60,7 @@ Save、Query和Initialize方法的具体实现可以参考代码样例
 合约部署（Deploy）
 ^^^^^^^^^^^^^^^^^^
 
-编译并部署合约的过程可以参考 `部署wasm合约 <../advanced_usage/create_contracts.html#wasm>`_ 章节，注意资源消耗可以一开始不加 --fee 参数，执行后会给出需要消耗的资源数
+编译并部署合约的过程可以参考 `部署 native 合约 <../advanced_usage/create_contracts.html#wasm>`_ 章节，注意资源消耗可以一开始不加 --fee 参数，执行后会给出需要消耗的资源数
 
 合约执行（Save）
 ^^^^^^^^^^^^^^^^
@@ -70,7 +70,7 @@ Save、Query和Initialize方法的具体实现可以参考代码样例
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli wasm invoke -a '下面json中args字段的内容' --method save -H localhost:37101 eleccert
+    ./xchain-cli native invoke -a '下面json中args字段的内容' --method save -H localhost:37101 eleccert
 
 .. code-block:: python
     :linenos:
@@ -94,7 +94,7 @@ Save、Query和Initialize方法的具体实现可以参考代码样例
 .. code-block:: bash
     :linenos:
 
-    ./xchain-cli wasm query -a 'args内容' --method query -H localhost:37101 eleccert
+    ./xchain-cli native query -a 'args内容' --method query -H localhost:37101 eleccert
 
 .. code-block:: python
     :linenos:
