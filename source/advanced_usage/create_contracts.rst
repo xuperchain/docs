@@ -32,10 +32,22 @@ evm 版本合约，可以参考代码   contractsdk/java/evm/Counter.sol
 
     .. code-block:: bash
 
-        $./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter -a '{"creator": "someone"}' counter
+        $ ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter ../core/contractsdk/cpp/build/counter.wasm
 
     运行时会提示手续费的数目，使用 --fee 参数传入即可
 
+ 3. 合约调用
+
+    .. code-block:: bash
+    
+        ./xchain-cli wasm invoke --method increase -a '{"key":"test"}' counter --fee 100
+            contract response: 1
+            The gas you cousume is: 93
+            The fee you pay is: 100
+            Tx id: 141e4c1fb99566ce4b6ba32fa92af73c0e9857189debf773cf5753d64e1416a7
+
+        ./xchain-cli native query --method get -a '{"key":"test"}' counter    
+            contract response: 1
 
 
 部署native合约
@@ -87,15 +99,14 @@ evm 版本合约，可以参考代码   contractsdk/java/evm/Counter.sol
     .. code-block:: bash
 
         # 部署golang native合约
-        $ ./xchain-cli native deploy --account XC1111111111111111@xuper -a '{"creator":"XC1111111111111111@xuper"}' --fee 15587517 --runtime go counter --cname golangcounter
+        $./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime go   --cname golangcounter ../core/contractsdk/go/example/counter/main
          contract response: ok
          The gas you cousume is: 14311874
          The fee you pay is: 15587517
          Tx id: af0d46f6df2edba4d9d9d07e1db457e5267274b1c9fe0611bb994c0aa7931933
 
         # 部署java native合约
-        $ ./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java counter-0.1.0-jar-with-dependencies.jar --cname javacounter
-         contract response: ok
+        $./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java   --cname javacounter /home/chenfengjin/xuperchain/core/contractsdk/java/example/counter/target/counter-0.1.0-jar-with-dependencies.jar
          The gas you cousume is: 14311876
          The fee you pay is: 15587517
          Tx id: 875d2c9129973a1c64811d7a5a55ca80743102abc30d19f012656fa52ee0f4f7
@@ -103,31 +114,30 @@ evm 版本合约，可以参考代码   contractsdk/java/evm/Counter.sol
 
 4. 合约调用
 
-    针对不同语言实现的native合约，调用方式相同。通过合约名直接发起合约调用和查询
+    针对不同语言实现的 native合约，调用方式相同。通过合约名直接发起合约调用和查询
 
     .. code-block:: bash
 
         # 调用golang native合约，Increase方法，golangcounter为合约名
-        $ ./xchain-cli native invoke --method Increase -a '{"key":"test"}' golangcounter --fee 10
+        $ ./xchain-cli native invoke --method Increase -a '{"key":"test"}' golangcounter
          contract response: 1
          The gas you cousume is: 6
          The fee you pay is: 10
          Tx id: b387e2247780a5f5da1070a931b37c4fc7f1b68c072768053a43cffe36f2e0fb
 
         # 调用golang native合约，Get方法，golangcounter为合约名
-        $./xchain-cli native query --method Get -a '{"key":"test"}' golangcounter
+        $ ./xchain-cli native query --method Get -a '{"key":"test"}' golangcounter
         contract response: 1
 
         # 调用java native合约，increase方法，javacounter为合约名
         $ ./xchain-cli native invoke --method increase -a '{"key":"test"}' javacounter --fee 10
-         contract response: 1
          The gas you cousume is: 6
          The fee you pay is: 10
          Tx id: 4b46d9b1292481dcac3b504d5f8031e4eff44d8514c9508f121145cfa141d9db
 
         # 调用java native合约，get方法，javacounter为合约名
         $ ./xchain-cli native query --method get -a '{"key":"test"}' javacounter
-        contract response: 1146398290725d36631aa70f731bc3174e6484a9a
+          contract response: 1
 
 
 部署solidity合约
