@@ -3,17 +3,20 @@
 ========
 
 超级链支持丰富的智能合约开发语言，比如go，Solitidy，C++，Java等。
+阅读本节前，请先确保完成 `XuperChain环境部署 <https://xuperchain.readthedocs.io/zh/latest/quickstart.html>`_ 
+
+
 
 编写合约
 --------
 
-golang版本合约，可以参考代码 contractsdk/go/example/counter/main.go 
+ 可以根据合约示例代码，编写自己的合约
 
-C++ 版本的合约，可以参考代码 contractsdk/cpp/example/counter.cc
+    `c++ 合约 <https://github.com/xuperchain/xuperchain/blob/master/core/contractsdk/cpp/example/counter.cc>`_
 
-java 版本合约，可以参考代码  contractsdk/java/example/counter/
+    `go 合约 <https://github.com/xuperchain/xuperchain/tree/master/core/contractsdk/go/example/counter>`_
 
-evm 版本合约，可以参考代码   contractsdk/java/evm/Counter.sol
+    `java 合约 <https://github.com/xuperchain/xuperchain/tree/master/core/contractsdk/java/example/counter>`_
 
 
 部署 wasm合约
