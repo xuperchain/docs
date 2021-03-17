@@ -43,14 +43,13 @@
 
     .. code-block:: bash
     
-        ./xchain-cli wasm invoke --method increase -a '{"key":"test"}' counter --fee 100
-            contract response: 1
-            The gas you cousume is: 93
-            The fee you pay is: 100
-            Tx id: 141e4c1fb99566ce4b6ba32fa92af73c0e9857189debf773cf5753d64e1416a7
+        $./xchain-cli wasm invoke --method increase -a '{"key":"test"}' counter --fee 100
+        The gas you cousume is: 93
+        The fee you pay is: 100
+        Tx id: 141e4c1fb99566ce4b6ba32fa92af73c0e9857189debf773cf5753d64e1416a7
 
-        ./xchain-cli native query --method get -a '{"key":"test"}' counter    
-            contract response: 1
+        $./xchain-cli native query --method get -a '{"key":"test"}' counter    
+        contract response: 1
 
 
 部署native合约
@@ -123,10 +122,6 @@
 
         # 调用golang native合约，Increase方法，golangcounter为合约名
         $ ./xchain-cli native invoke --method Increase -a '{"key":"test"}' golangcounter
-         contract response: 1
-         The gas you cousume is: 6
-         The fee you pay is: 10
-         Tx id: b387e2247780a5f5da1070a931b37c4fc7f1b68c072768053a43cffe36f2e0fb
 
         # 调用golang native合约，Get方法，golangcounter为合约名
         $ ./xchain-cli native query --method Get -a '{"key":"test"}' golangcounter
@@ -134,9 +129,6 @@
 
         # 调用java native合约，increase方法，javacounter为合约名
         $ ./xchain-cli native invoke --method increase -a '{"key":"test"}' javacounter --fee 10
-         The gas you cousume is: 6
-         The fee you pay is: 10
-         Tx id: 4b46d9b1292481dcac3b504d5f8031e4eff44d8514c9508f121145cfa141d9db
 
         # 调用java native合约，get方法，javacounter为合约名
         $ ./xchain-cli native query --method get -a '{"key":"test"}' javacounter
@@ -170,7 +162,7 @@
 
     .. code-block:: bash
 
-        cd contractsdk/evm/example
+        cd core/contractsdk/evm/example/counter
         // 通过solc编译合约源码
         solc --bin --abi Counter.sol -o .
         // 合约二进制文件和abi文件分别存放在当前目录下，Counter.bin和Counter.abi。
@@ -181,8 +173,7 @@
 
     .. code-block:: bash
 
-        # 部署solidity合约
-        ./xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 Counter.bin --abi Counter.abi
+        ./xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 ../core/contractsdk/evm/example/counter/Counter.bin --abi ../core/contractsdk/evm/example/counter/Counter.abi
          contract response: ok
          The gas you cousume is: 1789
          The fee you pay is: 22787517
@@ -199,13 +190,9 @@
 
         # 调用solidity合约，increase方法，counterevm为合约名
         $ ./xchain-cli evm invoke --method increase -a '{"key":"test"}' counterevm --fee 22787517
-        contract response:
-        The gas you cousume is: 65
-        The fee you pay is: 22787517
-        Tx id: 94655ab00188de70c3ef2f91b9db0d156142ce92f91a5da20f0f1fc7830fb700
 
         # 调用solidity合约，get方法，counterevm为合约名
-        $ ./xchain-cli native query --method Get -a '{"key":"test"}' counterevm
+        $ ./xchain-cli evm query --method get -a '{"key":"test"}' counterevm
         # 调用结果，其中0表示返回值的次序，1为返回值
         # key,value: 0 1
 
