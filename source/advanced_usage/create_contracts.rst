@@ -109,7 +109,7 @@
          Tx id: af0d46f6df2edba4d9d9d07e1db457e5267274b1c9fe0611bb994c0aa7931933
 
         # 部署java native合约
-        $./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java   --cname javacounter /home/chenfengjin/xuperchain/core/contractsdk/java/example/counter/target/counter-0.1.0-jar-with-dependencies.jar
+        $./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java   --cname javacounter ../core/contractsdk/java/example/counter/target/counter-0.1.0-jar-with-dependencies.jar
          The gas you cousume is: 14311876
          The fee you pay is: 15587517
          Tx id: 875d2c9129973a1c64811d7a5a55ca80743102abc30d19f012656fa52ee0f4f7
