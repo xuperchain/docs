@@ -12,11 +12,9 @@
 
  可以根据合约示例代码，编写自己的合约
 
-    `c++ 合约 <https://github.com/xuperchain/xuperchain/blob/master/core/contractsdk/cpp/example/counter.cc>`_
-
-    `go 合约 <https://github.com/xuperchain/xuperchain/tree/master/core/contractsdk/go/example/counter>`_
-
-    `java 合约 <https://github.com/xuperchain/xuperchain/tree/master/core/contractsdk/java/example/counter>`_
+    `c++ counter 合约 <https://github.com/xuperchain/xuperchain/blob/master/core/contractsdk/cpp/example/counter.cc>`_,
+    `go counter 合约 <https://github.com/xuperchain/xuperchain/tree/master/core/contractsdk/go/example/counter>`_,
+    `java counter 合约 <https://github.com/xuperchain/xuperchain/tree/master/core/contractsdk/java/example/counter>`_
 
 
 部署 wasm合约
