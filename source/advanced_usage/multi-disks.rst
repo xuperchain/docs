@@ -23,7 +23,9 @@
         - /ssd2/blockchain
         - /ssd3/blockchain
 
-只需将“多盘存储路径”部分去掉注释，便可以灵活配置多个数据存储位置。
+只需将“多盘存储路径”部分去掉注释，并在conf/plugins.conf更改kv插件配置，便可以灵活配置多个数据存储位置。
+更换kv插件的具体方法为：修改conf/plugins.conf文件，将kv项下default中的path改为plugins/kv/kv-ldb-multi.so.1.0.0即可。
+
 
 .. note:
     配置更新需要在创建链、启动xchain服务之前进行
