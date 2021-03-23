@@ -46,7 +46,7 @@
         The fee you pay is: 100
         Tx id: 141e4c1fb99566ce4b6ba32fa92af73c0e9857189debf773cf5753d64e1416a7
 
-        $ ./xchain-cli native query --method get -a '{"key":"test"}' counter    
+        $ ./xchain-cli wasm query --method get -a '{"key":"test"}' counter    
         contract response: 1
 
 
