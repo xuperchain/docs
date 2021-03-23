@@ -33,7 +33,7 @@
 
     .. code-block:: bash
 
-        $ ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counter ../core/contractsdk/cpp/build/counter.wasm
+        $ ./xchain-cli wasm deploy --account XC1111111111111111@xuper  -a '{"creator":"XC1111111111111111@xuper"}' --cname counter ../core/contractsdk/cpp/build/counter.wasm
 
     运行时会提示手续费的数目，使用 --fee 参数传入即可
 
@@ -41,12 +41,12 @@
 
     .. code-block:: bash
     
-        $./xchain-cli wasm invoke --method increase -a '{"key":"test"}' counter --fee 100
+        $ ./xchain-cli wasm invoke --method increase -a '{"key":"test"}' counter --fee 100
         The gas you cousume is: 93
         The fee you pay is: 100
         Tx id: 141e4c1fb99566ce4b6ba32fa92af73c0e9857189debf773cf5753d64e1416a7
 
-        $./xchain-cli native query --method get -a '{"key":"test"}' counter    
+        $ ./xchain-cli wasm query --method get -a '{"key":"test"}' counter    
         contract response: 1
 
 
@@ -99,14 +99,14 @@
     .. code-block:: bash
 
         # 部署golang native合约
-        $./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime go   --cname golangcounter ../core/contractsdk/go/example/counter/main
+        $ ./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime go -a '{"creator":"XC1111111111111111@xuper"}'   --cname golangcounter ../core/contractsdk/go/example/counter/counter
          contract response: ok
          The gas you cousume is: 14311874
          The fee you pay is: 15587517
          Tx id: af0d46f6df2edba4d9d9d07e1db457e5267274b1c9fe0611bb994c0aa7931933
 
         # 部署java native合约
-        $./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java   --cname javacounter ../core/contractsdk/java/example/counter/target/counter-0.1.0-jar-with-dependencies.jar
+        $ ./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java   --cname javacounter ../core/contractsdk/java/example/counter/target/counter-0.1.0-jar-with-dependencies.jar
          The gas you cousume is: 14311876
          The fee you pay is: 15587517
          Tx id: 875d2c9129973a1c64811d7a5a55ca80743102abc30d19f012656fa52ee0f4f7
