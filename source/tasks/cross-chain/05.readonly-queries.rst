@@ -10,10 +10,10 @@ B网络搭建
 
 .. code-block:: go
 	:linenos:
-	
+
 	1. xchain.yaml增加配置： enableXEndorser: true
 	2. 配置节点背书公私钥，./data/endorser/keys 目录下，增加背书地址及公私钥；
-	
+
 A网络搭建
 ---------------
 
@@ -27,14 +27,14 @@ A网络搭建
 .. code-block:: go
 	:linenos:
 
-	DEFINE_METHOD(Hello, cross_query) {
+    DEFINE_METHOD(Hello, cross_query) {
 		xchain::Context* ctx = self.context();
 		xchain::Response response;
 		// 合约SDK 增加cross query方法
-		ctx->cross_query("xuper://mainnet.xuper?module=wasm&bcname=xuper&contract_name=counter&method_name=get", {{"key", "zq"}}, &response); 
-		*ctx->mutable_response() = response; 
+		ctx->cross_query("xuper://mainnet.xuper?module=wasm&bcname=xuper&contract_name=counter&method_name=get", {{"key", "zq"}}, &response);
+		*ctx->mutable_response() = response;
 	}
-	
+
 部署跨链寻址合约
 ^^^^^^^^^^^^^^^^
 
@@ -73,7 +73,7 @@ A网络搭建
     xchain-cli wasm invoke crossQueryNaming --method AddEndorsor -a '{"name":"mainnet.xuper", "address":"bobfffff", "host":"ip1:port1", "pub_key":"xxxxx"}' --fee 555
 
     xchain-cli wasm invoke crossQueryNaming --method AddEndorsor -a '{"name":"mainnet.xuper", "address":"alicefffff", "host":"ip2:port2", "pub_key":"yyyyy"}' --fee 555
- 
+
 - address：背书地址
 - host：背书节点ip:port
 - pub_key: 背书公钥
@@ -95,7 +95,7 @@ B网络调用counter
 
     xchain-cli wasm invoke counter --method increase -a '{"key":"zq"}'--fee 100-H=ipB:portB
     xchain-cli wasm invoke counter --method get -a '{"key":"zq"}'--fee 100-H=ipB:portB
-	
+
 A网络调用crossQueryNaming
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -103,4 +103,3 @@ A网络调用crossQueryNaming
 ::
 
     xchain-cli wasm invoke cross_query_demo --method cross_query -H=ipA:portA
-

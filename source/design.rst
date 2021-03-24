@@ -14,4 +14,3 @@
     design/05.permission-model.rst
     design/06.chain.rst
     design/07.plugin.rst
-    design/09.multi-disk.rst

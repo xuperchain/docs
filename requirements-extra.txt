@@ -1,0 +1,8 @@
+doc8
+restructuredtext-lint
+sphinx-autobuild
+sphinx-comments
+sphinx-rtd-theme
+sphinx-server
+sphinx-tabs
+sphinxcontrib.datatemplates
