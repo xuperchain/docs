@@ -2,6 +2,7 @@
 ==================
 
 .. _tutorial/cli/multisig :
+
 交易基本操作
 >>>>>>>>>>>>
 
@@ -22,8 +23,8 @@ XuperChain 中的新建合约账号,转账等操作均属于交易。在这里�
 通过以下命令可以查询交易的信息，包括交易状态、交易的源和目标账号、交易的金额、所在的区块（如果已上链）等内容
 
 .. code-block:: bash
-    
-    xchain-cli tx query 115c330c450c354b9ede9debf570c978c1d3c07eaef3a5c42eb9ac087931bb1a 
+
+    xchain-cli tx query 115c330c450c354b9ede9debf570c978c1d3c07eaef3a5c42eb9ac087931bb1a
 
 
 .. _queryblock:
@@ -35,7 +36,7 @@ XuperChain 中的新建合约账号,转账等操作均属于交易。在这里�
 
 .. code-block:: bash
 
-    xchain-cli block 0354240c8335e10d8b48d76c0584e29ab604cfdb7b421d973f01a2a49bb67fee 
+    xchain-cli block 0354240c8335e10d8b48d76c0584e29ab604cfdb7b421d973f01a2a49bb67fee
 
 
 发起多重签名交易
@@ -53,7 +54,7 @@ XuperChain 中的新建合约账号,转账等操作均属于交易。在这里�
 假设要发起一笔转账操作
 
 .. code-block:: bash
-    
+
     # 从账号发起
     xchain-cli multisig gen --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount 100 -A addr_list
     # 从合约账号发起
