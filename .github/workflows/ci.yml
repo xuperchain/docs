@@ -1,0 +1,25 @@
+on: [push, pull_request]
+name: CI
+jobs:
+  test:
+    strategy:
+      matrix:
+        go-version: [1.13.x]
+        platform: [ubuntu-18.04]
+    runs-on: ${{ matrix.platform }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Instal Dependencie
+      run: |
+        pip install -r requirements.txt 
+    - name: Install BOS dependencies
+      run: |
+        wget https://sdk.bce.baidu.com/console-sdk/bce-cli-0.10.10.zip && unzip bce-cli-0.10.10.zip && cd bce-cli-0.10.10 && python setup install
+    - name: Build HTML
+      run: |
+        make html
+    - name: Upload to BOS
+      run: |
+        bce-cli-0.10.10/bce  bos sync <local_dir> bos:/<bucket_name>/[prefix] [--delete] [--yes] [--exclude] [--quiet] [--dryrun] [--storage-class [STORAGE_CLASS]] [--exclude-time TIME_RANGE] [--include-time TIME_RANGE]
+    - name:
