@@ -25,7 +25,7 @@ jobs:
     #     make html
     - name: Configure BOS Client
       run: |
-        bash -c scripts/config_bos_client
+        bash  scripts/config_bos_client.sh
       env:
         ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
         ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
