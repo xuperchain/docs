@@ -25,7 +25,7 @@ jobs:
         make html
     - name: Configure BOS Client
       run: |
-        bash -c "echo ${aaa}\n${bbb}\n${TOKEN}\n\n\n\n\n\n| bce-cli-0.10.10/bce --configure "
+        bash -c "echo 1111\n2222\n3333\n\n\n\n\n\n| bce-cli-0.10.10/bce --configure "
         # env:
 
     - name: Upload to BOS
