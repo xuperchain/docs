@@ -33,4 +33,4 @@ jobs:
         
     - name: Upload to BOS
       run: |
-        bce-cli-0.10.10/bce  bos sync <local_dir> bos:/<bucket_name>/[prefix] [--delete] [--yes] [--exclude] [--quiet] [--dryrun] [--storage-class [STORAGE_CLASS]] [--exclude-time TIME_RANGE] [--include-time TIME_RANGE]
+        bce-cli-0.10.10/bce bos sync build bos:/xuperos-test/demo
