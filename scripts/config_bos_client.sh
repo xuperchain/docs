@@ -1,0 +1,1 @@
+echo "${ACCESSKEYID}\n${ACCESSKEYSECRET}\n\n\n\n\n\n\n"| bce-cli-0.10.10/bce --configure
