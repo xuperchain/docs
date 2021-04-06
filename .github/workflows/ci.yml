@@ -33,4 +33,4 @@ jobs:
         
     - name: Upload to BOS
       run: |
-        bce-cli-0.10.10/bce bos sync build bos:/xuperos-test/demo
+        bce-cli-0.10.10/bce bos sync build bos:/xuperos-test/cms-store/xuperdoc
