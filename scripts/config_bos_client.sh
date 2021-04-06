@@ -1,1 +1,3 @@
-echo "${ACCESSKEYID}\n${ACCESSKEYSECRET}\n\n\n\n\n\n\n"| bce-cli-0.10.10/bce --configure
+echo [defaults]
+echo bce_access_key_id = ${ACCESSKEYID}
+echo bce_secret_access_key = ${ACCESSKEYSECRET}
