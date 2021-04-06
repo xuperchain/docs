@@ -25,9 +25,13 @@ jobs:
         make html
     - name: Configure BOS Client
       run: |
-        bash -c "echo 1111\n2222\n3333\n\n\n\n\n\n| bce-cli-0.10.10/bce --configure "
-        # env:
-
+        echo "${ACCESSKEYID}\n${ACCESSKEYSECRET}\n\n\n\n\n\n\n"| bce-cli-0.10.10/bce --configureecho "${ACCESSKEYID}\n${ACCESSKEYSECRET}\n\n\n\n\n\n\n"| bce-cli-0.10.10/bce --configure
+      env:
+        ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
+        ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
+    - name: check credentials
+      run: cat ~/.bce/credentials
+        
     - name: Upload to BOS
       run: |
         bce-cli-0.10.10/bce  bos sync <local_dir> bos:/<bucket_name>/[prefix] [--delete] [--yes] [--exclude] [--quiet] [--dryrun] [--storage-class [STORAGE_CLASS]] [--exclude-time TIME_RANGE] [--include-time TIME_RANGE]
