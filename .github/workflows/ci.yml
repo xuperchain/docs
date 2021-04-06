@@ -12,17 +12,17 @@ jobs:
       uses: actions/checkout@v2
     - uses: actions/setup-python@v2
       with:
-        python-version: '3.6' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+        python-version: '2.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-    - name: Instal Dependencie
-      run: |
-        pip install -r requirements.txt 
+    # - name: Instal Dependencie
+    #   run: |
+    #     pip install -r requirements.txt 
     - name: Install BOS dependencies
       run: |
         wget https://sdk.bce.baidu.com/console-sdk/bce-cli-0.10.10.zip && unzip bce-cli-0.10.10.zip && cd bce-cli-0.10.10 && python setup.py install
-    - name: Build HTML
-      run: |
-        make html
+    # - name: Build HTML
+    #   run: |
+    #     make html
     - name: Configure BOS Client
       run: |
         echo "${ACCESSKEYID}\n${ACCESSKEYSECRET}\n\n\n\n\n\n\n"| bce-cli-0.10.10/bce --configure
