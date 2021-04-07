@@ -1,5 +1,9 @@
-on: [push]
-name: CI
+on:
+  push:
+    branches:
+      - master
+      - pipeline 
+name: Auto Publish Code
 jobs:
   test:
     strategy:
@@ -23,7 +27,7 @@ jobs:
       run: |
         make html
 
-        
+
     - name: Setup Python2
       uses: actions/setup-python@v2
       with:
