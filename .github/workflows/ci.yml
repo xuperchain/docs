@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - master
-      - pipeline 
+      
 name: Auto Publish Code
 jobs:
   test:
@@ -47,6 +47,10 @@ jobs:
         ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
         
         
+    # - name: Upload to BOS
+    #   run: |
+    #     bce-cli-0.10.10/bce bos sync build bos:/xuperos-test/cms-store/xuperdoc
+
     - name: Upload to BOS
       run: |
-        bce-cli-0.10.10/bce bos sync build bos:/xuperos-test/cms-store/xuperdoc
+        bce-cli-0.10.10/bce bos sync build bos:/xuperos/cms-store/xuperdoc
