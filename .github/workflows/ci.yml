@@ -9,27 +9,39 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
+
+    - name: Setup Python3
+      uses: actions/setup-python@v2
       with:
-        python-version: '2.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+        python-version: '3.6' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified 
+
     - name: Instal Dependencie
       run: |
-        pip install pathlib && pip install -r requirements.txt 
-    - name: Install BOS dependencies
-      run: |
-        wget https://sdk.bce.baidu.com/console-sdk/bce-cli-0.10.10.zip && unzip bce-cli-0.10.10.zip && cd bce-cli-0.10.10 && python setup.py install
+        pip3 install -r requirements.txt 
     - name: Build HTML
       run: |
         make html
+
+        
+    - name: Setup Python2
+      uses: actions/setup-python@v2
+      with:
+        python-version: '2.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+
+    - name: Install BOS dependencies
+      run: |
+        wget https://sdk.bce.baidu.com/console-sdk/bce-cli-0.10.10.zip && unzip bce-cli-0.10.10.zip && cd bce-cli-0.10.10 && python setup.py install
+     
+
     - name: Configure BOS Client
       run: |
         mkdir -p ~/.bce/ && bash  scripts/config_bos_client.sh > ~/.bce/credentials
       env:
         ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
         ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
-    - name: check credentials
-      run: cat ~/.bce/credentials
+        
         
     - name: Upload to BOS
       run: |
