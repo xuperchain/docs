@@ -2,8 +2,8 @@ on:
   push:
     branches:
       - master
-      
-name: Auto Publish Code
+
+name: Auto Publish Doc
 jobs:
   test:
     strategy:
