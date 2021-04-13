@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>17. 跨链只读查询使用文档 &mdash; xuperchain-doc  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/stat.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="1. 合约账号" href="../advanced_usage/contract_accounts.html" />
+    <link rel="prev" title="16. 平行链与群组" href="group.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> xuperchain-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">XuperChain介绍:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/brief.html">1. 简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/modules.html">2. 模块</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/datastruct.html">3. 核心数据结构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/smart_contracts.html">4. 智能合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/permission_system.html">5. 权限系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/privacy.html">6. 隐私和保密</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/perfomance.html">7. 性能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/summary.html">8. 总结</a></li>
+</ul>
+<p class="caption"><span class="caption-text">快速入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">1. XuperChain环境部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html#basic-operation">2. XuperChain基本操作</a></li>
+</ul>
+<p class="caption"><span class="caption-text">技术设计文档:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="XuperModel.html">1. XuperModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XuperBridge.html">2. XuperBridge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xvm.html">3. XVM虚拟机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="permission_model.html">4. 账号权限控制模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p.html">5. 超级链p2p网络</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authentication.html">6. 身份认证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposal.html">7. 提案和投票机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">8. 密码学和隐私保护</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">9. 插件机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">10. 超级链共识框架</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chained_bft.html">11. Chained-BFT共识公共组件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xpos.html">12. XPoS共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="single_pow.html">13. Single及PoW共识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regulatory.html">14. 超级链监管机制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multidisk.html">15. 多盘散列</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group.html">16. 平行链与群组</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">17. 跨链只读查询使用文档</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#b">17.1. B网络搭建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a">17.2. A网络搭建</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">17.2.1. 部署查询合约A</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">17.2.2. 部署跨链寻址合约</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">17.2.3. 创建合约账户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wasm">17.2.4. 部署wasm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">17.2.5. 注册链名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">17.2.6. 添加信任节点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">17.2.7. 链名解析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">17.3. 跨链查询</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bcounter">17.3.1. B网络调用counter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acrossquerynaming">17.3.2. A网络调用crossQueryNaming</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">进阶使用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/contract_accounts.html">1. 合约账号</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-nodes.html">2. 多节点部署</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/create_contracts.html">3. 创建合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/initiate_proposals.html">4. 发起提案</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/multi-disks.html">5. 配置变更</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/parallel_chain.html">6. 使用平行链与群组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/subscribe.html">7. 使用事件订阅功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced_usage/cross_chain.html">8. 超级链跨链技术</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发应用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/eleccert.html">1. 电子存证合约</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developing_apps/erc721.html">2. 数字资产交易</a></li>
+</ul>
+<p class="caption"><span class="caption-text">开发手册</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperCDT.html">1. 智能合约SDK使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_manuals/XuperRPC.html">2. XuperChain RPC 接口使用说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">超级链测试环境</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/description.html">1. 超级链测试环境说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test_network/guides.html">2. 超级链测试环境使用指南</a></li>
+</ul>
+<p class="caption"><span class="caption-text">其他</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../operations_guides.html">1. 操作指导</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.html">2. 视频教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands_reference.html">3. 指令介绍(API)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FAQs.html">4. 常见问题解答</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vocabulary.html">5. 词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lessons.html">6. 超级链小课堂</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">xuperchain-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>17. 跨链只读查询使用文档</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/design_documents/readonly_queries.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>17. 跨链只读查询使用文档<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="b">
+<h2>17.1. B网络搭建<a class="headerlink" href="#b" title="永久链接至标题">¶</a></h2>
+<p>搭建B网络，设置背书配置为true，部署被调用合约B,例如counter：</p>
+<div class="highlight-go notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>1. xchain.yaml增加配置： enableXEndorser: true
+2. 配置节点背书公私钥，./data/endorser/keys 目录下，增加背书地址及公私钥；
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="a">
+<h2>17.2. A网络搭建<a class="headerlink" href="#a" title="永久链接至标题">¶</a></h2>
+<p>搭建A网络，部署跨链寻址合约，部署测试合约A用于查看B网络的counter合约；</p>
+<div class="section" id="id2">
+<h3>17.2.1. 部署查询合约A<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>查询合约可参考：core/contractsdk/cpp/example/cross_query_demo/src/main.cc</p>
+<div class="highlight-go notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">DEFINE_METHOD</span><span class="p">(</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">cross_query</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">xchain</span><span class="p">::</span><span class="nx">Context</span><span class="o">*</span> <span class="nx">ctx</span> <span class="p">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">context</span><span class="p">();</span>
+        <span class="nx">xchain</span><span class="p">::</span><span class="nx">Response</span> <span class="nx">response</span><span class="p">;</span>
+        <span class="c1">// 合约SDK 增加cross query方法</span>
+        <span class="nx">ctx</span><span class="o">-</span><span class="p">&gt;</span><span class="nx">cross_query</span><span class="p">(</span><span class="s">&quot;xuper://mainnet.xuper?module=wasm&amp;bcname=xuper&amp;contract_name=counter&amp;method_name=get&quot;</span><span class="p">,</span> <span class="p">{{</span><span class="s">&quot;key&quot;</span><span class="p">,</span> <span class="s">&quot;zq&quot;</span><span class="p">}},</span> <span class="o">&amp;</span><span class="nx">response</span><span class="p">);</span>
+        <span class="o">*</span><span class="nx">ctx</span><span class="o">-</span><span class="p">&gt;</span><span class="nx">mutable_response</span><span class="p">()</span> <span class="p">=</span> <span class="nx">response</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id3">
+<h3>17.2.2. 部署跨链寻址合约<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>超级链提供了默认的寻址合约（crossQueryNaming）的实现，路径为core/contractsdk/cpp/example/naming/src/naming.cc。在 core/contractsdk/cpp 目录下执行 sh build.sh 即可编译生成 naming.wasm ，即可使用 naming.wasm实现寻址合约的部署。</p>
+</div>
+<div class="section" id="id4">
+<h3>17.2.3. 创建合约账户<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">xchain</span><span class="o">-</span><span class="n">cli</span> <span class="n">account</span> <span class="n">new</span> <span class="o">--</span><span class="n">account</span> <span class="mi">1111111111111111</span> <span class="o">--</span><span class="n">fee</span> <span class="mi">1000</span>
+<span class="o">./</span><span class="n">xchain</span><span class="o">-</span><span class="n">cli</span> <span class="n">transfer</span> <span class="o">--</span><span class="n">to</span> <span class="n">XC1111111111111111</span><span class="nd">@xuper</span> <span class="o">--</span><span class="n">amount</span> <span class="mi">9999999999999999</span>    <span class="c1">##给合约账号充钱</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="wasm">
+<h3>17.2.4. 部署wasm<a class="headerlink" href="#wasm" title="永久链接至标题">¶</a></h3>
+<p>#注意：合约名必须为crossQueryNaming</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">xchain</span><span class="o">-</span><span class="n">cli</span> <span class="n">wasm</span> <span class="n">deploy</span> <span class="o">-</span><span class="n">n</span> <span class="n">crossQueryNaming</span> <span class="o">./</span><span class="n">naming</span><span class="o">.</span><span class="n">wasm</span>  <span class="o">--</span><span class="n">account</span> <span class="n">XC1111111111111111</span><span class="nd">@xuper</span> <span class="o">--</span><span class="n">fee</span> <span class="n">xxxxx</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>17.2.5. 注册链名<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">xchain</span><span class="o">-</span><span class="n">cli</span> <span class="n">wasm</span> <span class="n">invoke</span> <span class="n">crossQueryNaming</span> <span class="o">--</span><span class="n">method</span> <span class="n">RegisterChain</span> <span class="o">-</span><span class="n">a</span> <span class="s1">&#39;{&quot;name&quot;:&quot;mainnet.xuper&quot;,&quot;type&quot;:&quot;xuper&quot;, &quot;min_endorsor_num&quot;:&quot;2&quot;}&#39;</span> <span class="o">--</span><span class="n">fee</span> <span class="mi">888</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>name：B网络.链名</li>
+<li>type：链的种类，超级链</li>
+<li>min_endorsor_num： 表示背书个数</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>17.2.6. 添加信任节点<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>#注意此处address及pub_key在./data/endorser/keys下</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">xchain</span><span class="o">-</span><span class="n">cli</span> <span class="n">wasm</span> <span class="n">invoke</span> <span class="n">crossQueryNaming</span> <span class="o">--</span><span class="n">method</span> <span class="n">AddEndorsor</span> <span class="o">-</span><span class="n">a</span> <span class="s1">&#39;{&quot;name&quot;:&quot;mainnet.xuper&quot;, &quot;address&quot;:&quot;bobfffff&quot;, &quot;host&quot;:&quot;ip1:port1&quot;, &quot;pub_key&quot;:&quot;xxxxx&quot;}&#39;</span> <span class="o">--</span><span class="n">fee</span> <span class="mi">555</span>
+
+<span class="o">./</span><span class="n">xchain</span><span class="o">-</span><span class="n">cli</span> <span class="n">wasm</span> <span class="n">invoke</span> <span class="n">crossQueryNaming</span> <span class="o">--</span><span class="n">method</span> <span class="n">AddEndorsor</span> <span class="o">-</span><span class="n">a</span> <span class="s1">&#39;{&quot;name&quot;:&quot;mainnet.xuper&quot;, &quot;address&quot;:&quot;alicefffff&quot;, &quot;host&quot;:&quot;ip2:port2&quot;, &quot;pub_key&quot;:&quot;yyyyy&quot;}&#39;</span> <span class="o">--</span><span class="n">fee</span> <span class="mi">555</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>address：背书地址</li>
+<li>host：背书节点ip:port</li>
+<li>pub_key: 背书公钥</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>17.2.7. 链名解析<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">xchain</span><span class="o">-</span><span class="n">cli</span> <span class="n">wasm</span> <span class="n">query</span> <span class="n">crossQueryNaming</span> <span class="o">--</span><span class="n">method</span> <span class="n">Resolve</span> <span class="o">-</span><span class="n">a</span> <span class="s1">&#39;{&quot;name&quot;:&quot;mainnet.xuper&quot;}&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>17.3. 跨链查询<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<div class="section" id="bcounter">
+<h3>17.3.1. B网络调用counter<a class="headerlink" href="#bcounter" title="永久链接至标题">¶</a></h3>
+<p>在B网络调用counter合约，自增key值并查询自增后的结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">xchain</span><span class="o">-</span><span class="n">cli</span> <span class="n">wasm</span> <span class="n">invoke</span> <span class="n">counter</span> <span class="o">--</span><span class="n">method</span> <span class="n">increase</span> <span class="o">-</span><span class="n">a</span> <span class="s1">&#39;{&quot;key&quot;:&quot;zq&quot;}&#39;</span><span class="o">--</span><span class="n">fee</span> <span class="mi">100</span><span class="o">-</span><span class="n">H</span><span class="o">=</span><span class="n">ipB</span><span class="p">:</span><span class="n">portB</span>
+<span class="o">./</span><span class="n">xchain</span><span class="o">-</span><span class="n">cli</span> <span class="n">wasm</span> <span class="n">invoke</span> <span class="n">counter</span> <span class="o">--</span><span class="n">method</span> <span class="n">get</span> <span class="o">-</span><span class="n">a</span> <span class="s1">&#39;{&quot;key&quot;:&quot;zq&quot;}&#39;</span><span class="o">--</span><span class="n">fee</span> <span class="mi">100</span><span class="o">-</span><span class="n">H</span><span class="o">=</span><span class="n">ipB</span><span class="p">:</span><span class="n">portB</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="acrossquerynaming">
+<h3>17.3.2. A网络调用crossQueryNaming<a class="headerlink" href="#acrossquerynaming" title="永久链接至标题">¶</a></h3>
+<p>在A网络调用crossQueryNaming查询，即实现跨链查询B网络xuper链上counter合约key值结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">xchain</span><span class="o">-</span><span class="n">cli</span> <span class="n">wasm</span> <span class="n">invoke</span> <span class="n">cross_query_demo</span> <span class="o">--</span><span class="n">method</span> <span class="n">cross_query</span> <span class="o">-</span><span class="n">H</span><span class="o">=</span><span class="n">ipA</span><span class="p">:</span><span class="n">portA</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../advanced_usage/contract_accounts.html" class="btn btn-neutral float-right" title="1. 合约账号" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="group.html" class="btn btn-neutral float-left" title="16. 平行链与群组" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, xuper
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
