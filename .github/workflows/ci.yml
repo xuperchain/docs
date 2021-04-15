@@ -36,9 +36,9 @@ jobs:
     #     python-version: '2.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
     #     architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
 
-    - name: Install BOS dependencies
-      run: |
-        wget https://sdk.bce.baidu.com/console-sdk/bce-cli-0.10.10.zip && unzip bce-cli-0.10.10.zip && cd bce-cli-0.10.10 && python setup.py install
+    # - name: Install BOS dependencies
+    #   run: |
+    #     wget https://sdk.bce.baidu.com/console-sdk/bce-cli-0.10.10.zip && unzip bce-cli-0.10.10.zip && cd bce-cli-0.10.10 && python setup.py install
      
 
     - name: Setup Docker
@@ -51,12 +51,12 @@ jobs:
         apt-get install make && make build-image && make release
         
 
-    - name: Configure BOS Client
-      run: |
-        mkdir -p ~/.bce/ && bash  scripts/config_bos_client.sh > ~/.bce/credentials
-      env:
-        ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
-        ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
+    # - name: Configure BOS Client
+    #   run: |
+    #     mkdir -p ~/.bce/ && bash  scripts/config_bos_client.sh > ~/.bce/credentials
+    #   env:
+    #     ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
+    #     ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
 
         
     # - name: Upload to BOS
