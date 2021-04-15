@@ -43,7 +43,7 @@ jobs:
 
     - name: Setup Docker
       run: |
-        sudo apt install docker.io
+        sudo apt update&& install docker.io
 
     
     - name: build multi version
