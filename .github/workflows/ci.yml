@@ -3,6 +3,7 @@ on:
     branches:
       - master
       # - pipeline 
+      - multi_version
 
 name: Auto Publish Doc
 jobs:
