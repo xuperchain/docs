@@ -24,7 +24,7 @@ jobs:
 
     - name: Instal Dependencie
       run: |
-        pip3 install -r requirements.txt 
+        pip3 install -r requirements1.txt 
     - name: Build HTML
       run: |
         make html
