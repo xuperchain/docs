@@ -75,6 +75,6 @@ jobs:
     #   run: |
     #     bce-cli-0.10.10/bce bos sync build bos:/xuperos-test/cms-store/xuperdoc
 
-    - name: Upload to BOS
-      run: |
-        bce-cli-0.10.10/bce bos sync build/html bos:/opensource-xuperchain-doc/xuperdoc
+    # - name: Upload to BOS
+    #   run: |
+    #     bce-cli-0.10.10/bce bos sync build/html bos:/opensource-xuperchain-doc/xuperdoc
