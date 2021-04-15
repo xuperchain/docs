@@ -60,7 +60,7 @@ jobs:
     
     - name: build multi version
       run: |
-        apt-get install make && make build-image && make release
+        sudo apt-get install make && make build-image && make release
         
 
     # - name: Configure BOS Client
