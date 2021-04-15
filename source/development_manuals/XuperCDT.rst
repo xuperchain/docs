@@ -370,9 +370,7 @@ del
 在合约中使用 JSON 
 ^^^^^^^^^^^^^^^^^^^^
 
-  XuperChain SDK 包含了 json 相关的库，可以在合约中方便地使用 json 进行序列化和反序列化。
-
-  使用 json 的例子如下
+  XuperChain SDK 包含了 json 相关的库，可以在合约中方便地使用 json 进行序列化和反序列化。 在合约中使用 json 的例子如下
 
 .. code:: cpp
 
