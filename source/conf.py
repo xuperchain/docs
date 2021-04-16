@@ -38,7 +38,6 @@ release = u''
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-
 extensions = [
 ]
 
@@ -180,7 +179,6 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
-
 
 html_context = {
     "display_github": True,  # Integrate GitHubls
