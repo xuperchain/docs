@@ -24,7 +24,7 @@ copyright = u'2019, xuper'
 author = u'xuper'
 
 # The short X.Y version
-version = u'3.1'
+version = u'3.10'
 # The full version, including alpha/beta/rc tags
 release = u''
 
@@ -38,6 +38,7 @@ release = u''
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+
 extensions = [
 ]
 
@@ -75,6 +76,7 @@ pygments_style = None
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
+
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -178,3 +180,12 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+
+
+html_context = {
+    "display_github": True,  # Integrate GitHubls
+    "github_user": "xuperchain",  # Username
+    "github_repo": "docs",  # Repo name
+    "github_version": "master",  # Version
+    "conf_py_path": "/source/",  # Path in the checkout to the docs root
+}
