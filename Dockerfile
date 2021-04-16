@@ -9,7 +9,7 @@ RUN git clone https://github.com/chenfengjin/sphinx-versions.git
 
 COPY ./requirements.txt requirements.txt
 RUN python3 -m pip install requests
-RUN python3 -m pip install --upgrade setuptools==44.1.1 -i https://mirrors.aliyun.com/pypi/simple/ 
+RUN python3 -m pip install --upgrade setuptools==44.1.1
 RUN python3 -m pip install --no-cache-dir  -r requirements.txt
 RUN cd sphinx-versions && python3 setup.py install 
 
