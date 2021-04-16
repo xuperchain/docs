@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - master
+      - multi_vrsion
 
 name: Auto Publish Doc
 jobs:
@@ -27,20 +28,10 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        sudo apt update&& sudo apt-get install apt-transport-https ca-certificates  curl  gnupg  lsb-release 
+        sudo apt update&& sudo apt-get install make
     
-    - name: Add GPG  key
-      run: |
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-      
-    - name: Update APT Source
-      run: |
-         echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    
-    - name: Install Docker
-      run: | 
-        sudo apt update && sudo apt-get install docker-ce docker-ce-cli containerd.io
-
+    - name: setup Docker
+      uses: docker-practice/actions-setup-docker
     
     - name: Build Multi Version
       run: |
@@ -55,10 +46,10 @@ jobs:
         ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
 
         
-    # - name: Upload to BOS
-    #   run: |
-    #     bce-cli-0.10.10/bce bos sync source/_build/html/ bos:/xuperos-test/cms-store/xuperdoc
-
     - name: Upload to BOS
       run: |
-        bce-cli-0.10.10/bce bos sync source/_build/html/ bos:/opensource-xuperchain-doc/xuperdoc
+        bce-cli-0.10.10/bce bos sync source/_build/html/ bos:/xuperos-test/cms-store/xuperdoc
+
+    # - name: Upload to BOS
+    #   run: |
+    #     bce-cli-0.10.10/bce bos sync source/_build/html/ bos:/opensource-xuperchain-doc/xuperdoc
