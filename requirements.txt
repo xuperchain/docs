@@ -16,7 +16,7 @@ imagesize==1.2.0
 ipdb==0.13.4
 isort==5.7.0
 jedi==0.18.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 jsonpatch==1.10
 jsonpointer==1.9
 lazy-object-proxy==1.4.3
