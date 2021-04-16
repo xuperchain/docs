@@ -36,7 +36,7 @@ Pygments==2.7.4
 pyparsing==2.4.7
 pyserial==3.0.1
 pytz==2020.5
-PyYAML==3.11
+PyYAML==5.4
 requests==2.25.1
 snowballstemmer==2.1.0
 ssh-import-id==5.5
