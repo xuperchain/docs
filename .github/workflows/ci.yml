@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - master
-      - multi_vrsion
+      - multi_version
 
 name: Auto Publish Doc
 jobs:
