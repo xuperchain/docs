@@ -55,10 +55,10 @@ jobs:
         ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
 
         
-    - name: Upload to BOS
-      run: |
-        bce-cli-0.10.10/bce bos sync source/_build/html/ bos:/xuperos-test/cms-store/xuperdoc
-
     # - name: Upload to BOS
     #   run: |
-    #     bce-cli-0.10.10/bce bos sync source/_build/html/ bos:/opensource-xuperchain-doc/xuperdoc
+    #     bce-cli-0.10.10/bce bos sync source/_build/html/ bos:/xuperos-test/cms-store/xuperdoc
+
+    - name: Upload to BOS
+      run: |
+        bce-cli-0.10.10/bce bos sync source/_build/html/ bos:/opensource-xuperchain-doc/xuperdoc
