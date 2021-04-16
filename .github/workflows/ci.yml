@@ -6,7 +6,7 @@ on:
 
 name: Auto Publish Doc
 jobs:
-  test:
+  publish:
     strategy:
       matrix:
         platform: [ubuntu-18.04]
