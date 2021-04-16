@@ -3,7 +3,7 @@ on:
     branches:
       - master
       # - pipeline 
-      
+
 name: Auto Publish Doc
 jobs:
   publish:
@@ -35,7 +35,7 @@ jobs:
     
     - name: Build Multi Version
       run: |
-        sudo apt-get install make && make build-image && make release
+        make build-image && make release
         
 
     - name: Configure BOS Client
