@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - master
-      # - multi_version
+      - pipeline
 
 name: Auto Publish Doc
 jobs:
