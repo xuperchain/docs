@@ -16,64 +16,50 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # - name: Setup Python3
-    #   uses: actions/setup-python@v2
-    #   with:
-    #     python-version: '3.6' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-    #     architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified 
+    - name: Setup Python2
+      uses: actions/setup-python@v2
+      with:
+        python-version: '2.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
 
-    # - name: Instal Dependencie
-    #   run: |
-    #     pip3 install -r requirements1.txt 
-    # - name: Build HTML
-    #   run: |
-    #     make html
-
-
-    # - name: Setup Python2
-    #   uses: actions/setup-python@v2
-    #   with:
-    #     python-version: '2.7' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-    #     architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-
-    # - name: Install BOS dependencies
-    #   run: |
-    #     wget https://sdk.bce.baidu.com/console-sdk/bce-cli-0.10.10.zip && unzip bce-cli-0.10.10.zip && cd bce-cli-0.10.10 && python setup.py install
+    - name: Install BOS dependencies
+      run: |
+        wget https://sdk.bce.baidu.com/console-sdk/bce-cli-0.10.10.zip && unzip bce-cli-0.10.10.zip && cd bce-cli-0.10.10 && python setup.py install
      
 
-    - name: Setup Docker
+    - name: Install Dependencies
       run: |
         sudo apt update&& sudo apt-get install apt-transport-https ca-certificates  curl  gnupg  lsb-release 
     
-    - name: Add key
+    - name: Add GPG  key
       run: |
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
       
-    - name: Add key 2
+    - name: Update APT Source
       run: |
          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     
-    - name: install docker
+    - name: Install Docker
       run: | 
         sudo apt update && sudo apt-get install docker-ce docker-ce-cli containerd.io
 
     
-    - name: build multi version
+    - name: Build Multi Version
       run: |
         sudo apt-get install make && make build-image && make release
         
 
-    # - name: Configure BOS Client
-    #   run: |
-    #     mkdir -p ~/.bce/ && bash  scripts/config_bos_client.sh > ~/.bce/credentials
-    #   env:
-    #     ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
-    #     ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
+    - name: Configure BOS Client
+      run: |
+        mkdir -p ~/.bce/ && bash  scripts/config_bos_client.sh > ~/.bce/credentials
+      env:
+        ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
+        ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
 
         
-    # - name: Upload to BOS
-    #   run: |
-    #     bce-cli-0.10.10/bce bos sync build bos:/xuperos-test/cms-store/xuperdoc
+    - name: Upload to BOS
+      run: |
+        bce-cli-0.10.10/bce bos sync build bos:/xuperos-test/cms-store/xuperdoc
 
     # - name: Upload to BOS
     #   run: |
