@@ -24,7 +24,7 @@ copyright = u'2019, xuper'
 author = u'xuper'
 
 # The short X.Y version
-version = u'3.1'
+version = u'3.10'
 # The full version, including alpha/beta/rc tags
 release = u''
 
@@ -178,3 +178,11 @@ epub_title = project
 
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
+
+html_context = {
+    "display_github": True,  # Integrate GitHubls
+    "github_user": "xuperchain",  # Username
+    "github_repo": "docs",  # Repo name
+    "github_version": "master",  # Version
+    "conf_py_path": "/source/",  # Path in the checkout to the docs root
+}
