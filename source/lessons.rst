@@ -498,30 +498,3 @@
 
         目前，超级链的master分支支持群组功能。在创世块配置文件中配置群组合约的相关参数，包括合约名、方法名等，并部署好群组合约(超级链有群组合约的默认实现)即可调用群组合约为平行链增加节点白名单，从而让平行链具备群组能力。
 
-.. container:: number
-
-    第二十一期
-
-.. container:: myclass
-
-    .. container:: title
-
-        参与超级链贡献流程几何？
-        
-    .. container:: text
-    
-        超级链的XIPs（XuperChain Improvement Proposals）描述了一个需求的生命周期，包括需求收集、需求发布、功能设计、功能开发、功能测试以及最终发布；
-        需求主要来源于工作组、社区以及合作伙伴；同时，工作组会对收集来的需求进行可行性、优先级评审；之后，开发者在github上选择感兴趣的需求进行设计并形成文档；
-        再之后，即可以发起实际的代码开发流程；为了提高代码的质量，需要同时编写单元测试。
-
-
-.. container:: myclass
-
-    .. container:: title
-
-        如何快速参与超级链的需求开发？
-
-    .. container:: text
-
-        为了方便开发者更快地参与超级链的需求开发，超级链工作组已经将一些待开发的需求推到 `github <https://github.com/xuperchain/xuperchain/projects/2>`_ 。开发者可以选择感兴趣的需求直接进行开发。
-
