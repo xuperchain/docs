@@ -1,0 +1,60 @@
+{
+    "id": "short_content",
+    "type": 2,
+    "name": "短内容存证合约",
+    "lang": "C++",
+    "version": "1.0.0",
+    "publisher": {
+        "name": "XuperOS"
+    },
+    "publish_time": "2020-01-05",
+    "update_time": "2020-01-05",
+    "downloads": 99,
+    "init_args": {},
+    "brief": "针对短内容文本进行存证的合约样例，提供用户、主题等多个维度的查询",
+    "docs": {
+        "description": "该合约实现了短内容存证的基本功能，针对短内容文本进行存证，提供用户、主题等多个维度的查询,帮助用户快速上手短内容存证相关的场景。",
+        "functions": [
+            {
+                "name": "initialize",
+                "args": [],
+                "description": "初始化函数，在合约部署时默认执行"
+            },
+            {
+                "name": "storeShortContent",
+                "args": [
+                    "user_id: string, 用户名",
+                    "title: string, 标题(不超过100个字符)",
+                    "topic: string 主题(不超过36个字符)",
+                    "content:具体内容(不超过3000个字符)"
+                ],
+                "description": "将用户参数{user_id,title,topic}持久化存储"
+            },
+            {
+                "name": "queryByUser",
+                "args": [
+                    "user_id: string, 用户名"
+                ],
+                "description": "按照用户粒度查询内容,查询的是一个集合"
+            },
+            {
+                "name": "queryByTitle",
+                "args": [
+                    "user_id: string, 用户名",
+                    "title: string, 标题",
+                    "topic: string 主题"
+                ],
+                "description": "按照标题粒度查询内容，用户名,主题，标题都是必须的,查询的是指定的一篇短内容"
+            },
+            {
+                "name": "queryByTopic",
+                "args": [
+                    "user_id: string, 用户名",
+                    "topic: string 主题"
+                ],
+                "description": "按照主题粒度查询内容，用户名，主题都是必须的,查询的是一个集合"
+            }
+        ]
+    },
+    "code_link": "https://xuperos.cdn.bcebos.com/contract/code/short_content.cc"
+}

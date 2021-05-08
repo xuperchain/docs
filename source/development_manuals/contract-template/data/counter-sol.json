@@ -1,0 +1,43 @@
+{
+    "id": "counter-sol",
+    "name": "计数器合约",
+    "type": 5,
+    "lang": "solidity",
+    "version": "1.0.0",
+    "publisher": {
+        "name": "XuperOS"
+    },
+    "publish_time": "2020-01-20",
+    "update_time": "2020-01-20",
+    "downloads": 0,
+    "init_args": {
+        "creator": "value"
+    },
+    "brief": "一个区块链计数器样例，实现分布式的计数器功能。",
+    "docs": {
+        "description": "一个区块链计数器样例，实现分布式的计数器功能，主要提供计数器累加、查询接口，可以创建多个计数器。",
+        "functions": [
+            {
+                "name": "increase",
+                "args": [
+                    "key: string, 计数器的名称"
+                ],
+                "description": "累加函数，每调用成功一次，名称对应的计数器数值会加1，如果是新计数器，则会从0开始累加"
+            },
+            {
+                "name": "get",
+                "args": [
+                    "key: string, 计数器的名称"
+                ],
+                "description": "获取指定计数器当前的数值"
+            },
+            {
+            "name": "getOwner",
+                "args": [
+                ],
+                "description": "获取合约的 owner "
+            }
+        ]
+    },
+    "code_link": "这里需要上传代码之后补充"
+}

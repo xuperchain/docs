@@ -1,0 +1,47 @@
+{
+    "id": "luck_draw",
+    "name": "抽奖小游戏",
+    "type": 4,
+    "lang": "C++",
+    "version": "1.0.0",
+    "publisher": {
+        "name": "XuperOS"
+    },
+    "publish_time": "2020-01-05",
+    "update_time": "2020-01-05",
+    "downloads": 100,
+    "init_args": {
+        "admin": "具有管理员权限的address"
+    },
+    "brief": "区块链抽奖小游戏合约样例，可用作运营活动使用",
+    "docs": {
+        "description": "区块链抽奖小游戏合约样例，可用作运营活动使用，部署后可以给参与用户分配奖券号码，并通过管理员传入随机数种子触发抽奖，获得一个中奖号码",
+        "functions": [
+            {
+                "name": "initialize",
+                "args": [
+                    "admin: string, 初始化指定商品管理员，仅有该管理员才可以发起抽奖"
+                ],
+                "description": "初始化函数，在合约部署时默认执行"
+            },
+            {
+                "name": "getLuckid",
+                "args": [],
+                "description": "发起者会获得一个抽奖券，每个账号只可以获得一个抽奖券"
+            },
+            {
+                "name": "startLuckDraw",
+                "args": [
+                    "seed: string, 随机数种子（正整数的字符串）"
+                ],
+                "description": "传入一个随机数种子，可以是游戏约定的，例如某天A股收盘价"
+            },
+            {
+                "name": "getResult",
+                "args": [],
+                "description": "查询中奖结果，返回一个中奖奖卷号码"
+            }
+        ]
+    },
+    "code_link": "https://xuperos.cdn.bcebos.com/contract/code/luck_draw.cc"
+}

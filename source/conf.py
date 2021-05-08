@@ -39,6 +39,11 @@ release = u''
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx_tabs.tabs',
+    'sphinx_comments',
+    'sphinxprettysearchresults',
+    'sphinx.ext.duration',
+    'sphinxcontrib.datatemplates',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

@@ -1,0 +1,50 @@
+{
+    "id": "score_record",
+    "type": 2,
+    "name": "学生证书上链存证",
+    "lang": "C++",
+    "version": "1.0.0",
+    "publisher": {
+        "name": "XuperOS"
+    },
+    "publish_time": "2020-04-15",
+    "update_time": "2020-04-15",
+    "downloads": 99,
+    "init_args": {
+        "owner": "替换为具有写入权限的address"
+    },
+    "brief": "提供一种学生课程结业证书和成绩的上链存证合约，能够按照学生id记录对应的证书内容。",
+    "docs": {
+        "description": "提供一种学生课程结业证书和成绩的上链存证合约，能够按照学生id记录对应的证书内容。",
+        "functions": [
+            {
+                "name": "initialize",
+                "args": [
+                    "owner: string, 具有写入权限的address"
+                ],
+                "description": "初始化函数，在合约部署时默认执行，初始化写入权限"
+            },
+            {
+                "name": "addScore",
+                "args": [
+                    "user_id: string, 学生的主键id",
+                    "data: string, 学生的成绩信息"
+                ],
+                "description": "将学生成绩在链上持久化存储，只有 owner 有写入权限"
+            },
+            {
+                "name": "queryScore",
+                "args": [
+                    "user_id: string, 学生的主键id"
+                ],
+                "description": "按照学生id查询成绩"
+            },
+            {
+                "name": "queryOwner",
+                "args": [],
+                "description": "查询具有写权限的账户"
+            }
+        ]
+    },
+    "code_link": "https://xuperos.cdn.bcebos.com/contract/code/score_record.cc"
+}

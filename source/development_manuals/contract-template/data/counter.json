@@ -1,0 +1,44 @@
+{
+    "id": "counter",
+    "name": "计数器合约",
+    "type": 5,
+    "lang": "C++",
+    "version": "1.0.0",
+    "publisher": {
+        "name": "XuperOS"
+    },
+    "publish_time": "2020-01-03",
+    "update_time": "2020-01-03",
+    "downloads": 101,
+    "init_args": {
+        "creator": "value"
+    },
+    "brief": "一个区块链计数器样例，实现分布式的计数器功能。",
+    "docs": {
+        "description": "一个区块链计数器样例，实现分布式的计数器功能，主要提供计数器累加、查询接口，可以创建多个计数器。",
+        "functions": [
+            {
+                "name": "initialize",
+                "args": [
+                    "creator: string, 创建者名字"
+                ],
+                "description": "初始化函数，在合约部署时默认执行"
+            },
+            {
+                "name": "increase",
+                "args": [
+                    "key: string, 计数器的名称"
+                ],
+                "description": "累加函数，每调用成功一次，名称对应的计数器数值会加1，如果是新计数器，则会从0开始累加"
+            },
+            {
+                "name": "get",
+                "args": [
+                    "key: string, 计数器的名称"
+                ],
+                "description": "获取指定计数器当前的数值"
+            }
+        ]
+    },
+    "code_link": "https://xuperos.cdn.bcebos.com/contract%2Fcode%2Fcounter.cc"
+}

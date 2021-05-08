@@ -1,0 +1,53 @@
+{
+    "id": "source_trace",
+    "type": 3,
+    "name": "商品溯源样例",
+    "lang": "C++",
+    "version": "1.0.0",
+    "publisher": {
+        "name": "XuperOS"
+    },
+    "publish_time": "2020-01-05",
+    "update_time": "2020-01-05",
+    "downloads": 90,
+    "init_args": {
+        "admin": "具有管理员权限的address"
+    },
+    "brief": "该合约提供了商品溯源的合约模板，帮助用户快速使用XuperChain实现溯源类的应用",
+    "docs": {
+        "description": "该合约提供了商品溯源的合约模板，帮助用户快速使用XuperChain实现溯源类的应用",
+        "functions": [
+            {
+                "name": "initialize",
+                "args": [
+                    "admin: string, 初始化指定商品管理员，仅有该管理员才可以创建和变更商品"
+                ],
+                "description": "初始化溯源合约，在合约部署时默认执行"
+            },
+            {
+                "name": "createGoods",
+                "args": [
+                    "id: string, 待创建商品ID",
+                    "desc: string, 商品描述信息"
+                ],
+                "description": "创建一个商品，仅有admin可以发起商品创建操作"
+            },
+            {
+                "name": "updateGoods",
+                "args": [
+                    "id: string, 待变更的商品ID",
+                    "reason:string, 变更商品的原因"
+                ],
+                "description": "变更商品，仅有admin可以发起商品变更操作"
+            },
+            {
+                "name": "queryRecords",
+                "args": [
+                    "id: string, 待查询的商品ID"
+                ],
+                "description": "查询商品变更信息，任何人可以发起"
+            }
+        ]
+    },
+    "code_link": "https://xuperos.cdn.bcebos.com/contract/code/source_trace.cc"
+}

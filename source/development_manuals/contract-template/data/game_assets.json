@@ -1,0 +1,67 @@
+{
+    "id": "game_assets",
+    "type": 4,
+    "name": "游戏装备管理",
+    "lang": "C++",
+    "version": "1.0.0",
+    "publisher": {
+        "name": "XuperOS"
+    },
+    "publish_time": "2020-01-05",
+    "update_time": "2020-01-05",
+    "downloads": 99,
+    "init_args": {
+        "admin": "具有管理员权限的address"
+    },
+    "brief": "游戏装备管理模板，可用于去中心化游戏装备分发和交换",
+    "docs": {
+        "description": "游戏装备管理模板，可用于去中心化游戏装备分发和交换，用户完全持有游戏装备，保护玩家的游戏财产安全。",
+        "functions": [
+            {
+                "name": "initialize",
+                "args": [
+                    "admin: string, 哪个address具有管理员权限"
+                ],
+                "description": "初始化函数，在合约部署时默认执行，初始化游戏管理账户"
+            },
+            {
+                "name": "addAssetType",
+                "args": [
+                    "typeid: string, 游戏状态的参数和属性描述",
+                    "typedesc: string, 游戏状态的参数和属性描述"
+                ],
+                "description": "新增装备类型"
+            },
+            {
+                "name": "listAssetType",
+                "args": [],
+                "description": "获取所有的装备类型和参数信息"
+            },
+            {
+                "name": "getAssetsByUser",
+                "args": [
+                    "userid: string, 管理员可以指定user进行查询, 普通用户指定无效"
+                ],
+                "description": "按照用户查询装备资产，管理员可以查询任意用户，其他用户只能查询自己的装备"
+            },
+            {
+                "name": "newAssetToUser",
+                "args": [
+                    "typeid: string, 游戏状态的参数和属性描述",
+                    "assetid: string, 游戏装备唯一id(先从外部获取装备id,也可以实现成一个自增计数器)",
+                    "userid: string, 获得游戏装备的用户"
+                ],
+                "description": "系统新生成的新装备，发放给特定用户，只能由管理员调用"
+            },
+            {
+                "name": "tradeAsset",
+                "args": [
+                    "to: string, 装备接收者",
+                    "assetid: string, 装备id"
+                ],
+                "description": "tradeAsset 交易装备给特定用户，只能由装备拥有者调用"
+            }
+        ]
+    },
+    "code_link": "https://xuperos.cdn.bcebos.com/contract/code/game_assets.cc"
+}
