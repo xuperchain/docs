@@ -10,7 +10,7 @@ Fork 代码
 
 首先访问 https://github.com/xuperchain/xuperchain ，fork代码到自己的代码仓库
 
-   .. image:: ../images/github2.png  
+   .. image:: ../images/github.png  
        :align: center
 
 Clone代码到本地
@@ -95,10 +95,3 @@ Clone代码到本地
 .. code-block:: bash
 
     git branch -D new_feature
-
-.. note::
-
-    你也可以点击 star 收藏该仓库以便后续快速找到该仓库
-
-       .. image:: ../images/star.png  
-        :align: center
