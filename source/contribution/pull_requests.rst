@@ -1,7 +1,9 @@
 代码提交指南
 ========
 
-XuperChain 欢迎任何形式的贡献(贡献新feature，完善文档，参加线下活动，提Issue)。对于想给 XuperChain 贡献代码的开发者，在这里我们以 https://github.com/xuperchain/xuperchain 这个仓库为例来详细解释代码提交流程
+XuperChain 欢迎任何形式的贡献（包括但不限于贡献新feature，完善文档，参加线下活动，提Issue)。
+
+对于想给 XuperChain 贡献代码的开发者，在这里我们以给 https://github.com/xuperchain/xuperchain 这个仓库提交代码为例来详细解释代码提交流程
 
 Fork 代码
 ---------
