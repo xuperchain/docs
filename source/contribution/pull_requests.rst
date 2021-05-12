@@ -10,7 +10,7 @@ Fork 代码
 
 首先访问 https://github.com/xuperchain/xuperchain ，fork代码到自己的代码仓库
 
-   .. image:: ../images/github2.png  
+   .. image:: ../images/github.png  
        :align: center
 
 Clone代码到本地
