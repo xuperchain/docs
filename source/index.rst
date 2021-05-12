@@ -100,6 +100,13 @@ XuperChain文档
 
 .. toctree::
     :maxdepth: 1
+    :caption: 贡献指南  
+    :numbered:
+
+    contribution/pull_requests.rst
+
+.. toctree::
+    :maxdepth: 1
     :caption: 其他
     :numbered:
 
