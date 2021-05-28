@@ -154,7 +154,7 @@ PluginMgr使用
         return
     }
 
- XuperChain 的插件
+XuperChain 的插件
 ------------
 
 目前，插件化机制已经在 XuperChain 中应用于包括密码学、共识、KV引擎等多个核心模块中，初步实现了插件的解耦和可扩展性目标。

@@ -1,4 +1,4 @@
- XuperChain 跨链技术
+XuperChain 跨链技术
 ===================
 
 背景
@@ -86,7 +86,7 @@
 .. image:: ../images/cross_chain_7.png
     :align: center
 
- XuperChain 跨链方案
+XuperChain 跨链方案
 -----------------------
  XuperChain 是一个易于编程的区块链框架，可以方便地定制新的功能。基于此框架， XuperChain 设计了一个轻量级的跨链方案，通过合约和一些基础库组成了一个完整的跨链方案，适用于不同的跨链应用场景。
 
