@@ -2,7 +2,7 @@
 创建合约
 ========
 
-超级链支持丰富的智能合约开发语言，比如go，Solitidy，C++，Java等。
+ XuperChain 支持丰富的智能合约开发语言，比如go，Solitidy，C++，Java等。
 阅读本节前，请先确保完成 `XuperChain环境部署 <https://xuperchain.readthedocs.io/zh/latest/quickstart.html>`_ 
 
 
@@ -53,7 +53,7 @@
 部署native合约
 --------------
 
-如果本地搭建超级链环境，在部署、调用 native 合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。
+如果本地搭建 XuperChain 环境，在部署、调用 native 合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。
 
 .. code-block:: yaml
     :linenos:
@@ -136,7 +136,7 @@
 部署solidity合约
 --------------
 
-如果本地搭建超级链环境，在部署、调用solidity合约之前，请先查看`conf/xchain.yaml` 中evm一节，确保evm合约功能开启。
+如果本地搭建 XuperChain 环境，在部署、调用solidity合约之前，请先查看`conf/xchain.yaml` 中evm一节，确保evm合约功能开启。
 
 .. code-block:: yaml
     :linenos:
@@ -194,38 +194,38 @@
         # 调用结果，其中0表示返回值的次序，1为返回值
         # key,value: 0 1
 
-5. 超级链账户与EVM账户地址转换
+5.  XuperChain 账户与EVM账户地址转换
 
-    超级链有普通地址、合约账户以及合约名，这三类账户在EVM运行时需要转换为以太坊的地址类型（16进制编码字符串，形如0x1234567890abcdef1234567890abcdef12345678格式）。超级链提供了上述三个地址与EVM地址类型转换工具。
+     XuperChain 有普通地址、合约账户以及合约名，这三类账户在EVM运行时需要转换为以太坊的地址类型（16进制编码字符串，形如0x1234567890abcdef1234567890abcdef12345678格式）。 XuperChain 提供了上述三个地址与EVM地址类型转换工具。
 
     .. code-block:: bash
 
-        # xchain合约账户地址转evm地址，contract-account表示超级链合约账户
+        # xchain合约账户地址转evm地址，contract-account表示 XuperChain 合约账户
         ./xchain-cli evm addr-trans -t x2e -f XC1111111111111113@xuper
         result, 3131313231313131313131313131313131313133    contract-account
         
-        # evm地址转xchain合约账户，contract-account表示超级链合约账户
+        # evm地址转xchain合约账户，contract-account表示 XuperChain 合约账户
         ./xchain-cli evm addr-trans -t e2x -f 3131313231313131313131313131313131313133
         result, XC1111111111111113@xuper     contract-account        
         
-        # xchain普通账户地址转evm地址，xchain表示超级链普通账户
+        # xchain普通账户地址转evm地址，xchain表示 XuperChain 普通账户
         ./xchain-cli evm addr-trans -t e2x -f 93F86A462A3174C7AD1281BCF400A9F18D244E06
         result, dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN   xchain        
         
-        # xchain普通账户地址转evm地址，xchain表示超级链普通账户
+        # xchain普通账户地址转evm地址，xchain表示 XuperChain 普通账户
         ./xchain-cli evm addr-trans -t x2e -f dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
         result, 93F86A462A3174C7AD1281BCF400A9F18D244E06   xchain      
         
-        # xchain合约名地址转evm地址，contract-name表示超级链合约名
+        # xchain合约名地址转evm地址，contract-name表示 XuperChain 合约名
         ./xchain-cli evm addr-trans -t x2e -f storagedata11
         result, 313131312D2D2D73746F72616765646174613131   contract-name    
         
-        # evm地址转xchain合约名，contract-name表示超级链合约名
+        # evm地址转xchain合约名，contract-name表示 XuperChain 合约名
         ./xchain-cli evm addr-trans -t e2x -f 313131312D2D2D73746F72616765646174613131
         result, storagedata11   contract-name
 
-    - ``x2e`` ：表示超级链地址转换为EVM地址
-    - ``e2x`` ：表示EVM地址转换为超级链地址。
+    - ``x2e`` ：表示 XuperChain 地址转换为EVM地址
+    - ``e2x`` ：表示EVM地址转换为 XuperChain 地址。
 
 设置合约方法的ACL
 ------------------

@@ -5,9 +5,9 @@
 简介
 ----------
 
-百度超级链是一个支持多语言合约的区块链框架，有多种语言来供大家选择使用开发智能合约。目前超级链的智能合约可以使用solidity、c++、go以及 java语言来编写，solidity为EVM合约，c++和go 支持 wasm合约，go和java支持native合约。solidity合约应用最为广泛，完美兼容以太坊开源社区以及相关开发工具，c++合约合约性能会更好些，go合约在易用性上更好，java合约的开发者会更多些。大家可以根据需要选择自己喜欢的语言来编写智能合约，这篇文章会通过一步步的指引来帮助大家使用solidity、c++、go或者java来编写超级链的智能合约，在阅读完文章后，希望大家对如何编写，部署和测试超级链的智能合约有初步的认识。  
+百度 XuperChain 是一个支持多语言合约的区块链框架，有多种语言来供大家选择使用开发智能合约。目前 XuperChain 的智能合约可以使用solidity、c++、go以及 java语言来编写，solidity为EVM合约，c++和go 支持 wasm合约，go和java支持native合约。solidity合约应用最为广泛，完美兼容以太坊开源社区以及相关开发工具，c++合约合约性能会更好些，go合约在易用性上更好，java合约的开发者会更多些。大家可以根据需要选择自己喜欢的语言来编写智能合约，这篇文章会通过一步步的指引来帮助大家使用solidity、c++、go或者java来编写 XuperChain 的智能合约，在阅读完文章后，希望大家对如何编写，部署和测试 XuperChain 的智能合约有初步的认识。  
 
-或使用超级链XuperOS，支持合约可视化管理、在线上链。 `点击了解 <https://xchain.baidu.com/n/console#/xuperos/contracts?type=mine>`_ 
+或使用 XuperChain XuperOS，支持合约可视化管理、在线上链。 `点击了解 <https://xchain.baidu.com/n/console#/xuperos/contracts?type=mine>`_ 
 
 准备工作
 ------------
@@ -15,7 +15,7 @@
 环境要求
 ^^^^^^^^^^^^
 
-目前超级链节点主要运行在linux和mac上，windows不能运行超级链节点。
+目前 XuperChain 节点主要运行在linux和mac上，windows不能运行 XuperChain 节点。
 
 1. go >= 1.12.x && <= 1.13.x
 #. g++ >= 4.8.2 或者 clang++ >= 3.3
@@ -132,7 +132,7 @@ xdev提供了一个默认的c++合约工程模板
 ^^^^^^^^^^^^^^^
 ::
 
-    第一次编译的时间会长一点，因为xdev需要下载编译器镜像，以及编译超级链的标准库。
+    第一次编译的时间会长一点，因为xdev需要下载编译器镜像，以及编译 XuperChain 的标准库。
 
 
 .. code-block:: bash
@@ -202,7 +202,7 @@ XuperChain目前主要支持以太坊solidity合约，两种编译成wasm格式�
 Solidity合约
 ^^^^^^^^^^^^
 
-如果本地搭建超级链环境，在部署、调用solidity合约之前，请先查看`conf/xchain.yaml` 中evm一节，确保evm合约功能开启。
+如果本地搭建 XuperChain 环境，在部署、调用solidity合约之前，请先查看`conf/xchain.yaml` 中evm一节，确保evm合约功能开启。
 
 .. code-block:: yaml
     :linenos:
@@ -263,7 +263,7 @@ Solidity合约
 
     - solidity合约相关文档请参见 **https://github.com/ethereum/solidity** 。
 
-    - 更多的Solidity语言合约例子在超级链项目的 **core/contractsdk/evm/example** 以及 **https://github.com/OpenZeppelin/openzeppelin-contracts** 里面寻找。
+    - 更多的Solidity语言合约例子在 XuperChain 项目的 **core/contractsdk/evm/example** 以及 **https://github.com/OpenZeppelin/openzeppelin-contracts** 里面寻找。
 
 合约编译
 >>>>>>>>>>>
@@ -380,7 +380,7 @@ C++合约
 - 每个合约方法有一个 **Context** 对象，通过这个对象我们能获取到很多有用的方法，如获取用户参数等。
 - 通过 **Context** 对象的 **ok** 或者 **error** 方法我们能给调用方反馈合约的执行情况:成功或者失败。
 
-更多的c++语言合约例子在超级链项目的 **core/contractsdk/cpp/example** 里面寻找。
+更多的c++语言合约例子在 XuperChain 项目的 **core/contractsdk/cpp/example** 里面寻找。
 
 Go合约
 ^^^^^^^^^^^^
@@ -452,7 +452,7 @@ go合约的整体框架结构跟c++合约一样，在表现形式上稍微有点
 - c++通过 **ctx->ok** 来返回合约数据，go通过返回 **code.Response** 对象来返回合约数据。
 - go合约需要在main函数里面调用 **driver.Serve** 来启动合约。
 
-更多的go语言合约例子在超级链项目的 **core/contractsdk/go/example** 里面寻找。
+更多的go语言合约例子在 XuperChain 项目的 **core/contractsdk/go/example** 里面寻找。
 
 合约编译
 >>>>>>>>>>>
@@ -481,7 +481,7 @@ Java合约
 
 java合约目前只支持native合约。
 
-如果本地搭建超级链环境，在部署、调用native合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。
+如果本地搭建 XuperChain 环境，在部署、调用native合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。
 
 .. code-block:: yaml
     :linenos:
@@ -586,7 +586,7 @@ java合约的整体框架结构跟c++、go合约一样，在表现形式上稍�
 - c++通过 **ctx->ok** 来返回合约数据，go通过返回 **code.Response** 对象来返回合约数据，java通过 **Response.ok** 来返回合约数据。
 - java合约需要在main函数里面调用 **Driver.serve** 来启动合约。
 
-更多的java语言合约例子在超级链项目的 **core/contractsdk/java/example** 里面寻找。
+更多的java语言合约例子在 XuperChain 项目的 **core/contractsdk/java/example** 里面寻找。
 
 合约编译
 >>>>>>>>>>>
@@ -749,9 +749,9 @@ Run Build Task(⇧⌘B)来启动构建
 开放网络集成环境
 ---------------------
 
-超级链开放网络是基于百度自研底层技术搭建的区块链基础服务网络，符合中国标准，超级节点遍布全国，区块链网络完全开放，为用户提供区块链快速部署和运行的环境，最低2元钱就用上的区块链服务，让信任链接更加便利。
+ XuperChain 开放网络是基于百度自研底层技术搭建的区块链基础服务网络，符合中国标准，超级节点遍布全国，区块链网络完全开放，为用户提供区块链快速部署和运行的环境，最低2元钱就用上的区块链服务，让信任链接更加便利。
 
-超级链开放网络为开发者提供了合约开发、编译、部署、管理的一站式可视化集成环境，下面介绍如何在开放网络上开发部署智能合约。
+ XuperChain 开放网络为开发者提供了合约开发、编译、部署、管理的一站式可视化集成环境，下面介绍如何在开放网络上开发部署智能合约。
 
 .. image:: ../images/xuperos-dashboard.png
     :align: center
@@ -759,8 +759,8 @@ Run Build Task(⇧⌘B)来启动构建
 账户注册
 ^^^^^^^^^^^^
 
-    1. 在超级链官网 https://xchain.baidu.com/ 使用百度账号登录，如果没有百度账号请先注册。
-    #. 进入超级链开放网络控制台，第一次登录的用户，平台会为用户创建区块链账户，请按照创建账户指引文档完成安全码设置，并记录自己的助记词和私钥。
+    1. 在 XuperChain 官网 https://xchain.baidu.com/ 使用百度账号登录，如果没有百度账号请先注册。
+    #. 进入 XuperChain 开放网络控制台，第一次登录的用户，平台会为用户创建区块链账户，请按照创建账户指引文档完成安全码设置，并记录自己的助记词和私钥。
 
 .. image:: ../images/xuperos-create-account.png
     :align: center
@@ -810,4 +810,4 @@ Run Build Task(⇧⌘B)来启动构建
 结语
 -------
 
-通过上面的学习，相信大家已经掌握了如何编写超级链智能合约的方法，想要更深入了解超级链，可以通过访问超级链开源项目 https://github.com/xuperchain/xuperchain 来获取更多的学习资料。
+通过上面的学习，相信大家已经掌握了如何编写 XuperChain 智能合约的方法，想要更深入了解 XuperChain ，可以通过访问 XuperChain 开源项目 https://github.com/xuperchain/xuperchain 来获取更多的学习资料。

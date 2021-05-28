@@ -142,7 +142,7 @@ XuperChain系统支持可插拔共识，通过修改创世块的参数，可以�
     YDYBchKWXpG7HSkHy4YoyzTJnd3hTFBgG
     kJFcY3FjmNU8xk6cRzHvTPmChUQ3SBGVE
 
-然后生成一个提名交易，超级链上进行候选人提名需要冻结大于链上资产总量的十万分之一的utxo（当前的总资产可以通过 `status查询命令 <../quickstart.html#svr-status>`_ 查看结果的utxoTotal字段）
+然后生成一个提名交易， XuperChain 上进行候选人提名需要冻结大于链上资产总量的十万分之一的utxo（当前的总资产可以通过 `status查询命令 <../quickstart.html#svr-status>`_ 查看结果的utxoTotal字段）
 
 .. code-block:: bash
     :linenos:
@@ -226,7 +226,7 @@ Json格式的配置又来了
 TDPOS结果查询
 ^^^^^^^^^^^^^
 
-超级链的客户端提供了这一功能
+ XuperChain 的客户端提供了这一功能
 
 1. 查询候选人信息
 
