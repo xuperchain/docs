@@ -2,7 +2,7 @@
 电子存证合约
 ============
 
-或使用超级链XuperOS，其已发布丰富的合约模板，涵盖溯源、存证、积分、去中心化等多行业模板。 `点击了解 <https://xchain.baidu.com/n/console#/xuperos/contracts?type=market>`_ 
+或使用 XuperChain XuperOS，其已发布丰富的合约模板，涵盖溯源、存证、积分、去中心化等多行业模板。 `点击了解 <https://xchain.baidu.com/n/console#/xuperos/contracts?type=market>`_ 
 
 问题引入
 --------

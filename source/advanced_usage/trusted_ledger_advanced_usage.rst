@@ -1,12 +1,12 @@
 可信账本使用文档
 ==================
 
-超级链可信账本包含如下四个核心组件：
+ XuperChain 可信账本包含如下四个核心组件：
 
 1. mesatee-core-standalone：TEE Enclave App的开发框架，用户可以根据业务需求开发自己的应用
-2. TEESDK：负责与TEE服务的通信，可实现超级链SDK和超级链对TEE服务的请求
-3. xuperchain：超级链开源代码，支持模块的可插拔机制
-4. 超级链SDK：负责与超级链通信，可实现交易的封装和上链、数据的加密和解密等
+2. TEESDK：负责与TEE服务的通信，可实现 XuperChain SDK和 XuperChain 对TEE服务的请求
+3. xuperchain： XuperChain 开源代码，支持模块的可插拔机制
+4.  XuperChain SDK：负责与 XuperChain 通信，可实现交易的封装和上链、数据的加密和解密等
 
 服务部署
 --------------
@@ -42,7 +42,7 @@
 部署区块链
 >>>>>>>>>>>>
 
-1. 拉取超级链最新代码：https://github.com/xuperchain/xuperchain 
+1. 拉取 XuperChain 最新代码：https://github.com/xuperchain/xuperchain 
 2. 将makefile文件中的 **-mod=vendor** 注释掉后再编译
 3. 在编译产出output/conf/xchain.yaml文件中进行如下配置：
 
@@ -71,7 +71,7 @@
 编译xuper-sdk-go
 >>>>>>>>>>>>>>>>>>>>
 
-1. 拉取超级链SDK最新代码：https://github.com/xuperdata/xuper-sdk-go
+1. 拉取 XuperChain SDK最新代码：https://github.com/xuperdata/xuper-sdk-go
 2. 参考如下配置编辑文件conf/sdk.yaml.tee
 
 .. code-block:: go

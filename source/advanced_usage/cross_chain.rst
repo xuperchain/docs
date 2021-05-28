@@ -2,7 +2,7 @@
 非事务场景跨链使用文档
 =========================
 
-跨链的背景知识可以参考超级链的设计文档 `超级链跨链技术 <../design_documents/cross_chain.html>`_ ，这里介绍一下超级链自带的跨链工具的使用方式。
+跨链的背景知识可以参考 XuperChain 的设计文档 ` XuperChain 跨链技术 <../design_documents/cross_chain.html>`_ ，这里介绍一下 XuperChain 自带的跨链工具的使用方式。
 
 中继同步合约
 --------------
@@ -31,7 +31,7 @@
 
 这里如果在命令行中操作就会遇到一些麻烦，在命令行中调用，blockHeader字段需要使用base64编码放在json中；更多的是序列化的InternalBlock数据从哪里来。
 
-proto文件位于 xuperchain/core/contractsdk/cpp/example/xuper_relayer/src/relayer.proto，其中的InternalBlock和 xuperchain/core/pb/xchain.proto 超级链的InternalBlock定义是一致的，我们可以使用超级链提供的RPC接口
+proto文件位于 xuperchain/core/contractsdk/cpp/example/xuper_relayer/src/relayer.proto，其中的InternalBlock和 xuperchain/core/pb/xchain.proto  XuperChain 的InternalBlock定义是一致的，我们可以使用 XuperChain 提供的RPC接口
 
 .. code-block:: protobuf
     :linenos:

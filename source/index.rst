@@ -92,7 +92,7 @@ XuperChain文档
 
 .. toctree::
     :maxdepth: 1
-    :caption: 超级链测试环境
+    :caption:  XuperChain 测试环境
     :numbered:
 
     test_network/description.rst

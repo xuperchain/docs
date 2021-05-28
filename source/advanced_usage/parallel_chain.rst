@@ -5,7 +5,7 @@
 创建平行链
 ----------
 
-现在超级链中创建平行链的方式是：发起一个系统智能合约，发到xuper链。
+现在 XuperChain 中创建平行链的方式是：发起一个系统智能合约，发到xuper链。
 
 当前xchain.yaml有两个配置项：
 
@@ -43,14 +43,14 @@
 获取group_chain合约
 -------------------
 
-超级链提供了默认的群组合约（group_chain）的实现，路径为 core/contractsdk/cpp/example/group_chain.cc 。在 core/contractsdk/cpp 目录下执行 sh build.sh 即可编译生成 group_chain.wasm ，即可使用 group_chain.wasm 实现群组合约的部署。
+ XuperChain 提供了默认的群组合约（group_chain）的实现，路径为 core/contractsdk/cpp/example/group_chain.cc 。在 core/contractsdk/cpp 目录下执行 sh build.sh 即可编译生成 group_chain.wasm ，即可使用 group_chain.wasm 实现群组合约的部署。
 
 创建群组
 --------
 
 如果希望创建的平行链只在自己希望的小范围使用，那么可以参考此节配置群组功能
 
-当前超级链中创建群组的方式是：在xuper链上部署GroupChain智能合约，将节点白名单加到GroupChain合约中。
+当前 XuperChain 中创建群组的方式是：在xuper链上部署GroupChain智能合约，将节点白名单加到GroupChain合约中。
 
 在创世块中配置群组合约配置：
 

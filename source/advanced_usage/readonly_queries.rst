@@ -1,7 +1,7 @@
 只读跨链场景使用文档
 =======================
 
-跨链的背景知识可以参考超级链的技术文档 `超级链跨链技术 <../design_documents/cross_chain.html>`_ ，这里介绍一下超级链跨链只读使用说明。
+跨链的背景知识可以参考 XuperChain 的技术文档 ` XuperChain 跨链技术 <../design_documents/cross_chain.html>`_ ，这里介绍一下 XuperChain 跨链只读使用说明。
 
 B网络搭建
 --------------
@@ -38,7 +38,7 @@ A网络搭建
 部署跨链寻址合约
 ^^^^^^^^^^^^^^^^
 
-超级链提供了默认的寻址合约（crossQueryNaming）的实现，路径为core/contractsdk/cpp/example/naming/src/naming.cc。在 core/contractsdk/cpp 目录下执行 sh build.sh 即可编译生成 naming.wasm ，即可使用 naming.wasm实现寻址合约的部署。
+ XuperChain 提供了默认的寻址合约（crossQueryNaming）的实现，路径为core/contractsdk/cpp/example/naming/src/naming.cc。在 core/contractsdk/cpp 目录下执行 sh build.sh 即可编译生成 naming.wasm ，即可使用 naming.wasm实现寻址合约的部署。
 
 创建合约账户
 ^^^^^^^^^^^^^^^^
@@ -61,7 +61,7 @@ A网络搭建
     ./xchain-cli wasm invoke crossQueryNaming --method RegisterChain -a '{"name":"mainnet.xuper","type":"xuper", "min_endorsor_num":"2"}' --fee 888
 
 - name：B网络.链名
-- type：链的种类，超级链
+- type：链的种类， XuperChain 
 - min_endorsor_num： 表示背书个数
 
 添加信任节点

@@ -5,7 +5,7 @@ Chained-BFT共识公共组件
 概述
 ----
 
-在 `超级链共识框架 <consensus.html>`_ 一文中介绍了超级链底层有一个共识的公共组件叫chained-bft，其是Hotstuff算法的实现。HotStuff是一种简洁而优雅的bft改进算法。它具有以下优点：
+在 ` XuperChain 共识框架 <consensus.html>`_ 一文中介绍了 XuperChain 底层有一个共识的公共组件叫chained-bft，其是Hotstuff算法的实现。HotStuff是一种简洁而优雅的bft改进算法。它具有以下优点：
 
 - 它的设计中将liveness和safty解耦开来，使得非常方便与其他的共识进行扩展；
 - 将bft过程拆解成3阶段，每个阶段都是o(n)的通信；
@@ -19,7 +19,7 @@ Chained-BFT共识公共组件
 
 **chained-BFT中区块需要在三个块后才被最终一致确认**
 
-HotStuff中明确了基本算法Basic HotStuff和链式算法Chained-HotStuff的概念，其中Chained-HotStuff是Basic HotStuff的流水线链式结构，也是超级链chained-BFT的算法原型。
+HotStuff中明确了基本算法Basic HotStuff和链式算法Chained-HotStuff的概念，其中Chained-HotStuff是Basic HotStuff的流水线链式结构，也是 XuperChain chained-BFT的算法原型。
 
 和PBFT一样，Basic HotStuff也被分成了三个阶段: Prepare、Pre-Commit、Commit，如下图所示。
 
@@ -115,7 +115,7 @@ Safety Rule 是一个验证节点是否要接受一个新的Proposal的安全性
 PacemakerInterface
 ------------------
 
-Hotstuff算法的一大特点就是将共识的liveness和safety分开。PacemakerInterface是Hotstuff算法Pacemaker的接口定义，外层共识通过实现这些接口，可以推进内层共识的状态轮转。不同的外层共识可以有不同的实现。目前超级链已经实现了DPoS+Hotstuff，具体的方案如下所示：
+Hotstuff算法的一大特点就是将共识的liveness和safety分开。PacemakerInterface是Hotstuff算法Pacemaker的接口定义，外层共识通过实现这些接口，可以推进内层共识的状态轮转。不同的外层共识可以有不同的实现。目前 XuperChain 已经实现了DPoS+Hotstuff，具体的方案如下所示：
 
 .. image:: ../images/pacemaker.png
     :align: center

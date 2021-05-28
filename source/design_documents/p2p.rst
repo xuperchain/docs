@@ -1,5 +1,5 @@
 
-超级链p2p网络
+ XuperChain p2p网络
 =============
 
 p2p网络概述
@@ -12,17 +12,17 @@ p2p网络概述
 
 互联网的发展速度远远超过人们的预期，人们在制定网络协议之初没有考虑过网络规模会获得如此迅速的增长，导致ip地址的短缺。NAT技术通过将局域网内的主机地址映射为互联网上的有效ip地址，实现了网络地址的复用，从而部分解决了ip地址短缺的问题。网络中大部分用户处于各类NAT设备之后，导致在p2p网络中两个节点之间直接建立udp或者tcp链接难度比较大，应运而生的是NAT穿透技术。目前主要有两种途径，一种称为打洞，即UDP Punch技术；另一种是利用NAT设备的管理接口，称为UPnP技术。
 
-超级链p2p网络
+ XuperChain p2p网络
 -------------
 
-超级链的p2p网络是可插拔的，目前支持libp2p模式和基于GRRC模式，libp2p使用KAD进行节点的路由管理，支持NAT穿透，主要用于公开网络的场景，节点规模可以达到万级；基于GRPC模式的p2p网络支持路由的自定义、节点的动态加入退出等功能，主要用于联盟链场景。
+ XuperChain 的p2p网络是可插拔的，目前支持libp2p模式和基于GRRC模式，libp2p使用KAD进行节点的路由管理，支持NAT穿透，主要用于公开网络的场景，节点规模可以达到万级；基于GRPC模式的p2p网络支持路由的自定义、节点的动态加入退出等功能，主要用于联盟链场景。
 通过xchian.yaml中p2p module配置，选择p2p网络的模式。
-超级链定义了自己的协议类型 **XuperProtocolID = "/xuper/2.0.0"** ，所有的超级链网络节点除了基础的消息类型外还会监听并处理这个协议的网络消息。
+ XuperChain 定义了自己的协议类型 **XuperProtocolID = "/xuper/2.0.0"** ，所有的 XuperChain 网络节点除了基础的消息类型外还会监听并处理这个协议的网络消息。
 
-超级链p2p消息
+ XuperChain p2p消息
 ^^^^^^^^^^^^^
 
-超级链消息采用Protobuf定义，整个消息包括2部分，分别是消息头 ``MessageHeader`` 和消息体 ``MessageData`` ，具体如下所示：
+ XuperChain 消息采用Protobuf定义，整个消息包括2部分，分别是消息头 ``MessageHeader`` 和消息体 ``MessageData`` ，具体如下所示：
 
 .. image:: ../images/p2p-msg.png
     :align: center
@@ -57,7 +57,7 @@ p2p网络概述
 模块交互图
 ^^^^^^^^^^
 
-超级链p2p网络模块与其他模块的交互如图所示，以libp2p模式为例：
+ XuperChain p2p网络模块与其他模块的交互如图所示，以libp2p模式为例：
 
 .. image:: ../images/p2p-relation.png
     :align: center
@@ -74,7 +74,7 @@ p2p网络概述
 交易消息处理流程
 ^^^^^^^^^^^^^^^^
 
-用户提交的交易消息在超级链网络中传输的处理流程如下所示：
+用户提交的交易消息在 XuperChain 网络中传输的处理流程如下所示：
 
 .. image:: ../images/p2p-flow.png
     :align: center
