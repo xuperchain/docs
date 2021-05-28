@@ -1,5 +1,5 @@
 
- XuperChain 小课堂
+XuperChain 小课堂
 ============
 
 .. image:: images/b.png

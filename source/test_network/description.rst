@@ -1,14 +1,14 @@
 
 .. _description:
 
- XuperChain 测试环境说明
+XuperChain 测试环境说明
 ==================
 
 区块链是信任的连接器， 通过区块链可以做到很多之前中心化信息系统做不到的事情，使得参与者可以凭借这个“连接器”完成成可信环境的构建和价值的安全流转。然而，目前多数公链的性能和安全不足以支撑各行各业的诸多场景，百度 XuperChain （XuperChain）是百度自主研发的区块链技术，目前已启动测试环境对外公开测试，欢迎各界开发者使用我们的产品并且提出宝贵意见。
 
 .. _test net:
 
- XuperChain 公开测试环境（XuperChain-testnet）
+XuperChain 公开测试环境（XuperChain-testnet）
 ----------------------------------------
 
  XuperChain 公开测试环境是 XuperChain 许可开放网络的测试版本，目前 XuperChain 测试环境已经实现了 XuperChain 的主要功能，为 XuperChain 早期用户和开发者提供一个可供使用的测试环境。
