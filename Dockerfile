@@ -11,7 +11,6 @@ COPY ./requirements.txt requirements.txt
 RUN python3 -m pip install requests
 RUN python3 -m pip install --upgrade setuptools==44.1.1
 RUN python3 -m pip install --no-cache-dir  -r requirements.txt
-RUN python3 -m pip install jieba
 RUN cd sphinx-versions && python3 setup.py install 
 
 COPY ./.sphinx-server.yml /opt/sphinx-server/
