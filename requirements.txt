@@ -52,3 +52,5 @@ sphinx-autobuild
 sphinx-rtd-theme
 sphinx-server
 sphinxprettysearchresults
+# for chinese search
+jieba

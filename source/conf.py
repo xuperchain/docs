@@ -161,7 +161,7 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
-
+html_search_language = "zh"
 # -- Options for Epub output -------------------------------------------------
 
 # Bibliographic Dublin Core info.
