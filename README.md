@@ -8,7 +8,6 @@
 - 自动发布
 - 标签页视图
 
-
 ### 安装依赖
 1. 安装依赖项
 
@@ -20,7 +19,7 @@
     make build-image
 ```
 ### 实时编辑
-XuperChain 文档支持实时热更新方案，你可以通过浏览器进行内容预览，内容编辑会实时更新到浏览器窗口
+XuperChain 文档支持实时热更新，你可以通过浏览器进行内容实时预览
 
 1. 运行支持热更新的环境
 ``` bash
@@ -40,10 +39,12 @@ XuperChain 文档支持实时热更新方案，你可以通过浏览器进行内
 ```
    
 2. 构建所有版本
-   文档支持多版本管理
+   
+   文档支持多版本管理，你可以所有版本的文档。
 ``` bash
     make build-release
 ```
+    需要注意的是，构建多版本时不会构建尚未提交的内容
 
 ## 贡献指南
 我们欢迎任何形式的文档贡献，包括
@@ -69,4 +70,5 @@ XuperChain 文档支持实时热更新方案，你可以通过浏览器进行内
 1. 查看并签署[贡献者协议](https://cla-assistant.io/xuperchain/xuperchain)
 2. 查看 [贡献指南](https://github.com/xuperchain/xuperchain/blob/master/CONTRIBUTING.md)
 3. 查看 [代码提交指南](https://xuper.baidu.com/n/xuperdoc/contribution/pull_requests.html)
-4. 提交完整的 Pull Request
+4. 本地编辑文件
+5. 提交完整的 Pull Request
