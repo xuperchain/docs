@@ -63,7 +63,7 @@ XuperChain 文档支持实时热更新，你可以通过浏览器进行内容实
 3. 点击右上角"编辑此页"按钮
 4. 修改内容后点击 "Commit Change" 提交修改
 
-提交后会自动生成一个 Pull Request,待 Pull Request 合并后，你就可以在 (https://xuper.baidu.com/n/xuperdoc/index.html) 看到你的提交了
+提交后会自动生成一个 Pull Request,待 Pull Request 合并后，你就可以在 [XuperChain 文档官网](https://xuper.baidu.com/n/xuperdoc/index.html)看到你的提交了
 
 ### 贡献复杂内容
 如果你需要对已有文档做较多的调整，或者希望贡献一篇完整的内容，你可以
