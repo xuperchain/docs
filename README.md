@@ -42,7 +42,7 @@ XuperChain 文档支持实时热更新，你可以通过浏览器进行内容实
    
    文档支持多版本管理，你可以所有版本的文档。
 ``` bash
-    make build-release
+    make release
 ```
     需要注意的是，构建多版本时不会构建尚未提交的内容
 
