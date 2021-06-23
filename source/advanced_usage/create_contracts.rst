@@ -227,6 +227,26 @@
     - ``x2e`` ：表示 XuperChain 地址转换为EVM地址
     - ``e2x`` ：表示EVM地址转换为 XuperChain 地址。
 
+合约升级
+--------
+XuperChain 支持合约升级，在使用合约升级功能之前需要修改 conf/xchain.yaml，开启合约升级功能
+
+.. code-block:: yaml
+
+    # 合约通用配置
+    contract:   
+        enableUpgrade: true
+
+合约升级与合约部署的命令十分类似，区别在于
+    1. 不需要指定 runtime
+    2. 不需要指定初始化参数
+    
+以升级 wasm 的 counter 合约为例
+
+.. code-block:: bash
+
+    ./xchain-cli wasm upgrade --account XC1111111111111111@xuper --cname counter ../core/contractsdk/cpp/build/counter.wasm
+
 设置合约方法的ACL
 ------------------
 
