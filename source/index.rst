@@ -89,6 +89,7 @@ XuperChain文档
     development_manuals/XuperCDT.rst
     development_manuals/XdevManual.rst
     development_manuals/XuperRPC.rst
+    development_manuals/XuperIDE.rst
 
 .. toctree::
     :maxdepth: 1
