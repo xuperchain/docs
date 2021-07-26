@@ -1,5 +1,5 @@
 
-创建合约
+合约管理
 ========
 
  XuperChain 支持丰富的智能合约开发语言，比如go，Solitidy，C++，Java等。
@@ -17,7 +17,7 @@
     `java counter 合约 <https://github.com/xuperchain/xuperchain/tree/master/core/contractsdk/java/example/counter>`_
 
 
-部署 wasm合约
+部署wasm合约
 ------------
 
 1. 编译合约

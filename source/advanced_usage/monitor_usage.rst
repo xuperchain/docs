@@ -1,4 +1,4 @@
-监控使用文档
+监控说明
 ==============
 
  XuperChain 系统集成了Prometheus开源监控框架，用户可以通过Prometheus+Grafana构建自己应用的监控系统，并且用户还可以根据自己的需求定义自己的监控采集项。下面会介绍目前 XuperChain 默认采集的监控项，并指导用户如何搭建自己本地的 XuperChain 开源监控系统。

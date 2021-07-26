@@ -1,5 +1,6 @@
-搭建XPoA共识的 XuperChain 网络
+共识使用
 ==========================
+（包括XPoS && XPoA）
 
 XPoA是为许可链设计的共识算法，XPoA共识算法的原理可以参考 XuperChain 的设计文档 `XPoA技术文档 <../design_documents/xpoa.html>`_ 。许可链指的是所有参与链系统的节点，都需经过许可，未经过许可的节点不可接入系统。下面介绍下如何搭建一个XPoA共识的 XuperChain 网络。
 

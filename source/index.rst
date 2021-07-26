@@ -9,95 +9,68 @@ XuperChain文档
 
 .. toctree::
    :maxdepth: 2
-   :caption: XuperChain介绍:
+   :caption: XuperChain整体介绍:
    :numbered:
 
-   introduction/brief.rst
-   introduction/modules.rst
-   introduction/datastruct.rst
-   introduction/smart_contracts.rst
-   introduction/permission_system.rst
-   introduction/privacy.rst
-   introduction/perfomance.rst
-   introduction/trusted_ledger_intro.rst
-   introduction/summary.rst
+   general_introduction/brief.rst
+   general_introduction/basic_concepts.rst
 
 .. toctree::
     :maxdepth: 2
     :caption: 快速入门
     :numbered:
 
-    quickstart.rst
-
-.. toctree::
-    :maxdepth: 2
-    :caption: 技术设计文档:
-    :numbered:
-
-    design_documents/XuperModel
-    design_documents/XuperBridge
-    design_documents/xvm.rst
-    design_documents/permission_model.rst
-    design_documents/p2p.rst
-    design_documents/authentication.rst
-    design_documents/proposal.rst
-    design_documents/crypto.rst
-    design_documents/extension.rst
-    design_documents/consensus.rst
-    design_documents/chained_bft.rst
-    design_documents/xpos.rst
-    design_documents/xpoa.rst
-    design_documents/single_pow.rst
-    design_documents/regulatory.rst
-    design_documents/multidisk.rst
-    design_documents/group.rst
-    design_documents/cross_chain.rst
-    design_documents/trusted_ledger_design.rst
+    quickstart/quickstart.rst
 
 .. toctree::
     :maxdepth: 2
     :caption: 进阶使用
     :numbered:
 
-    advanced_usage/contract_accounts.rst
-    advanced_usage/multi-nodes.rst
-    advanced_usage/create_contracts.rst
-    advanced_usage/initiate_proposals.rst
-    advanced_usage/multi-disks.rst
+    advanced_usage/multi_nodes.rst
+    advanced_usage/contract_management.rst
+    advanced_usage/authority_management.rst
+    advanced_usage/consensus_usage.rst
+    advanced_usage/governance.rst
     advanced_usage/parallel_chain.rst
-    advanced_usage/subscribe.rst
-    advanced_usage/readonly_queries.rst
-    advanced_usage/cross_chain.rst
-    advanced_usage/construct-XPoA.rst
-    advanced_usage/trusted_ledger_advanced_usage.rst
-    advanced_usage/monitoring.rst
-    advanced_usage/release.rst
-
-.. toctree::
-    :maxdepth: 2
-    :caption: 开发应用
-    :numbered:
-
-    developing_apps/eleccert.rst
-    developing_apps/erc721.rst
+    advanced_usage/guomi_usage.rst
+    advanced_usage/performance_introduction.rst
+    advanced_usage/monitor_usage.rst
+    advanced_usage/open_network.rst
+    advanced_usage/more_technology.rst
 
 .. toctree::
     :maxdepth: 2
     :caption: 开发手册
     :numbered:
 
+    development_manuals/XuperSDK.rst
     development_manuals/XuperCDT.rst
     development_manuals/XdevManual.rst
     development_manuals/XuperRPC.rst
     development_manuals/XuperIDE.rst
 
 .. toctree::
-    :maxdepth: 1
-    :caption:  XuperChain 测试环境
+    :maxdepth: 2
+    :caption: 应用案例
     :numbered:
 
-    test_network/description.rst
-    test_network/guides.rst
+    developing_apps/dapps.rst
+
+.. toctree::
+    :maxdepth: 2
+    :caption: 设计原理
+    :numbered:
+
+    design_documents/key_process.rst
+    design_documents/crypto.rst
+    design_documents/p2p.rst
+    design_documents/consensus.rst
+    design_documents/ledger.rst
+    design_documents/smart_contract.rst
+    design_documents/permission_model.rst
+    design_documents/regulatory.rst
+    design_documents/others.rst
 
 .. toctree::
     :maxdepth: 1
@@ -108,15 +81,12 @@ XuperChain文档
 
 .. toctree::
     :maxdepth: 1
-    :caption: 其他
+    :caption: 更多资料
     :numbered:
 
-    operations_guides.rst
-    video.rst
-    commands_reference.rst
-    FAQs.rst
-    vocabulary.rst
-    lessons.rst
+    more_materials/code_explanation.rst
+    more_materials/config_explanation.rst
+    more_materials/video.rst
 
 
 Indices and tables
