@@ -44,11 +44,8 @@ XuperChain文档
     :caption: 开发手册
     :numbered:
 
-    development_manuals/XuperSDK.rst
-    development_manuals/XuperCDT.rst
-    development_manuals/XdevManual.rst
-    development_manuals/XuperRPC.rst
-    development_manuals/XuperIDE.rst
+    development_manuals/dapp_development.rst
+    development_manuals/sdk_development.rst
 
 .. toctree::
     :maxdepth: 2
