@@ -72,3 +72,5 @@ XuperChain 文档支持实时热更新，你可以通过浏览器进行内容实
 3. 查看 [代码提交指南](https://xuper.baidu.com/n/xuperdoc/contribution/pull_requests.html)
 4. 本地编辑文件
 5. 提交完整的 Pull Request
+
+test
