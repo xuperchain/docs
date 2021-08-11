@@ -1,4 +1,4 @@
-Java&Python SDK
+JAVA SDK 使用说明
 ===========================
 
 Java SDK
@@ -84,8 +84,4 @@ JS SDK 代码可在github上下载：`Java SDK <https://github.com/xuperchain/xu
     System.out.println("gas: " + tx.getGasUsed());
 
 Java 合约还支持 evm 合约以及其他查询接口请参考 `SDK 接口 <https://github.com/xuperchain/xuper-java-sdk/blob/master/src/main/java/com/baidu/xuper/api/XuperClient.java>`_
-
-
-Python SDK
-----------
 
