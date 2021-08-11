@@ -45,8 +45,6 @@ XuperChain文档
     :numbered:
 
     development_manuals/sdk_development.rst
-    development_manuals/xuper-sdk-js.rst
-    development_manuals/xuper-sdk-java&python.rst
 
 .. toctree::
     :maxdepth: 2
