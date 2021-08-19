@@ -224,7 +224,7 @@ xchain中，账号类型分为“普通账号”和“合约账号”。
 
 .. code-block:: bash
     
-    # --keys 从此地址 转给 --to地址 --amount 钱
+    # --keys 从此地址 转给 --to地址 --amount 金额
     $ bin/xchain-cli transfer --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount 10 --keys data/keys/ -H 127.0.0.1:37101
     24d53ea6e61ede8dc4fe65a04fd30da17c079a359e700738f8795dfddc55ffb4
 
