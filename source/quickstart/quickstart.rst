@@ -137,7 +137,7 @@ xuper5为我们启动服务提供了方便的脚本，只需要一条命令使�
 
 这样，我们就成功启动一条链。
 
-control.sh 脚本提供 start|stop|restart|forcestop 四个命令，可以使用bash control.sh help查看
+control.sh 脚本提供 start | stop | restart | forcestop 四个命令，可以使用bash control.sh help查看
 
 .. _svr-start:
 
@@ -178,8 +178,11 @@ control.sh 脚本提供 start|stop|restart|forcestop 四个命令，可以使用
 创建新账号
 >>>>>>>>>>
 
-xchain中，账号分为普通账号和“合约账号”。
-普通账号有程序离线生成，在本地保存；合约账号由普通账户发起交易在链上生成，存储在链上。执行交易时，需要使用合约账户。
+xchain中，账号类型分为“普通账号”和“合约账号”。
+
+普通账号有程序离线生成，在本地保存；
+
+合约账号是XuperChain中用于智能合约管理的单元，由普通账户发起交易，在链上生成的一个16位数字的账户，存储在链上。发起合约相关交易，比如合约调用时，需要使用合约账户。
 
 .. code-block:: bash
 
