@@ -61,7 +61,7 @@
 
     - Go SDK：https://github.com/xuperchain/xuper-sdk-go
     - Javascript SDK：https://github.com/xuperchain/xuper-sdk-js
-    - Javas SDK：https://github.com/xuperchain/xuper-java-sdk
+    - Java SDK：https://github.com/xuperchain/xuper-java-sdk
 
 使用 SDK 连接开放网络
 -----------------------
@@ -176,7 +176,7 @@ Go SDK 使用配置文件有两种方式：
     crypto: "xchain"
     txVersion: 1
 
-此时你的 SDK client 便连接到了开放网络，可以进行部署、调用合约了，具体接口文档参考 `Go SDK <https://github.com/xuperchain/xuper-sdk-go>`_。
+此时你的 SDK client 便连接到了开放网络，可以进行部署、调用合约了，具体接口文档参考 `Go SDK 使用文档 <../development_manuals/xuper-sdk-go.html>`_  。
 
 使用 JS SDK 连接开放网络
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -194,7 +194,7 @@ JS SDK 连接开放网络与 Go SDK 有些许不同之处，主要在配置文�
     console.log(yourAccount.address)
 
 创建开放网络 client
->>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>
 
 JS SDK 不需要指定配置文件，在创建客户端时，指定需要的参数即可，内容与 Go SDK 中使用的配置文件内容类似，示例如下：
 
@@ -227,14 +227,14 @@ JS SDK 不需要指定配置文件，在创建客户端时，指定需要的参�
         ]
     });
 
-创建 client 后便可以发送交易，使用请参考 `JS SDK <https://github.com/xuperchain/xuper-sdk-js>`_ 。
+创建 client 后便可以发送交易，使用请参考 `JS SDK 使用文档 <../development_manuals/xuper-sdk-js.html>`_  。
 
 使用 Java SDK 连接开放网络
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Java SDK 连接开放网络和 Go SDK 有些类似，主要也是通过配置文件。
 
 加载私钥
->>>>>>>>>
+>>>>>>>>>>>>
 使用 Java SDK 同样需要加载你的私钥文件：
 
 .. code-block:: java
@@ -243,7 +243,7 @@ Java SDK 连接开放网络和 Go SDK 有些类似，主要也是通过配置文
     Account account = Account.getAccountFromFile("yourPrivateKeyFile", "yourPassword");
 
 设置配置文件
->>>>>>>>>>>>
+>>>>>>>>>>>>>>>
 连接开放网络时同样需要指定 Java SDK 需要使用的配置文件（没错，和 Go SDK 的配置文件相同）。
 
 .. code-block:: java
@@ -251,4 +251,4 @@ Java SDK 连接开放网络和 Go SDK 有些类似，主要也是通过配置文
 
     Config.setConfigPath("./conf/sdk.yaml");
 
-此时便可以使用 Java SDK 连接开放网络，详细操作参考 创建 client 后便可以发送交易，使用请参考 `发起提案 <xuper-sdk-java.html>`_  。
+此时便可以使用 Java SDK 连接开放网络，详细操作参考 创建 client 后便可以发送交易，使用请参考 `Java SDK 使用文档 <../development_manuals/xuper-sdk-java.html>`_  。
