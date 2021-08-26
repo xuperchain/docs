@@ -39,6 +39,7 @@ release = u''
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinxcontrib.datatemplates',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -180,7 +181,7 @@ epub_title = project
 epub_exclude_files = ['search.html']
 
 html_context = {
-    "display_github": True,  # Integrate GitHubls
+    "display_github": True,  # Integrate GitHub
     "github_user": "xuperchain",  # Username
     "github_repo": "docs",  # Repo name
     "github_version": "master",  # Version
