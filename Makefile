@@ -28,6 +28,13 @@ build-image:
 release :
 	docker run --rm --name xuperdocs-release   -v `pwd`:`pwd`  -w `pwd`  xuperdocs sphinx-versioning build -r master source source/_build/html
 
+stop:
+	docker stop xuperdocs
+
+clean:
+	rm -rf _build
+	rm -rf source/_build
+
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
