@@ -1,0 +1,16 @@
+.. -*- mode: rst -*-
+
+简介
+^^^^
+
+{{ data['brief'] }}
+
+
+函数
+~~~~~~~~~~~~~
+
+{{ make_list_table_from_mappings(
+[('函数名（name', 'name'), ('参数（inputs）', 'args'), ('简介（description', 'description')],
+data['docs']['functions'],
+title='Table from series of mappings',
+) }}
