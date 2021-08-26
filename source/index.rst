@@ -46,6 +46,7 @@ XuperChain文档
 
     development_manuals/dapp_development.rst
     development_manuals/sdk_development.rst
+    development_manuals/contract-template.rst
 
 .. toctree::
     :maxdepth: 2
