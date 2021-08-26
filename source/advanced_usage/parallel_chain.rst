@@ -1,97 +1,162 @@
 
-平行链与群组
-================
+平行链、群组与CA中心
+========================
+XuperChain 在联盟链场景提供了整套解决方案，例如支持平行链、群组，同时提供了 XuperFront 与XuperChain 共同作为全节点，以支持节点权限管理、CA、证书等功能。
+本章节主要介绍通过 `XuperFront <https://github.com/xuperchain/xuper-front>`_ 与 `XuperCA <https://github.com/xuperchain/xuper-ca>`_ 搭建联盟链场景的网络，同时介绍平行链与群组的功能。
 
-创建平行链
-----------
 
-现在 XuperChain 中创建平行链的方式是：发起一个系统智能合约，发到xuper链。
+下载编译
+-----------
+本章节中以 XuperChain 项目下的 testnet 为例，同时搭配 XuperFront 与 XuperCA 一起搭建三个节点的网络并启用证书功能。
 
-当前xchain.yaml有两个配置项：
+1. 下载 xchain，并编译。
 
-.. code-block:: yaml
-    :linenos:
+    .. code-block:: bash
 
-    Kernel:
-        # minNewChainAmount 设置创建平行链时最少要转多少utxo（门槛）到同链名的address
-        minNewChainAmount: “100”
-        # newChainWhiteList 有权创建平行链的address白名单
-        newChainWhiteList:
-            - dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN: true
+        git clone https://github.com/xuperchain/xuperchain.git 
+        cd xuperchain 
+        make 
+        make testnet
+        #会创建 testnet 目录，同时下面有node1-3三个目录
 
-创建平行链的json文件（模版），如下：
+2. 下载 ca，并编译。
 
-.. code-block:: python
-    :linenos:
+    .. code-block:: bash
 
-    {
-        "Module": "kernel",
-        "Method": "CreateBlockChain",
-        "Args": {
-            "name": "HelloChain",
-            "data": "{\"version\": \"1\", \"consensus\": {\"miner\":\"dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN\", \"type\":\"single\"},\"predistribution\":[{\"address\": \"dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN\",\"quota\": \"1000000000000000\"}],\"maxblocksize\": \"128\",\"period\": \"3000\",\"award\": \"1000000\"}"
-        }
-    }
+        git clone https://github.com/xuperchain/xuper-ca.git 
+        cd xuper-ca 
+        make 
 
-使用如下指令即可创建平行链（需要在主链操作，转了100个主链的token到平行链同名的address，作为创建链的代价）：
+3. 下载 xfront，并编译。
 
-.. code-block:: bash
-    :linenos:
+    .. code-block:: bash
+    
+        git clone https://github.com/xuperchain/xuper-front.git 
+        cd xuper-front 
+        make
 
-    ./xchain-cli transfer --to HelloChain --amount 100 --desc createChain.json
+4. 拷贝文件。将编译好的 front 文件拷贝到 testnet 下的每个节点的 bin 目录下：
 
-获取group_chain合约
--------------------
+    .. code-block:: bash
+    
+        #在 xuper-fonrt/output 目录下执行。
+        cp front/bin/front xuperchain/testnet/node1/bin/
+        cp front/conf/front.yaml xuperchain/testnet/node1/conf/
+        #注意，以上命令为示例，目录结构要依照自己的环境，目的将 front 的可执行文件与配置文件拷贝到 xchain 节点目录下。
+        #同时要拷贝到 testnet 下的 node1、node2、node3 下。
 
- XuperChain 提供了默认的群组合约（group_chain）的实现，路径为 core/contractsdk/cpp/example/group_chain.cc 。在 core/contractsdk/cpp 目录下执行 sh build.sh 即可编译生成 group_chain.wasm ，即可使用 group_chain.wasm 实现群组合约的部署。
+CA 服务启动
+---------------
 
-创建群组
---------
+1. 修改 CA 配置文件。
+   
+   在 CA 的编译产出目录下，有 bin/ca-server 可执行文件以及 conf/caserver.yaml 配置文件，其中一个配置内容为 caAdmin，代表 CA 的根管理员，可以执行 CA 所有操作。
+   由于本次搭建的是 XuperChain 下的 testnet 三个节点网络，方便起见，将 node1 的节点地址设置为 CA 的根管理员。将 CA 的配置文件改为如下：
 
-如果希望创建的平行链只在自己希望的小范围使用，那么可以参考此节配置群组功能
+    .. code-block:: bash
+    
+        # ca的根管理员账户, 该账户可执行ca内的所有操作
+        caAdmin: TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY
+        #此地址为 node1 节点 data/keys/address 地址
 
-当前 XuperChain 中创建群组的方式是：在xuper链上部署GroupChain智能合约，将节点白名单加到GroupChain合约中。
+2. 启动 CA。启动 CA 服务前，你需要先创建网络以及向网络中添加节点。
 
-在创世块中配置群组合约配置：
+    .. code-block:: bash
 
-.. code-block:: python
-    :linenos:
+        # 初始化
+        ./bin/ca-server init
+        #添加网络
+        ./bin/ca-server addNet --Net testnet --Addr $adminAddr
+        # Net 为网络名称，Addr 为网络管理员的地址
 
-    {
-        "group_chain_contract": {
-            "module_name": "wasm",
-            "contract_name": "group_chain",
-            "method_name": "list",
-            "args":{}
-        }
-    }
+        #网络中添加节点
+        ./bin/ca-server addNode --Net testnet --Addr $testAddr --Admin $adminAddr
+        # 这里Addr 一定是网络中所有节点下的 data/keys/address 的地址，否则拉不到证书。
 
-如果需要确保HelloChain具备群组属性，且白名单为<ip1,addr1>,<ip2,addr2>，其他节点不能获取这条平行链的信息，可以按如下操作。
-此处：
-ip1,ip2是指从xchain-cli netURL preview 获取的形如"/ip4/127.0.0.1/tcp/47101/p2p/QmVxeNubpg1ZQjQT8W5yZC9fD7ZB1ViArwvyGUB53sqf8e"的IP地址；
-add1,add2 是指节点的公钥地址：data/keys/addresss
+        #启动ca
+        nohup ./bin/ca-server &
 
-step1: 在xuper链部署GroupChain合约
+xfront 与 xchain 配置和启动
+------------------------------------
+本次搭建的网络中，xfront 与 xchain 共同作为一个节点，xfront 作为 xchain 的代理，所以你需要先配置好配置文件。
 
-.. code-block:: bash
-    :linenos:
+1. 修改 xfront 配置。下面以 node1 的配置为例，其他两个节点配置类似，只是端口不同。
+   node1 xfront 配置修改部分如下：
 
-    # 需要使用合约账号，部署编译好的合约文件
-    ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname group_chain ./group_chain.wasm --fee xxx
+   .. code-block:: bash
 
-step2: 调用GroupChain合约的AddNode方法将<ip1,add1>,<ip2,add2>加入白名单
+        # xchain地址配置
+        xchainServer:
+        # 对应 xchain 的节点 rpc 端口，每个 xchain 节点配置不同，在 xchain 的 server.yaml 文件中。
+        rpc: :37101
+        # xchain tls的地址,如果不用的话可以不配置
+        host: 127.0.0.1:47101
+        # front 作为xchain代理对其他xchain服务的端口号
+        port: :57101
+        # front证书地址
+        tlsPath: ./data/cert
+        master: xuper
 
-.. code-block:: bash
-    :linenos:
+        # 数据库配置 ./data/db/ca.db
+        dbConfig:
+        dbType: sqlite3
+        #dbType: mysql
+        dbPath: /tmp/ca.db
+        mysqlDbUser: root
+        mysqlDbPwd: 123456
+        mysqlDbHost: 127.0.0.1
+        mysqlDbPort: 3306
+        mysqlDbDatabase: front_db
 
-    ./xchain-cli wasm invoke group_chain --method addNode -a '{"bcname":"HelloChain", "ip":"ip1", "address":"addr1"}'
-    ./xchain-cli wasm invoke group_chain --method addNode -a '{"bcname":"HelloChain", "ip":"ip2", "address":"addr2"}'
+        # CA地址
+        caConfig:
+        # 远程ca开关, 联盟网络true/公开网络false,  默认true
+        caSwitch: true
+        # 远程ca地址
+        host: 127.0.0.1:8098
 
-step3: 调用GroupChain合约的AddChain确保HelloChain具备群组特性
+        # 当前节点的网络名称，此处配置很关键。
+        netName: testnet
 
-.. code-block:: bash
-    :linenos:
+2. xchain 配置文件修改，修改 xchain 的 network.yaml 配置文件如下（本示例同样以 node1 为例）：
 
-    ./xchain-cli wasm invoke group_chain --method addChain -a '{"bcname":"HelloChain"}'
+    .. code-block:: bash
 
-至此即完成了群组的设置，只有<ip1,add1>,<ip2,add2>两个节点可以获取平行链HelloChain的内容了。
+        # p2p network config
+
+        # Module is the name of p2p module plugin.(p2pv1 | p2pv2)
+        module: p2pv1
+        # Port the p2p network listened
+        port: 47101
+        # Address multiaddr string
+        address: /ip4/127.0.0.1/tcp/47101
+        # IsTls config the node use tls secure transparent
+        isTls: true
+        # KeyPath is the netdisk private key path
+        keyPath: netkeys
+
+        staticNodes:
+        xuper: # 这里就是 xfront 端口配置。
+            - "127.0.0.1:57101"
+            - "127.0.0.1:57102"
+            - "127.0.0.1:57103"
+        hello: # 此处配置用于平行链。
+            - "127.0.0.1:57101"
+
+        # BootNodes config the bootNodes the node to connect
+        #bootNodes:
+        #  - "/ip4/127.0.0.1/tcp/47101/p2p/Qmf2HeHe4sspGkfRCTq6257Vm3UHzvh2TeQJHHvHzzuFw6"
+        #  - "/ip4/127.0.0.1/tcp/47102/p2p/QmQKp8pLWSgV4JiGjuULKV1JsdpxUtnDEUMP8sGaaUbwVL"
+        #  - "/ip4/127.0.0.1/tcp/47103/p2p/QmZXjZibcL5hy2Ttv5CnAQnssvnCbPEGBzqk7sAnL69R1E"
+        # service name
+        serviceName: testnet
+
+3. 启动节点，需要分别启动 node1、node2、node3 的 xfront。
+
+    .. code-block:: bash
+
+        nohup ./bin/front &
+        
+        # xfront 启动后，会生成 cert 目录，将内容拷贝到 netkeys 目录下。
+        cd data
+        cp cert/* netkeys/
