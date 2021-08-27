@@ -44,8 +44,8 @@ XuperChain文档
     :caption: 开发手册
     :numbered:
 
-    development_manuals/dapp_development.rst
     development_manuals/sdk_development.rst
+    development_manuals/dapp_development.rst
 
 .. toctree::
     :maxdepth: 2

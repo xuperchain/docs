@@ -1,7 +1,7 @@
 
 .. _network-deploy:
 
-搭建区块链网络
+网络部署
 ------------------
 
 本节内容将教你手把手使用XuperChain搭建一个3节点的区块链网络。帮助开发者掌握XuperChain网络的部署流程。
@@ -13,7 +13,7 @@
 在阅读本节前，请先阅读 `XuperChain环境部署 <../quickstart/quickstart.html#xuperchain>`_  和 `XuperChain基本操作 <../quickstart/quickstart.html#basic-operation>`_ ，了解XuperChain单节点网络部署和基本操作等。
 
 
-.. _env-prepare:
+.. _envioment-prepare:
 
 准备环境
 ^^^^^^^^

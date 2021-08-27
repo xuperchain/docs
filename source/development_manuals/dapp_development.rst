@@ -9,4 +9,5 @@ DAPP开发手册
 .. toctree::
     :maxdepth: 1
   
-    XuperIDE.rst
+    xuper-ide.rst
+    contract-template.rst

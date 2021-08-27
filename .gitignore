@@ -1,3 +1,5 @@
 _build
 source/build
 .pip
+.DS_Store
+source/.DS_Store

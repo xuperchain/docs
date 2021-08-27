@@ -1,13 +1,12 @@
-JAVA SDK 使用说明
-
-===========================
+Java SDK 使用说明
+=================================
 
 Java SDK
 ----------
 
 下载
 ^^^^^^^
-JS SDK 代码可在github上下载：`Java SDK <https://github.com/xuperchain/xuper-java-sdk>`_，可以查看详细的 `文档 <https://github.com/xuperchain/xuper-java-sdk/blob/master/README.md>`_
+JS SDK 代码可在github上下载： `Java SDK <https://github.com/xuperchain/xuper-java-sdk>`_，可以查看详细的 `文档 <https://github.com/xuperchain/xuper-java-sdk/blob/master/README.md>`_
 
 同时可以使用 maven：
 
@@ -84,6 +83,6 @@ JS SDK 代码可在github上下载：`Java SDK <https://github.com/xuperchain/xu
     System.out.println("response: " + tx.getContractResponse().getBodyStr());
     System.out.println("gas: " + tx.getGasUsed());
 
-
 Java 合约还支持 evm 合约以及其他查询接口请参考 `Java SDK 接口 <https://github.com/xuperchain/xuper-java-sdk/blob/master/src/main/java/com/baidu/xuper/api/XuperClient.java>`_
+
 

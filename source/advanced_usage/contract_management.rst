@@ -1,9 +1,10 @@
 
 合约管理
-========
+============
 
- XuperChain 支持丰富的智能合约开发语言，比如go，Solitidy，C++，Java等。
-阅读本节前，请先确保完成 `XuperChain环境部署 <https://xuperchain.readthedocs.io/zh/latest/quickstart.html>`_ 
+ XuperChain 支持丰富的智能合约开发语言，比如go，Solitidy，C++，Java等。 
+
+阅读本节前，请先确保完成 `XuperChain环境部署 <../quickstart/quickstart.html#xuperchain>`_  
 
 
 
@@ -134,7 +135,7 @@
 
 
 部署solidity合约
---------------
+------------------
 
 如果本地搭建 XuperChain 环境，在部署、调用solidity合约之前，请先查看`conf/xchain.yaml` 中evm一节，确保evm合约功能开启。
 
@@ -177,8 +178,8 @@
          The fee you pay is: 22787517
          Tx id: 78469246d86a92ad47e5c15991a55978075902809346e48533e09a8eb0e3a7e4
 
-    - ``--abi Counter.abi`` ：表示部署需要使用的abi文件，用于合约方法参数编解码
-    - ``-a ``：如果合约需要构造函数，通过-a进行指定。与c++、golang等合约的部署和调用方式相同。
+    - ``--abi Counter.abi`` ：表示部署需要使用的abi文件，用于合约方法参数编解码 
+    - ``-a ``：如果合约需要构造函数，通过-a进行指定。与c++、golang等合约的部署和调用方式相同。 
 
 4. 合约调用
 

@@ -11,5 +11,9 @@ XuperChain为方便用户深度使用 XuperChain 的各项功能，提供了多�
 .. toctree::
   :maxdepth: 1
 
-  xuper-sdk-js.rst
-  xuper-sdk-java.rst
+  xuper-sdk/xuper-sdk-go.rst
+  xuper-sdk/xuper-sdk-js.rst
+  xuper-sdk/xuper-sdk-java.rst
+  xuper-sdk/xuper-sdk-python.rst
+  xuper-sdk/xuper-rpc.rst
+

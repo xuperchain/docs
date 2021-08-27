@@ -1,5 +1,5 @@
-Go SDK
-===========================
+Go SDK 使用说明
+=======================================
 
 下载
 ----------
@@ -10,7 +10,8 @@ Go SDK 代码可以在github上下载 `Go SDK <https://github.com/xuperchain/xup
 - go get github.com/xuperchain/xuper-sdk-go/v2
 
 使用 Go SDK
-----------
+--------------
+
 建立连接
 ^^^^^^^^^^^^^^^^
 使用Go SDK和链上数据进行交互，首先需要使用SDK创建一个Client，与节点建立连接。
