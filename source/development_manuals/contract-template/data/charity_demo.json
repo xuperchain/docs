@@ -1,0 +1,78 @@
+{
+    "id": "charity_demo",
+    "type": 2,
+    "name": "慈善捐款存证",
+    "lang": "C++",
+    "version": "1.0.0",
+    "publisher": {
+        "name": "XuperOS"
+    },
+    "publish_time": "2020-01-05",
+    "update_time": "2020-01-05",
+    "downloads": 99,
+    "init_args": {
+        "admin": "具有管理员权限的address"
+    },
+    "brief": "慈善捐款存证合约，可供慈善基金会公开所有捐款明细和支出明细",
+    "docs": {
+        "description": "慈善捐款存证合约，可供慈善基金会公开所有捐款明细和支出明细，支持用户维度查询捐款记录，明细记录支持分页查询。",
+        "functions": [
+            {
+                "name": "initialize",
+                "args": [
+                    "admin: string, 哪个address具有管理员权限"
+                ],
+                "description": "初始化函数，在合约部署时默认执行，初始化慈善基金管理账户"
+            },
+            {
+                "name": "donate",
+                "args": [
+                    "donor: string, 捐款人id（注意不能包含/字符）",
+                    "amount: string, 捐款金额",
+                    "timestamp: string, 捐款时间",
+                    "comments: string, 备注信息"
+                ],
+                "description": "新增捐款记录，返回捐款记录id"
+            },
+            {
+                "name": "cost",
+                "args": [
+                    "to: string, 善款受益人id",
+                    "amount: string, 善款金额",
+                    "timestamp: string, 拨款时间",
+                    "comments: string, 备注信息"
+                ],
+                "description": "新增慈善支出花费, 返回拨款记录id"
+            },
+            {
+                "name": "statistics",
+                "args": [],
+                "description": "获取善款综述,totalDonates(总捐款金额),totalCosts(总拨付善款),fundBalance(基金会善款余额)"
+            },
+            {
+                "name": "queryDonor",
+                "args": [
+                    "donor: string, 捐款人id"
+                ],
+                "description": "查询某个用户的捐款记录"
+            },
+            {
+                "name": "queryDonates",
+                "args": [
+                    "startid: string, 起始记录id",
+                    "limit: string, 查询多少条(每次查询不超过100条)"
+                ],
+                "description": "查询捐款记录"
+            },
+            {
+                "name": "queryCosts",
+                "args": [
+                    "startid: string, 起始记录id",
+                    "limit: string, 查询多少条(每次查询不超过100条)"
+                ],
+                "description": "查询拨款记录"
+            }
+        ]
+    },
+    "code_link": "https://xuperos.cdn.bcebos.com/contract/code/charity_demo.cc"
+}

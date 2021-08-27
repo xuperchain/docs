@@ -11,7 +11,7 @@ XuperChain为方便用户深度使用 XuperChain 的各项功能，提供了多�
 RPC接口介绍
 -----------
 
-查看XuperChain的 `proto文件 <https://github.com/xuperchain/xuperchain/blob/master/core/pb/xchain.proto>`_ ，可以在service定义中获取所有支持的RPC接口
+查看XuperChain 的 `proto文件 <https://github.com/xuperchain/xuperchain/blob/master/service/pb/xchain.proto>`_ ，可以在service定义中获取所有支持的RPC接口
 
 
 GetBalance

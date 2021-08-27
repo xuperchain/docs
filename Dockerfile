@@ -1,4 +1,5 @@
 FROM ubuntu:18.04
+WORKDIR /root
 
 RUN apt-get update && apt-get install -y python3-pip  git  libssl-dev  python3 
 
@@ -6,7 +7,7 @@ RUN apt-get update && apt-get install -y python3-pip  git  libssl-dev  python3
 #  seperate clone and install to reduce networking problems by docker build cache 
 RUN git clone https://github.com/chenfengjin/sphinx-versions.git 
 
-
+COPY . .
 COPY ./requirements.txt requirements.txt
 RUN python3 -m pip install requests
 RUN python3 -m pip install --upgrade setuptools==44.1.1

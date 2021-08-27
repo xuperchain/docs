@@ -57,4 +57,5 @@ jieba
 
 #theme 
 renku-sphinx-theme
-
+# for contract template
+sphinxcontrib.datatemplates
