@@ -116,7 +116,7 @@ XuperChain基本操作
 .. _start-chain:
 
 启动服务
->>>>>>
+>>>>>>>>>>>>
 
 xuper5为我们启动服务提供了方便的脚本，只需要一条命令使用controll.sh脚本启动即可。
 
@@ -142,7 +142,7 @@ control.sh 脚本提供 start | stop | restart | forcestop 四个命令，可以
 .. _svr-start:
 
 确认服务状态
->>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>
 
 按照默认配置，xchain服务会监听37101端口，可以使用如下命令查看xchain服务的运行状态
 
