@@ -83,7 +83,7 @@ xfront 与 xchain 配置和启动
 1. 修改 xfront 配置。下面以 node1 的配置为例，其他两个节点配置类似，只是端口不同。
    node1 xfront 配置修改部分如下：
 
-   .. code-block:: bash
+    .. code-block:: bash
 
         # xchain地址配置
         xchainServer:
@@ -160,3 +160,80 @@ xfront 与 xchain 配置和启动
         # xfront 启动后，会生成 cert 目录，将内容拷贝到 netkeys 目录下。
         cd data
         cp cert/* netkeys/
+
+平行链与群组
+------------------
+- 平行链：相对于主链而言，运行在 XuperChain 中的用户级区块链实例，用户通过调用主链的智能合约创建。功能与主链无区别，全网节点均可以获取平行链账本数据，实现整体架构水平可扩展。
+- 群组：作用于平行链，具备群组特性的平行链，只有特定节点才拥有该平行链的账本数据。群组具备的特性包括私密性、动态性。群组中可以添加地址信息，并且这些信息可以互相共享平行链。
+  同时群组有 admin 权限，admin 可以有权限向群组中添加、删除成员。
+
+平行链的管理是通过系统合约，可以调用系统合约创建平行链，停用平行链。同时在创建平行链时，可以指定群组。
+
+1. 创建平行链，不设置群组：
+
+    .. code-block:: bash
+
+        ./bin/xchain-cli xkernel invoke '$parachain' --method createChain \
+        -a '{"name": "hello","data": "{\"version\":\"1\",\"predistribution\":[{\"address\":\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\",\"quota\":\"100000000000000000000\"}],\"maxblocksize\":\"128\",\"award\":\"1000000\",\"decimals\":\"8\",\"award_decay\":{\"height_gap\":31536000,\"ratio\":1},\"gas_price\":{\"cpu_rate\":1000,\"mem_rate\":1000000,\"disk_rate\":1,\"xfee_rate\":1},\"new_account_resource_amount\":1000,\"genesis_consensus\":{\"name\":\"single\",\"config\":{\"miner\":\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\",\"period\":\"3000\"}}}"}' \
+        --fee 1000
+
+    上面命令中，创建平行链是调用系统合约，--method 说明要创建平行链，-a 是平行链创世的信息，其中的 name 字段是链的名字，data 字段和 xchain 节点的创世文件（node1/data/genesis/xuper.json）格式一致。
+
+    此命令只是创建了平行链，但是没有显示说明创建群组，这种情况会创建一个默认的群组。接下来看下如果创建平行链时如何显示创建对应的群组:
+
+2. 创建平行链，同时设置群组：
+
+    .. code-block:: bash
+
+        ./bin/xchain-cli xkernel invoke '$parachain' --method createChain \
+        -a '{"name": "hi","data": "{\"version\":\"1\",\"predistribution\":[{\"address\":\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\",\"quota\":\"100000000000000000000\"}],\"maxblocksize\":\"128\",\"award\":\"1000000\",\"decimals\":\"8\",\"award_decay\":{\"height_gap\":31536000,\"ratio\":1},\"gas_price\":{\"cpu_rate\":1000,\"mem_rate\":1000000,\"disk_rate\":1,\"xfee_rate\":1},\"new_account_resource_amount\":1000,\"genesis_consensus\":{\"name\":\"single\",\"config\":{\"miner\":\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\",\"period\":\"3000\"}}}","group":"{\"name\":\"hi\",\"admin\":[\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\",\"SmJG3rH2ZzYQ9ojxhbRCPwFiE9y6pD1Co\"]}"}' \
+        --fee 1000
+
+    上面命令中，-a 参数同样是平行链的创世配置，但是这次加上一个 group 字段，说明在平行链创世时，同时创建一个群组。
+
+3. 停用平行链，创建平行链后我们还可以停用此平行链：
+
+    .. code-block:: bash
+        ./bin/xchain-cli  xkernel invoke '$parachain' --method stopChain -a '{"name":"hello"}' --fee 1000
+
+4. 同时可以修改指定群组的配置信息：
+
+    .. code-block:: bash
+
+        ./bin/xchain-cli xkernel invoke '$parachain' --method editGroup -a '{"name":"hi","admin":"[\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\"]"}' --fee 100
+
+5. 参数详解。在创建平行链时可以看到，-a 参数中包括了平行链的创世配置信息，以及群组的信息，每个字段的详细含义如下：
+
+    .. code-block:: json
+
+        {
+            "name": "$Blockchain_Name",
+            "data": "$Genesis_Configuration",
+            "group": "$Group_Configuration"
+        }
+    
+    其中 data 为创世配置。group 为群组配置：
+
+    .. code-block:: json
+
+        {
+            "name": "hi",
+            "admin": [
+                "TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY",
+                "SmJG3rH2ZzYQ9ojxhbRCPwFiE9y6pD1Co"
+            ],
+            "identities":["TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY", "SmJG3rH2ZzYQ9ojxhbRCPwFiE9y6pD1Co"]
+        }
+
+    name 字段为群组的名字且必须与平行链名字相同，admin 为群组的管理员列表，可以修改群组的配置，identities 为有权限访问群组信息的地址。
+
+    上面提到在创建平行链时可以不显示指定群组配置那么默认的配置就是如下：
+
+    .. code-block:: json
+
+        {
+            "name": "平行链名字",
+            "admin": [
+                "发起者地址"
+            ],
+        }
