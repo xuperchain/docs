@@ -1,5 +1,6 @@
 _build
 source/build
+.vscode
 .pip
 .DS_Store
 source/.DS_Store

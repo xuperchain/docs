@@ -1,5 +1,13 @@
 {%- extends "sphinx_rtd_theme/breadcrumbs.html" %}
 
+{% block breadcrumbs %}
+<li><a href="{{ pathto(master_doc) }}" class="breadtitle">首页</a>
+</li>
+<li>
+   <img class="arrow_r" src="/_static/images/arrow_right.svg"/>
+</li>
+<li class="lititle">{{ title }}</li>
+{% endblock %}
 {% block breadcrumbs_aside %}
 <li class="wy-breadcrumbs-aside">
    <a href="https://github.com/xuperchain/docs/edit/master/source/{{ pagename }}{{ suffix }}" class="fa fa-github">

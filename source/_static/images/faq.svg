@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>FAQ</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="【二级页】PC_Banner备份复制备份-10" transform="translate(-1336.000000, -1263.000000)">
+            <rect fill="#FFFFFF" x="0" y="0" width="1600" height="5194"></rect>
+            <g id="编组-45" transform="translate(1336.000000, 1263.000000)">
+                <rect id="矩形备份-31" fill="#FFFFFF" opacity="0.597726004" x="0" y="0" width="44" height="44"></rect>
+                <path d="M38,5 C38.8284271,5 39.5784271,5.33578644 40.1213203,5.87867966 C40.6642136,6.42157288 41,7.17157288 41,8 L41,8 L41,30 C41,30.8284271 40.6642136,31.5784271 40.1213203,32.1213203 C39.5784271,32.6642136 38.8284271,33 38,33 L38,33 L20.2557649,33 L13,38.0792894 L13,33 L6,33 C5.17157288,33 4.42157288,32.6642136 3.87867966,32.1213203 C3.33578644,31.5784271 3,30.8284271 3,30 L3,30 L3,8 C3,7.17157288 3.33578644,6.42157288 3.87867966,5.87867966 C4.42157288,5.33578644 5.17157288,5 6,5 L6,5 Z" id="形状结合" stroke="#000000" stroke-width="2"></path>
+                <text id="？" font-family="PingFangSC-Medium, PingFang SC" font-size="18" font-weight="400" fill="#061931">
+                    <tspan x="17" y="26">？</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
