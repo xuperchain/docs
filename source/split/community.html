@@ -1,0 +1,53 @@
+<p id="communi" class="title">社区交流</p>
+<div class="community">
+    <div class="card-holder container">
+        <div class="card rocket container">
+            <a class="comm" href="https://github.com/xuperchain/xuperchain" target="_blank" rel='noreferrer noopener'>超级链官方GitHub</a>
+        </div>
+    </div>
+    <div class="card-holder container">
+        <div class="card rocket container">
+            <a class="comm" href="https://developer.baidu.com/singleTagPage.html?tagId=49&type=QUESTION" target="_blank" rel='noreferrer noopener'>加入论坛</a>
+        </div>
+    </div>
+    <div class="card-holder container">
+        <div class="card rocket container">
+            <a id="source-wx" class="comm">官方技术交流群</a>
+            <div id="toast-wx" style="display: none;">
+                <div class="toast-wx-content">
+                    <div class="toast-wx-close">
+                        <img id="close" src="../_static/images/close_icon.png" alt="">
+                    </div>
+                    <div class="toast-wx-title">扫码加入微信社群</div>
+                    <img class="toast-wx-code" src="../_static/images/wx.png" alt="">
+                    <div class="toast-wx-button">取消</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-holder container">
+        <div class="card rocket container">
+            <a class="comm" href="../FAQs.html"  target="_blank" rel='noreferrer noopener'>常见问题</a>
+        </div>
+    </div>
+</div>
+<script>
+        var $wx = $('#source-wx');
+        $wx.on('click', function(){
+            $('#toast-wx').fadeIn();
+            $('body').css('overflow', 'hidden');
+            $('body').addClass('toast-wx-fixed');
+        });
+    $(function(){
+    $('#toast-wx').find('.toast-wx-close').on('click', function(){
+        $('body').css('overflow', 'auto');
+        $('body').removeClass('toast-wx-fixed');
+        $('#toast-wx').fadeOut();
+    });
+    $('#toast-wx').find('.toast-wx-button').on('click', function(){
+        $('body').css('overflow', 'auto');
+        $('body').removeClass('toast-wx-fixed');
+        $('#toast-wx').fadeOut();
+    });
+});
+</script>

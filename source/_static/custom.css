@@ -1,0 +1,2356 @@
+/*
+Copyright IBM Corp. All Rights Reserved.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+.toctree-wrapper {
+    display: none;
+}
+.rst-footer-buttons {
+    display: none;
+}
+/************************************ breadcrumbs *******************************/
+ul.wy-breadcrumbs {
+    padding-top: 12px;
+    margin-right: 50px;
+}
+a.breadtitle {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 40px;
+    font-weight: 400;
+}
+.wy-breadcrumbs li a {
+    display: inline-block;
+    padding-right: 0px;
+}
+a.breadtitle:hover{
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #07AFBE;
+    letter-spacing: 0;
+    line-height: 40px;
+    font-weight: 400;
+}
+.arrow_r {
+    width: 12px;
+}
+.lititle {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 40px;
+    font-weight: 400;
+}
+/******************************* github *************************************/
+a.fa {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 24px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+a.fa:hover {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #07AFBE;
+    letter-spacing: 0;
+    line-height: 24px;
+    font-weight: 400;
+}
+/* Text */
+body,
+h1,
+h2,
+.rst-content .toctree-wrapper p.caption,
+h3,
+h4,
+h5,
+h6,
+legend,
+input {
+    letter-spacing: 0.3px
+}
+.wy-menu {
+    padding-left: 30px;
+}
+h1 {
+    display: none;
+}
+p {
+    font-size: 100%; 
+}
+hr {
+    margin: 2px -50px 40px -50px;
+}
+/* Side navigation bar */
+
+.wy-side-nav-search {
+    background-color: #F8F9FB ;
+    margin-bottom: 0;
+}
+.wy-side-nav-search a.icon-home {
+    font-family: PingFangSC-Medium;
+    font-size: 20px;
+    color: #000000 !important;
+    line-height: 34px;
+    font-weight: 500;
+}
+a.version2 {
+    font-family: PingFangSC-Medium;
+    font-size: 20px;
+    color: #000000;
+    line-height: 34px;
+    font-weight: 500;    
+}
+.wy-side-nav-search>div.version {
+    font-family: PingFangSC-Medium;
+    font-size: 20px;
+    color: #000000;
+    line-height: 34px;
+    font-weight: 500;
+    margin-top: 10.956px;
+}
+.wy-side-nav-search img {
+    display: block;
+    margin: auto auto .809em auto;
+    padding: 5px;
+    border-radius: unset
+}
+.wy-side-nav-search input[type=text] {
+    max-width: 230px;
+    min-height: 37.85px;
+    background: url(./images/icon_search.svg);
+    background-size: 14px 13.94px;
+    background-position: 206px center;
+    background-repeat: no-repeat;
+    padding-right: 12px;
+    border-radius: 4px;
+    border: 1px solid #E0E0E0;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #999999;
+    line-height: 22px;
+    font-weight: 400;
+}
+.wy-menu-vertical a {
+    background-color: #F8F9FB;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    line-height: 40px;
+    font-weight: 400; 
+    color: #333333;
+}
+.wy-menu-vertical a:hover {
+    background-color: #F8F9FB;
+    color: #07AFBE;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    line-height: 40px;
+    font-weight: 400; 
+}
+.wy-nav-content {
+    padding: 0.125em 3.125em;
+    background-color: #fff;
+    max-width: 1150px;
+    
+}
+.wy-nav-side {
+    background-color: #F8F9FB;
+}
+.wy-menu-vertical header,
+.wy-menu-vertical p.caption {
+    font-family: PingFangSC-Semibold;
+    font-size: 16px;
+    color: #000000;
+    line-height: 40px;
+    font-weight: 600;
+    margin: 7.886px 5px 0;
+    background: url(/_static/images/arrow_Up.svg);
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+    background-position: 1px 16px; 
+    padding-left: 21px;
+}
+.wy-menu-vertical p.active {
+    padding-left: 23px;
+    background-image: url(/_static/images/arrow_down.svg);
+}
+.wy-menu-vertical ul {
+    padding-left: 17px;
+}
+.wy-menu-vertical ul li {
+    height: 40px;
+}
+.wy-nav-top a {
+    color: transparent;
+    background-repeat: no-repeat;
+    background-size: Auto 19px;
+    background-position: center top;
+    background-origin: content box;
+}
+.wy-menu-vertical li.toctree-l2.current>a, .wy-menu-vertical li.toctree-l2.current li.toctree-l3>a {
+    background: #F8F9FB;
+}
+.wy-menu-vertical li.current {
+    background: #F8F9FB;
+    height: 100%;
+}
+.wy-menu-vertical li.current ul li a:hover {
+    background: #F8F9FB;
+    height: 100%;
+}
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3>a, .wy-menu-vertical li.toctree-l3.current>a {
+    padding: .4045em 2.164em;
+}
+.wy-menu-vertical li.current>a span.toctree-expand, .wy-menu-vertical li.on a span.toctree-expand {
+    display: inline-block;
+    font-size: .8em;
+    line-height: 1.6em;
+    color: #333;
+    float: none;
+    visibility: hidden;
+    margin: 0px;
+}
+.wy-menu-vertical li.current>a span.toctree-expand:before, .wy-menu-vertical li.on a span.toctree-expand:before, .wy-menu-vertical li span.toctree-expand:before {
+    font-family: FontAwesome;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: inherit;
+    float: none;
+    visibility: hidden;
+    margin: 0px;
+}
+.wy-menu-vertical ul {
+    border-bottom: none;
+    border-top: none;
+    /* border: none; */
+}
+.wy-menu-vertical li.toctree-l1.current>a {
+    border-bottom: none;
+    border-top: none;
+    background: #F8F9FB ;
+}
+.wy-menu-vertical ul.current li>a {
+    border-bottom: 1px solid #c9c9c9;
+    border-top: 1px solid #c9c9c9;
+    border: none;
+}
+/*Card */
+.rst-content {
+    max-width: 1150px;
+}
+.card {
+    background-color: #fff;
+}
+.row {
+    max-width: 936px;
+    margin-right: 0;
+    margin-left: 0;
+}
+.card-title{
+    font-size: large;
+}
+/* img.topimg {
+    
+    max-width: 120px;
+    max-height: 34px;
+} */
+p.top {
+    
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-right: 50px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #666666;
+    font-weight: 400;
+}
+p.title {
+    padding-right: 50px;
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #000000;
+    line-height: 38px;
+    font-weight: 400;
+}
+.hov {
+    position: fixed;
+    left: 1260px;
+    top: 160px;
+
+}
+.hov p {
+    width: 90px;
+    height: 34px;
+    border-left: 1px solid #D8D8D8;
+    padding-left: 9px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+.hov p:hover {
+    width: 90px;
+    height: 34px;
+    border-left: 1px solid #01D8CC;
+    padding-left: 9px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+.hov p a{
+    font-family: PingFang-SC-Regular;
+    font-size: 14px;
+    color: #666666;
+    line-height: 24px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    
+}
+.hov p a:hover {
+    font-family: PingFang-SC-Regular;
+    font-size: 14px;
+    color: #08C3C8;
+    line-height: 24px;
+    font-weight: 400;
+
+}
+.hov2 {
+    display: none;
+    width: 100%;
+
+}
+/********************************* 快速入口 ********************************************/
+p.entitle {
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #333333;
+    line-height: 24px;
+    font-weight: 500;
+    margin: 0 0 9px 0;
+}
+.enimg {
+    display: inline-block;
+    vertical-align:text-top;
+    width: 18px;
+    height: 18px;
+}
+.infos {
+    padding-left: 10px;
+    display: inline-block;
+
+}
+.enter {
+    margin-top: 6px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.enter .card-holder {
+    max-width: 200px;
+    flex: 1 0 auto;
+    margin: 10px 20px 10px 0;
+}
+/* .enter .card-holder:nth-child(1) {
+    max-width: 200px;
+    flex: 1 0 auto;
+    margin-left: 0;
+} */
+.enter .card-holder:nth-child(3) {
+    max-width: 200px;
+    flex: 1 0 auto;
+    margin: 10px 20px 10px 0;
+}
+.enter .card-holder:nth-child(3):hover {
+    max-width: 200px;
+    flex: 1 0 auto;
+    margin: 10px 20px 10px 0;
+}
+
+.enter .card {
+    background: #F5F8F9;
+    padding: 30px 30px;
+    max-height: 284px;
+    height: 270px;
+}
+.enter .card .simple li {
+    padding: 5px 0;
+    margin-left: 16px;
+    list-style-type: square;
+}
+.enter .card .simple li::marker {
+    color: #666666;
+    max-width: 4px;
+    max-height: 4px;
+}
+.enter .card .simple li a {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #333333;
+    line-height: 24px;
+    font-weight: 400;
+}
+.enter .card .simple li a:hover {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #07AFBE;
+    line-height: 24px;
+    font-weight: 400;
+}
+/****************************** 应用案例 **********************************************/
+.totitle {
+    padding-right: 72px;
+    margin-top: 54px;
+    margin-bottom: 30px;
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #000000;
+    line-height: 38px;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+}
+a.download {
+    float: right;
+    font-family: PingFangSC-Regular;
+    font-size: 18px;
+    color: #333333;
+    line-height: 28px;
+    font-weight: 400;  
+}
+.tools{
+    margin-top: 6px;
+    
+    margin-bottom: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-right: -15px;
+    width: 100%;
+}
+.tools p.title {
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px; 
+    padding-left: 0;
+    font-family: PingFangSC-Regular;
+    font-size: 30px;
+    color: #000000;
+    line-height: 38px;
+    font-weight: 400;
+}
+.tools .card-holder {
+    flex: 0 0 auto;
+    margin: 0;
+    width: 287px;
+    height: 238px;  
+    border: 1px solid #E0E0E0;   
+}
+.tools .card-holder:nth-child(3),.card-holder:nth-child(6) {
+    flex: 0 0 auto;
+    margin: 0;
+    width: 288px;
+    height: 238px;  
+    border: 1px solid #E0E0E0;   
+}
+.tools .card-holder:hover {
+    flex: 0 0 auto;
+    margin: 0;
+    width: 287px; 
+    height: 238px;  
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    
+}
+.tools .card-holder:nth-child(3):hover,.card-holder:nth-child(6):hover{
+    flex: 0 0 auto;
+    margin: 0;
+    width: 288px; 
+    height: 238px;  
+    border: 1px solid #E0E0E0;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    
+}
+.item {
+    padding-top: 20px;
+    text-align: left;
+    border: 1px solid #E0E0E0;
+}
+
+p.title b a {
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    color: #333333;
+    line-height: 38px;
+    font-weight: 500;
+}
+p.content {
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+    text-align: justify;
+    line-height: 24px;
+    font-weight: 400;
+}
+p.details {
+    margin: 0;
+    padding-top: 20px;
+}
+p.details b a {
+    margin-left: 30px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #08C3C8;
+    letter-spacing: 0;
+    line-height: 24px;
+    font-weight: 400;
+}
+p.details b a:hover {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #07AFBE;
+    border-bottom: 1px solid #07AFBE;
+    letter-spacing: 0;
+    line-height: 24px;
+    font-weight: 400;
+}
+/************************************** 工具介绍 ***************************************/
+.intro {
+    margin-top: 6px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.intro .card-holder {
+    margin: 10px;
+    width: 420px;
+    max-height: 202px;
+    background: #FFFFFF;
+    flex: 0 0 auto;
+    
+}
+.intro .card-holder:nth-child(1),.card-holder:nth-child(3) {
+    margin: 10px;
+    width: 420px;
+    height: 202px;
+    background: #FFFFFF;
+    flex: 0 0 auto;
+    margin-left: 0;
+    
+}
+.intro .card-holder:hover {
+    margin: 10px;
+    width: 420px;
+    height: 202px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    
+}
+.intro .card-holder:nth-child(1):hover {
+    margin: 10px;
+    width: 420px;
+    height: 202px;
+    background: #FFFFFF;
+    flex: 0 0 auto;
+    margin-left: 0;
+    
+}
+.intro .card-holder:nth-child(3):hover {
+    margin: 10px;
+    width: 420px;
+    height: 202px;
+    background: #FFFFFF;
+    flex: 0 0 auto;
+    margin-left: 0;
+    
+}
+.intro .card-holder .card{
+    width: 420px;
+    height: 202px;
+    border: 1px solid #E0E0E0;
+}
+p.introtitle {
+    margin-top: 24px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    font-family: PingFangSC-Semibold;
+    font-size: 18px;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 28px;
+    font-weight: 600;
+}
+p.introcontent {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: 0;
+    text-align: justify;
+    line-height: 24px;
+    font-weight: 400;
+}
+p.introdetails b a {
+    margin-left: 30px;
+    margin-bottom: 24px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #08C3C8;
+    letter-spacing: 0;
+    line-height: 24px;
+    font-weight: 400;
+}
+p.introdetails b a:hover {
+    margin-left: 30px;
+    margin-bottom: 24px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #07AFBE;
+    border-bottom: 1px solid #07AFBE;
+    letter-spacing: 0;
+    line-height: 24px;
+    font-weight: 400;
+}
+img.introimg {
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 8px;
+}
+/************************************* 技术生态 *****************************************/
+.ecoimg {
+    display: flex;
+}
+.ecoimg .card {
+    /* padding-left: 50px; */
+    /* padding-right: 24px; */
+    width: 860px;
+    /* width: 100%; */
+    height: 470px;
+    height: 100%;
+    flex: 0 1 auto;
+}
+.ecology {
+    margin-top: 30px;
+}
+.ecology .card-holder {
+    max-width: 860px;
+    width: 100%;
+    height: 196px;
+    margin: 0;
+}
+.ecology .card-holder:nth-child(1):hover,.card-holder:nth-child(3):hover {
+    margin: 0;
+    width: 100%;
+    height: 196px;
+    background: #FFFFFF;
+    flex: 0 0 auto;
+    margin-left: 0;
+    
+}
+.ecology .card {
+    background: #FFFFFF;
+}
+#eco1 {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0; 
+    margin-top: 40px;
+    
+}
+#eco2,#eco3,#eco4 {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0; 
+    margin-top: 20px;
+    
+}
+.ecotitle {
+    margin-top: 24px;
+    padding-left: 30px;
+    font-family: PingFangSC-Medium;
+    font-size: 18px;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 32px;
+    font-weight: 500;
+}
+.ecotitle b a {
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #08C3C8;
+    letter-spacing: 0;
+    line-height: 32px;
+    font-weight: 500;
+}
+.ecoul {
+    padding-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.ecoul ul.ecof {
+    min-width: 297px;
+    min-height: 96px;
+    flex: 1 0 auto;
+    margin-bottom: 0;
+}
+.ecoul ul.ecos {
+    min-width: 297px;
+    min-height: 96px;
+    flex: 1 0 auto;
+    margin-bottom: 0;
+}
+.ecoul ul li {
+    padding-bottom: 12px;
+}
+.ecoul ul li p {
+    font-family: PingFang-SC-ExtraLight;
+    font-size: 14px;
+    color: #666666;
+    line-height: 24px;
+    font-weight: 400;
+}
+.ecoul ul li p b a {
+    font-family: PingFang-SC-ExtraLight;
+    font-size: 14px;
+    color: #00C3C9;
+    line-height: 24px;
+    font-weight: 400;
+}
+.ecoul ul li p b a:hover {
+    font-family: PingFang-SC-ExtraLight;
+    font-size: 14px;
+    color: #07AFBE;
+    border-bottom: 1px solid #07AFBE ;
+    line-height: 24px;
+    font-weight: 400;
+}
+/*********************************** 社区交流 ********************************************/
+.community {
+    margin-top: 6px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#communi {
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+.community .card-holder {
+    margin: 10px;
+    max-width: 200px;
+    max-height: 56px;
+    flex: 1 0 auto;
+}
+.community .card-holder:nth-child(1) {
+    margin: 10px;
+    max-width: 200px;
+    max-height: 56px;
+    flex: 1 0 auto;
+    margin-left: 0;
+}
+.community .card-holder:nth-child(3):hover {
+    margin: 10px;
+    max-width: 200px;
+    max-height: 56px;
+    flex: 1 0 auto;
+}
+.community .card {
+    background: #FFFFFF;
+    border: 1px solid #08C3C8;
+    border-radius: 4px;
+    max-width: 200px;
+    max-height: 56px;
+    text-align: center;
+}
+
+.comm,.comm:hover {
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #08C3C8 !important;
+    line-height: 56px;
+    font-weight: 400;
+}
+@media (max-width: 767px) {
+    body.toast-wx-fixed .x-header {
+        position: fixed;
+        z-index: 100;
+        background-color: #000;
+    }
+}
+
+#toast-wx {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000000;
+    background-color: rgba(8, 18, 26, 0.5);
+    display: none;
+}
+#toast-wx .toast-wx-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 672px;
+    padding: 64px 0 40px;
+    background-color: #fff;
+}
+.toast-wx-close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.toast-wx-title {
+    font-family: PingFangSC-Medium;
+    font-size: 32px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 48px;
+    margin-bottom: 32px;
+}
+.toast-wx-code {
+    display: block;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+}
+.toast-wx-button {
+    position: relative;
+    display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 180px;
+    height: 44px;
+    font-family: PingFangSC-Medium,sans-serif;
+    font-size: 16px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: 0;
+    border: 1px solid #08C3C8;
+    color: #08C3C8;
+    line-height: 42px;
+    width: 120px;
+    margin: 32px auto 0;
+}
+
+/***************************** footer *********************************************/
+footer hr {
+    margin-bottom: 20px;
+}
+footer~p {
+    
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #666666;
+    font-weight: 400;
+}
+#text {
+    font-family: PingFangSC-Regular;
+    font-size: 14px !important;
+    color: #666666;
+    font-weight: 400;
+}
+footer a {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #07AFBE !important;
+    letter-spacing: 0;
+    line-height: 24px;
+    font-weight: 400;
+}
+/* ************************************************************************************ */
+@media (max-width: 1284px) {
+    /* 快速入口 */
+    .enter .card-holder {
+        max-width: 200px;
+        flex: 1 0 auto;
+        margin: 10px 20px 10px 0;
+        width: 50%;
+    }
+    /* 工具介绍 */
+    .intro .card-holder:nth-child(1), .card-holder:nth-child(3) {
+        margin: 10px;
+        width: 100%;
+        height: 100%;
+        background: #FFFFFF;
+        flex: 0 0 auto;
+        margin-left: 0;
+    }
+    .intro .card-holder:nth-child(1):hover {
+        margin: 10px;
+        width: 100%;
+        height: 100%;
+        background: #FFFFFF;
+        flex: 0 0 auto;
+        margin-left: 0;
+    }
+    .intro .card-holder:nth-child(3):hover {
+        margin: 10px;
+        width: 100%;
+        height: 100%;
+        background: #FFFFFF;
+        flex: 0 0 auto;
+        margin-left: 0;
+    }
+    .intro .card-holder {
+        margin: 10px;
+        width: 100%;
+        max-height: 202px;
+        background: #FFFFFF;
+        flex: 0 0 auto;
+        margin-left: 0;
+    }
+    .intro .card-holder:hover {
+        margin: 10px;
+        width: 100%;
+        max-height: 202px;
+        background: #FFFFFF;
+        flex: 0 0 auto;
+        margin-left: 0;
+        height: 100%;
+    }
+    .intro .card-holder .card {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #E0E0E0;
+    }
+    /* 应用案例 */
+    .totitle {
+        /* padding-right: 72px; */
+        margin-top: 54px;
+        margin-bottom: 30px;
+        font-family: PingFangSC-Regular;
+        font-size: 30px;
+        color: #000000;
+        line-height: 38px;
+        font-weight: 400;
+        display: flex;
+        justify-content: space-between;
+    }
+    .tools .card-holder {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #E0E0E0;
+    }
+    .tools .card-holder:hover {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #E0E0E0;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    }
+    .tools .card-holder:nth-child(3), .card-holder:nth-child(6) {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #E0E0E0;
+    }
+    .tools .card-holder:nth-child(3):hover {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #E0E0E0;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    }
+    .tools .card-holder:nth-child(6):hover {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #E0E0E0;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    }
+    /* 技术生态 */
+    #eco2, #eco3, #eco4 {
+        height: 100%;
+    }
+    /* 社区交流 */
+    .community .card-holder {
+        margin: 10px;
+        max-width: 200px;
+        max-height: 56px;
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    .community .card-holder:nth-child(3) {
+        margin: 10px;
+        height: 100%;
+        flex: 0 0 auto;
+        width: 50%;
+        margin-right: 20px;
+    }
+    .community .card-holder:nth-child(4) {
+        margin-left: 0;
+    }
+}
+@media (max-width: 1064px){
+    .community .card-holder:nth-child(3) {
+        margin: 10px;
+        height: 100%;
+        flex: 0 0 auto;
+        width: 50%;
+        margin-right: 20px;
+        margin-left: 0;
+    }
+}
+@media (max-width: 1040px){
+    #eco1 {
+        background: #FFFFFF;
+        border: 1px solid #E0E0E0;
+        margin-top: 40px;
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) { 
+    .section {
+        padding: 17px;
+    }
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .wy-nav-top i {
+        font-size: 30px;
+        float: left;
+        padding-top: 11px;
+        cursor: pointer;
+        color: black;
+    }
+    .wy-side-nav-search input[type=text] {
+        margin: 0 20px;
+    }
+    a.version2 {
+        padding-right: 35px;   
+    }
+    h1 {
+        display: inline-block !important;
+        font-family: PingFang-SC-Bold;
+        font-size: 23px;
+        color: #000000;
+        letter-spacing: 0;
+        line-height: 23px;
+        font-weight: 700;
+    }
+    ul.wy-breadcrumbs {
+        padding-top: 12px;
+        margin-left: 17px;
+        margin-right: 50px;
+    }
+    img.topimg {
+    display: none;
+    }
+    p.top {
+        margin: 10px 0 40px;
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #666666;
+        line-height: 23px;
+        font-weight: 500;
+    }
+    .wy-nav-content-wrap .wy-nav-content {
+        padding: 0em;
+    }
+    /* div[role=navigation] {
+        display: none;
+        visibility: hidden; 
+    } */
+    .wy-breadcrumbs {
+        display: none;
+    }
+    hr {
+        display: none;
+    }
+    
+    .hov2 {
+        display: block !important;
+        /* position: fixed; */
+        /* top: 75px; */
+        margin-left: -17px;
+        margin-right: -17px;
+        width: 200%;
+    
+    }
+    .hov2 p {
+        width: 100%;
+        height: 100%;
+        background: #FFFFFF;
+        box-shadow: 0 5px 15px 0 rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        /* IE10+ */
+        -ms-overflow-style: none;
+        /* Firefox（没用） */
+        overflow: -moz-scrollbars-none;
+         /* 针对除了IE */
+        scrollbar-width: none;
+    }
+    .hov2 p::-webkit-scrollbar {
+        display: none
+    }
+    .hov2 p a{
+        margin-right: 30px;
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #333333;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 400;
+        white-space: nowrap;
+        margin-top: 17px;
+        padding-bottom: 17px;
+        margin-left: 17px;
+        
+    }
+    .hov2 p a:nth-child(2),a:nth-child(3),a:nth-child(4),a:nth-child(5){
+        /* margin-right: 30px; */
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #333333;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 400;
+        white-space: nowrap;
+        /* margin-top: 17px; */
+        padding-bottom: 17px;
+        /* margin-left: 0; */
+        
+    }
+    /* .hov2 p a:hover {
+        background-color: #FFFFFF !important;
+        font-family: PingFangSC-Medium;
+        font-size: 14px;
+        color: #333333 !important;
+        border-bottom: 2px solid #333333;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 500;
+    
+    } */
+    p.title {
+        margin-left: 0px;
+        padding-left: 0;
+        font-family: PingFangSC-Regular;
+        font-size: 18px;
+        color: #000000;
+        line-height: 18px;
+        font-weight: 500;
+    }
+    /* 快速入口 */
+    .enter {
+        margin-top: 6px;
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 6px 0 0;
+        margin: 0 -7.5px;
+    }
+    .enter .card {
+        padding: 24px;
+        width: 100%;
+        height: 214px;
+    }
+    .enter .card-holder{
+        padding: 7.5px 9.5px;  
+        width: 50%;
+        margin: 0;   
+    }
+    .enter .card-holder:nth-child(3) {
+        max-width: 200px;
+        width: 50%;
+        flex: 1 0 auto;
+        margin: 0;
+    }
+    .enter .card-holder:nth-child(3):hover {
+        max-width: 200px;
+        width: 50%;
+        flex: 1 0 auto;
+        margin: 0;
+    }
+    p.title {
+        margin-bottom: 11px;
+    }
+
+    .infos {
+        padding-left: 3px;
+        display: inline-block;
+    }
+    .enter .card .simple li::marker {
+        color: #666666;
+        width: 3px;
+        height: 3px;
+    }
+    p.entitle {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .enter .card .simple li a {
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .enter .card .simple li a:hover {
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #07AFBE ;
+        line-height: 20px;
+        font-weight: 400;
+    }
+    .enimg {
+        width: 13px;
+    }
+    /* 工具介绍 */
+    .intro {
+        /* margin-left: 24px;
+        margin-right: 17px; */
+        margin: 0;
+        margin-top: 6px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #techintro {
+        margin-bottom: 14px;
+        padding-top: 32.5px;
+    }
+    p.introtitle {
+        /* margin-top: 20px;
+        margin-left: 20px; */
+        margin: 0;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: 400;
+        padding: 16px 20px 7px 20px;
+    }
+    p.introcontent {
+        /* margin-left: 20px;
+        margin-right: 20px; */
+        margin: 0px;
+        font-size: 13px;
+        line-height: 20px;
+        padding: 1px 20px;
+    }
+    p.introdetails {
+        margin: 0;
+        /* padding-bottom: 20px; */
+    }
+    p.introdetails b a {
+        margin-left: 20px;
+        margin-bottom: 0;
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        line-height: 13px;
+        font-weight: 400;
+    }
+    p.introdetails b a:hover {
+        margin-left: 20px;
+        margin-bottom: 0;
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #08C3C8;
+        border-bottom: 1px solid #07AFBE;
+        letter-spacing: 0;
+        line-height: 13px;
+        font-weight: 400;
+    }
+    .introimg {
+        width: 9px;
+    }
+    
+    .intro .card-holder {
+        width: 100%;
+        /* margin: 7.5px;
+        margin-left: 7px; */
+        margin: 0;
+        max-height: 156px;
+        padding: 7.5px 0;
+    }
+    .intro .card-holder:nth-child(1) {
+        width: 100%;
+        /* margin: 7.5px;
+        margin-left: 7px; */
+        margin: 0;
+        max-height: 156px;
+        padding: 7.5px 0;
+    }
+    .intro .card-holder:hover {
+        /* margin: 10px; */
+        width: 100%;
+        margin: 0;
+        max-height: 156px;
+        padding: 7.5px 0;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+        
+    }
+    .intro .card-holder:nth-child(1):hover {
+        /* margin: 10px; */
+        width: 100%;
+        margin: 0;
+        max-height: 156px;
+        padding: 7.5px 0;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+        
+    }
+    .intro .card-holder:nth-child(3):hover {
+        /* margin: 10px; */
+        width: 100%;
+        margin: 0;
+        max-height: 156px;
+        padding: 7.5px 0;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+        
+    }
+    .intro .card-holder .card{
+        width: 100%;
+        height: 100%;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px;
+    }
+    
+    /* 应用案例 */
+    p.totitle {
+        padding-left: 0;
+        padding-right: 36px;
+        padding: 32.5px 0 20px ;
+        /* margin-top: 32.5px;
+        margin-bottom: 21px;
+        margin-left: 32px; */
+        margin: 0;
+        font-family: PingFangSC-Regular;
+        font-size: 18px;
+        color: #000000;
+        line-height: 18px;
+        font-weight: 500;
+    }
+    p.title b a {
+        font-family: PingFangSC-Regular;
+        font-size: 16px;
+        color: #000000;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 400;
+    }
+    a.download {
+        font-family: PingFang-SC-Medium;
+        font-size: 14px;
+        color: #333333;
+        letter-spacing: 0;
+        line-height: 18px;
+        font-weight: 500;
+    }
+    .tools{
+        margin-top: 6px;
+        margin-left: 33px;
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        /* margin-right: -15px;
+        margin-right: 17px; */
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
+    .tools .card-holder {
+        flex: 0 0 auto;
+        /* margin: 0;
+        width: 342px; */
+        height: 156px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px;
+        width: 100%;
+    }
+    .tools .card-holder:nth-child(3),.card-holder:nth-child(6) {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 342px;
+        height: 156px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px; 
+        width: 100%;
+    }
+    .tools .card-holder:hover {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 342px;
+        height: 156px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px; 
+        width: 100%;
+        border-radius: 8px; 
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+        
+    }
+    .tools .card-holder:nth-child(3):hover {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 342px;
+        height: 156px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px; 
+        width: 100%;
+        border-radius: 8px; 
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    }
+    .tools .card-holder:nth-child(6):hover {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 342px;
+        height: 156px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px; 
+        width: 100%;
+        border-radius: 8px; 
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    }
+    .tools p.title {
+        /* margin-left: 20px;
+        margin-top: 10px;
+        margin-bottom: 0px; */
+        padding-left: 12px;
+        font-family: PingFangSC-Regular;
+        font-size: 18px;
+        color: #000000;
+        line-height: 38px;
+        font-weight: 400;
+        margin: 0;
+        margin-top: 5px;
+    }
+    p.content {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 2px;
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #666666;
+        letter-spacing: 0;
+        text-align: justify;
+        line-height: 20px;
+        font-weight: 400;
+    }
+    p.details {
+        margin: 0;
+        padding-top: 10px;
+        padding-left: 12px;
+    }
+    p.details b a {
+        /* margin-left: 20px; */
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        line-height: 13px;
+        font-weight: 400;
+        margin: 0;
+    }
+    p.details b a:hover {
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        line-height: 13px;
+        font-weight: 400;
+        margin: 0;
+        border-bottom: 1px solid #07AFBE;
+    }
+    /* 技术生态 */
+    .ecoimg img {
+        /* margin-left: 0; */
+        width: 100%;
+        margin: 0;
+    }
+    .ecoimg .card {
+        width: 100%;
+        margin: 0;
+        padding-bottom: 19.5px;
+        padding-left: 0;
+        padding-right: 0;
+
+    }
+    #ecology {
+        padding: 40px 0 20px;
+        margin: 0;
+    }
+
+
+
+
+    #eco1,#eco2, #eco3, #eco4 {
+        /* margin-top: 27px;
+        margin-left: 33px; */
+        /* width: 342px;
+         */
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px;
+        margin: 0;
+        padding: 2px;
+        width: 100%;
+        margin-bottom: 15px;
+        height: 100%;
+    }
+    /* #eco2, #eco3, #eco4 {
+        margin-top: 15px;
+        margin-left: 33px;
+        width: 342px;
+        height: 232px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px;
+    } */
+    .rst-content .section ul, .rst-content .toctree-wrapper ul, .wy-plain-list-disc, article ul {
+        list-style: disc;
+        line-height: 23px;
+        margin-bottom: -6px;
+        padding: 0;
+    }
+    .ecotitle {
+        /* margin-top: 20px;
+        margin-bottom: 13px; */
+        padding-left: 20px;
+        font-family: PingFangSC-Medium;
+        font-size: 16px;
+        color: #000000;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 400;
+        margin: 0;
+        padding: 18px 6px 13px 18px;
+    }
+    .ecotitle b a {
+        font-family: PingFangSC-Medium;
+        font-size: 14px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 500;
+    }
+    .ecoul {
+        padding-left: 14px;
+        padding-right: 5px;
+    }
+    .ecoul ul li {
+        padding-bottom: 2px;
+    }
+    .ecoul ul li p {
+        font-size: 13px;
+    }
+    .ecoul ul li p b a {
+        font-size: 13px;
+    }
+    .ecoul ul li p b a:hover {
+        font-size: 13px;
+    }
+    .ecoul .ecof {
+        min-width: 297px;
+        min-height: 89px;
+        flex: 1 0 auto;
+    }
+    .ecology {
+        /* margin-top: 21px; */
+        margin: 0;
+        padding: 0;
+    }
+    .ecology .card-holder {
+        width: 100%;
+        min-height: 196px;
+    }
+    /* 社区交流 */
+    .community {
+        /* margin: 6px 26px 50px; */
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+    }
+    .community .card-holder {
+        /* margin: 7.5px 5px;
+        max-width: 196px; */
+        /* height: 32px; */
+        flex:1 1 auto;
+        margin: 0;
+        width: 50%;
+        padding: 7.5px 6.5px 14.5px 6.5px;
+    }
+    .community .card-holder:nth-child(1) {
+     /* margin: 7.5px 5px;
+        max-width: 196px; */
+        /* height: 32px; */
+        flex:1 1 auto;
+        margin: 0;
+        width: 50%;
+        padding: 7.5px 6.5px 14.5px 6.5px;
+    }
+    .community .card-holder:nth-child(3) {
+        /* margin: 10px; */
+        height: 100%;
+        flex: 0 0 auto;
+        width: 50%;
+        /* margin-right: 20px; */
+        margin: 0;
+    }
+    .community .card-holder:nth-child(3):hover {
+        /* margin: 7.5px 5px;
+        max-width: 196px; */
+        /* height: 32px; */
+        flex:1 1 auto;
+        margin: 0;
+        width: 50%;
+        padding: 7.5px 6.5px 14.5px 6.5px;
+    }
+    .community .card {
+        /* width: 163px; */
+        width: 100%;
+    }
+    .comm {
+        font-family: PingFang-SC-Medium;
+        font-size: 13px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 32px;
+        font-weight: 500;
+    }
+    .comm, .comm:hover {
+        font-family: PingFang-SC-Medium;
+        font-size: 13px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 32px;
+        font-weight: 500;
+    }
+
+    .wy-nav-top {
+        padding: 17px;
+        background-color: #FFFFFF;
+        background: url("./images/logo.png");
+        background-size: 83px 24px;
+        background-position: right 17px center;
+        background-repeat: no-repeat;
+        border-bottom: 1px solid #e1e4e5;
+    }
+    #communi {
+        /* margin-top: 40px;
+        margin-right: 17px;
+        margin-bottom: 12.5px; */
+        margin: 0;
+        padding: 25px 0 12.5px;
+    }
+    /* footer p {
+        border-top: 1px solid #DADCDF;
+        padding-top: 15px;
+    } */
+}
+/* phone*/
+@media (max-width: 581px) { 
+    .section {
+        padding: 17px;
+    }
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .wy-nav-top i {
+        font-size: 30px;
+        float: left;
+        padding-top: 11px;
+        cursor: pointer;
+        color: black;
+    }
+    .wy-side-nav-search input[type=text] {
+        margin: 0 20px;
+    }
+    a.version2 {
+        padding-right: 35px;   
+    }
+    h1 {
+        display: inline-block !important;
+        font-family: PingFang-SC-Bold;
+        font-size: 23px;
+        color: #000000;
+        letter-spacing: 0;
+        line-height: 23px;
+        font-weight: 700;
+    }
+    ul.wy-breadcrumbs {
+        padding-top: 12px;
+        margin-left: 17px;
+        margin-right: 50px;
+    }
+    img.topimg {
+    display: none;
+    }
+    p.top {
+        margin: 10px 0 40px;
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #666666;
+        line-height: 23px;
+        font-weight: 500;
+    }
+    .wy-nav-content-wrap .wy-nav-content {
+        padding: 0em;
+    }
+    /* div[role=navigation] {
+        display: none;
+        visibility: hidden; 
+    } */
+    .wy-breadcrumbs {
+        display: none;
+    }
+    hr {
+        display: none;
+    }
+    
+    .hov2 {
+        display: block !important;
+        /* position: fixed; */
+        /* top: 75px; */
+        margin-left: -17px;
+        margin-right: -17px;
+        width: 200%;
+    
+    }
+    .hov2 p {
+        width: 100%;
+        height: 100%;
+        background: #FFFFFF;
+        box-shadow: 0 5px 15px 0 rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        /* IE10+ */
+        -ms-overflow-style: none;
+        /* Firefox（没用） */
+        overflow: -moz-scrollbars-none;
+         /* 针对除了IE */
+        scrollbar-width: none;
+    }
+    .hov2 p::-webkit-scrollbar {
+        display: none
+    }
+    .hov2 p a{
+        margin-right: 30px;
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #333333;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 400;
+        white-space: nowrap;
+        margin-top: 17px;
+        padding-bottom: 17px;
+        margin-left: 17px;
+        
+    }
+    .hov2 p a:nth-child(2),a:nth-child(3),a:nth-child(4),a:nth-child(5){
+        /* margin-right: 30px; */
+        font-family: PingFangSC-Regular;
+        font-size: 14px;
+        color: #333333;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 400;
+        white-space: nowrap;
+        /* margin-top: 17px; */
+        padding-bottom: 17px;
+        /* margin-left: 0; */
+        
+    }
+    /* .hov2 p a:hover {
+        background-color: #FFFFFF !important;
+        font-family: PingFangSC-Medium;
+        font-size: 14px;
+        color: #333333 !important;
+        border-bottom: 2px solid #333333;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 500;
+    
+    } */
+    p.title {
+        margin-left: 0px;
+        padding-left: 0;
+        font-family: PingFangSC-Regular;
+        font-size: 18px;
+        color: #000000;
+        line-height: 18px;
+        font-weight: 500;
+    }
+    /* 快速入口 */
+    .enter {
+        margin-top: 6px;
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 6px 0 0;
+        margin: 0 -7.5px;
+    }
+    .enter .card {
+        padding: 24px;
+        width: 100%;
+        height: 214px;
+    }
+    .enter .card-holder{
+        padding: 7.5px 9.5px;  
+        width: 50%;
+        margin: 0;   
+    }
+    .enter .card-holder:nth-child(3) {
+        max-width: 200px;
+        width: 50%;
+        flex: 1 0 auto;
+        margin: 0;
+    }
+    .enter .card-holder:nth-child(3):hover {
+        max-width: 200px;
+        width: 50%;
+        flex: 1 0 auto;
+        margin: 0;
+    }
+    p.title {
+        margin-bottom: 11px;
+    }
+
+    .infos {
+        padding-left: 3px;
+        display: inline-block;
+    }
+    .enter .card .simple li::marker {
+        color: #666666;
+        width: 3px;
+        height: 3px;
+    }
+    p.entitle {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .enter .card .simple li a {
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .enter .card .simple li a:hover {
+        font-family: PingFangSC-Regular;
+        font-size: 12px;
+        color: #07AFBE ;
+        line-height: 20px;
+        font-weight: 400;
+    }
+    .enimg {
+        width: 13px;
+    }
+    /* 工具介绍 */
+    .intro {
+        /* margin-left: 24px;
+        margin-right: 17px; */
+        margin: 0;
+        margin-top: 6px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #techintro {
+        margin-bottom: 14px;
+        padding-top: 32.5px;
+    }
+    p.introtitle {
+        /* margin-top: 20px;
+        margin-left: 20px; */
+        margin: 0;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: 400;
+        padding: 16px 20px 7px 20px;
+    }
+    p.introcontent {
+        /* margin-left: 20px;
+        margin-right: 20px; */
+        margin: 0px;
+        font-size: 13px;
+        line-height: 20px;
+        padding: 1px 20px;
+    }
+    p.introdetails {
+        margin: 0;
+        /* padding-bottom: 20px; */
+    }
+    p.introdetails b a {
+        margin-left: 20px;
+        margin-bottom: 0;
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        line-height: 13px;
+        font-weight: 400;
+    }
+    p.introdetails b a:hover {
+        margin-left: 20px;
+        margin-bottom: 0;
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #08C3C8;
+        border-bottom: 1px solid #07AFBE;
+        letter-spacing: 0;
+        line-height: 13px;
+        font-weight: 400;
+    }
+    .introimg {
+        width: 9px;
+    }
+    
+    .intro .card-holder {
+        width: 100%;
+        /* margin: 7.5px;
+        margin-left: 7px; */
+        margin: 0;
+        max-height: 156px;
+        padding: 7.5px 0;
+    }
+    .intro .card-holder:nth-child(1) {
+        width: 100%;
+        /* margin: 7.5px;
+        margin-left: 7px; */
+        margin: 0;
+        max-height: 156px;
+        padding: 7.5px 0;
+    }
+    .intro .card-holder:hover {
+        /* margin: 10px; */
+        width: 100%;
+        margin: 0;
+        max-height: 156px;
+        padding: 7.5px 0;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+        
+    }
+    .intro .card-holder:nth-child(1):hover {
+        /* margin: 10px; */
+        width: 100%;
+        margin: 0;
+        max-height: 156px;
+        padding: 7.5px 0;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+        
+    }
+    .intro .card-holder:nth-child(3):hover {
+        /* margin: 10px; */
+        width: 100%;
+        margin: 0;
+        max-height: 156px;
+        padding: 7.5px 0;
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+        
+    }
+    .intro .card-holder .card{
+        width: 100%;
+        height: 100%;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px;
+    }
+    
+    /* 应用案例 */
+    p.totitle {
+        padding-left: 0;
+        padding-right: 36px;
+        padding: 32.5px 0 20px ;
+        /* margin-top: 32.5px;
+        margin-bottom: 21px;
+        margin-left: 32px; */
+        margin: 0;
+        font-family: PingFangSC-Regular;
+        font-size: 18px;
+        color: #000000;
+        line-height: 18px;
+        font-weight: 500;
+    }
+    p.title b a {
+        font-family: PingFangSC-Regular;
+        font-size: 16px;
+        color: #000000;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 400;
+    }
+    a.download {
+        font-family: PingFang-SC-Medium;
+        font-size: 14px;
+        color: #333333;
+        letter-spacing: 0;
+        line-height: 18px;
+        font-weight: 500;
+    }
+    .tools{
+        margin-top: 6px;
+        margin-left: 33px;
+        margin-bottom: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        /* margin-right: -15px;
+        margin-right: 17px; */
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
+    .tools .card-holder {
+        flex: 0 0 auto;
+        /* margin: 0;
+        width: 342px; */
+        height: 156px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px;
+        width: 100%;
+    }
+    .tools .card-holder:nth-child(3),.card-holder:nth-child(6) {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 342px;
+        height: 156px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px; 
+        width: 100%;
+    }
+    .tools .card-holder:hover {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 342px;
+        height: 156px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px; 
+        width: 100%;
+        border-radius: 8px; 
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+        
+    }
+    .tools .card-holder:nth-child(3):hover {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 342px;
+        height: 156px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px; 
+        width: 100%;
+        border-radius: 8px; 
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    }
+    .tools .card-holder:nth-child(6):hover {
+        flex: 0 0 auto;
+        margin: 0;
+        width: 342px;
+        height: 156px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px; 
+        width: 100%;
+        border-radius: 8px; 
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    }
+    .tools p.title {
+        /* margin-left: 20px;
+        margin-top: 10px;
+        margin-bottom: 0px; */
+        padding-left: 12px;
+        font-family: PingFangSC-Regular;
+        font-size: 18px;
+        color: #000000;
+        line-height: 38px;
+        font-weight: 400;
+        margin: 0;
+        margin-top: 5px;
+    }
+    p.content {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 2px;
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #666666;
+        letter-spacing: 0;
+        text-align: justify;
+        line-height: 20px;
+        font-weight: 400;
+    }
+    p.details {
+        margin: 0;
+        padding-top: 10px;
+        padding-left: 12px;
+    }
+    p.details b a {
+        /* margin-left: 20px; */
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        line-height: 13px;
+        font-weight: 400;
+        margin: 0;
+    }
+    p.details b a:hover {
+        font-family: PingFangSC-Regular;
+        font-size: 13px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        line-height: 13px;
+        font-weight: 400;
+        margin: 0;
+        border-bottom: 1px solid #07AFBE;
+    }
+    /* 技术生态 */
+    .ecoimg img {
+        /* margin-left: 0; */
+        width: 100%;
+        margin: 0;
+    }
+    .ecoimg .card {
+        width: 100%;
+        margin: 0;
+        padding-bottom: 19.5px;
+        padding-left: 0;
+        padding-right: 0;
+
+    }
+    #ecology {
+        padding: 40px 0 20px;
+        margin: 0;
+    }
+
+
+
+
+    #eco1,#eco2, #eco3, #eco4 {
+        /* margin-top: 27px;
+        margin-left: 33px; */
+        /* width: 342px;
+         */
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px;
+        margin: 0;
+        padding: 2px;
+        width: 100%;
+        margin-bottom: 15px;
+        height: 100%;
+    }
+    /* #eco2, #eco3, #eco4 {
+        margin-top: 15px;
+        margin-left: 33px;
+        width: 342px;
+        height: 232px;
+        background: #FFFFFF;
+        border: 1px solid #DADCDF;
+        border-radius: 8px;
+    } */
+    .rst-content .section ul, .rst-content .toctree-wrapper ul, .wy-plain-list-disc, article ul {
+        list-style: disc;
+        line-height: 23px;
+        margin-bottom: -6px;
+        padding: 0;
+    }
+    .ecotitle {
+        /* margin-top: 20px;
+        margin-bottom: 13px; */
+        padding-left: 20px;
+        font-family: PingFangSC-Medium;
+        font-size: 16px;
+        color: #000000;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 400;
+        margin: 0;
+        padding: 18px 6px 13px 18px;
+    }
+    .ecotitle b a {
+        font-family: PingFangSC-Medium;
+        font-size: 14px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        line-height: 16px;
+        font-weight: 500;
+    }
+    .ecoul {
+        padding-left: 14px;
+        padding-right: 5px;
+    }
+    .ecoul ul li {
+        padding-bottom: 2px;
+    }
+    .ecoul ul li p {
+        font-size: 13px;
+    }
+    .ecoul ul li p b a {
+        font-size: 13px;
+    }
+    .ecoul ul li p b a:hover {
+        font-size: 13px;
+    }
+    .ecoul .ecof {
+        min-width: 297px;
+        min-height: 89px;
+        flex: 1 0 auto;
+    }
+    .ecology {
+        /* margin-top: 21px; */
+        margin: 0;
+        padding: 0;
+    }
+    .ecology .card-holder {
+        width: 100%;
+        min-height: 196px;
+    }
+    /* 社区交流 */
+    .community {
+        /* margin: 6px 26px 50px; */
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+    }
+    .community .card-holder {
+        /* margin: 7.5px 5px;
+        max-width: 196px; */
+        /* height: 32px; */
+        flex:1 1 auto;
+        margin: 0;
+        width: 50%;
+        padding: 7.5px 6.5px 14.5px 6.5px;
+    }
+    .community .card-holder:nth-child(1) {
+     /* margin: 7.5px 5px;
+        max-width: 196px; */
+        /* height: 32px; */
+        flex:1 1 auto;
+        margin: 0;
+        width: 50%;
+        padding: 7.5px 6.5px 14.5px 6.5px;
+    }
+    .community .card-holder:nth-child(3) {
+        /* margin: 10px; */
+        height: 100%;
+        flex: 0 0 auto;
+        width: 50%;
+        /* margin-right: 20px; */
+        margin: 0;
+    }
+    .community .card-holder:nth-child(3):hover {
+        /* margin: 7.5px 5px;
+        max-width: 196px; */
+        /* height: 32px; */
+        flex:1 1 auto;
+        margin: 0;
+        width: 50%;
+        padding: 7.5px 6.5px 14.5px 6.5px;
+    }
+    .community .card {
+        /* width: 163px; */
+        width: 100%;
+    }
+    .comm {
+        font-family: PingFang-SC-Medium;
+        font-size: 13px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 32px;
+        font-weight: 500;
+    }
+    .comm, .comm:hover {
+        font-family: PingFang-SC-Medium;
+        font-size: 13px;
+        color: #08C3C8;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 32px;
+        font-weight: 500;
+    }
+
+    .wy-nav-top {
+        padding: 17px;
+        background-color: #FFFFFF;
+        background: url("./images/logo.png");
+        background-size: 83px 24px;
+        background-position: right 17px center;
+        background-repeat: no-repeat;
+        border-bottom: 1px solid #e1e4e5;
+    }
+    #communi {
+        /* margin-top: 40px;
+        margin-right: 17px;
+        margin-bottom: 12.5px; */
+        margin: 0;
+        padding: 25px 0 12.5px;
+    }
+    footer {
+        padding: 0 17px;
+    }
+    #toast-wx .toast-wx-content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        padding: 35px 0 24px;
+        background-color: #fff;
+    }
+    #close {
+        display: none;
+    }
+    .toast-wx-title {
+        font-size: 25px;
+        margin-bottom: 7px;
+    }
+    .toast-wx-button {
+        width: 180px;
+        height: 36px;
+        font-size: 15px;
+        line-height: 36px;
+        width: 78px;
+        margin: 17px auto 0;
+    }
+
+}

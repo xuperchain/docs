@@ -1,25 +1,45 @@
-.. _topics-index:
-.. xuperchain-doc documentation master file, created by
-   sphinx-quickstart on Tue Jul 23 11:09:28 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
+=================
 XuperChain文档
 =================
+.. container:: row 
+   
+    .. raw:: js
+        :file: index.js
+
+    .. raw:: html
+        :file: split/quicklyentrance.html
+    
+    
+    .. raw:: html
+        :file: split/technologyintroduction.html
+
+    .. raw:: html
+        :file: split/application.html
+
+
+    .. raw:: html
+        :file: split/ecology.html
+
+
+    .. raw:: html
+        :file: split/community.html
+
+
+
 
 .. toctree::
-   :maxdepth: 2
-   :caption: XuperChain整体介绍:
-   :numbered:
+    :maxdepth: 2
+    :caption: XUPERCHAIN介绍:
+    :numbered:
 
-   general_introduction/brief.rst
-   general_introduction/basic_concepts.rst
+    general_introduction/brief.rst
+    general_introduction/basic_concepts.rst
 
 .. toctree::
     :maxdepth: 2
     :caption: 快速入门
-    :numbered:
-
+    :numbered:  
+      
     quickstart/quickstart.rst
 
 .. toctree::
@@ -70,11 +90,11 @@ XuperChain文档
     design_documents/others.rst
 
 .. toctree::
-    :maxdepth: 1
-    :caption: 贡献指南  
-    :numbered:
+ :maxdepth: 1
+ :caption: 贡献指南  
 
-    contribution/pull_requests.rst
+
+ contribution/pull_requests.rst
 
 .. toctree::
     :maxdepth: 1
@@ -85,10 +105,8 @@ XuperChain文档
     more_materials/config_explanation.rst
     more_materials/video.rst
 
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>论坛</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="【二级页】PC_Banner备份复制备份-10" transform="translate(-752.000000, -1263.000000)">
+            <rect fill="#FFFFFF" x="0" y="0" width="1600" height="5194"></rect>
+            <rect id="矩形" stroke="#979797" fill="#FFFFFF" x="756" y="1268" width="34" height="20"></rect>
+            <rect id="矩形备份-29" fill="#FFFFFF" opacity="0.597726004" x="752" y="1263" width="44" height="44"></rect>
+            <g id="论坛icon" transform="translate(754.000000, 1267.000000)">
+                <path d="M35.7894737,1 C36.666357,1 37.4551107,1.39780271 38.0279994,2.02577684 C38.6326028,2.68851527 39,3.60581729 39,4.61538462 L39,4.61538462 L39,25.3846154 C39,26.3941827 38.6326028,27.3114847 38.0279994,27.9742232 C37.4551107,28.6021973 36.666357,29 35.7894737,29 L35.7894737,29 L18.1378105,29 L10,34.1783713 L10,29 L4.21052632,29 C3.33364304,29 2.54488931,28.6021973 1.97200063,27.9742232 C1.36739716,27.3114847 1,26.3941827 1,25.3846154 L1,25.3846154 L1,4.61538462 C1,3.60581729 1.36739716,2.68851527 1.97200063,2.02577684 C2.54488931,1.39780271 3.33364304,1 4.21052632,1 L4.21052632,1 Z" id="形状结合" stroke="#999" stroke-width="2" fill="#FFFFFF"></path>
+                <g id="编组-43" transform="translate(9.000000, 13.000000)" fill="#999">
+                    <circle id="椭圆形" cx="2" cy="2" r="2"></circle>
+                    <circle id="椭圆形复制" cx="11" cy="2" r="2"></circle>
+                    <circle id="椭圆形复制-2" cx="20" cy="2" r="2"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
