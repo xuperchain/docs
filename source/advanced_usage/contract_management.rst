@@ -13,9 +13,11 @@
 
  可以根据合约示例代码，编写自己的合约
 
-    `c++ counter 合约 <https://github.com/xuperchain/xuperchain/blob/master/core/contractsdk/cpp/example/counter.cc>`_,
-    `go counter 合约 <https://github.com/xuperchain/xuperchain/tree/master/core/contractsdk/go/example/counter>`_,
-    `java counter 合约 <https://github.com/xuperchain/xuperchain/tree/master/core/contractsdk/java/example/counter>`_
+    `c++ counter 合约 <https://github.com/xuperchain/contract-sdk-cpp/blob/main/example/counter.cc>`_,
+
+    `go counter 合约 <https://github.com/xuperchain/contract-sdk-go/tree/main/example/counter>`_,
+
+    `java counter 合约 <https://github.com/xuperchain/contract-sdk-java/tree/main/example/counter>`_
 
 
 部署wasm合约
@@ -23,9 +25,11 @@
 
 1. 编译合约
 
-    对于C++合约，已提供编译脚本，位于 contractsdk/cpp/build.sh。
+    对于C++合约，已提供编译脚本，位于 build.sh。
+    JAVA 合约采用 maven 编译，
+    go 合约采用标准 go 编译
 
-    需要注意的是，脚本依赖从hub.baidubce.com拉取的docker镜像，请在编译前确认docker相关环境是可用的
+    需要注意的是，编译C++ 合约依赖从hub.baidubce.com拉取的docker镜像，请在编译前确认docker相关环境是可用的
 
 2. 部署合约
 
@@ -34,7 +38,7 @@
 
     .. code-block:: bash
 
-        $ ./xchain-cli wasm deploy --account XC1111111111111111@xuper  -a '{"creator":"XC1111111111111111@xuper"}' --cname counter ../core/contractsdk/cpp/build/counter.wasm
+        $ xchain-cli wasm deploy --account XC1111111111111111@xuper  -a '{"creator":"XC1111111111111111@xuper"}' --cname counter counter.wasm
 
     运行时会提示手续费的数目，使用 --fee 参数传入即可
 
@@ -42,12 +46,12 @@
 
     .. code-block:: bash
     
-        $ ./xchain-cli wasm invoke --method increase -a '{"key":"test"}' counter --fee 100
+        $ xchain-cli wasm invoke --method increase -a '{"key":"test"}' counter --fee 100
         The gas you cousume is: 93
         The fee you pay is: 100
         Tx id: 141e4c1fb99566ce4b6ba32fa92af73c0e9857189debf773cf5753d64e1416a7
 
-        $ ./xchain-cli wasm query --method get -a '{"key":"test"}' counter    
+        $ xchain-cli wasm query --method get -a '{"key":"test"}' counter    
         contract response: 1
 
 
@@ -77,11 +81,11 @@
 
 1. 编译合约 - Golang
 
-    编译native合约时，只要保持环境和编译XuperChain源码时一致即可，我们以 contractsdk/go/example 中的 counter 合约为例
+    编译native合约时，只要保持环境和编译XuperChain源码时一致即可，我们以 example 中的 counter 合约为例
 
     .. code-block:: bash
 
-        cd contractsdk/go/example/counter
+        cd example/counter
         go build
 
 2. 编译合约 - Java
@@ -90,7 +94,7 @@
 
     .. code-block:: bash
 
-        $ cd contractsdk/java/example/counter
+        $ cd example/counter
         $ mvn package
 
 3. 部署合约
@@ -100,14 +104,14 @@
     .. code-block:: bash
 
         # 部署golang native合约
-        $ ./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime go -a '{"creator":"XC1111111111111111@xuper"}'   --cname golangcounter ../core/contractsdk/go/example/counter/counter
+        $ xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime go -a '{"creator":"XC1111111111111111@xuper"}'   --cname golangcounter counter
          contract response: ok
          The gas you cousume is: 14311874
          The fee you pay is: 15587517
          Tx id: af0d46f6df2edba4d9d9d07e1db457e5267274b1c9fe0611bb994c0aa7931933
 
         # 部署java native合约
-        $ ./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java   --cname javacounter ../core/contractsdk/java/example/counter/target/counter-0.1.0-jar-with-dependencies.jar
+        $ xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java   --cname javacounter target/counter-0.1.0-jar-with-dependencies.jar
          The gas you cousume is: 14311876
          The fee you pay is: 15587517
          Tx id: 875d2c9129973a1c64811d7a5a55ca80743102abc30d19f012656fa52ee0f4f7
@@ -120,17 +124,17 @@
     .. code-block:: bash
 
         # 调用golang native合约，Increase方法，golangcounter为合约名
-        $ ./xchain-cli native invoke --method Increase -a '{"key":"test"}' golangcounter
+        $ xchain-cli native invoke --method Increase -a '{"key":"test"}' golangcounter
 
         # 调用golang native合约，Get方法，golangcounter为合约名
-        $ ./xchain-cli native query --method Get -a '{"key":"test"}' golangcounter
+        $ xchain-cli native query --method Get -a '{"key":"test"}' golangcounter
         contract response: 1
 
         # 调用java native合约，increase方法，javacounter为合约名
-        $ ./xchain-cli native invoke --method increase -a '{"key":"test"}' javacounter --fee 10
+        $ xchain-cli native invoke --method increase -a '{"key":"test"}' javacounter --fee 10
 
         # 调用java native合约，get方法，javacounter为合约名
-        $ ./xchain-cli native query --method get -a '{"key":"test"}' javacounter
+        $ xchain-cli native query --method get -a '{"key":"test"}' javacounter
           contract response: 1
 
 
@@ -157,14 +161,37 @@
         // solc, the solidity compiler commandline interface
         // Version: 0.5.9+commit.c68bc34e.Darwin.appleclang
 
-    我们以contractsdk/evm/example中的counter合约为例
+    我们以如下Counter 合约为例
 
     .. code-block:: bash
 
-        cd core/contractsdk/evm/example/counter
-        // 通过solc编译合约源码
+        pragma solidity >=0.0.0;
+
+        contract Counter {
+            address owner;
+            mapping (string => uint256) values;
+
+            constructor() public{
+                owner = msg.sender;
+            }
+
+            function increase(string memory key) public payable{
+                values[key] = values[key] + 1;
+            }
+
+            function get(string memory key) view public returns (uint) {
+                return values[key];
+            }
+
+            function getOwner() view public returns (address) {
+                return owner;
+            }
+
+        }
+    
+    .. code-block:: bash
+
         solc --bin --abi Counter.sol -o .
-        // 合约二进制文件和abi文件分别存放在当前目录下，Counter.bin和Counter.abi。
 
 2. 部署合约
 
@@ -172,7 +199,7 @@
 
     .. code-block:: bash
 
-        ./xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 ../core/contractsdk/evm/example/counter/Counter.bin --abi ../core/contractsdk/evm/example/counter/Counter.abi
+        xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 Counter.bin --abi Counter.abi
          contract response: ok
          The gas you cousume is: 1789
          The fee you pay is: 22787517
@@ -188,10 +215,10 @@
     .. code-block:: bash
 
         # 调用solidity合约，increase方法，counterevm为合约名
-        $ ./xchain-cli evm invoke --method increase -a '{"key":"test"}' counterevm --fee 22787517
+        $ xchain-cli evm invoke --method increase -a '{"key":"test"}' counterevm --fee 22787517
 
         # 调用solidity合约，get方法，counterevm为合约名
-        $ ./xchain-cli evm query --method get -a '{"key":"test"}' counterevm
+        $ xchain-cli evm query --method get -a '{"key":"test"}' counterevm
         # 调用结果，其中0表示返回值的次序，1为返回值
         # key,value: 0 1
 
@@ -202,27 +229,27 @@
     .. code-block:: bash
 
         # xchain合约账户地址转evm地址，contract-account表示 XuperChain 合约账户
-        ./xchain-cli evm addr-trans -t x2e -f XC1111111111111113@xuper
+        xchain-cli evm addr-trans -t x2e -f XC1111111111111113@xuper
         result, 3131313231313131313131313131313131313133    contract-account
         
         # evm地址转xchain合约账户，contract-account表示 XuperChain 合约账户
-        ./xchain-cli evm addr-trans -t e2x -f 3131313231313131313131313131313131313133
+        xchain-cli evm addr-trans -t e2x -f 3131313231313131313131313131313131313133
         result, XC1111111111111113@xuper     contract-account        
         
         # xchain普通账户地址转evm地址，xchain表示 XuperChain 普通账户
-        ./xchain-cli evm addr-trans -t e2x -f 93F86A462A3174C7AD1281BCF400A9F18D244E06
+        xchain-cli evm addr-trans -t e2x -f 93F86A462A3174C7AD1281BCF400A9F18D244E06
         result, dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN   xchain        
         
         # xchain普通账户地址转evm地址，xchain表示 XuperChain 普通账户
-        ./xchain-cli evm addr-trans -t x2e -f dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
+        xchain-cli evm addr-trans -t x2e -f dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
         result, 93F86A462A3174C7AD1281BCF400A9F18D244E06   xchain      
         
         # xchain合约名地址转evm地址，contract-name表示 XuperChain 合约名
-        ./xchain-cli evm addr-trans -t x2e -f storagedata11
+        xchain-cli evm addr-trans -t x2e -f storagedata11
         result, 313131312D2D2D73746F72616765646174613131   contract-name    
         
         # evm地址转xchain合约名，contract-name表示 XuperChain 合约名
-        ./xchain-cli evm addr-trans -t e2x -f 313131312D2D2D73746F72616765646174613131
+        xchain-cli evm addr-trans -t e2x -f 313131312D2D2D73746F72616765646174613131
         result, storagedata11   contract-name
 
     - ``x2e`` ：表示 XuperChain 地址转换为EVM地址
@@ -230,7 +257,7 @@
 
 合约升级
 --------
-XuperChain 支持合约升级，在使用合约升级功能之前需要修改 conf/xchain.yaml，开启合约升级功能
+XuperChain 支持合约升级，在使用合约升级功能之前需要修改 conf/contract.yaml，开启合约升级功能
 
 .. code-block:: yaml
 
@@ -246,61 +273,4 @@ XuperChain 支持合约升级，在使用合约升级功能之前需要修改 co
 
 .. code-block:: bash
 
-    ./xchain-cli wasm upgrade --account XC1111111111111111@xuper --cname counter ../core/contractsdk/cpp/build/counter.wasm
-
-设置合约方法的ACL
-------------------
-
-1. 准备desc文件setMethodACL.desc
-
-    .. code-block:: json
-        
-        {
-            "module_name": "xkernel",
-            "method_name": "SetMethodAcl",
-            "args" : {
-                "contract_name": "counter",
-                "method_name": "increase",
-                "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 1.0},\"aksWeight\": {\"UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8\": 1}}"
-                }
-        }
-
-    参数说明：
-
-    - **module_name**： 模块名称，用固定值xkernel 
-    - **method_name** ：方法名称，用固定值SetMethodAcl
-    - **contract_name**：合约名称
-    - **method_name**：合约方法名称
-    - **acl**：合约方法的acl
-
-2. 设置合约方法ACL
-
-    设置合约方法ACL的操作，需符合合约账号的ACL，在3.2节，使用 **XC1111111111111111@xuper** 部署的counter合约，合约账号ACL里 只有1个AK，所以在data/acl/addrs中添加1行，如果合约账号ACL里有多个AK，则填写多行。
-
-    .. code-block:: bash
-
-        echo "XC1111111111111111@xuper/dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN" > data/acl/addrs
-
-    执行如下命令，设置ACL：
-
-    .. code-block:: bash
-
-        ./xchain-cli multisig gen --desc ./setMethodACL.desc --fee 1 -H 127.0.0.1:37101
-        ./xchain-cli multisig sign --output sign.out
-        ./xchain-cli multisig send sign.out sign.out -H 127.0.0.1:37101
-
-3. 查看合约方法ACL
-
-    .. code-block:: bash
-
-            [work@]$ deploy-env -> ./xchain-cli acl query --contract counter --method increase -H :37101    
-            # 执行结果  
-            # { 
-            #   "pm": { 
-            #     "rule": 1,    
-            #     "acceptValue": 1
-            #   },  
-            #   "aksWeight": {  
-            #     "UU4kyZcQinAMsBSPRLUA34ebXrfZtB4Z8": 1    
-            #   }   
-            # }
+    xchain-cli wasm upgrade --account XC1111111111111111@xuper --cname counter counter.wasm
