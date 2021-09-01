@@ -194,6 +194,7 @@ xfront 与 xchain 配置和启动
 3. 停用平行链，创建平行链后我们还可以停用此平行链：
 
     .. code-block:: bash
+    
         ./bin/xchain-cli  xkernel invoke '$parachain' --method stopChain -a '{"name":"hello"}' --fee 1000
 
 4. 同时可以修改指定群组的配置信息：

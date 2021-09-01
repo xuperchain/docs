@@ -46,8 +46,8 @@
 搭建网络的方式与以前的方式没有区别，用户可以依据需求选择搭建单节点网络还是多节点网络。
 
 搭建网络参见如下链接： 
-`单节点网络搭建 <quickstart.html#xchain>`_
-`多节点网络搭建 <../advanced_usage/multi-nodes.html>`_ 
+`单节点网络搭建 <../quickstart/quickstart.html#env-prepare>`_
+`多节点网络搭建 <../advanced_usage/multi_nodes.html#read-prepare>`_ 
 
 部署Reserved合约
 ^^^^^^^^^^^^^^^^
