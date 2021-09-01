@@ -25,19 +25,17 @@
 ^^^^^^^^^^^^^^^^^^^^^
 
 智能合约只有部署到链上才能运行，因此我们首先要编译并启动xuperchain节点。
-::
-
-    如果需要使用特定分支，使用git checkout来切换特定分支，如 **git checkout v3.7**
-	
 
 .. code-block:: bash
     :linenos:
 
     $ cd $HOME
     $ git clone https://github.com/xuperchain/xuperchain.git  xuperchain
-    $ cd xuperchain && make
+    $ cd xuperchain
+    $ git checkout v5.1.0
+    $ make
 
-设置环境变量
+设置环境变量   todo
 ^^^^^^^^^^^^^^^^^^^^^^
 
 这些环境变量有助于我们更方便的执行一些命令而不用指定命令的全路径。
@@ -45,25 +43,25 @@
 .. code-block:: bash
     :linenos:
 	
-    export PATH=$HOME/xuperchain/output:$PATH
-    export XDEV_ROOT=$HOME/xuperchain/core/contractsdk/cpp
+    export PATH=$HOME/xuperchain/output:$PATH     // 替换为自己的xuperchain执行make后生成的out/bin 目录
 
 启动xuperchain
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-::
-
-    –vm ixvm参数是选择ixvm合约虚拟机，开发合约过程中使用ixvm虚拟机能加快合约部署
-
---------------------
 
 .. code-block:: bash
     :linenos:
 	
+    # 在v5.1之后，我们提供了方便的脚本进行环境部署
     $ cd output
-    ## 首先创建链
-    $ ./xchain-cli createChain
-    ## 后台启动xuperchain节点
-    $ nohup ./xchain --vm ixvm &
+    $ bash control.sh start
+    ~/go/src/github.com/xuperchain/xuperchain/output/bin/xchain
+    ~/go/src/github.com/xuperchain/xuperchain/output/conf/env.yaml
+    stop xchain.
+    ~/go/src/github.com/xuperchain/xuperchain/output/bin/xchain
+    kill -15 3141595
+    ....exit finish!
+    stop succ
+    Done!
 
 创建合约账号
 ^^^^^^^^^^^^^^^^^^^^
@@ -75,7 +73,7 @@
 .. code-block:: go
     :linenos:
 	
-    $ ./xchain-cli account new --account 1111111111111111 --fee 2000
+    $ xchain-cli account new --account 1111111111111111 --fee 2000
     contract response:
             {
                 "pm": {
@@ -96,13 +94,13 @@
 .. code-block:: go
     :linenos:
 	
-    $ ./xchain-cli transfer --to XC1111111111111111@xuper --amount 100000000
+    $ xchain-cli transfer --to XC1111111111111111@xuper --amount 100000000
     cd26657006f6f75f07bd53ad0a7fe74d76985cd592542d8cc87dc3fcdde115f5
 
 小结
 ^^^^^^^^^^^^^
 
-至此我们完成了所有的准备工作，包括编译xuperchain，创建链，启动节点，创建合约账号，后面我们开始体验怎么编译，部署和调用智能合约。
+至此我们完成了所有的准备工作，包括编译xuperchain，启动链，创建合约账号，后面我们开始体验怎么编译，部署和调用智能合约。
 
 快速体验
 ---------------
@@ -112,11 +110,15 @@
 
 创建合约工程
 ^^^^^^^^^^^^^^^^^
-::
+`xdev <https://https://github.com/xuperchain/xdev.git>`_ 工具是随xuperchain生态中一个合约编译和测试工具,使用xdev可以很快地对c++合约进行快速的而编译。
 
-    xdev工具是随xuperchain发布的一个合约编译和测试工具，在编译完xuperchain之后生成在output目录。
+.. code-block:: bash
+    :linenos:
 
------------
+    $ git clone https://github.com/xuperchain/xdev.git
+    $ make
+    # 将xdev添加到PATH变量下
+    export PATH=$HOME/xdev/bin:$PATH
 
 xdev提供了一个默认的c++合约工程模板
 
@@ -126,7 +128,7 @@ xdev提供了一个默认的c++合约工程模板
     $ xdev init hello-cpp
 
  
-这个命令创建了一个hello-cpp的合约工程
+这个命令会在当前目录下创建了一个hello-cpp的合约工程
 
 编译合约
 ^^^^^^^^^^^^^^^
@@ -138,6 +140,7 @@ xdev提供了一个默认的c++合约工程模板
 .. code-block:: bash
     :linenos:
 	
+    $ cd hello-cpp
     $ xdev build -o hello.wasm
     CC main.cc
     LD wasm
@@ -151,7 +154,7 @@ xdev提供了一个默认的c++合约工程模板
 .. code-block:: bash
     :linenos:
 	
-    $ ./xchain-cli wasm deploy --account XC1111111111111111@xuper --cname hello  --fee 5200000 --runtime c ./hello-cpp/hello.wasm
+    $ xchain-cli wasm deploy --account XC1111111111111111@xuper --cname hello  --fee 5200000 --runtime c ./hello.wasm
     contract response: initialize succeed
     The gas you cousume is: 151875
     The fee you pay is: 5200000
@@ -173,7 +176,7 @@ xdev提供了一个默认的c++合约工程模板
 .. code-block:: bash
     :linenos:
 	
-    $ ./xchain-cli wasm invoke --method hello --fee 110000 hello
+    $ xchain-cli wasm invoke --method hello --fee 110000 hello
     contract response: hello world
     The gas you cousume is: 35
     The fee you pay is: 110000
@@ -202,7 +205,7 @@ XuperChain目前主要支持以太坊solidity合约，两种编译成wasm格式�
 Solidity合约
 ^^^^^^^^^^^^
 
-如果本地搭建 XuperChain 环境，在部署、调用solidity合约之前，请先查看`conf/xchain.yaml` 中evm一节，确保evm合约功能开启。
+如果本地搭建 XuperChain 环境，在部署、调用solidity合约之前，请先查看`conf/contract.yaml` 中evm一节，确保evm合约功能开启(默认是开启状态)。
 
 .. code-block:: yaml
     :linenos:
@@ -220,16 +223,15 @@ Solidity合约
     .. code-block:: bash
 
         solc --version
-        // solc, the solidity compiler commandline interface
-        // Version: 0.5.9+commit.c68bc34e.Darwin.appleclang
-        // 以上打印说明编译器安装成功
+        # solc, the solidity compiler commandline interface
+        # Version: 0.5.9+commit.c68bc34e.Darwin.appleclang
+        # 以上打印说明编译器安装成功
 
 以counter合约为例来看如何编写一个Solidity合约。
 
 合约样例
 >>>>>>>>>>>>>
 
-代码在 **contractsdk/evm/example/Counter.sol**
 
 .. code-block:: c++
     :linenos:
@@ -270,12 +272,12 @@ Solidity合约
 
 Solidity合约使用如下命令来编译合约
 
-.. code-block:: go
+.. code-block:: bash
     :linenos:
 	
-    // 通过solc编译合约源码
+    # 通过solc编译合约源码
     solc --bin --abi Counter.sol -o .
-    // 合约二进制文件和abi文件分别存放在当前目录下，Counter.bin和Counter.abi
+    # 合约二进制文件和abi文件分别存放在当前目录下，Counter.bin和Counter.abi
 
 - ``--bin`` ：表示需要生成合约二进制文件
 - ``--abi`` ：表示需要生成合约abi文件，用于合约方法以及参数编解码
@@ -288,7 +290,7 @@ Solidity合约部署完整命令如下
 .. code-block:: bash
     :linenos:
 	
-    $ ./xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 Counter.bin --abi Counter.abi
+    $ xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 Counter.bin --abi Counter.abi
 
 - ``--abi`` ：表示合约abi文件
 
@@ -297,10 +299,10 @@ Solidity合约部署完整命令如下
 .. code-block:: bash
     :linenos:
 	
-    // 合约increase方法调用
-    $ ./xchain-cli evm invoke --method increase -a '{"key":"stones"}' counterevm --fee 22787517 --abi Counter.abi
-    // 合约get方法调用
-    $ ./xchain-cli evm query --method get -a '{"key":"stones"}' counterevm --abi Counter.abi
+    # 合约increase方法调用
+    $ xchain-cli evm invoke --method increase -a '{"key":"stones"}' counterevm --fee 22787517 --abi Counter.abi
+    # 合约get方法调用
+    $ xchain-cli evm query --method get -a '{"key":"stones"}' counterevm --abi Counter.abi
 
 - ``--abi`` ：表示合约abi文件
 
@@ -313,7 +315,8 @@ C++合约
 合约样例
 >>>>>>>>>>>>>
 
-代码在 **contractsdk/cpp/example/counter.cc**
+代码在 `contract-sdk-cpp <https://github.com/xuperchain/contract-sdk-cpp/blob/main/example/counter.cc>`_
+
 
 .. code-block:: c++
     :linenos:
@@ -353,7 +356,6 @@ C++合约
         }
     }
 
-
 代码解析
 >>>>>>>>>>>>>>
 
@@ -380,7 +382,32 @@ C++合约
 - 每个合约方法有一个 **Context** 对象，通过这个对象我们能获取到很多有用的方法，如获取用户参数等。
 - 通过 **Context** 对象的 **ok** 或者 **error** 方法我们能给调用方反馈合约的执行情况:成功或者失败。
 
-更多的c++语言合约例子在 XuperChain 项目的 **core/contractsdk/cpp/example** 里面寻找。
+合约编译
+>>>>>>>>>>>
+
+c++合约使用如下命令来编译合约
+
+.. code-block:: bash
+    :linenos:
+	
+    
+    $ git clone https://github.com/xuperchain/contract-sdk-cpp.git 
+    $ cd contract-sdk-cpp
+    $ ./build.sh
+    # 以上提供的是为contract-sdk-cpp仓库中提供的编译脚本，用户想编译自己的c++合约，可以参考该build.sh脚本
+
+合约部署
+>>>>>>>>>>>>>
+
+.. code-block:: bash
+    :linenos:
+	
+    $ xchain-cli wasm deploy --account XC1111111111111111@xuper --cname counterCpp -a '{"creator":"test"}'  --fee 52000000  ./counter.wasm
+
+    # 合约调用
+    $ xchain-cli wasm invoke --method increase -a '{"key":"test"}' counterCpp --fee 22787517
+
+更多的c++语言合约例子在 XuperChain 项目的 `contract-sdk-cpp/example <https://github.com/xuperchain/contract-sdk-cpp>`_ 里面寻找。
 
 Go合约
 ^^^^^^^^^^^^
@@ -390,7 +417,7 @@ Go合约
 合约样例
 >>>>>>>>>>>>>
 
-代码在 **contractsdk/go/example/counter/counter.go**
+代码在 `contract-sdk-go <https://github.com/xuperchain/contract-sdk-go/tree/main/example/counter>`_
 
 .. code-block:: go
     :linenos:
@@ -452,7 +479,7 @@ go合约的整体框架结构跟c++合约一样，在表现形式上稍微有点
 - c++通过 **ctx->ok** 来返回合约数据，go通过返回 **code.Response** 对象来返回合约数据。
 - go合约需要在main函数里面调用 **driver.Serve** 来启动合约。
 
-更多的go语言合约例子在 XuperChain 项目的 **core/contractsdk/go/example** 里面寻找。
+更多的go语言合约例子在 XuperChain 项目的 `contract-sdk-go/example <https://github.com/xuperchain/contract-sdk-go/tree/main/example>`_ 里面寻找。
 
 合约编译
 >>>>>>>>>>>
@@ -462,7 +489,9 @@ Go合约使用如下命令来编译合约
 .. code-block:: go
     :linenos:
 	
-    go build -o hello
+    $ git clone https://github.com/xuperchain/contract-sdk-go.git       // 如果只需要测试，可将该合约代码复制下来
+    $ cd contract-sdk-go/example/counter
+    $ go build -o hello
 
 
 合约部署
@@ -471,17 +500,18 @@ Go合约使用如下命令来编译合约
 .. code-block:: bash
     :linenos:
 	
-    $ ./xchain-cli native deploy --account XC1111111111111111@xuper --cname hello  --fee 5200000 --runtime go ./hello-go/hello
+    # 合约部署
+    $ xchain-cli native deploy --account XC1111111111111111@xuper --cname counterGo -a '{"creator":"test"}'  --fee 52000000 --runtime go ./hello
 
-
-Go合约的调用跟c++合约参数一致。
+    # 合约调用
+    $ xchain-cli native invoke --method increase -a '{"key":"test"}' helloGo --fee 22787517
 
 Java合约
 ^^^^^^^^^^^^
 
 java合约目前只支持native合约。
 
-如果本地搭建 XuperChain 环境，在部署、调用native合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。
+如果本地搭建 XuperChain 环境，在部署、调用native合约之前，请先查看`conf/contract.yaml` 中native一节，确保native合约功能开启(默认是开启的)。
 
 .. code-block:: yaml
     :linenos:
@@ -509,7 +539,7 @@ java合约目前只支持native合约。
 合约样例
 >>>>>>>>>>>>>
 
-代码在 **contractsdk/java/example/counter/src/main/java/com/baidu/xuper/example/Counter.java**
+代码在 `contract-sdk-java/example <https://github.com/xuperchain/contract-sdk-py/tree/main/example/counter/Counter.java>`_
 
 .. code-block:: java
     :linenos:
@@ -609,7 +639,7 @@ native合约和wasm合约在合约部署和合约执行上通过 **native** 和 
 .. code-block:: bash
 
     # 部署golang native合约
-    ./xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java counter-0.1.0-jar-with-dependencies.jar --cname javacounter
+    xchain-cli native deploy --account XC1111111111111111@xuper --fee 15587517 --runtime java counter-0.1.0-jar-with-dependencies.jar --cname javacounter
     
 - ``--runtime c`` ：表示部署的是c++合约
 - ``--runtime go`` ：表示部署的是golang合约
