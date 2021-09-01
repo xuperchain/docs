@@ -11,3 +11,4 @@ DAPP开发手册
   
     xuper-ide.rst
     contract-template.rst
+    contract-sdk.rst 
