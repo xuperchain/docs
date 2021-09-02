@@ -4,20 +4,18 @@
 
  XuperChain 支持丰富的智能合约开发语言，比如go，Solitidy，C++，Java等。 
 
-阅读本节前，请先确保完成 `XuperChain环境部署 <../quickstart/quickstart.html#xuperchain>`_  
-
 
 
 编写合约
 --------
 
- 可以根据合约示例代码，编写自己的合约
+ 本教程以 counter 合约为例，进行合约基本操作，不同语言合约代码见
 
-    `c++ counter 合约 <https://github.com/xuperchain/contract-sdk-cpp/blob/main/example/counter.cc>`_,
+    * `c++ counter 合约 <https://github.com/xuperchain/contract-sdk-cpp/blob/main/example/counter.cc>`_
 
-    `go counter 合约 <https://github.com/xuperchain/contract-sdk-go/tree/main/example/counter>`_,
+    * `go counter 合约 <https://github.com/xuperchain/contract-sdk-go/tree/main/example/counter>`_
 
-    `java counter 合约 <https://github.com/xuperchain/contract-sdk-java/tree/main/example/counter>`_
+    * `java counter 合约 <https://github.com/xuperchain/contract-sdk-java/tree/main/example/counter>`_
 
 
 部署wasm合约
@@ -25,14 +23,16 @@
 
 1. 编译合约
 
-    对于C++合约，已提供编译脚本，位于 build.sh。
-    JAVA 合约采用 maven 编译，
-    go 合约采用标准 go 编译
+    C++ 合约使用 `xdev <https://github.com/xuperchain/xdev>`_ 编译
 
-    需要注意的是，编译C++ 合约依赖从hub.baidubce.com拉取的docker镜像，请在编译前确认docker相关环境是可用的
+    .. code-block:: bash
+    
+        $ xdev build -o counter.wasm counter.c  
+
+
+    需要注意的是，编译 C++ 合约依赖从 Dockerhub 拉取镜像，请在编译前确认docker相关环境是可用的
 
 2. 部署合约
-
 
     部署合约的操作需要由合约账号完成，部署操作同样需要支付手续费，操作前需要确保合约账号下有足够的余额
 
@@ -58,7 +58,7 @@
 部署native合约
 --------------
 
-如果本地搭建 XuperChain 环境，在部署、调用 native 合约之前，请先查看`conf/xchain.yaml` 中native一节，确保native合约功能开启。
+如果本地搭建 XuperChain 环境，在部署、调用 native 合约之前，请先查看`conf/contract.yaml` 中 native一节，确保 native 合约功能开启。
 
 .. code-block:: yaml
     :linenos:
@@ -67,35 +67,22 @@
     native:
         enable: true
 
-        # docker相关配置
-        docker:
-            enable:false
-            # 合约运行的镜像名字
-            imageName: "docker.io/centos:7.5.1804"
-            # cpu核数限制，可以为小数
-            cpus: 1
-            # 内存大小限制
-            memory: "1G"
-        # 停止合约的等待秒数，超时强制杀死
-        stopTimeout: 3
 
 1. 编译合约 - Golang
 
-    编译native合约时，只要保持环境和编译XuperChain源码时一致即可，我们以 example 中的 counter 合约为例
+    GO 合约使用标准的 GO  环境编译，进入 counter 合约目录
 
     .. code-block:: bash
 
-        cd example/counter
-        go build
+        go build -o counter
 
 2. 编译合约 - Java
 
-    我们以contractsdk/java/example中的counter合约为例
+    JAVA 合约使用 maven 编译，
 
     .. code-block:: bash
 
-        $ cd example/counter
-        $ mvn package
+        mvn package
 
 3. 部署合约
 
@@ -153,7 +140,7 @@
 
 1. 编译合约 - Solidity
 
-    使用 solc 编译solidity合约。安装 solc 编译器，请参见**https://solidity-cn.readthedocs.io/zh/latest/installing-solidity.html**。
+    使用 solc 编译solidity合约。安装 `solc 编译器 <https://solidity-cn.readthedocs.io/zh/latest/installing-solidity.html>` _。
 
     .. code-block:: bash
 
@@ -195,7 +182,6 @@
 
 2. 部署合约
 
-    部署solidity合约。
 
     .. code-block:: bash
 
