@@ -1,5 +1,7 @@
 TDPoS类共识
 ============
+整体介绍
+--------
 在本系统中，我们把TDPoS和搭载Chained-BFT的XPoS统称为TDPoS类共识，该共识的实现在 ``/bcs/consensus/tdpos`` 文件夹下。TDPoS类共识在选举流程上完全相同，唯一的区别在于XPoS会限制账本回滚的高度，更适用于联盟链，以确保上层业务可靠。
 
 角色转换
@@ -51,6 +53,7 @@ TDPoS类共识矿工轮转通过时间片来划分，当验证人确定之后，
 .. figure:: ../../images/tdpos_timeline.jpg
     :alt: TDPoS类时间片划分
     :align: center
+    :scale: 40 %
 
     TDPoS类时间片划分示意图
 

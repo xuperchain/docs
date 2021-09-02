@@ -16,6 +16,7 @@ XuperChain 共识框架概览
 .. figure:: ../images/consensus_frame.jpg
     :alt: XuperCore共识结构
     :align: center
+    :scale: 50 %
 
     XuperCore共识结构示意图
 
@@ -47,6 +48,7 @@ Kernel层的ConsensusInterface定义了嵌套在引擎流程的共识组件参�
 .. figure:: ../images/consensus_interface.jpg
     :alt: XuperCore共识流程
     :align: center
+    :scale: 50 %
 
     XuperCore共识流程示意图
 
@@ -77,6 +79,7 @@ Kernel组件: Pluggable Consensus可插拔共识
 .. figure:: ../images/consensus_pluggable.jpg
     :alt: XuperCore可插拔共识
     :align: center
+    :scale: 50 %
 
     XuperCore共识升级示意图
 
@@ -88,6 +91,15 @@ XuperCore基于论文 `HotStuff: BFT Consensus with Linearity and Responsiveness
 
 BCS组件介绍
 ------------------
+
+- `Single共识 <consensus/single.html#xuperchain>`_
+
+- `PoW共识 <consensus/pow.html#xuperchain>`_
+
+- `TDPoS类共识 <consensus/tdpos.html#xuperchain>`_
+
+- `PoA类共识 <consensus/poa.html#xuperchain>`_
+
 
 .. toctree::
     :titlesonly:

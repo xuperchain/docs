@@ -1,5 +1,8 @@
 PoA类共识
 ==========
+
+整体介绍
+----------
 在本系统中，我们把PoA和搭载Chained-BFT的XPoA统称为PoA类共识，该共识的实现在 ``/bcs/consensus/xpoa`` 文件夹下。
 PoA类共识是 XuperChain 对PoA的一种实现，其基本思想是在节点中动态设定一组验证节点，验证节点组在预设的时间段内进行组内轮流出块。
 
@@ -42,6 +45,7 @@ PoA类共识的时间片轮转如下。
 .. figure:: ../../images/poa_timeline.jpg
     :alt: PoA类时间片划分
     :align: center
+    :scale: 40 %
 
     PoA类时间片划分示意图
 
