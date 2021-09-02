@@ -27,6 +27,7 @@
 
     .. code-block:: bash
     
+        $ cd example  
         $ xdev build -o counter.wasm counter.c  
 
 
@@ -58,7 +59,7 @@
 部署native合约
 --------------
 
-如果本地搭建 XuperChain 环境，在部署、调用 native 合约之前，请先查看`conf/contract.yaml` 中 native一节，确保 native 合约功能开启。
+native 合约默认处于关闭状态，在部署、调用 native 合约之前，请先查看 `conf/contract.yaml` 中 native一节，确保 native 合约功能开启。
 
 .. code-block:: yaml
     :linenos:
@@ -73,15 +74,15 @@
     GO 合约使用标准的 GO  环境编译，进入 counter 合约目录
 
     .. code-block:: bash
-
-        go build -o counter
+        $ cd example/counter
+        $ go build -o counter
 
 2. 编译合约 - Java
 
     JAVA 合约使用 maven 编译，
 
     .. code-block:: bash
-
+        cd example/counter 
         mvn package
 
 3. 部署合约
@@ -128,7 +129,7 @@
 部署solidity合约
 ------------------
 
-如果本地搭建 XuperChain 环境，在部署、调用solidity合约之前，请先查看`conf/xchain.yaml` 中evm一节，确保evm合约功能开启。
+在部署、调用solidity合约之前，请先查看`conf/contract.yaml` 中evm一节，确保evm合约功能开启。
 
 .. code-block:: yaml
     :linenos:
@@ -140,7 +141,7 @@
 
 1. 编译合约 - Solidity
 
-    使用 solc 编译solidity合约。安装 `solc 编译器 <https://solidity-cn.readthedocs.io/zh/latest/installing-solidity.html>` _。
+    使用  `solc 编译器 <https://solidity-cn.readthedocs.io/zh/latest/installing-solidity.html>` _ 编译 solidity 合约。
 
     .. code-block:: bash
 
