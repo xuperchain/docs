@@ -11,7 +11,7 @@ XuperChain为方便用户深度使用 XuperChain 的各项功能，提供了多�
 RPC接口介绍
 -----------
 
-查看XuperChain 的 `proto文件 <https://github.com/xuperchain/xuperchain/blob/master/service/pb/xchain.proto>`_ ，可以在service定义中获取所有支持的RPC接口
+查看XuperChain的 `proto文件 <https://github.com/xuperchain/xuperchain/blob/master/service/pb/xchain.proto>`_ ，可以在service定义中获取所有支持的RPC接口
 
 
 GetBalance
@@ -64,7 +64,7 @@ TokenDetail 定义如下：
         XChainErrorEnum error = 3;
     }
 
-Header中的logid是回复中也会携带的id，用来对应请求或追溯日志使用的，一般用 core/global/common.go 中的 Glogid() 生成一个全局唯一id
+Header中的logid是回复中也会携带的id，用来对应请求或追溯日志使用的，一般用 xupercore/lib/utils/utils.go 生成一个全局唯一id
 
 Header中的from_node一般不需要填写，error字段也是返回中携带的错误内容，发请求时不需填写
 
@@ -83,7 +83,7 @@ Header中的from_node一般不需要填写，error字段也是返回中携带的
         Bcname: "xuper",
     }
     in := &pb.AddressStatus{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Address: "dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN",
         Bcs: []*pb.TokenDetail{bc},
     }
@@ -128,7 +128,7 @@ address字段与GetBalance一样，tfds字段则多了是否冻结的内容，tf
         Bcname: "xuper",
     }
     in := &pb.AddressBalanceStatus{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Address: "dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN",
         Tfds: []*pb.TokenFrozenDetails{bc},
     }
@@ -179,7 +179,7 @@ need_content字段为布尔值，表明是否需要详细的区块内容（还�
 
     id, _ := hex.DecodeString("ee0d6fd34df4a7e1540df309d47441af4fda6fdd9d841046f18e7680fe0cea8c")
     in := &pb.BlockID{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Bcname: "xuper",
         Blockid: id,
         NeedContent: true,
@@ -249,7 +249,7 @@ BCStatus定义如下
     cli := pb.NewXchainClient(conn)
 
     in := &pb.BCStatus{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Bcname: "xuper",
     }
     out, _ := cli.GetBlockChainStatus(context.Background(), in)
@@ -279,7 +279,7 @@ CommonIn结构很简单，只有header字段，返回的BlockChains也仅有一�
     cli := pb.NewXchainClient(conn)
 
     in := &pb.CommonIn{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
     }
     out, _ := cli.GetBlockChains(context.Background(), in)
 
@@ -343,7 +343,7 @@ AclStatus定义如下
     :linenos:
 
     in := &pb.AclStatus{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Bcname: "xuper",
         AccountName: "XC1111111111111111@xuper",
     }
@@ -383,7 +383,7 @@ TxStatus定义如下
 
     id, _ := hex.DecodeString("763ac8212c80b8789cefd049f1529eafe292f4d64eaffbc2d5fe19c79062a484")
     in := &pb.AclStatus{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Bcname: "xuper",
         Txid: id,
     }
@@ -429,7 +429,7 @@ UtxoOutput中的返回即可在组装交易时使用，具体组装交易的过�
     :linenos:
 
     in := &pb.UtxoInput{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Bcname: "xuper",
         Address: "dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN",
         TotalNeed: "50",
@@ -468,8 +468,8 @@ InvokeRPCRequest定义如下
 
     message InvokeRPCRequest {
         Header header = 1;
-        string bcname = 2;InvokeRequest
-        repeated  requests = 3;
+        string bcname = 2;
+        repeated InvokeRequest requests = 3;
         string initiator = 4;
         repeated string auth_require = 5;
     }
@@ -555,9 +555,11 @@ PostTx
         int32 version = 10;
         // auto generated tx
         bool autogen = 11;
+
         repeated TxInputExt tx_inputs_ext = 23;
         repeated TxOutputExt tx_outputs_ext = 24;
         repeated InvokeRequest contract_requests = 25;
+
         // 权限系统新增字段
         // 交易发起者, 可以是一个Address或者一个Account
         string initiator = 26;
@@ -572,9 +574,10 @@ PostTx
         // 统一签名(支持多重签名/环签名等，与initiator_signs/auth_require_signs不同时使用)
         XuperSignature xuper_sign = 31;
         // 可修改区块链标记
-        ModifyBlock modify_block = 32;
+         ModifyBlock modify_block = 32;
+        // HD加解密相关信息
+        HDInfo HD_info = 33;
     }
-
 Transaction属于XuperChain中比较核心的结构了，下一章我们将介绍各种场景的交易如何构造并提交
 
 RPC接口应用
@@ -604,7 +607,7 @@ RPC接口应用
 
     // 获取Alice的utxo
     utxoreq := &pb.UtxoInput{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Bcname: "xuper",
         Address: addr_alice,
         TotalNeed: "10",
@@ -724,7 +727,7 @@ RPC接口应用
     // 构造合约预执行的请求
     authrequire := []string{addr_alice}
     rpcreq := &pb.InvokeRPCRequest{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Bcname: "xuper",
         Requests: invokereqs,
         Initiator: addr_alice,
@@ -743,7 +746,7 @@ RPC接口应用
     }
     // 组合一个PreExecWithSelectUTXORequest用来预执行同时拿出需要支付的Alice的utxo
     prereq := &pb.PreExecWithSelectUTXORequest{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Bcname: "xuper",
         Address: addr_alice,
         TotalAmount: 0,
@@ -946,7 +949,7 @@ RPC接口应用
     // 表示是“某个合约账号的股东”，与直接写账号地址含义是不同的，ACL需求多个签名的时候即多个“股东”
     authrequires := []string{"XC1234567812345678@xuper/XXXaddress-aliceXXX"}
     rpcreq := &pb.InvokeRPCRequest{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Bcname: "xuper",
         Requests: invokereqs,
         Initiator: addr_alice,
@@ -962,7 +965,7 @@ RPC接口应用
     }
     // 组合一个PreExecWithSelectUTXORequest用来预执行同时拿出需要支付的合约账号的utxo
     prereq := &pb.PreExecWithSelectUTXORequest{
-        Header: global.Glogid(),
+        Header: utils.GenLogId(),
         Bcname: "xuper",
         Address: "XC1234567812345678@xuper",
         TotalAmount: 0,
