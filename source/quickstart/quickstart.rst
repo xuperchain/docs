@@ -3,7 +3,7 @@
 
 .. _env-deploy:
 
-XuperChain环境部署
+环境部署
 ------------------
 
 .. _env-prepare:
@@ -50,7 +50,7 @@ XuperChain主要由Golang开发，需要首先准备编译运行的环境
 
 .. _basic-operation:
 
-XuperChain基本操作
+基本操作
 ------------------
 
 在output下，有bin, conf, data三个目录,以及一个control.sh 脚本

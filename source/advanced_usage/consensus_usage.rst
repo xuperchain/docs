@@ -25,10 +25,6 @@ PoA和XPoA
 -----------------
  XuperChain支持矿工的灵活变更，目前矿工的确定主要通过设置指定的候选人集合，矿工根据指定时间片在候选人集合中轮转产生。目前支持该变更方法的共识为TDPoS类共识(指TDPoS和XPoS)和PoA类共识(之PoA和XPoA)。
 
-- `TDPoS类共识使用 <consensus/consensus_dpos_manual.html#xuperchain>`_ 
-
-- `PoA类共识使用 <consensus/consensus_poa_manual.html#xuperchain>`_
-
 .. toctree::
 	:titlesonly:
 	:includehidden:

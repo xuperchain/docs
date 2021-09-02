@@ -19,12 +19,12 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'xuperchain-doc'
+project = u'XuperChain 官方文档'
 copyright = u'2021, xuper'
 author = u'xuper'
 
 # The short X.Y version
-version = u'3.10'
+version = u''
 # The full version, including alpha/beta/rc tags
 release = u''
 
@@ -110,7 +110,7 @@ html_js_files = [
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'xuperchain-doc'
+htmlhelp_basename = 'XuperChain 官方文档'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -133,23 +133,9 @@ latex_elements = {
     # 'figure_align': 'htbp',
 }
 
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title,
-#  author, documentclass [howto, manual, or own class]).
-latex_documents = [
-    (master_doc, 'xuperchain-doc.tex', u'xuperchain-doc Documentation',
-     u'xuper', 'manual'),
-]
-
 
 # -- Options for manual page output ------------------------------------------
 
-# One entry per manual page. List of tuples
-# (source start file, name, description, authors, manual section).
-man_pages = [
-    (master_doc, 'xuperchain-doc', u'xuperchain-doc Documentation',
-     [author], 1)
-]
 
 
 # -- Options for Texinfo output ----------------------------------------------
@@ -157,11 +143,6 @@ man_pages = [
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
-texinfo_documents = [
-    (master_doc, 'xuperchain-doc', u'xuperchain-doc Documentation',
-     author, 'xuperchain-doc', 'One line description of project.',
-     'Miscellaneous'),
-]
 
 html_search_language = "zh"
 # -- Options for Epub output -------------------------------------------------
