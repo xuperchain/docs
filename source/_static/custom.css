@@ -3,11 +3,12 @@ Copyright IBM Corp. All Rights Reserved.
 
 SPDX-License-Identifier: Apache-2.0
 */
-.toctree-wrapper {
+/* .toctree-wrapper {
     display: none;
-}
-.rst-footer-buttons {
-    display: none;
+} */
+
+a.reference {
+    color: #07AFBE;
 }
 /************************************ breadcrumbs *******************************/
 ul.wy-breadcrumbs {
