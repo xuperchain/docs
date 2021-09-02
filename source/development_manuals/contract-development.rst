@@ -21,19 +21,10 @@
 #. g++ >= 4.8.2 或者 clang++ >= 3.3
 #. Docker
 
-下载编译xuperchain
+环境部署
 ^^^^^^^^^^^^^^^^^^^^^
 
-智能合约只有部署到链上才能运行，因此我们首先要编译并启动xuperchain节点。
-
-.. code-block:: bash
-    :linenos:
-
-    $ cd $HOME
-    $ git clone https://github.com/xuperchain/xuperchain.git  xuperchain
-    $ cd xuperchain
-    $ git checkout v5.1.0
-    $ make
+智能合约只有部署到链上才能运行，因此我们首先要 `编译 <../quickstart/quickstart.html#env-compiling>`_ 并 `启动 <../quickstart/quickstart.html#start-chain>`_  xuperchain节点 。
 
 设置环境变量
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -44,25 +35,8 @@
     :linenos:
 	
     # 替换为自己的xuperchain执行make后生成的out/bin 目录
-    export PATH=$HOME/xuperchain/output:$PATH 
+    $ export PATH=$HOME/xuperchain/output/bin:$PATH 
 
-启动xuperchain
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: bash
-    :linenos:
-	
-    # 在v5.1之后，我们提供了方便的脚本进行环境部署
-    $ cd output
-    $ bash control.sh start
-    ~/go/src/github.com/xuperchain/xuperchain/output/bin/xchain
-    ~/go/src/github.com/xuperchain/xuperchain/output/conf/env.yaml
-    stop xchain.
-    ~/go/src/github.com/xuperchain/xuperchain/output/bin/xchain
-    kill -15 3141595
-    ....exit finish!
-    stop succ
-    Done!
 
 创建合约账号
 ^^^^^^^^^^^^^^^^^^^^
@@ -780,7 +754,7 @@ Run Build Task(⇧⌘B)来启动构建
 开放网络集成环境
 ---------------------
 
- XuperChain 开放网络是基于百度自研底层技术搭建的区块链基础服务网络，符合中国标准，超级节点遍布全国，区块链网络完全开放，为用户提供区块链快速部署和运行的环境，最低2元钱就用上的区块链服务，让信任链接更加便利。
+ `XuperChain 开放网络 <../../advanced_usage/open_network.html>`_  是基于百度自研底层技术搭建的区块链基础服务网络，符合中国标准，超级节点遍布全国，区块链网络完全开放，为用户提供区块链快速部署和运行的环境，让信任链接更加便利。
 
  XuperChain 开放网络为开发者提供了合约开发、编译、部署、管理的一站式可视化集成环境，下面介绍如何在开放网络上开发部署智能合约。
 
