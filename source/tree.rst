@@ -1,15 +1,11 @@
 .. _topics-index:
-.. xuperchain-doc documentation master file, created by
-   sphinx-quickstart on Tue Jul 23 11:09:28 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
 XuperChain文档
 =================
 
 .. toctree::
     :maxdepth: 2
-    :caption: XUPERCHAIN介绍:
+    :caption: XUPERCHAIN介绍
     :numbered:
 
     general_introduction/brief.rst

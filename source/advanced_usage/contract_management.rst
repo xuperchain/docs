@@ -74,6 +74,7 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
     GO 合约使用标准的 GO  环境编译，进入 counter 合约目录
 
     .. code-block:: bash
+
         $ cd example/counter
         $ go build -o counter
 
@@ -82,8 +83,9 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
     JAVA 合约使用 maven 编译，
 
     .. code-block:: bash
-        cd example/counter 
-        mvn package
+
+        $ cd example/counter 
+        $ mvn package
 
 3. 部署合约
 
