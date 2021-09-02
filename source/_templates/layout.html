@@ -131,7 +131,7 @@
         {% block navigation %}
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         {% block menu %} 
-        {#
+        <!-- {#
           The singlehtml builder doesn't handle this toctree call when the
           toctree is empty. Skip building this for now.
         #}
@@ -140,7 +140,7 @@
                                       collapse=theme_collapse_navigation|tobool,
                                       includehidden=theme_includehidden|tobool,
                                       titles_only=theme_titles_only|tobool) %}
-        {% endif %}
+        {% endif %} -->
         {% if global_toc %}
           {{ global_toc }}         
         {% else %}
