@@ -10,6 +10,10 @@ SPDX-License-Identifier: Apache-2.0
 a.reference {
     color: #07AFBE;
 }
+.wy-menu-vertical li.toctree-l3.current li.toctree-l4>a, .wy-menu-vertical li.toctree-l4.current>a {
+    padding: .4045em 1.618em;
+    background-color: #F8F9FB;
+}
 /************************************ breadcrumbs *******************************/
 ul.wy-breadcrumbs {
     padding-top: 12px;
