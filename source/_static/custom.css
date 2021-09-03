@@ -449,6 +449,30 @@ a.download {
     color: #000000;
     line-height: 38px;
     font-weight: 400;
+    margin: 0;
+    padding: 10px 20px 0 29px;
+
+}
+#abs {
+    padding-top: 24px;
+}
+#webase {
+    padding-top: 24px;
+}
+#sh {
+    padding-top: 24px;
+}
+#crabs{
+    padding-top: 24px;
+}
+#webaseds {
+    padding-top: 44px;
+}
+#shds {
+    padding-top: 44px;
+}
+#crabsds {
+    padding-top: 68px;
 }
 .tools .card-holder {
     flex: 0 0 auto;
@@ -634,6 +658,12 @@ img.introimg {
     vertical-align: middle;
     width: 12px;
     height: 8px;
+}
+#tech2 {
+    padding-top: 24px;
+}
+#tech4 {
+    padding-top: 24px;
 }
 /************************************* 技术生态 *****************************************/
 .ecoimg {
@@ -947,6 +977,12 @@ footer a {
         height: 100%;
         border: 1px solid #E0E0E0;
     }
+    #tech2 {
+        padding-top: 0;
+    }
+    #tech4 {
+        padding-top: 0;
+    }
     /* 应用案例 */
     .totitle {
         /* padding-right: 72px; */
@@ -998,6 +1034,27 @@ footer a {
         border: 1px solid #E0E0E0;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
     }
+    #abs {
+        padding-top: 10px;
+    }
+    #webase {
+        padding-top: 10px;
+    }
+    #sh {
+        padding-top: 10px;
+    }
+    #crabs{
+        padding-top: 10px;
+    }
+    #webaseds {
+        padding-top: 20px;
+    }
+    #shds {
+        padding-top: 20px;
+    }
+    #crabsds {
+        padding-top: 20px;
+    }
     /* 技术生态 */
     #eco2, #eco3, #eco4 {
         height: 100%;
@@ -1030,6 +1087,33 @@ footer a {
         margin-right: 20px;
         margin-left: 0;
     }
+    #tech2 {
+        padding-top: 0;
+    }
+    #tech4 {
+        padding-top: 0;
+    }
+    #abs {
+        padding-top: 10px;
+    }
+    #webase {
+        padding-top: 10px;
+    }
+    #sh {
+        padding-top: 10px;
+    }
+    #crabs{
+        padding-top: 10px;
+    }
+    #webaseds {
+        padding-top: 20px;
+    }
+    #shds {
+        padding-top: 20px;
+    }
+    #crabsds {
+        padding-top: 20px;
+    }
 }
 @media (max-width: 1040px){
     #eco1 {
@@ -1037,6 +1121,33 @@ footer a {
         border: 1px solid #E0E0E0;
         margin-top: 40px;
         height: 100%;
+    }
+    #tech2 {
+        padding-top: 0;
+    }
+    #tech4 {
+        padding-top: 0;
+    }
+    #abs {
+        padding-top: 10px;
+    }
+    #webase {
+        padding-top: 10px;
+    }
+    #sh {
+        padding-top: 10px;
+    }
+    #crabs{
+        padding-top: 10px;
+    }
+    #webaseds {
+        padding-top: 20px;
+    }
+    #shds {
+        padding-top: 20px;
+    }
+    #crabsds {
+        padding-top: 20px;
     }
 }
 
@@ -1346,6 +1457,12 @@ footer a {
         border: 1px solid #DADCDF;
         border-radius: 8px;
     }
+    #tech2 {
+        padding-top: 0;
+    }
+    #tech4 {
+        padding-top: 0;
+    }
     
     /* 应用案例 */
     p.totitle {
@@ -1361,6 +1478,27 @@ footer a {
         color: #000000;
         line-height: 18px;
         font-weight: 500;
+    }
+    #abs {
+        padding-top: 10px;
+    }
+    #webase {
+        padding-top: 10px;
+    }
+    #sh {
+        padding-top: 10px;
+    }
+    #crabs{
+        padding-top: 10px;
+    }
+    #webaseds {
+        padding-top: 10px;
+    }
+    #shds {
+        padding-top: 10px;
+    }
+    #crabsds {
+        padding-top: 10px;
     }
     p.title b a {
         font-family: PingFangSC-Regular;
@@ -1994,7 +2132,12 @@ footer a {
         border: 1px solid #DADCDF;
         border-radius: 8px;
     }
-    
+    #tech2 {
+        padding-top: 0;
+    }
+    #tech4 {
+        padding-top: 0;
+    }
     /* 应用案例 */
     p.totitle {
         padding-left: 0;
@@ -2010,6 +2153,28 @@ footer a {
         line-height: 18px;
         font-weight: 500;
     }
+    #abs {
+        padding-top: 10px;
+    }
+    #webase {
+        padding-top: 10px;
+    }
+    #sh {
+        padding-top: 10px;
+    }
+    #crabs{
+        padding-top: 10px;
+    }
+    #webaseds {
+        padding-top: 10px;
+    }
+    #shds {
+        padding-top: 10px;
+    }
+    #crabsds {
+        padding-top: 10px;
+    }
+    
     p.title b a {
         font-family: PingFangSC-Regular;
         font-size: 16px;
@@ -2043,7 +2208,7 @@ footer a {
         flex: 0 0 auto;
         /* margin: 0;
         width: 342px; */
-        height: 156px;
+        height: 185px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
         border-radius: 8px;
@@ -2053,7 +2218,7 @@ footer a {
         flex: 0 0 auto;
         margin: 0;
         width: 342px;
-        height: 156px;
+        height: 185px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
         border-radius: 8px; 
@@ -2063,7 +2228,7 @@ footer a {
         flex: 0 0 auto;
         margin: 0;
         width: 342px;
-        height: 156px;
+        height: 185px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
         border-radius: 8px; 
@@ -2076,7 +2241,7 @@ footer a {
         flex: 0 0 auto;
         margin: 0;
         width: 342px;
-        height: 156px;
+        height: 185px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
         border-radius: 8px; 
@@ -2088,7 +2253,7 @@ footer a {
         flex: 0 0 auto;
         margin: 0;
         width: 342px;
-        height: 156px;
+        height: 185px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
         border-radius: 8px; 
@@ -2108,6 +2273,7 @@ footer a {
         font-weight: 400;
         margin: 0;
         margin-top: 5px;
+        padding-right: 10px;
     }
     p.content {
         padding-left: 12px;
