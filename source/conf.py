@@ -24,7 +24,7 @@ copyright = u'2021, xuper'
 author = u'xuper'
 
 # The short X.Y version
-version = u''
+version = u'5.1'
 # The full version, including alpha/beta/rc tags
 release = u''
 
