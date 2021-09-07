@@ -1,7 +1,7 @@
 
-平行链、群组与CA中心
+联盟链配置
 ========================
-XuperChain 在联盟链场景提供了整套解决方案，例如支持平行链、群组，同时提供了 XuperFront 与XuperChain 共同作为全节点，以支持节点权限管理、CA、证书等功能。
+XuperChain 提供了联盟链场景整套解决方案，例如支持平行链、群组，同时提供了 XuperFront 与XuperChain 共同作为全节点，以支持节点权限管理、CA、证书等功能。
 本章节主要介绍通过 `XuperFront <https://github.com/xuperchain/xuper-front>`_ 与 `XuperCA <https://github.com/xuperchain/xuper-ca>`_ 搭建联盟链场景的网络，同时介绍平行链与群组的功能。
 
 
