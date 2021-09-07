@@ -175,7 +175,7 @@ revoke_nominate_file文件示例如下。
 
 .. code-block:: bash
 
-	./bin/xchain-cli consensus invoke --type tdpos --method nominateCandidate --isMulti --account ${ACL_ACCOUNT} --fee ${1000_IF_NEED} --desc ${NOMINATE_FILE} -H:${PORT}
+	./bin/xchain-cli consensus invoke --type tdpos --method voteCandidate --isMulti --account ${ACL_ACCOUNT} --fee ${1000_IF_NEED} --desc ${NOMINATE_FILE} -H:${PORT}
 	// default: 后续会生成一个tx.out在当前目录下
 	// default: 注意需要在建立/data/acl/addrs，标明提名人和被提名人信息
 	// default: 上述走多签流程
