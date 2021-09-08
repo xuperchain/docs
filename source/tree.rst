@@ -60,7 +60,6 @@ XuperChain文档
     design_documents/p2p.rst
     design_documents/consensus.rst
     design_documents/ledger.rst
-    design_documents/smart_contract.rst
     design_documents/permission_model.rst
     design_documents/regulatory.rst
     design_documents/others.rst
