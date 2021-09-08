@@ -32,9 +32,11 @@ function navInit() {
     if ($(document).scrollTop() > $('.wy-nav-top').height()) {
         $('.hov2').css('position', 'fixed');
         $('.hov2').css('top', 0);
+        $('.hov2').css('width', '100%');
     } else {
         $('.hov2').css('position', 'relative');
-        $('.hov2').css('top', -17);
+        $('.hov2').css('top', 0);
+        $('.hov2').css('width', 'auto');
     }
     if ($(document).scrollTop() < $("#quicken").offset().top) {
         $(".hov2 p a").removeAttr("style", "");
@@ -66,7 +68,15 @@ function navInit() {
 }
 window.onload = function()
 {
-    // navInit();
+    // pc
+    $(".hov p").removeAttr("style", "");
+    $(".hov p a").removeAttr("style", "");
+    $("p.hovm1").css('border-left', '1px solid #01D8CC');
+    $("p.hovm1 a").css('color', '#08C3C8');
+    // phone
+    $(".hov2 p a").removeAttr("style", "");
+    $("a.hovm6").css('border-bottom', '2px solid #333333');
+    $("a.hovm6").css('font-weight', '500');
     $("p.caption").click(function(){
         $(this).next("ul").find("li.toctree-l1").slideToggle("slow");
         if ($(this).hasClass('active')) {

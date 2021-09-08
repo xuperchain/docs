@@ -1217,7 +1217,7 @@ footer a {
         /* top: 75px; */
         margin-left: -17px;
         margin-right: -17px;
-        width: 200%;
+        width: auto;
     
     }
     .hov2 p {
@@ -1227,6 +1227,7 @@ footer a {
         box-shadow: 0 5px 15px 0 rgba(0,0,0,0.05);
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         overflow-x: auto;
         /* IE10+ */
         -ms-overflow-style: none;
@@ -1892,7 +1893,7 @@ footer a {
         /* top: 75px; */
         margin-left: -17px;
         margin-right: -17px;
-        width: 200%;
+        width: auto;
     
     }
     .hov2 p {
@@ -1902,6 +1903,7 @@ footer a {
         box-shadow: 0 5px 15px 0 rgba(0,0,0,0.05);
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         overflow-x: auto;
         /* IE10+ */
         -ms-overflow-style: none;
