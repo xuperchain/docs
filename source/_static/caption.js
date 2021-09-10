@@ -85,6 +85,14 @@ window.onload = function()
             $(this).addClass('active');
         }
     });
+    $('.hide').click(function(){
+        var value = $('.wy-side-nav-search input').val();
+        if (value.length < 1){
+            console.log("no")
+        }else{ 
+            window.location.href = 'search.html?' + 'q=' + value + '&check_keywords=yes&area=default';        
+        }
+    });
     $(document).scroll(function () {
         navInit();
     });

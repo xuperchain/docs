@@ -127,6 +127,14 @@ a.version2 {
     padding: 5px;
     border-radius: unset
 }
+.hide {
+    position: absolute;
+    width: 32px;
+    height: 38px;
+    background-color: red;
+    right: 40px;
+    opacity: 0;
+}
 .wy-side-nav-search input[type=text] {
     max-width: 230px;
     min-height: 37.85px;
