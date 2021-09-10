@@ -9,6 +9,6 @@
     dapps/abs.rst
     dapps/copyright.rst
     dapps/scf.rst
-    dapps/sdw.rst
+    dapps/medical.rst
     dapps/token.rst
     dapps/trace.rst

@@ -183,7 +183,7 @@ a.version2 {
     padding-left: 21px;
 }
 .wy-menu-vertical p.active {
-    padding-left: 23px;
+    padding-left: 21px;
     background-image: url(/_static/images/arrow_down.svg);
 }
 .wy-menu-vertical ul {
@@ -447,10 +447,10 @@ a.download {
     font-family: PingFangSC-Regular;
     font-size: 30px;
     color: #000000;
-    line-height: 38px;
+    line-height: 30px;
     font-weight: 400;
     margin: 0;
-    padding: 10px 20px 0 29px;
+    padding: 24px 20px 0 29px;
 
 }
 #abs {
@@ -466,33 +466,33 @@ a.download {
     padding-top: 24px;
 }
 #webaseds {
-    padding-top: 44px;
+    padding-top: 50px;
 }
 #shds {
-    padding-top: 44px;
+    padding-top: 50px;
 }
 #crabsds {
-    padding-top: 68px;
+    padding-top: 74px;
 }
 .tools .card-holder {
     flex: 0 0 auto;
     margin: 0;
     width: 287px;
-    height: 238px;  
+    height: 260px;  
     border: 1px solid #E0E0E0;   
 }
 .tools .card-holder:nth-child(3),.card-holder:nth-child(6) {
     flex: 0 0 auto;
     margin: 0;
     width: 288px;
-    height: 238px;  
+    height: 260px;  
     border: 1px solid #E0E0E0;   
 }
 .tools .card-holder:hover {
     flex: 0 0 auto;
     margin: 0;
     width: 287px; 
-    height: 238px;  
+    height: 260px;  
     border: 1px solid #E0E0E0;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
     
@@ -501,7 +501,7 @@ a.download {
     flex: 0 0 auto;
     margin: 0;
     width: 288px; 
-    height: 238px;  
+    height: 260px;  
     border: 1px solid #E0E0E0;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
     
@@ -516,7 +516,7 @@ p.title b a {
     font-family: PingFangSC-Medium;
     font-size: 18px;
     color: #333333;
-    line-height: 38px;
+    line-height: 30px;
     font-weight: 500;
 }
 p.content {
@@ -535,6 +535,10 @@ p.content {
 p.details {
     margin: 0;
     padding-top: 20px;
+    padding-bottom: 24px;
+}
+#absD {
+    padding-top: 26px;
 }
 p.details b a {
     margin-left: 30px;
@@ -684,7 +688,7 @@ img.introimg {
 .ecology .card-holder {
     max-width: 860px;
     width: 100%;
-    height: 196px;
+    height: 100%;
     margin: 0;
 }
 .ecology .card-holder:nth-child(1):hover,.card-holder:nth-child(3):hover {
@@ -735,14 +739,16 @@ img.introimg {
     flex-wrap: wrap;
 }
 .ecoul ul.ecof {
-    min-width: 297px;
-    min-height: 96px;
+    /* min-width: 297px; */
+    /* min-height: 96px; */
+    width: 50%;
     flex: 1 0 auto;
     margin-bottom: 0;
 }
 .ecoul ul.ecos {
-    min-width: 297px;
-    min-height: 96px;
+    /* min-width: 297px; */
+    /* min-height: 96px; */
+    width: 50%;
     flex: 1 0 auto;
     margin-bottom: 0;
 }
@@ -1217,7 +1223,7 @@ footer a {
         /* top: 75px; */
         margin-left: -17px;
         margin-right: -17px;
-        width: 200%;
+        width: auto;
     
     }
     .hov2 p {
@@ -1227,6 +1233,7 @@ footer a {
         box-shadow: 0 5px 15px 0 rgba(0,0,0,0.05);
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         overflow-x: auto;
         /* IE10+ */
         -ms-overflow-style: none;
@@ -1598,6 +1605,7 @@ footer a {
         font-weight: 400;
         margin: 0;
         margin-top: 5px;
+        padding-top: 10px;
     }
     p.content {
         padding-left: 12px;
@@ -1615,6 +1623,10 @@ footer a {
         margin: 0;
         padding-top: 10px;
         padding-left: 12px;
+        padding-bottom: 6px;
+    }
+    #absD {
+        padding-top: 10px;
     }
     p.details b a {
         /* margin-left: 20px; */
@@ -1726,7 +1738,7 @@ footer a {
     }
     .ecoul .ecof {
         min-width: 297px;
-        min-height: 89px;
+        /* min-height: 89px; */
         flex: 1 0 auto;
     }
     .ecology {
@@ -1892,7 +1904,7 @@ footer a {
         /* top: 75px; */
         margin-left: -17px;
         margin-right: -17px;
-        width: 200%;
+        width: auto;
     
     }
     .hov2 p {
@@ -1902,6 +1914,7 @@ footer a {
         box-shadow: 0 5px 15px 0 rgba(0,0,0,0.05);
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         overflow-x: auto;
         /* IE10+ */
         -ms-overflow-style: none;
@@ -2274,6 +2287,7 @@ footer a {
         margin: 0;
         margin-top: 5px;
         padding-right: 10px;
+        padding-top: 10px;
     }
     p.content {
         padding-left: 12px;
@@ -2402,7 +2416,7 @@ footer a {
     }
     .ecoul .ecof {
         min-width: 297px;
-        min-height: 89px;
+        /* min-height: 89px; */
         flex: 1 0 auto;
     }
     .ecology {
