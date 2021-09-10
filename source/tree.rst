@@ -29,7 +29,6 @@ XuperChain文档
     advanced_usage/consensus_usage.rst
     advanced_usage/governance.rst
     advanced_usage/parallel_chain.rst
-    advanced_usage/guomi_usage.rst
     advanced_usage/performance_introduction.rst
     advanced_usage/monitor_usage.rst
     advanced_usage/open_network.rst
