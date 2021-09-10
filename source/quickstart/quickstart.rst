@@ -118,7 +118,7 @@ XuperChain主要由Golang开发，需要首先准备编译运行的环境
 启动服务
 >>>>>>>>>>>>
 
-xuper5为我们启动服务提供了方便的脚本，只需要一条命令使用controll.sh脚本启动即可。
+xuper5为我们启动服务提供了方便的脚本，只需要一条命令使用controll.sh即可启动单节点 single 共识的链。
 
 .. code-block:: bash
 
