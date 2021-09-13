@@ -68,7 +68,7 @@ XuperChain主要由Golang开发，需要首先准备编译运行的环境
    * - ├─ bin
      - 可执行文件存放目录
    * - │  ···   ├─ wasm2c  
-     - 账本目录(智能合约会用到)     
+     - AOT 虚拟机工具链，将 WASM 转为 C     
    * - │  ···   ├─ xchain  
      - xchain服务的二进制文件
    * - │  ···   ├─ xchain-cli
