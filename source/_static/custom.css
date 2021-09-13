@@ -430,6 +430,7 @@ p.entitle {
     justify-content: space-between;
 }
 a.download {
+    display: none;
     float: right;
     font-family: PingFangSC-Regular;
     font-size: 18px;
