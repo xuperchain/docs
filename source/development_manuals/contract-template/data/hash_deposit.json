@@ -1,0 +1,54 @@
+{
+    "id": "hash_deposit",
+    "name": "文件Hash存证",
+    "type": 2,
+    "lang": "C++",
+    "version": "1.0.0",
+    "publisher": {
+        "name": "XuperOS"
+    },
+    "publish_time": "2020-01-05",
+    "update_time": "2020-01-05",
+    "downloads": 200,
+    "init_args": {},
+    "brief": "该合约实现了Hash文件存证合约的基本逻辑，将文件的元信息上链，并用文件的Hash做唯一标识",
+    "docs": {
+        "description": "该合约实现了Hash文件存证合约的基本逻辑，将文件的元信息上链，并用文件的Hash做唯一标识",
+        "functions": [
+            {
+                "name": "initialize",
+                "args": [],
+                "description": "初始化函数，在合约部署时默认执行"
+            },
+            {
+                "name": "storeFileInfo",
+                "args": [
+                    "user_id: 用户名",
+                    "hash_id: 文件的hash值",
+                    "file_name: 文件名"
+                ],
+                "description": "用户参数{user_id,file_name,hash_id}持久化存储. 备注：用户可以增加符合业务场景的数据"
+            },
+            {
+                "name": "queryUserList",
+                "args": [],
+                "description": "查询当前合约下所有用户, 查询结果是一个集合"
+            },
+            {
+                "name": "queryFileInfoByUser",
+                "args": [
+                    "user_id: 用户名"
+                ],
+                "description": "查询某个User下所有信息, 查询结果是一个集合"
+            },
+            {
+                "name": "queryFileInfoByHash",
+                "args": [
+                    "hash_id: 文件的hash值"
+                ],
+                "description": "按照Hash查询文件存证信息"
+            }
+        ]
+    },
+    "code_link": "https://xuperos.cdn.bcebos.com/contract/code/hash_deposit.cc"
+}

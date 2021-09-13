@@ -1,11 +1,12 @@
 下载发行版
-==========
+=============
 
 v3.10
->>>>>>>>
+>>>>>>>>>>>>>>
 
 版本说明
-----
+----------
+
 * 智能合约
 
     * XuperChain VM 支持 EVM 
@@ -33,8 +34,9 @@ v3.10
 * 文档
     * 新增 XuperChain EVM 合约文档
     * 其他文档优化
+
 下载
-----
+-------
 
    * Linux: `xuperchain-linux-amd64-v3.10.tar.gz <https://cms-store.bj.bcebos.com/xuperchain-linux-amd64-v3.10.tar.gz>`_
    * MacOS: `xuperchain-darwin-amd64-v3.10.tar.gz <https://cms-store.bj.bcebos.com/xuperchain-darwin-amd64-v3.10.tar.gz>`_

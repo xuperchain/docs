@@ -54,3 +54,8 @@ sphinx-server
 sphinxprettysearchresults
 # for chinese search
 jieba
+
+#theme 
+renku-sphinx-theme
+# for contract template
+sphinxcontrib.datatemplates

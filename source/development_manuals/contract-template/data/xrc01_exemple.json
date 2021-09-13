@@ -1,0 +1,118 @@
+{
+    "id": "xrc01_exemple",
+    "type": 1,
+    "name": "资产管理合约样例",
+    "lang": "C++",
+    "version": "1.0.0",
+    "publisher": {
+        "name": "XuperOS"
+    },
+    "publish_time": "2020-01-05",
+    "update_time": "2020-01-05",
+    "downloads": 88,
+    "init_args": {
+        "creator": "合约创建者的address"
+    },
+    "brief": "该合约模板演示了如何使用XuperChain的通用资产协议XRC_01进行资产类应用的开发",
+    "docs": {
+        "description": "注: 此合约模板由于引用了XRC_01库，在平台上暂时无法编译通过。如果想完整试用该合约，需要下载超级链源码使用命令行的形式部署该合约，详细使用步骤下面将说明。\n\nXRC（Xuper Recourse Command）是超级链协议标准族。XRC_01是XRC协议家族中的第一个协议，支持在超级链中发行通用资产。该协议同时支持可分割和不可分割两种资产的发行、转账、授权、授权转账、查询余额、授权关系等行为。\n\n使用步骤:\n1. 下载XuperChain源码\ngit clone https: //github.com/xuperchain/xuperchain\n2. 进入XRC_01目录\ncd core/contractsdk/cpp/example/xrc01\n3. 编译xrc01_exemple.cc实例合约\nexport XROOT={path to xuperchain}/core/\nxdev build\n\n编译后会在./xrc01 下生成，xrc01.wasm，通过开放网络SDK部署即可",
+        "functions": [
+            {
+                "name": "initialize",
+                "args": [
+                    "creator: string, 合约创建者"
+                ],
+                "description": "初始化函数，在合约部署时默认执行"
+            },
+            {
+                "name": "issue",
+                "args": [
+                    "id: 所发行的通用资产id",
+                    "name: 所发行的通用资产名称",
+                    "fungible: 所发行资产是否可分割",
+                    "supply: 所发行资产的资产量，当为不可分割资产时，只能为1",
+                    "issue_account: 初始化发行账户",
+                    "profile_desc: 资产描述"
+                ],
+                "description": "发行一个通用资产"
+            },
+            {
+                "name": "authorization",
+                "args": [
+                    "to: 授权给的账户",
+                    "token_id: 授权的资产id",
+                    "amount: 授权金额"
+                ],
+                "description": "资产所有者将部分资产授权别人代为管理"
+            },
+            {
+                "name": "withdraw_authorization",
+                "args": [
+                    "from: 被撤销授权的账户",
+                    "token_id: 被撤销授权的资产id",
+                    "amount: 被撤销授权金额"
+                ],
+                "description": "撤销之前授权的资产,原授权的账户才有权撤销授权, 撤销授权发起者为合约调用者"
+            },
+            {
+                "name": "transfer",
+                "args": [
+                    "to: 转账接收者",
+                    "token_id: 资产id",
+                    "amount: 转账金额"
+                ],
+                "description": "发起转账，转出账户为合约调用者"
+            },
+            {
+                "name": "authorize_transfer",
+                "args": [
+                    "from: 转账发起账户",
+                    "to: 转账接收者",
+                    "token_id: 资产id",
+                    "amount: 转账金额"
+                ],
+                "description": "被授权的账户进行代为转账"
+            },
+            {
+                "name": "get_balance",
+                "args": [
+                    "account: 被查询账户",
+                    "token_id: 资产id"
+                ],
+                "description": "查询余额"
+            },
+            {
+                "name": "get_authorized",
+                "args": [
+                    "account: 被查询账户",
+                    "token_id: 资产id"
+                ],
+                "description": "查询账户被授权的金额"
+            },
+            {
+                "name": "get_owner_of",
+                "args": [
+                    "token_id: 资产id"
+                ],
+                "description": "查询不可分割资产所属账户"
+            },
+            {
+                "name": "get_authorize_infos",
+                "args": [
+                    "account: 被查询账户",
+                    "token_id: 资产id"
+                ],
+                "description": "查询账户某资产的授权详情"
+            },
+            {
+                "name": "get_authorized_infos",
+                "args": [
+                    "account: 被查询账户",
+                    "token_id: 资产id"
+                ],
+                "description": "查询账户某资产被授权详情"
+            }
+        ]
+    },
+    "code_link": "https://xuperos.cdn.bcebos.com/contract/code/xrc01_exemple.cc"
+}
