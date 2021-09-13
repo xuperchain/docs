@@ -68,7 +68,7 @@ Kernel层的ConsensusInterface定义了嵌套在引擎流程的共识组件参�
 
 - 若节点为同步者，通过Consensus模块提供的CheckMinerMatch接口对区块进行合法性校验。
 
-- 若节点为同步至，通过ProcessConfirmBlock进行共识内存更新。
+- 若节点为同步者，通过ProcessConfirmBlock进行共识内存更新。
 
 所有共识均实现GetConsensusStatus，向客户端提供读接口以便展示当前共识状态信息。
 
