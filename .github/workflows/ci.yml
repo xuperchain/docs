@@ -1,8 +1,4 @@
-on:
-  push:
-    branches:
-      - master
-      # - pipeline 
+on: workflow_dispatch
 
 name: Auto Publish Doc
 jobs:
