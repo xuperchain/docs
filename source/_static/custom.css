@@ -827,9 +827,9 @@ img.introimg {
 }
 .community .card-holder:nth-child(3):hover {
     margin: 10px;
-    max-width: 200px;
-    max-height: 56px;
     flex: 1 0 auto;
+    width: inherit;
+    height: inherit;
 }
 .community .card {
     background: #FFFFFF;
@@ -1102,7 +1102,15 @@ footer a {
         margin: 10px;
         height: 100%;
         flex: 1 0 auto;
-        width: 50%;
+        width: inherit;
+        margin-right: 20px;
+        margin-left: 0;
+    }
+    .community .card-holder:nth-child(3):hover {
+        margin: 10px;
+        height: 100%;
+        flex: 1 0 auto;
+        width: inherit;
         margin-right: 20px;
         margin-left: 0;
     }
@@ -1112,6 +1120,14 @@ footer a {
 }
 @media (max-width: 1064px){
     .community .card-holder:nth-child(3) {
+        margin: 10px;
+        height: 100%;
+        flex: 0 0 auto;
+        width: 50%;
+        margin-right: 20px;
+        margin-left: 0;
+    }
+    .community .card-holder:nth-child(3):hover {
         margin: 10px;
         height: 100%;
         flex: 0 0 auto;
@@ -1811,13 +1827,12 @@ footer a {
         margin: 0;
     }
     .community .card-holder:nth-child(3):hover {
-        /* margin: 7.5px 5px;
-        max-width: 196px; */
-        /* height: 32px; */
-        flex:1 0 auto;
-        margin: 0;
-        width: 50%;
-        padding: 7.5px 6.5px 14.5px 6.5px;
+       /* margin: 10px; */
+       height: 100%;
+       flex: 0 0 auto;
+       width: 50%;
+       /* margin-right: 20px; */
+       margin: 0;
     }
     .community .card {
         /* width: 163px; */
@@ -2489,13 +2504,12 @@ footer a {
         margin: 0;
     }
     .community .card-holder:nth-child(3):hover {
-        /* margin: 7.5px 5px;
-        max-width: 196px; */
-        /* height: 32px; */
-        flex: 1 0 auto;
-        margin: 0;
+        /* margin: 10px; */
+        height: 100%;
+        flex: 0 0 auto;
         width: 50%;
-        padding: 7.5px 6.5px 14.5px 6.5px;
+        /* margin-right: 20px; */
+        margin: 0;
     }
     .community .card {
         /* width: 163px; */
