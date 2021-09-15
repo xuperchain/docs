@@ -19,6 +19,19 @@ SPDX-License-Identifier: Apache-2.0
     cursor: pointer;
     color: black;
 }
+.rst-versions .rst-other-versions {
+    font-size: 90%;
+    padding: 12px;
+    color: black;
+    background-color: #F8F9FB;
+    display: none;
+}
+.rst-versions .rst-other-versions dd a {
+    display: inline-block;
+    padding: 6px;
+    color: black;
+}
+
 a.reference {
     color: #07AFBE;
 }
