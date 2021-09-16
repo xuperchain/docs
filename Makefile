@@ -26,7 +26,7 @@ build-image:
 	docker build -t xuperdocs  .
 	
 release :
-	docker run --rm --name xuperdocs-release   -v `pwd`:`pwd`  -w `pwd`  xuperdocs sphinx-versioning build -r v3.12 source source/_build/html
+	docker run --rm --name xuperdocs-release   -v `pwd`:`pwd`  -w `pwd`  xuperdocs sphinx-versioning build -r master source source/_build/html
 
 stop:
 	docker stop xuperdocs
