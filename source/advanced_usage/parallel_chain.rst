@@ -8,6 +8,14 @@ XuperChain 提供了联盟链场景整套解决方案，例如支持平行链、
 下载编译
 -----------
 本章节中以 XuperChain 项目下的 testnet 为例，同时搭配 XuperFront 与 XuperCA 一起搭建三个节点的网络并启用证书功能。
+XuperCA、XuperFront和XuperChain的对应搭配版本如下。
+
++------+-------------+----------------+----------------+
+| 编号 | XuperCA版本 | XuperFront版本 | XuperChain版本 |
++======+=============+================+================+
+| 1    | v1.1.0      | v1.1.0         | v5.1           |
++------+-------------+----------------+----------------+
+
 
 1. 下载 xchain，并编译。
 
@@ -96,6 +104,8 @@ xfront 与 xchain 配置和启动
         # front证书地址
         tlsPath: ./data/cert
         master: xuper
+        # 若需要开启pprof，请填写http地址
+        # http: 127.0.0.1:5001
 
         # 数据库配置 ./data/db/ca.db
         dbConfig:
@@ -119,6 +129,10 @@ xfront 与 xchain 配置和启动
         netName: testnet
 
 2. xchain 配置文件修改，修改 xchain 的 network.yaml 配置文件如下（本示例同样以 node1 为例）：
+
+  .. Important::
+    XuperFront使用了XuperChain的event事件订阅功能来订阅链上平行链事件，故需设置xchain配置server.yaml配置项eventAddrMaxConn为业务需求量，保证业务中能创建足够数量的平行链。
+  ..
 
     .. code-block:: bash
 
@@ -150,6 +164,7 @@ xfront 与 xchain 配置和启动
         #  - "/ip4/127.0.0.1/tcp/47103/p2p/QmZXjZibcL5hy2Ttv5CnAQnssvnCbPEGBzqk7sAnL69R1E"
         # service name
         serviceName: testnet
+
 
 3. 启动节点，需要分别启动 node1、node2、node3 的 xfront。
 
