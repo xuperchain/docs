@@ -158,9 +158,9 @@
 
 .. code-block:: bash    
 
-    ./bin/xchain-cli status -H :37101
-    ./bin/xchain-cli status -H :37102
-    ./bin/xchain-cli status -H :37103
+    ./bin/xchain-cli status -H 127.0.0.1:47101
+    ./bin/xchain-cli status -H 127.0.0.1:47102
+    ./bin/xchain-cli status -H 127.0.0.1:47103
 
 
 常见问题
