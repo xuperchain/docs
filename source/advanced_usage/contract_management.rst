@@ -41,7 +41,8 @@
 
         $ xchain-cli wasm deploy --account XC1111111111111111@xuper  -a '{"creator":"XC1111111111111111@xuper"}' --cname counter counter.wasm
 
-    运行时会提示手续费的数目，使用 --fee 参数传入即可
+    .. Important::
+    运行时会提示手续费的数目，需要按照命令行运行结果给出的数值，添加一个不小于它的费用（使用 --fee 参数）。
 
  3. 合约调用
 
