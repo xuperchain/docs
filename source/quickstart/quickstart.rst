@@ -187,14 +187,14 @@ xchain中，账号类型分为“普通账号”和“合约账号”。
 .. code-block:: bash
 
     # 创建普通用户, 生成的地址，公钥，私钥在--output 指定位置
-    $ bin/xchain-cli account newkeys --output data/bob
+    $ bin/xchain-cli account newkeys --output data/bob -H 127.0.0.1:37101
     create account using crypto type default
     create account in data/bob
 
-    ## 创建合约账号
-    bin/xchain-cli account new --account 1111111111111111 --fee 2000
+    # 创建合约账号
+    $ bin/xchain-cli account new --account 1111111111111111 --fee 2000 -H 127.0.0.1:37101
     
-在data/bob目录下会看到文件address，publickey，privatekey生成
+创建普通用户地址在data/bob目录下会看到文件address，publickey，privatekey生成
 
 .. _balance:
 
@@ -207,11 +207,11 @@ xchain中，账号类型分为“普通账号”和“合约账号”。
 
 
     # 根据账户存储的路径，查询该账户的余额。--keys为要查询的账户的地址
-    $ bin/xchain-cli account balance --keys data/keys
+    $ bin/xchain-cli account balance --keys data/keys -H 127.0.0.1:37101
     100000000000338000000
 
     # 根据地址查询该账户余额
-    $ bin/xchain-cli account balance TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY
+    $ bin/xchain-cli account balance TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY -H 127.0.0.1:37101
     100000000000401000000
 
     
