@@ -72,7 +72,7 @@ xbench 使用
 
     ./bin/xbench --config=./conf/transfer.yaml
 
-上面的命令指定配置文件为 transfer.yaml，也就是进行转账压测。如果进行去他压测指定对应配置文件即可。
+上面的命令指定配置文件为 transfer.yaml，也就是进行转账压测。如果进行其他压测指定对应配置文件即可。
 
 同时每个配置文件可以设置负载模式和并发模式，比如恒定的 RPS 测试、步进增长的 RPS、恒定并发请求、步进增长的并发请求等，
 更多配置参考 `这里 <https://github.com/xuperchain/xbench/blob/master/conf/bench.yaml>`_。
