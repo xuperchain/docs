@@ -57,7 +57,7 @@ XuperChain的系统架构设计，采用模块化架构，基础组件模块化�
 生态技术
 ---------
 
-.. figure:: ../images/tech.png
+.. figure::  /images/new_ecology.png
     :alt: XuperChain技术生态图
     :align: center
 
