@@ -28,7 +28,7 @@
     .. code-block:: bash
     
         $ cd example  
-        $ xdev build -o counter.wasm counter.c  
+        $ xdev build -o counter.wasm counter.cc
 
 
     需要注意的是，编译 C++ 合约依赖从 Dockerhub 拉取镜像，请在编译前确认docker相关环境是可用的
