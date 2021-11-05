@@ -18,6 +18,8 @@ XuperChain主要由Golang开发，需要首先准备编译运行的环境
 - 安装git
     - 下载地址：`git <https://git-scm.com/download>`_
 
+- 如果使用 JAVA 合约，还需先安装 JAVA 和 maven
+
 .. _env-compiling:
 
 编译XuperChain
