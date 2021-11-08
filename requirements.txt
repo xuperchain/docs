@@ -44,18 +44,18 @@ static3==0.7.0
 toml==0.10.2
 typed-ast==1.4.2
 wcwidth==0.2.5
+Sphinx==3.5.4
 sphinxcontrib.datatemplates
 restructuredtext-lint
 sphinx-comments
 sphinx-tabs
 sphinx-autobuild
-sphinx-rtd-theme
+sphinx-rtd-theme==0.5.2
 sphinx-server
 sphinxprettysearchresults
 # for chinese search
 jieba
 
 #theme 
-renku-sphinx-theme
 # for contract template
 sphinxcontrib.datatemplates
