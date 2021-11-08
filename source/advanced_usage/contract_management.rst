@@ -35,9 +35,9 @@
 
 
 
-.. note::
-    1. 编译 C++ 合约依赖从 Dockerhub 拉取镜像，请在编译前确认docker相关环境是可用的
-    2. 你可以把生成的 counter.wasm 拷贝到 xuperchain 目录下的 output 目录中，以简化后续命令的执行
+    .. note::
+        1. 编译 C++ 合约依赖从 Dockerhub 拉取镜像，请在编译前确认docker相关环境是可用的
+        2. 你可以把生成的 counter.wasm 拷贝到 xuperchain 目录下的 output 目录中，以简化后续命令的执行
 
 
 2. 部署合约
@@ -51,7 +51,7 @@
     .. Important::
     运行时会提示手续费的数目，需要按照命令行运行结果给出的数值，添加一个不小于它的费用（使用 --fee 参数）。
 
- 3. 合约调用
+3. 合约调用
 
     .. code-block:: bash
     
@@ -77,7 +77,7 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
         enable: true
 
 
-1. 编译合约 - Golang
+1. 编译合约 
 
     GO 合约使用标准的 GO  环境编译，进入 counter 合约目录
 
@@ -87,12 +87,11 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
         $ cd contract-sdk-go/example/counter
         $ go build -o counter
 
-.. note::
-    可以把生成的 counter 文件拷贝到 xuperchain 下的 output 目录，以简化后续命令的执行
+    .. note::
+        可以把生成的 counter 文件拷贝到 xuperchain 下的 output 目录，以简化后续命令的执行
 
-1. 编译合约 - Java
 
-    JAVA 合约使用 maven 编译，
+    JAVA 合约使用 maven 编译
 
     .. code-block:: bash
 
@@ -100,10 +99,10 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
         $ cd contract-sdk-java/example/counter 
         $ mvn package
 
-.. note::
-    可以把生成的 target/counter-0.1.0-jar-with-dependencies.jar 拷贝到 xuperchain 下的 output 目录，以简化后续命令的执行
+    .. note::
+        可以把生成的 target/counter-0.1.0-jar-with-dependencies.jar 拷贝到 xuperchain 下的 output 目录，以简化后续命令的执行
 
-1. 部署合约
+2. 部署合约
 
     部署native合约。针对不同语言实现的合约，主要通过 ``--runtime`` 字段进行区分
 
@@ -123,7 +122,7 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
          Tx id: 875d2c9129973a1c64811d7a5a55ca80743102abc30d19f012656fa52ee0f4f7
 
 
-2. 合约调用
+3. 合约调用
 
     针对不同语言实现的 native合约，调用方式相同。通过合约名直接发起合约调用和查询
 
@@ -198,14 +197,15 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
     .. code-block:: bash
 
         solc --bin --abi Counter.sol -o .
-.. note::
-    可以把生成的 Counter.abi 和 Counter.bin  拷贝到 xuperchain 下的 output 目录，以简化后续命令的执行
-2. 部署合约
 
+    .. note::
+        可以把生成的 Counter.abi 和 Counter.bin  拷贝到 xuperchain 下的 output 目录，以简化后续命令的执行
+
+2. 部署合约
 
     .. code-block:: bash
 
-        xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 Counter.bin --abi Counter.abi
+        $ xchain-cli evm deploy --account XC1111111111111111@xuper --cname counterevm  --fee 5200000 Counter.bin --abi Counter.abi
          contract response: ok
          The gas you cousume is: 1789
          The fee you pay is: 22787517
