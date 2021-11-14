@@ -200,9 +200,7 @@ xfront 与 xchain 配置和启动
 
     .. code-block:: bash
 
-        ./bin/xchain-cli xkernel invoke '$parachain' --method createChain \
-        -a '{"name": "hi","data": "{\"version\":\"1\",\"predistribution\":[{\"address\":\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\",\"quota\":\"100000000000000000000\"}],\"maxblocksize\":\"128\",\"award\":\"1000000\",\"decimals\":\"8\",\"award_decay\":{\"height_gap\":31536000,\"ratio\":1},\"gas_price\":{\"cpu_rate\":1000,\"mem_rate\":1000000,\"disk_rate\":1,\"xfee_rate\":1},\"new_account_resource_amount\":1000,\"genesis_consensus\":{\"name\":\"single\",\"config\":{\"miner\":\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\",\"period\":\"3000\"}}}","group":"{\"name\":\"hi\",\"admin\":[\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\",\"SmJG3rH2ZzYQ9ojxhbRCPwFiE9y6pD1Co\"]}"}' \
-        --fee 1000
+        ./bin/xchain-cli xkernel invoke '$parachain' --method createChain -a '{"name": "hi","data": "{\"version\":\"1\",\"predistribution\":[{\"address\":\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\",\"quota\":\"100000000000000000000\"}],\"maxblocksize\":\"128\",\"award\":\"1000000\",\"decimals\":\"8\",\"award_decay\":{\"height_gap\":31536000,\"ratio\":1},\"gas_price\":{\"cpu_rate\":1000,\"mem_rate\":1000000,\"disk_rate\":1,\"xfee_rate\":1},\"new_account_resource_amount\":1000,\"genesis_consensus\":{\"name\":\"single\",\"config\":{\"miner\":\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\",\"period\":\"3000\"}}}","group":"{\"name\":\"hi\",\"admin\":[\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\",\"SmJG3rH2ZzYQ9ojxhbRCPwFiE9y6pD1Co\"]}"}' --fee 1000
 
     上面命令中，-a 参数同样是平行链的创世配置，但是这次加上一个 group 字段，说明在平行链创世时，同时创建一个群组。
 
