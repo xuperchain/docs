@@ -34,6 +34,7 @@ XuperChain主要由Golang开发，需要首先准备编译运行的环境
 .. code-block:: bash
 
     $ cd xuperchain
+    $ git checkout v5.1.0
     $ make
 
 - 在output目录得到bin，conf， data 三个文件夹以及一个 control.sh 脚本
