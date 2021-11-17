@@ -15,9 +15,9 @@ p2p网络概述
 XuperChain p2p网络
 -------------------
 
- XuperChain 的p2p网络是可插拔的，目前支持libp2p模式和基于GRRC模式，libp2p使用KAD进行节点的路由管理，支持NAT穿透，主要用于公开网络的场景，节点规模可以达到万级；基于GRPC模式的p2p网络支持路由的自定义、节点的动态加入退出等功能，主要用于联盟链场景。
+ XuperChain 的p2p网络是可插拔的，目前支持libp2p模式和基于GRPC模式，libp2p使用KAD进行节点的路由管理，支持NAT穿透，主要用于公开网络的场景，节点规模可以达到万级；基于GRPC模式的p2p网络支持路由的自定义、节点的动态加入退出等功能，主要用于联盟链场景。
  
- 通过xchian.yaml中p2p module配置，选择p2p网络的模式。
+ 通过xchain.yaml中p2p module配置，选择p2p网络的模式。
 
  XuperChain 定义了自己的协议类型 **XuperProtocolID = "/xuper/2.0.0"** ，所有的 XuperChain 网络节点除了基础的消息类型外还会监听并处理这个协议的网络消息。
 
