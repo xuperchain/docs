@@ -78,8 +78,8 @@ XuperChain主要由Golang开发，需要首先准备编译运行的环境
      - xchain客户端工具
    * - ├─ conf 
      - 配置相关目录
-   * - │  ···   ├─ xchain.yaml
-     - xchain服务的配置信息（注意端口冲突）
+   * - │  ···   ├─ contract.yaml
+     - 合约配置相关
    * - │  ···   ├─ engine.yaml
      - 引擎相关配置
    * - │  ···   ├─ env.yaml
