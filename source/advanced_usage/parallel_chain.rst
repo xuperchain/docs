@@ -150,12 +150,12 @@ xfront 与 xchain 配置和启动
         keyPath: netkeys
 
         staticNodes:
-        xuper: # 这里就是 xfront 端口配置。
-            - "127.0.0.1:57101"
-            - "127.0.0.1:57102"
-            - "127.0.0.1:57103"
-        hello: # 此处配置用于平行链。
-            - "127.0.0.1:57101"
+            xuper: # 这里就是 xfront 端口配置。
+                - "127.0.0.1:57101"
+                - "127.0.0.1:57102"
+                - "127.0.0.1:57103"
+            hello: # 此处配置用于平行链。
+                - "127.0.0.1:57101"
 
         # BootNodes config the bootNodes the node to connect
         #bootNodes:
