@@ -108,7 +108,7 @@ ECDH的原理是交换双方可以在不共享任何秘密的情况下协商出�
 Crypto Provider Interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-XuperChain 抽象出了统一的密码学相关的功能，并在此之上定义了统一的密码学接口，我们称之为Crypto Provider Interface，并通过CryptoClient接口向上层区块链系统系统密码学功能。CryptoClient目前由一组接口构成：
+XuperChain 抽象出了统一的密码学相关的功能，并在此之上定义了统一的密码学接口，我们称之为Crypto Provider Interface，并通过CryptoClient接口向上层区块链系统提供密码学功能。CryptoClient目前由一组接口构成：
 
 .. code-block:: go
     :linenos:
