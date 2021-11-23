@@ -19,6 +19,7 @@ xuperchain网络搭建
 
     git clone https://github.com/xuperchain/xuperchain.git 
     cd xuperchain 
+    git checkout v5.1.0
     make 
     make testnet
 
