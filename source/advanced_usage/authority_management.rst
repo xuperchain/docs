@@ -188,7 +188,8 @@ XC9999999999999999@xuper/gLAdZSMtkforV7T6h5TA14VUrfdcYLbuy
 合约方法 ACL
 ------------------
 合约方法 ACL 允许某个合约方法只能被满足特定条件的账号调用。
-合约方法 ACL 的设置也是通过多签来完成
+
+合约方法 ACL 的设置也是通过多签来完成。
 
 1. 准备desc文件setMethodACL.desc
 
