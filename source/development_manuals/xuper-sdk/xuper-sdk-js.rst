@@ -19,6 +19,7 @@ JS SDK 代码可在github上下载：`JS SDK <https://github.com/xuperchain/xupe
 
     import XuperSDK from '@xuperchain/xuper-sdk';
       const node = '127.0.0.1:37101'; // node
+      // const node = '39.156.69.83:37100' // 开放网络地址 grpc
       const chain = 'xuper'; // chain
       const xsdk = XuperSDK.getInstance({
         node,
@@ -32,6 +33,7 @@ JS SDK 代码可在github上下载：`JS SDK <https://github.com/xuperchain/xupe
 
     const xsdk = XuperSDK.getInstance({
       const node = '127.0.0.1:37101'; // node
+      // const node = 'https://xuper.baidu.com/nodeapi' // 开放网络地址 http
       const chain = 'xuper'; // chain
       env: {
         node: {
@@ -206,5 +208,41 @@ SDK 还支持链上的查询接口，例如查询区块，查询交易，链上�
     // 根据交易 ID 查询交易
     const result = await xsdk.queryTransaction('242de4ae4b09d25e2103a29725fb2f865538669780e5759be61d17e2c2e4afec');
 
+背书服务插件
+^^^^^^^^^^^^^^^^^
+连接开放网络，必须使用背书服务插件：
+    
+.. code-block:: js
+    :linenos:
+    // 引入插件
+    import Endorsement from '@xuperchain/xuper-sdk/dist/plugins/endorsement';
+    
+    // 背书服务配置
+    const params = {
+        server: "https://xuper.baidu.com/nodeapi", // 服务地址 与http 和 grpc 对应
+        fee: "400", // 服务费
+        endorseServiceCheckAddr: "jknGxa6eyum1JrATWvSJKW3thJ9GKHA9n", // 背书签名地址
+        endorseServiceFeeAddr: "aB2hpHnTBDxko3UoP2BpBZRujwhdcAFoT" // 背书服务费地址
+    }
+
+    // 插件配置
+    const plugins = [
+        Endorsement({
+            transfer: params,
+            makeTransaction: params
+        })
+    ];
+
+    // 使用插件
+    const xsdk = XuperSDK.getInstance({
+        node,
+        chain,
+        env:{
+            node:{
+                disableGRPC:true // 关闭grpc
+            }
+        },
+        plugins
+    });
 
 上面为部署 EVM 合约、转账以及查询接口示例，wasm 以及 native 合约部署、升级、调用等其他接口接口请参考 `接口文档 <https://xuperchain.github.io/xuper-sdk-js/classes/xupersdk.html>`_
