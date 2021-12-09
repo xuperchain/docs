@@ -216,13 +216,21 @@ SDK 还支持链上的查询接口，例如查询区块，查询交易，链上�
     // 引入插件
     import Endorsement from '@xuperchain/xuper-sdk/dist/plugins/endorsement';
     
-    // 背书服务配置
+    // 背书服务配置 grpc
     const params = {
         server: "39.156.69.83:37100", // 服务地址 grpc
         fee: "400", // 服务费
         endorseServiceCheckAddr: "jknGxa6eyum1JrATWvSJKW3thJ9GKHA9n", // 背书签名地址
         endorseServiceFeeAddr: "aB2hpHnTBDxko3UoP2BpBZRujwhdcAFoT" // 背书服务费地址
     }
+    
+    // 背书服务配置 测试网络
+    // const params = {
+    //    server: "14.215.179.74:37101", // 服务地址
+    //    fee: "100", // 服务费
+    //    endorseServiceCheckAddr: "XDxkpQkfLwG6h56e896f3vBHhuN5g6M9u", // 背书签名地址
+    //    endorseServiceFeeAddr: "cHvBK1TTB52GYtVxHK7HnW8N9RTqkN99R" // 背书服务费地址
+    // }
 
     // 插件配置
     const plugins = [
