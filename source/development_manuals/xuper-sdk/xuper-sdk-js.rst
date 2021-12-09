@@ -33,7 +33,6 @@ JS SDK 代码可在github上下载：`JS SDK <https://github.com/xuperchain/xupe
 
     const xsdk = XuperSDK.getInstance({
       const node = '127.0.0.1:37101'; // node
-      // const node = 'https://xuper.baidu.com/nodeapi' // 开放网络地址 http
       const chain = 'xuper'; // chain
       env: {
         node: {
@@ -219,7 +218,7 @@ SDK 还支持链上的查询接口，例如查询区块，查询交易，链上�
     
     // 背书服务配置
     const params = {
-        server: "https://xuper.baidu.com/nodeapi", // 服务地址 与http 和 grpc 对应
+        server: "39.156.69.83:37100", // 服务地址 grpc
         fee: "400", // 服务费
         endorseServiceCheckAddr: "jknGxa6eyum1JrATWvSJKW3thJ9GKHA9n", // 背书签名地址
         endorseServiceFeeAddr: "aB2hpHnTBDxko3UoP2BpBZRujwhdcAFoT" // 背书服务费地址
