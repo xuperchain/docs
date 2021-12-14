@@ -129,7 +129,7 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
     .. code-block:: bash
 
         # 调用golang native合约，Increase方法，golangcounter为合约名
-        $ xchain-cli native invoke --method Increase -a '{"key":"test"}' golangcounter
+        $ xchain-cli native invoke --method Increase -a '{"key":"test"}' golangcounter --fee 10
 
         # 调用golang native合约，Get方法，golangcounter为合约名
         $ xchain-cli native query --method Get -a '{"key":"test"}' golangcounter
