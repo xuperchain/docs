@@ -129,7 +129,7 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
     .. code-block:: bash
 
         # 调用golang native合约，Increase方法，golangcounter为合约名
-        $ xchain-cli native invoke --method Increase -a '{"key":"test"}' golangcounter
+        $ xchain-cli native invoke --method Increase -a '{"key":"test"}' golangcounter --fee 10
 
         # 调用golang native合约，Get方法，golangcounter为合约名
         $ xchain-cli native query --method Get -a '{"key":"test"}' golangcounter
@@ -162,9 +162,18 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
 
     .. code-block:: bash
 
-        solc --version
-        // solc, the solidity compiler commandline interface
-        // Version: 0.5.9+commit.c68bc34e.Darwin.appleclang
+        # 安装 python
+        sudo apt install python3-pip  
+
+        # solc-select是一个很好的工具 
+
+        sudo pip3 install solc-select 
+
+        solc-select install           // 查询可以安装的版本 
+        solc-select install 0.5.9     // 安装需要的版本 
+        solc-select versions          // 查看当前已有的版本及正在使用的版本 
+        solc-select use 0.5.9        // 选择自己需要的版本 
+        solc --version                // 查看当前正在使用的版本
 
     我们以如下Counter 合约为例
 

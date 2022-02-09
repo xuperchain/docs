@@ -85,6 +85,7 @@ XuperChain文档
     :numbered:
 
     design_documents/key_process.rst
+    design_documents/smart_contract.rst
     design_documents/crypto.rst
     design_documents/p2p.rst
     design_documents/consensus.rst

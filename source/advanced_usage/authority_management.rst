@@ -10,7 +10,7 @@ ACL（Access Control List）是XuperChain提供的重要的权限管理方法，
 
 XuperChain 中ACL配置格式如下：
 
-.. code-block:: python
+.. code-block:: json
     :linenos:
 
     {
@@ -183,6 +183,73 @@ XC9999999999999999@xuper/gLAdZSMtkforV7T6h5TA14VUrfdcYLbuy
 
 .. Important::
     使用“简易”方式创建的合约账号，修改ACL生成交易时，需要添加节点账号的地址路径 --multiAddrs data/keys/address。
+
+
+合约方法 ACL
+------------------
+合约方法 ACL 允许某个合约方法只能被满足特定条件的账号调用。
+
+合约方法 ACL 的设置也是通过多签来完成。
+
+1. 准备desc文件setMethodACL.desc
+
+    .. code-block:: json     
+
+        {
+            "module_name": "xkernel",
+            "method_name": "SetMethodAcl",
+            "args" : {
+                "contract_name": "counter",
+                "method_name": "increase",
+                "acl": "{\"pm\": {\"rule\": 1,\"acceptValue\": 1.0},\"aksWeight\": {\"TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY\": 1}}"
+                }
+        }
+
+    参数说明：
+
+    - **module_name**： 模块名称，用固定值xkernel 
+    - **method_name** ：方法名称，用固定值SetMethodAcl
+    - **contract_name**：合约名称
+    - **method_name**：合约方法名称
+    - **acl**：合约方法的acl
+
+2. 准备 ACL 描述文件
+
+    以使用 XC1111111111111111@xuper 部署的 counter 合约为例，合约账号 ACL 里 只有 1 个 AK，所以在data/acl/addrs中添加1行
+
+    .. code-block:: bash
+
+        $ echo "XC1111111111111111@xuper/TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY" > data/acl/addrs
+
+    如果合约账号 ACL 有多个 AK，按序添加即可。
+
+3. 生成交易并发送    
+
+    .. code-block:: bash
+        
+        # 生成交易
+        xchain-cli multisig gen --desc ./setMethodACL.desc --fee 1 
+        # 对交易签名
+        xchain-cli multisig sign --output sign.out
+        # 发送交易
+        xchain-cli multisig send sign.out sign.out
+
+4. 查看合约方法ACL
+
+    .. code-block:: bash
+
+        $ xchain-cli acl query --contract counter --method increase    
+        {
+            "pm": {
+                "rule": 1,
+                "acceptValue": 1
+            },
+            "aksWeight": {
+                "TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY": 1
+            }
+        }
+        confirmed
+
 
 
 平行链群组
