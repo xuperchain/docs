@@ -76,7 +76,7 @@ XuperChain的客户端工具提供了ACL查询功能，只需如下命令。
 .. code-block:: bash
     :linenos:
 
-    xchain-cli acl query --account XC1111111111111111@xuper # account参数为合约账号名称
+    ./bin/xchain-cli acl query --account XC1111111111111111@xuper # account参数为合约账号名称
 
 .. only:: html
 
@@ -93,7 +93,7 @@ XuperChain的客户端工具提供了ACL查询功能，只需如下命令。
 .. code-block:: bash
     :linenos:
 
-    xchain-cli account balance XC1111111111111111@xuper -H 127.0.0.1:37101
+    ./bin/xchain-cli account balance XC1111111111111111@xuper -H 127.0.0.1:37101
 
 使用此命令即可查询 ``XC1111111111111111@xuper`` 的余额。
 
@@ -126,7 +126,7 @@ XuperChain的客户端工具提供了ACL查询功能，只需如下命令。
 修改ACL的操作，需要符合当前ACL中设置的规则，即需要具有足够权重的账号签名。
 
 需要新建文件添加需要签名的地址，默认acl文件路径是：./data/acl/addrs 。
-./data/acl/addrs 示例：
+./data/acl/addrs 示例(这里为原ACL地址，即AK1,AK2)：
 XC9999999999999999@xuper/9LArZSMrrRorV7T6h5T32PVUrmdcYLbug
 XC9999999999999999@xuper/gLAdZSMtkforV7T6h5TA14VUrfdcYLbuy
 
@@ -135,7 +135,7 @@ XC9999999999999999@xuper/gLAdZSMtkforV7T6h5TA14VUrfdcYLbuy
 .. code-block:: bash
     :linenos:
 
-    xchain-cli multisig gen --desc acl_new.json --from XC1111111111111111@xuper
+    ./bin/xchain-cli multisig gen --desc acl_new.json --from XC1111111111111111@xuper
 
 .. only:: html
 
@@ -150,8 +150,8 @@ XC9999999999999999@xuper/gLAdZSMtkforV7T6h5TA14VUrfdcYLbuy
 .. code-block:: bash
     :linenos:
 
-    xchain-cli multisig sign --keys data/account/AK1 --output AK1.sign
-    xchain-cli multisig sign --keys data/account/AK2 --output AK2.sign
+    ./bin/xchain-cli multisig sign --keys data/account/AK1 --output AK1.sign
+    ./bin/xchain-cli multisig sign --keys data/account/AK2 --output AK2.sign
 
 .. only:: html
 
@@ -166,7 +166,7 @@ XC9999999999999999@xuper/gLAdZSMtkforV7T6h5TA14VUrfdcYLbuy
 .. code-block:: bash
     :linenos:
 
-    xchain-cli multisig send --tx tx.out AK1.sign,AK2.sign AK1.sign,AK2.sign
+    ./bin/xchain-cli multisig send --tx tx.out AK1.sign,AK2.sign AK1.sign,AK2.sign
 
 .. only:: html
 
