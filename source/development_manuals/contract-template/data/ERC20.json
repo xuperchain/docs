@@ -1,0 +1,108 @@
+{
+  "id": "ERC20",
+  "name": "ERC20",
+  "type": 5,
+  "lang": "solidity",
+  "version": "1.0.0",
+  "publisher": {
+    "name": "litian03"
+  },
+  "publish_time": "2022-03-25",
+  "update_time": "2022-03-25",
+  "downloads": 3,
+  "init_args": {
+    "name_": "代币名称",
+    "symbol_": "代币符号"
+  },
+  "brief": "符合ERC20标准的简单合约。",
+  "docs": {
+    "description": "符合ERC20标准的简单合约。",
+    "functions": [
+      {
+        "name": "mint",
+        "args": [
+          "value: uint256, 代币数量"
+        ],
+        "description": "铸造代币，只有creator拥有权限。"
+      },
+      {
+        "name": "transfer",
+        "args": [
+          "_to: address, 接收者",
+          "_value: uint256, 代币数量"
+        ],
+        "description": "转移代币给某个地址。"
+      },
+      {
+        "name": "transferFrom",
+        "args": [
+          "_from: address, 代币拥有者",
+          "_to: address, 接收者",
+          "_value: uint256, 代币数量"
+        ],
+        "description": "从某个地址转移代币给另一个地址。"
+      },
+      {
+        "name": "approve",
+        "args": [
+          "_spender: address, 授权给某个地址",
+          "_value: uint256, 授权代币数量"
+        ],
+        "description": "授权给某个地址可花费拥有者一定数量的代币。"
+      },
+      {
+        "name": "allowance",
+        "args": [
+          "_owner: address, 代币拥有者",
+          "_spender: address, 授权地址"
+        ],
+        "description": "获取被授权地址还可花费拥有者代币的数量。"
+      },
+      {
+        "name": "balanceOf",
+        "args": [
+          "_owner: address, 代币拥有者"
+        ],
+        "description": "获取拥有者的代币数量。"
+      },
+      {
+        "name": "destroyTokens",
+        "args": [
+          "_value: uint256, 代币数量"
+        ],
+        "description": "销毁一定数量的代币，仅可销毁自己拥有的。"
+      },
+      {
+        "name": "balance",
+        "args":[],
+        "description": "获取拥有的代币数量。"
+      },
+      {
+        "name": "creator",
+        "args": [],
+        "description": "获取合约创建者。"
+      },
+      {
+        "name": "decimats",
+        "args": [],
+        "description": "获取代币小数。"
+      },
+      {
+        "name": "name",
+        "args": [],
+        "description": "获取代币名称。"
+      },
+      {
+        "name": "symbol",
+        "args": [],
+        "description": "获取代币符号。"
+      },
+      {
+        "name": "totalSupply",
+        "args": [],
+        "description": "获取代币总数。"
+      }
+    ]
+  },
+  "code_link": ""
+}

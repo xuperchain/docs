@@ -21,3 +21,4 @@ XuperChain 提供了丰富的
       contract-template/score_record.rst
       contract-template/short_content.rst
       contract-template/source_trace.rst
+      contract-template/ERC20.rst
