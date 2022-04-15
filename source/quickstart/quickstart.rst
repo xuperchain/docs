@@ -230,7 +230,7 @@ xchain中，账号类型分为“普通账号”和“合约账号”。
 
 
     # 根据账户存储的路径，查询该账户的余额。--keys为要查询的账户的地址，如 bob：--keys data/bob
-    $ bin/xchain-cli account balance --keys data/keys -H 127.0.0.1:37101
+    $ bin/xchain-cli account balance --keys data/bob -H 127.0.0.1:37101
     100000000000338000000
 
     # 根据地址查询该账户余额
@@ -257,7 +257,6 @@ xchain中，账号类型分为“普通账号”和“合约账号”。
 
 命令执行的返回是转账操作的交易id（txid）
 .. note::
-
     转账操作如果不加参数 --keys，即未指定扣款账户，将会默认扣除 data/keys 下账户的资源，该账户是默认生成的，创建链时会预分配一些资源
     给到该账户，具体可以参考 data/genesis/xuper.json
 
