@@ -4,7 +4,7 @@
 网络部署
 ------------------
 
-本节内容将教你手把手使用XuperChain搭建一个3节点的区块链网络。帮助开发者掌握XuperChain网络的部署流程。
+本节内容将手把手教你使用XuperChain搭建一个3节点的区块链网络。帮助开发者掌握XuperChain网络的部署流程。
 
 .. _read-prepare:
 
@@ -21,6 +21,7 @@
 
 .. code-block:: bash
 
+    # 在xuperchain目录执行
     make testnet
 
 
@@ -38,25 +39,100 @@
     testnet
     ├── node1
     │   ├── bin
+    │   │   ├── wasm2c
+    │   │   ├── xchain
+    │   │   └── xchain-cli
     │   ├── conf
+    │   │   ├── contract.yaml
+    │   │   ├── engine.yaml
+    │   │   ├── env.yaml
+    │   │   ├── ledger.yaml
+    │   │   ├── log.yaml
+    │   │   ├── network.yaml
+    │   │   ├── server.yaml
+    │   │   └── xchain-cli.yaml
+    │   ├── control.sh
     │   └── data
     │       ├── genesis
+    │       │   ├── poa.json
+    │       │   ├── pow.json
+    │       │   ├── tdpos.json
+    │       │   ├── xpoa.json
+    │       │   ├── xpos.json
+    │       │   └── xuper.json
     │       ├── keys
+    │       │   ├── address
+    │       │   ├── private.key
+    │       │   └── public.key
     │       └── netkeys
+    │           ├── cacert.pem
+    │           ├── cert.pem
+    │           ├── net_private.key
+    │           └── private.key
     ├── node2
     │   ├── bin
+    │   │   ├── wasm2c
+    │   │   ├── xchain
+    │   │   └── xchain-cli
     │   ├── conf
+    │   │   ├── contract.yaml
+    │   │   ├── engine.yaml
+    │   │   ├── env.yaml
+    │   │   ├── ledger.yaml
+    │   │   ├── log.yaml
+    │   │   ├── network.yaml
+    │   │   ├── server.yaml
+    │   │   └── xchain-cli.yaml
+    │   ├── control.sh
     │   └── data
     │       ├── genesis
+    │       │   ├── poa.json
+    │       │   ├── pow.json
+    │       │   ├── tdpos.json
+    │       │   ├── xpoa.json
+    │       │   ├── xpos.json
+    │       │   └── xuper.json
     │       ├── keys
+    │       │   ├── address
+    │       │   ├── private.key
+    │       │   └── public.key
     │       └── netkeys
+    │           ├── cacert.pem
+    │           ├── cert.pem
+    │           ├── net_private.key
+    │           └── private.key
     └── node3
-        ├── bin
-        ├── conf
-        └── data
-            ├── genesis
-            ├── keys
-            └── netkeys
+    ├── bin
+    │   ├── wasm2c
+    │   ├── xchain
+    │   └── xchain-cli
+    ├── conf
+    │   ├── contract.yaml
+    │   ├── engine.yaml
+    │   ├── env.yaml
+    │   ├── ledger.yaml
+    │   ├── log.yaml
+    │   ├── network.yaml
+    │   ├── server.yaml
+    │   └── xchain-cli.yaml
+    ├── control.sh
+    └── data
+        ├── genesis
+        │   ├── poa.json
+        │   ├── pow.json
+        │   ├── tdpos.json
+        │   ├── xpoa.json
+        │   ├── xpos.json
+        │   └── xuper.json
+        ├── keys
+        │   ├── address
+        │   ├── private.key
+        │   └── public.key
+        └── netkeys
+            ├── cacert.pem
+            ├── cert.pem
+            ├── net_private.key
+            └── private.key
 
 
 .. _p2p-config:
@@ -68,44 +144,45 @@
 节点加入网络需要通过网络中一个或者多个种子节点，区块链网络中任何一个节点都可以作为种子节点，通过配置种子节点的网络连接地址netURL可以加入网络。
 
 **1. 查看种子节点netURL**
-   
+
 假设我们设定node1、node2、node3都是种子节点，分别查看3个节点的netURL
 
 .. code-block:: bash
 
     # 查看node1节点连接地址netURL
-    cd node1  
+    cd node1
     ./bin/xchain-cli netURL preview
     # 得到如下结果，实际使用时，需要将ip配置节点的真实ip，port配置成
     /ip4/{{ip}}/tcp/{{port}}/p2p/Qmf2HeHe4sspGkfRCTq6257Vm3UHzvh2TeQJHHvHzzuFw6
 
     # 查看node2节点连接地址netURL
-    cd ../node2  
-    ./bin/xchain-cli netURL preview 
+    cd ../node2
+    ./bin/xchain-cli netURL preview
     /ip4/{{ip}}/tcp/{{port}}/p2p/QmQKp8pLWSgV4JiGjuULKV1JsdpxUtnDEUMP8sGaaUbwVL
 
     # 查看node3节点连接地址netURL
-    cd ../node3  
-    ./bin/xchain-cli netURL preview 
+    cd ../node3
+    ./bin/xchain-cli netURL preview
     /ip4/{{ip}}/tcp/{{port}}/p2p/QmZXjZibcL5hy2Ttv5CnAQnssvnCbPEGBzqk7sAnL69R1E
 
 如果想给节点分配一个新的网络连接地址，可以使用如下命令:
 
 .. code-block:: bash
 
-    cd node1  
+    cd node1
     ./bin/xchain-cli netURL gen
 
 
 **2. p2p网络配置**
 
 .. code-block:: bash
- 
+
     # 查看
+    cd node1
     cat conf/network.yaml
 
 
-.. code-block:: bash    
+.. code-block:: bash
 
     # p2p network config
 
@@ -137,7 +214,7 @@
 
 进入每个节点部署路径，分别启动每个节点:
 
-.. code-block:: bash    
+.. code-block:: bash
 
     cd ./testnet/node1
     sh ./control.sh start
@@ -156,7 +233,7 @@
 
 分别查看每个节点运行状态：
 
-.. code-block:: bash    
+.. code-block:: bash
 
     ./bin/xchain-cli status -H :37101
     ./bin/xchain-cli status -H :37102
