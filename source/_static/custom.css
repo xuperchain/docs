@@ -6,6 +6,16 @@ SPDX-License-Identifier: Apache-2.0
 /* .toctree-wrapper {
     display: none;
 } */
+
+summary > span{
+  color: #07AFBE;
+  cursor: pointer;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .rst-versions .rst-current-version .fa-book, .rst-versions .rst-current-version .icon-book {
     float: left;
     color: black;
@@ -113,7 +123,7 @@ h1 {
     display: none;
 }
 p {
-    font-size: 100%; 
+    font-size: 100%;
 }
 hr {
     margin: 2px -50px 40px -50px;
@@ -136,7 +146,7 @@ a.version2 {
     font-size: 20px;
     color: #000000;
     line-height: 34px;
-    font-weight: 500;    
+    font-weight: 500;
 }
 .wy-side-nav-search>div.version {
     font-family: PingFangSC-Medium;
@@ -181,7 +191,7 @@ a.version2 {
     font-family: PingFangSC-Regular;
     font-size: 14px;
     line-height: 40px;
-    font-weight: 400; 
+    font-weight: 400;
     color: #333333;
 }
 .wy-menu-vertical a:hover {
@@ -190,13 +200,13 @@ a.version2 {
     font-family: PingFangSC-Regular;
     font-size: 14px;
     line-height: 40px;
-    font-weight: 400; 
+    font-weight: 400;
 }
 .wy-nav-content {
     padding: 0.125em 3.125em;
     background-color: #fff;
     max-width: 1150px;
-    
+
 }
 .wy-nav-side {
     background-color: #F8F9FB;
@@ -212,7 +222,7 @@ a.version2 {
     background: url(/_static/images/arrow_Up.svg);
     background-size: 10px 10px;
     background-repeat: no-repeat;
-    background-position: 1px 16px; 
+    background-position: 1px 16px;
     padding-left: 21px;
 }
 .wy-menu-vertical p.active {
@@ -297,12 +307,12 @@ a.version2 {
     font-size: large;
 }
 /* img.topimg {
-    
+
     max-width: 120px;
     max-height: 34px;
 } */
 p.top {
-    
+
     margin-top: 20px;
     margin-bottom: 40px;
     margin-right: 50px;
@@ -349,7 +359,7 @@ p.title {
     line-height: 24px;
     font-weight: 400;
     margin-bottom: 10px;
-    
+
 }
 .hov p a:hover {
     font-family: PingFang-SC-Regular;
@@ -461,11 +471,11 @@ a.download {
     font-size: 18px;
     color: #333333;
     line-height: 28px;
-    font-weight: 400;  
+    font-weight: 400;
 }
 .tools{
     margin-top: 6px;
-    
+
     margin-bottom: 60px;
     display: flex;
     flex-wrap: wrap;
@@ -476,7 +486,7 @@ a.download {
 .tools p.title {
     margin-left: 30px;
     margin-top: 20px;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     padding-left: 0;
     font-family: PingFangSC-Regular;
     font-size: 30px;
@@ -512,33 +522,33 @@ a.download {
     flex: 0 0 auto;
     margin: 0;
     width: 287px;
-    height: 260px;  
-    border: 1px solid #E0E0E0;   
+    height: 260px;
+    border: 1px solid #E0E0E0;
 }
 .tools .card-holder:nth-child(3),.card-holder:nth-child(6) {
     flex: 0 0 auto;
     margin: 0;
     width: 288px;
-    height: 260px;  
-    border: 1px solid #E0E0E0;   
+    height: 260px;
+    border: 1px solid #E0E0E0;
 }
 .tools .card-holder:hover {
     flex: 0 0 auto;
     margin: 0;
-    width: 287px; 
-    height: 260px;  
+    width: 287px;
+    height: 260px;
     border: 1px solid #E0E0E0;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-    
+
 }
 .tools .card-holder:nth-child(3):hover,.card-holder:nth-child(6):hover{
     flex: 0 0 auto;
     margin: 0;
-    width: 288px; 
-    height: 260px;  
+    width: 288px;
+    height: 260px;
     border: 1px solid #E0E0E0;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-    
+
 }
 .item {
     padding-top: 20px;
@@ -604,7 +614,7 @@ p.details b a:hover {
     max-height: 202px;
     background: #FFFFFF;
     flex: 0 0 auto;
-    
+
 }
 .intro .card-holder:nth-child(1),.card-holder:nth-child(3) {
     margin: 10px;
@@ -613,7 +623,7 @@ p.details b a:hover {
     background: #FFFFFF;
     flex: 0 0 auto;
     margin-left: 0;
-    
+
 }
 .intro .card-holder:hover {
     margin: 10px;
@@ -621,7 +631,7 @@ p.details b a:hover {
     height: 202px;
     background: #FFFFFF;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-    
+
 }
 .intro .card-holder:nth-child(1):hover {
     margin: 10px;
@@ -630,7 +640,7 @@ p.details b a:hover {
     background: #FFFFFF;
     flex: 0 0 auto;
     margin-left: 0;
-    
+
 }
 .intro .card-holder:nth-child(3):hover {
     margin: 10px;
@@ -639,7 +649,7 @@ p.details b a:hover {
     background: #FFFFFF;
     flex: 0 0 auto;
     margin-left: 0;
-    
+
 }
 .intro .card-holder .card{
     width: 420px;
@@ -732,22 +742,22 @@ img.introimg {
     background: #FFFFFF;
     flex: 0 0 auto;
     margin-left: 0;
-    
+
 }
 .ecology .card {
     background: #FFFFFF;
 }
 #eco1 {
     background: #FFFFFF;
-    border: 1px solid #E0E0E0; 
+    border: 1px solid #E0E0E0;
     margin-top: 40px;
-    
+
 }
 #eco2,#eco3,#eco4 {
     background: #FFFFFF;
-    border: 1px solid #E0E0E0; 
+    border: 1px solid #E0E0E0;
     margin-top: 20px;
-    
+
 }
 .ecotitle {
     margin-top: 24px;
@@ -944,7 +954,7 @@ footer hr {
     margin-bottom: 20px;
 }
 footer~p {
-    
+
     font-family: PingFangSC-Regular;
     font-size: 14px;
     color: #666666;
@@ -1212,7 +1222,7 @@ footer a {
     }
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
     .section {
         padding: 17px;
     }
@@ -1231,7 +1241,7 @@ footer a {
         margin: 0 20px;
     }
     a.version2 {
-        padding-right: 35px;   
+        padding-right: 35px;
     }
     h1 {
         display: inline-block !important;
@@ -1263,7 +1273,7 @@ footer a {
     }
     /* div[role=navigation] {
         display: none;
-        visibility: hidden; 
+        visibility: hidden;
     } */
     .wy-breadcrumbs {
         display: none;
@@ -1271,7 +1281,7 @@ footer a {
     hr {
         display: none;
     }
-    
+
     .hov2 {
         display: block !important;
         /* position: fixed; */
@@ -1279,7 +1289,7 @@ footer a {
         margin-left: -17px;
         margin-right: -17px;
         width: auto;
-    
+
     }
     .hov2 p {
         width: 100%;
@@ -1312,7 +1322,7 @@ footer a {
         margin-top: 17px;
         padding-bottom: 17px;
         margin-left: 17px;
-        
+
     }
     .hov2 p a:nth-child(2),a:nth-child(3),a:nth-child(4),a:nth-child(5){
         /* margin-right: 30px; */
@@ -1326,7 +1336,7 @@ footer a {
         /* margin-top: 17px; */
         padding-bottom: 17px;
         /* margin-left: 0; */
-        
+
     }
     /* .hov2 p a:hover {
         background-color: #FFFFFF !important;
@@ -1337,7 +1347,7 @@ footer a {
         letter-spacing: 0;
         line-height: 16px;
         font-weight: 500;
-    
+
     } */
     p.title {
         margin-left: 0px;
@@ -1363,9 +1373,9 @@ footer a {
         height: 214px;
     }
     .enter .card-holder{
-        padding: 7.5px 9.5px;  
+        padding: 7.5px 9.5px;
         width: 50%;
-        margin: 0;   
+        margin: 0;
     }
     .enter .card-holder:nth-child(3) {
         max-width: 200px;
@@ -1468,7 +1478,7 @@ footer a {
     .introimg {
         width: 9px;
     }
-    
+
     .intro .card-holder {
         width: 100%;
         /* margin: 7.5px;
@@ -1492,7 +1502,7 @@ footer a {
         max-height: 156px;
         padding: 7.5px 0;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-        
+
     }
     .intro .card-holder:nth-child(1):hover {
         /* margin: 10px; */
@@ -1501,7 +1511,7 @@ footer a {
         max-height: 156px;
         padding: 7.5px 0;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-        
+
     }
     .intro .card-holder:nth-child(3):hover {
         /* margin: 10px; */
@@ -1510,7 +1520,7 @@ footer a {
         max-height: 156px;
         padding: 7.5px 0;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-        
+
     }
     .intro .card-holder .card{
         width: 100%;
@@ -1525,7 +1535,7 @@ footer a {
     #tech4 {
         padding-top: 0;
     }
-    
+
     /* 应用案例 */
     p.totitle {
         padding-left: 0;
@@ -1608,7 +1618,7 @@ footer a {
         height: 156px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
-        border-radius: 8px; 
+        border-radius: 8px;
         width: 100%;
     }
     .tools .card-holder:hover {
@@ -1618,11 +1628,11 @@ footer a {
         height: 156px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
-        border-radius: 8px; 
+        border-radius: 8px;
         width: 100%;
-        border-radius: 8px; 
+        border-radius: 8px;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-        
+
     }
     .tools .card-holder:nth-child(3):hover {
         flex: 0 0 auto;
@@ -1631,9 +1641,9 @@ footer a {
         height: 156px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
-        border-radius: 8px; 
+        border-radius: 8px;
         width: 100%;
-        border-radius: 8px; 
+        border-radius: 8px;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
     }
     .tools .card-holder:nth-child(6):hover {
@@ -1643,9 +1653,9 @@ footer a {
         height: 156px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
-        border-radius: 8px; 
+        border-radius: 8px;
         width: 100%;
-        border-radius: 8px; 
+        border-radius: 8px;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
     }
     .tools p.title {
@@ -1892,7 +1902,7 @@ footer a {
     } */
 }
 /* phone*/
-@media (max-width: 581px) { 
+@media (max-width: 581px) {
     .section {
         padding: 17px;
     }
@@ -1911,7 +1921,7 @@ footer a {
         margin: 0 20px;
     }
     a.version2 {
-        padding-right: 35px;   
+        padding-right: 35px;
     }
     h1 {
         display: inline-block !important;
@@ -1943,7 +1953,7 @@ footer a {
     }
     /* div[role=navigation] {
         display: none;
-        visibility: hidden; 
+        visibility: hidden;
     } */
     .wy-breadcrumbs {
         display: none;
@@ -1951,7 +1961,7 @@ footer a {
     hr {
         display: none;
     }
-    
+
     .hov2 {
         display: block !important;
         /* position: fixed; */
@@ -1959,7 +1969,7 @@ footer a {
         margin-left: -17px;
         margin-right: -17px;
         width: auto;
-    
+
     }
     .hov2 p {
         width: 100%;
@@ -1992,7 +2002,7 @@ footer a {
         margin-top: 17px;
         padding-bottom: 17px;
         margin-left: 17px;
-        
+
     }
     .hov2 p a:nth-child(2),a:nth-child(3),a:nth-child(4),a:nth-child(5){
         /* margin-right: 30px; */
@@ -2006,7 +2016,7 @@ footer a {
         /* margin-top: 17px; */
         padding-bottom: 17px;
         /* margin-left: 0; */
-        
+
     }
     /* .hov2 p a:hover {
         background-color: #FFFFFF !important;
@@ -2017,7 +2027,7 @@ footer a {
         letter-spacing: 0;
         line-height: 16px;
         font-weight: 500;
-    
+
     } */
     p.title {
         margin-left: 0px;
@@ -2043,9 +2053,9 @@ footer a {
         height: 214px;
     }
     .enter .card-holder{
-        padding: 7.5px 9.5px;  
+        padding: 7.5px 9.5px;
         width: 50%;
-        margin: 0;   
+        margin: 0;
     }
     .enter .card-holder:nth-child(3) {
         max-width: 200px;
@@ -2148,7 +2158,7 @@ footer a {
     .introimg {
         width: 9px;
     }
-    
+
     .intro .card-holder {
         width: 100%;
         /* margin: 7.5px;
@@ -2172,7 +2182,7 @@ footer a {
         max-height: 156px;
         padding: 7.5px 0;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-        
+
     }
     .intro .card-holder:nth-child(1):hover {
         /* margin: 10px; */
@@ -2181,7 +2191,7 @@ footer a {
         max-height: 156px;
         padding: 7.5px 0;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-        
+
     }
     .intro .card-holder:nth-child(3):hover {
         /* margin: 10px; */
@@ -2190,7 +2200,7 @@ footer a {
         max-height: 156px;
         padding: 7.5px 0;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-        
+
     }
     .intro .card-holder .card{
         width: 100%;
@@ -2241,7 +2251,7 @@ footer a {
     #crabsds {
         padding-top: 10px;
     }
-    
+
     p.title b a {
         font-family: PingFangSC-Regular;
         font-size: 16px;
@@ -2288,7 +2298,7 @@ footer a {
         height: 185px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
-        border-radius: 8px; 
+        border-radius: 8px;
         width: 100%;
     }
     .tools .card-holder:hover {
@@ -2298,11 +2308,11 @@ footer a {
         height: 185px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
-        border-radius: 8px; 
+        border-radius: 8px;
         width: 100%;
-        border-radius: 8px; 
+        border-radius: 8px;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-        
+
     }
     .tools .card-holder:nth-child(3):hover {
         flex: 0 0 auto;
@@ -2311,9 +2321,9 @@ footer a {
         height: 185px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
-        border-radius: 8px; 
+        border-radius: 8px;
         width: 100%;
-        border-radius: 8px; 
+        border-radius: 8px;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
     }
     .tools .card-holder:nth-child(6):hover {
@@ -2323,9 +2333,9 @@ footer a {
         height: 185px;
         background: #FFFFFF;
         border: 1px solid #DADCDF;
-        border-radius: 8px; 
+        border-radius: 8px;
         width: 100%;
-        border-radius: 8px; 
+        border-radius: 8px;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
     }
     .tools p.title {
