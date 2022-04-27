@@ -1,5 +1,3 @@
-.. include:: ../_static/substitutions.rst
-
 XuperChain http 接口使用说明
 ===========================
 
