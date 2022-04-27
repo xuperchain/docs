@@ -43,7 +43,7 @@ XuperChain主要由Golang开发，需要首先准备编译运行的环境
 .. note::
 
     make 时，可能出现拉取失败的情况，可以配置GOPROXY解决此问题
-    
+
     $ export GOPROXY=https://goproxy.cn,direct
 
     GOPATH问题报错,不推荐使用go1.11版本之前的版本
@@ -70,13 +70,13 @@ XuperChain主要由Golang开发，需要首先准备编译运行的环境
      - 节点根目录
    * - ├─ bin
      - 可执行文件存放目录
-   * - │  ···   ├─ wasm2c  
-     - XVM 虚拟机工具，将 WASM 转为 C     
-   * - │  ···   ├─ xchain  
+   * - │  ···   ├─ wasm2c
+     - XVM 虚拟机工具，将 WASM 转为 C
+   * - │  ···   ├─ xchain
      - xchain服务的二进制文件
    * - │  ···   ├─ xchain-cli
      - xchain客户端工具
-   * - ├─ conf 
+   * - ├─ conf
      - 配置相关目录
    * - │  ···   ├─ contract.yaml
      - 合约配置相关
@@ -94,23 +94,23 @@ XuperChain主要由Golang开发，需要首先准备编译运行的环境
      - 服务相关配置，如端口，tls等
    * - │  ···   ├─ xchain-cli.yaml
      - xchain客户端相关配置，交易是否需要配置，交易发送节点等
-   * - ├─ control.sh 
+   * - ├─ control.sh
      - 启动脚本
-   * - ├─ data 
-     - 数据的存放目录，创世块信息，以及共识和合约的样例   
+   * - ├─ data
+     - 数据的存放目录，创世块信息，以及共识和合约的样例
    * - │  ···   ├─ blockchain
-     - 账本目录
-   * - │  ···   ├─ keys 
-     - 此节点的地址，具有全局唯一性     
+     - 账本目录（启动链之后生成）
+   * - │  ···   ├─ keys
+     - 此节点的地址，具有全局唯一性
    * - │  ···   ├─ netkeys
      - 此节点的网络标识ID，具有全局唯一性
-   * - │  ···   └─ config 
+   * - │  ···   └─ genesis
      - 包括创始的共识，初始的资源数，矿工奖励机制等
-   * - ├─ logs  
-     - 程序日志目录 
-   * - ├─ tmp  
-     - 临时文件夹，目前存储进程pid  
-  
+   * - ├─ logs
+     - 程序日志目录（启动链之后生成）
+   * - ├─ tmp
+     - 临时文件夹，目前存储进程pid（启动链之后生成）
+
 .. _svr-deploy:
 
 部署xchain服务
@@ -127,7 +127,7 @@ xuper5为我们启动服务提供了方便的脚本，只需要一条命令使�
 
 
     # 启动xuper链
-    $ bash control.sh start 
+    $ bash control.sh start
     /home/ubuntu/go/src/github.com/xuperchain/output/bin/xchain
     /home/ubuntu/go/src/github.com/xuperchain/output/conf/env.yaml
     2021/08/10 19:26:57 start create chain.bc_name:xuper genesis_conf:./data/genesis/xuper.json env_conf:./conf/env.yaml
@@ -194,9 +194,29 @@ xchain中，账号类型分为“普通账号”和“合约账号”。
     create account using crypto type default
     create account in data/bob
 
+    # xuperchain 也支持国密算法，关于xuperchain中的密码学，可在 `密码学基础<../design_documents/crypto.html>` 了解更多
+    $ bin/xchain-cli account newkeys --output data/alice --crypto gm
+    create account using crypto type gm
+    create account in data/alice
+
     ## 创建合约账号
     bin/xchain-cli account new --account 1111111111111111 --fee 2000
-    
+    contract response:
+        {
+            "pm": {
+                "rule": 1,
+                "acceptValue": 1.0
+            },
+            "aksWeight": {
+                "TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY": 1.0
+            }
+        }
+
+    The gas you cousume is: 1000
+    The fee you pay is: 2000
+    Tx id: b4c588a52e0d35a9388f0583a58c3adc0865b1fee1d5242268e66b9f3daae3c1
+    account name: XC1111111111111111@xuper
+
 在data/bob目录下会看到文件address，publickey，privatekey生成
 
 .. _balance:
@@ -209,15 +229,19 @@ xchain中，账号类型分为“普通账号”和“合约账号”。
 .. code-block:: bash
 
 
-    # 根据账户存储的路径，查询该账户的余额。--keys为要查询的账户的地址
-    $ bin/xchain-cli account balance --keys data/keys
+    # 根据账户存储的路径，查询该账户的余额。--keys为要查询的账户的地址，如 bob：--keys data/bob
+    $ bin/xchain-cli account balance --keys data/bob -H 127.0.0.1:37101
     100000000000338000000
 
     # 根据地址查询该账户余额
-    $ bin/xchain-cli account balance TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY
+    $ bin/xchain-cli account balance TeyyPLpp9L7QAcxHangtcHTu7HUZ6iydY -H 127.0.0.1:37101
     100000000000401000000
 
-    
+    # 查询合约账户余额
+    $ bin/xchain-cli account balance XC1111111111111111@xuper -H 127.0.0.1:37101
+    0
+
+
 .. _transfer:
 
 转账
@@ -226,12 +250,16 @@ xchain中，账号类型分为“普通账号”和“合约账号”。
 转账操作需要提供源账号的私钥目录，也就类似“2.1.1 创建新账号”中生成的目录，这里注意到并不需要提供目标账号的任何密钥，只需要提供地址即可
 
 .. code-block:: bash
-    
+
     # --keys 从此地址 转给 --to地址 --amount 金额
     $ bin/xchain-cli transfer --to czojZcZ6cHSiDVJ4jFoZMB1PjKnfUiuFQ --amount 10 --keys data/keys/ -H 127.0.0.1:37101
     24d53ea6e61ede8dc4fe65a04fd30da17c079a359e700738f8795dfddc55ffb4
 
 命令执行的返回是转账操作的交易id（txid）
+.. note::
+    转账操作如果不加参数 --keys，即未指定扣款账户，将会默认扣除 data/keys 下账户的资源，该账户是默认生成的，创建链时会预分配一些资源
+    给到该账户，具体可以参考 data/genesis/xuper.json
+
 
 
 .. _querytx:
