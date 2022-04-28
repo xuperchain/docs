@@ -16,4 +16,4 @@ XuperChain为方便用户深度使用 XuperChain 的各项功能，提供了多�
   xuper-sdk/xuper-sdk-java.rst
   xuper-sdk/xuper-sdk-python.rst
   xuper-sdk/xuper-rpc.rst
-
+  xuper-sdk/xuper-http.rst
