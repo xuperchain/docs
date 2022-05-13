@@ -66,12 +66,12 @@ Go SDK 代码可以在github上下载 `Go SDK <https://github.com/xuperchain/xup
     //创建合约账户
     contractAccount := "XC1234567890123456@xuper"
     tx, err := xchainClient.CreateContractAccount(account, contractAccount)
-    
+
     // 转账给合约账户
     tx, err := xclient.Transfer(acc, contractAccount, "10")
-    
+
     // 查询合约账户余额
-    fmt.Println(xclient.QueryBalance(contractAccount) 
+    fmt.Println(xclient.QueryBalance(contractAccount)
 
 当合约账户有了余额后，就可以进行合约相关操作。XuperChain支持 Wasm 合约，EVM 合约，Native 合约.合约编写，编译相关内容这里不再赘述，这里我们使用Go SDK来部署一个Wasm合约
 
@@ -118,22 +118,18 @@ Go SDK 代码可以在github上下载 `Go SDK <https://github.com/xuperchain/xup
     // 根据交易ID查询交易
     txID := "c3af3abde7f800dd8782ce8a7559e5bdd7fe712c9efd56d9aeb7f9d2be253730"
     tx, err := client.QueryTxByID(txID)
-    
+
 地址转换
 ^^^^^^^^^^^^^^^^
 XuperChain 有普通地址、合约账户以及合约名，这三类账户在EVM运行时需要转换为以太坊的地址类型（16进制编码字符串，形如0x1234567890abcdef1234567890abcdef12345678格式）。 go SDK 提供了上述三个地址与EVM地址类型转换方法。
 
 .. code-block:: go
+
     // xchain 转 evm 地址
     addr, addrType, err := account.XchainToEVMAddress("xchain address")
-    
+
     // evm 转 xchain地址
     addr, addrType, err := account.EVMToXchainAddress("evm address")
 
 
 以上为常用接口使用方法，如果还需要进行其他接口相关查询，请参考 `Go SDK <https://github.com/xuperchain/xuper-sdk-go/blob/2.0.0/xuper/xuperclient.go>`_
-
-
-
-
-
