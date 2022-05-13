@@ -11,3 +11,4 @@ XuperChain 支持使用 C++，JAVA，GO 等语言进行合约开发；提供了 
     xuper-ide.rst
     contract-template.rst
     contract-sdk.rst 
+    contract-vulnerability.rst
