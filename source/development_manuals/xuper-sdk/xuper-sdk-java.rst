@@ -16,7 +16,7 @@ JS SDK 代码可在github上下载： `Java SDK <https://github.com/xuperchain/x
     <dependency>
         <groupId>com.baidu.xuper</groupId>
         <artifactId>xuper-java-sdk</artifactId>
-        <version>0.2.0</version>
+        <version>0.3.0</version>
     </dependency>
 
 使用
