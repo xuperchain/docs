@@ -174,7 +174,7 @@ Go SDK 使用配置文件有两种方式：
     #创建平行链所需要的最低费用
     minNewChainAmount: "100"
     crypto: "xchain"
-    txVersion: 1
+    txVersion: 3
 
 此时你的 SDK client 便连接到了开放网络，可以进行部署、调用合约了，具体接口文档参考 `Go SDK 使用文档 <../development_manuals/xuper-sdk-go.html>`_  。
 
