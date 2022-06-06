@@ -158,23 +158,24 @@ Go SDK 使用配置文件有两种方式：
 .. code-block:: yaml
     :linenos:
     
-    # endorseService Info
-    endorseServiceHost: "39.156.69.83:37100"
-    complianceCheck:
-    # 是否需要进行合规性背书
-    isNeedComplianceCheck: true
-    # 是否需要支付合规性背书费用
-    isNeedComplianceCheckFee: true
-    # 合规性背书费用
-    complianceCheckEndorseServiceFee: 400
-    # 支付合规性背书费用的收款地址
-    complianceCheckEndorseServiceFeeAddr: aB2hpHnTBDxko3UoP2BpBZRujwhdcAFoT
-    # 如果通过合规性检查，签发认证签名的地址
-    complianceCheckEndorseServiceAddr: jknGxa6eyum1JrATWvSJKW3thJ9GKHA9n
-    #创建平行链所需要的最低费用
-    minNewChainAmount: "100"
-    crypto: "xchain"
-    txVersion: 3
+# endorseService Info
+# testNet addrs
+endorseServiceHost: "39.156.69.83:37100"
+complianceCheck:
+  # 是否需要进行合规性背书
+  isNeedComplianceCheck: false
+  # 是否需要支付合规性背书费用
+  isNeedComplianceCheckFee: false
+  # 合规性背书费用
+  complianceCheckEndorseServiceFee: 400
+  # 支付合规性背书费用的收款地址
+  complianceCheckEndorseServiceFeeAddr: aB2hpHnTBDxko3UoP2BpBZRujwhdcAFoT
+  # 如果通过合规性检查，签发认证签名的地址
+  complianceCheckEndorseServiceAddr: jknGxa6eyum1JrATWvSJKW3thJ9GKHA9n
+#创建平行链所需要的最低费用
+minNewChainAmount: "100"
+crypto: "xchain"
+txVersion: 3
 
 此时你的 SDK client 便连接到了开放网络，可以进行部署、调用合约了，具体接口文档参考 `Go SDK 使用文档 <../development_manuals/xuper-sdk-go.html>`_  。
 
