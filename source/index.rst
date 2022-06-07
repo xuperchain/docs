@@ -1,15 +1,15 @@
 =================
 XuperChain文档
 =================
-.. container:: row 
-   
+.. container:: row
+
     .. raw:: js
         :file: index.js
 
     .. raw:: html
         :file: split/quicklyentrance.html
-    
-    
+
+
     .. raw:: html
         :file: split/technologyintroduction.html
 
@@ -40,8 +40,8 @@ XuperChain文档
     :hidden:
     :maxdepth: 2
     :caption: 快速入门
-    :numbered:  
-      
+    :numbered:
+
     quickstart/quickstart.rst
 
 .. toctree::
@@ -58,8 +58,18 @@ XuperChain文档
     advanced_usage/parallel_chain.rst
     advanced_usage/performance_introduction.rst
     advanced_usage/monitor_usage.rst
-    advanced_usage/open_network.rst
     advanced_usage/more_technology.rst
+
+.. toctree::
+    :hidden:
+    :maxdepth: 2
+    :caption: 开放网络
+    :numbered:
+
+    xuperos/open_network.rst
+    xuperos/xuperos_go.rst
+    xuperos/xuperos_java.rst
+    xuperos/xuperos_js.rst
 
 .. toctree::
     :hidden:
@@ -97,7 +107,7 @@ XuperChain文档
 .. toctree::
     :hidden:
     :maxdepth: 1
-    :caption: 贡献指南  
+    :caption: 贡献指南
 
     contribution/pull_requests.rst
 
@@ -110,6 +120,3 @@ XuperChain文档
     more_materials/code_explanation.rst
     more_materials/config_explanation.rst
     more_materials/video.rst
-
-
-

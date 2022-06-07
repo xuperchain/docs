@@ -14,8 +14,8 @@ XuperChain文档
 .. toctree::
     :maxdepth: 2
     :caption: 快速入门
-    :numbered:  
-      
+    :numbered:
+
     quickstart/quickstart.rst
 
 .. toctree::
@@ -31,8 +31,19 @@ XuperChain文档
     advanced_usage/parallel_chain.rst
     advanced_usage/performance_introduction.rst
     advanced_usage/monitor_usage.rst
-    advanced_usage/open_network.rst
     advanced_usage/more_technology.rst
+
+.. toctree::
+    :hidden:
+    :maxdepth: 2
+    :caption: 开放网络
+    :numbered:
+
+    xuperos/open_network.rst
+    xuperos/xuperos_go.rst
+    xuperos/xuperos_java.rst
+    xuperos/xuperos_js.rst
+    
 
 .. toctree::
     :maxdepth: 2
@@ -66,7 +77,7 @@ XuperChain文档
 
 .. toctree::
  :maxdepth: 1
- :caption: 贡献指南  
+ :caption: 贡献指南
 
 
  contribution/pull_requests.rst
@@ -79,5 +90,3 @@ XuperChain文档
     more_materials/code_explanation.rst
     more_materials/config_explanation.rst
     more_materials/video.rst
-
-
