@@ -2,7 +2,7 @@
 合约管理
 ============
 
- XuperChain 支持丰富的智能合约开发语言，比如go，Solitidy，C++，Java等。 
+ XuperChain 支持丰富的智能合约开发语言，比如go，Solitidy，C++，Java等。
 
 
 
@@ -17,6 +17,7 @@
 
     * `java counter 合约 <https://github.com/xuperchain/contract-sdk-java/tree/main/example/counter>`_
 
+    * `solidity counter 合约 <https://github.com/xuperchain/contract-example-evm/blob/main/counter/Counter.sol>`_
 
 部署wasm合约
 ------------
@@ -24,13 +25,13 @@
 1. 编译合约
 
     C++ 合约使用 `xdev <https://github.com/xuperchain/xdev>`_ 编译，使用前需要安装 xdev 并确保 xdev 所在路径在 PATH 环境变量中。
-    
+
     执行以下命令，编译 counter 合约
 
     .. code-block:: bash
-    
+
         $ git clone https://github.com/xuperchain/contract-sdk-cpp.git
-        $ cd contract-sdk-cpp        
+        $ cd contract-sdk-cpp
         $ xdev build -o counter.wasm example/counter.cc
 
 
@@ -47,6 +48,15 @@
     .. code-block:: bash
 
         $ xchain-cli wasm deploy --account XC1111111111111111@xuper  -a '{"creator":"XC1111111111111111@xuper"}' --cname counter counter.wasm
+        contract response: initialize succeed
+        The gas you cousume is: 155387
+        You need add fee
+
+        xchain-cli wasm deploy --account XC1111111111111111@xuper  -a '{"creator":"XC1111111111111111@xuper"}' --cname counter counter.wasm --fee 155387
+        contract response: initialize succeed
+        The gas you cousume is: 155387
+        The fee you pay is: 155387
+        Tx id: 2f96749f23be514d170e8bfadc9f7e22a9d1f41185b8af4874dfd00e75e273a6
 
     .. Important::
     运行时会提示手续费的数目，需要按照命令行运行结果给出的数值，添加一个不小于它的费用（使用 --fee 参数）。
@@ -54,20 +64,21 @@
 3. 合约调用
 
     .. code-block:: bash
-    
-        $ xchain-cli wasm invoke --method increase -a '{"key":"test"}' counter --fee 100
-        The gas you cousume is: 93
-        The fee you pay is: 100
-        Tx id: 141e4c1fb99566ce4b6ba32fa92af73c0e9857189debf773cf5753d64e1416a7
 
-        $ xchain-cli wasm query --method get -a '{"key":"test"}' counter    
+        $ xchain-cli wasm invoke --method increase -a '{"key":"test"}' counter --fee 100
+        contract response: 1
+        The gas you cousume is: 94
+        The fee you pay is: 100
+        Tx id: 0ec552773d9716526c919bdf1ba1c16e09b26bb627c3d5f26ab1bc9146edef5a
+
+        $ xchain-cli wasm query --method get -a '{"key":"test"}' counter
         contract response: 1
 
 
 部署native合约
 --------------
 
-native 合约默认处于关闭状态，在部署、调用 native 合约之前，请先查看 `conf/contract.yaml` 中 native一节，确保 native 合约功能开启。
+在部署、调用native合约之前，请先查看`conf/contract.yaml` 中native一节，确保native合约功能开启。
 
 .. code-block:: yaml
     :linenos:
@@ -76,8 +87,7 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
     native:
         enable: true
 
-
-1. 编译合约 
+1. 编译合约
 
     GO 合约使用标准的 GO  环境编译，进入 counter 合约目录
 
@@ -95,8 +105,8 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
 
     .. code-block:: bash
 
-        $ git clone https://github.com/xuperchain/contract-sdk-java.git 
-        $ cd contract-sdk-java/example/counter 
+        $ git clone https://github.com/xuperchain/contract-sdk-java.git
+        $ cd contract-sdk-java/example/counter
         $ mvn package
 
     .. note::
@@ -130,6 +140,7 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
 
         # 调用golang native合约，Increase方法，golangcounter为合约名
         $ xchain-cli native invoke --method Increase -a '{"key":"test"}' golangcounter --fee 10
+        contract response: 1
 
         # 调用golang native合约，Get方法，golangcounter为合约名
         $ xchain-cli native query --method Get -a '{"key":"test"}' golangcounter
@@ -137,6 +148,7 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
 
         # 调用java native合约，increase方法，javacounter为合约名
         $ xchain-cli native invoke --method increase -a '{"key":"test"}' javacounter --fee 10
+        contract response: 1
 
         # 调用java native合约，get方法，javacounter为合约名
         $ xchain-cli native query --method get -a '{"key":"test"}' javacounter
@@ -162,17 +174,16 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
 
     .. code-block:: bash
 
+        # 也可使用solc-select编译，solc-select是一个很好的工具
         # 安装 python
-        sudo apt install python3-pip  
+        sudo apt install python3-pip
 
-        # solc-select是一个很好的工具 
+        sudo pip3 install solc-select
 
-        sudo pip3 install solc-select 
-
-        solc-select install           // 查询可以安装的版本 
-        solc-select install 0.5.9     // 安装需要的版本 
-        solc-select versions          // 查看当前已有的版本及正在使用的版本 
-        solc-select use 0.5.9        // 选择自己需要的版本 
+        solc-select install           // 查询可以安装的版本
+        solc-select install 0.5.9     // 安装需要的版本
+        solc-select versions          // 查看当前已有的版本及正在使用的版本
+        solc-select use 0.5.9        // 选择自己需要的版本
         solc --version                // 查看当前正在使用的版本
 
     我们以如下Counter 合约为例
@@ -202,7 +213,7 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
             }
 
         }
-    
+
     .. code-block:: bash
 
         solc --bin --abi Counter.sol -o .
@@ -220,8 +231,8 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
          The fee you pay is: 22787517
          Tx id: 78469246d86a92ad47e5c15991a55978075902809346e48533e09a8eb0e3a7e4
 
-    - ``--abi Counter.abi`` ：表示部署需要使用的abi文件，用于合约方法参数编解码 
-    - ``-a`` ：如果合约需要构造函数，通过-a进行指定 
+    - ``--abi Counter.abi`` ：表示部署需要使用的abi文件，用于合约方法参数编解码
+    - ``-a`` ：如果合约需要构造函数，通过-a进行指定
 
 3. 合约调用
 
@@ -246,23 +257,23 @@ native 合约默认处于关闭状态，在部署、调用 native 合约之前�
         # xchain合约账户地址转evm地址，contract-account表示 XuperChain 合约账户
         xchain-cli evm addr-trans -t x2e -f XC1111111111111113@xuper
         result, 3131313231313131313131313131313131313133    contract-account
-        
+
         # evm地址转xchain合约账户，contract-account表示 XuperChain 合约账户
         xchain-cli evm addr-trans -t e2x -f 3131313231313131313131313131313131313133
-        result, XC1111111111111113@xuper     contract-account        
-        
-        # xchain普通账户地址转evm地址，xchain表示 XuperChain 普通账户
+        result, XC1111111111111113@xuper     contract-account
+
+        # evm地址转xchain普通账户地址，xchain表示 XuperChain 普通账户
         xchain-cli evm addr-trans -t e2x -f 93F86A462A3174C7AD1281BCF400A9F18D244E06
-        result, dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN   xchain        
-        
+        result, dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN   xchain
+
         # xchain普通账户地址转evm地址，xchain表示 XuperChain 普通账户
         xchain-cli evm addr-trans -t x2e -f dpzuVdosQrF2kmzumhVeFQZa1aYcdgFpN
-        result, 93F86A462A3174C7AD1281BCF400A9F18D244E06   xchain      
-        
+        result, 93F86A462A3174C7AD1281BCF400A9F18D244E06   xchain
+
         # xchain合约名地址转evm地址，contract-name表示 XuperChain 合约名
         xchain-cli evm addr-trans -t x2e -f storagedata11
-        result, 313131312D2D2D73746F72616765646174613131   contract-name    
-        
+        result, 313131312D2D2D73746F72616765646174613131   contract-name
+
         # evm地址转xchain合约名，contract-name表示 XuperChain 合约名
         xchain-cli evm addr-trans -t e2x -f 313131312D2D2D73746F72616765646174613131
         result, storagedata11   contract-name
@@ -277,13 +288,13 @@ XuperChain 支持合约升级，在使用合约升级功能之前需要修改 co
 .. code-block:: yaml
 
     # 合约通用配置
-    contract:   
+    contract:
         enableUpgrade: true
 
 合约升级与合约部署的命令十分类似，区别在于
     1. 不需要指定 runtime
     2. 不需要指定初始化参数
-    
+
 以升级 wasm 的 counter 合约为例
 
 .. code-block:: bash
