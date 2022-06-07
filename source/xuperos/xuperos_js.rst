@@ -126,7 +126,7 @@ JS SDK 连接开放网络与 Go SDK 有些许不同之处，主要在配置文�
   const start = async () => {
       try {
           const demo = await xsdk.deploySolidityContract(
-            contractAccount, // 合约账户
+            contractAccount,            // 合约账户
             'counter',                  // 合约名字
             bin,                        // evm 合约 bin
             abi,                        // evm 合约 abi
@@ -149,14 +149,13 @@ JS SDK 连接开放网络与 Go SDK 有些许不同之处，主要在配置文�
   start()
 
 
-  <code>
-
 合约调用
 >>>>>>>
 
 .. note::
   - EVM合约，请使用 **xsdk.invokeSolidityContarct()**
   - 其他合约，请使用 **xsdk.invokeContract()**
+
 
 .. code-block:: JavaScript
   :linenos:
@@ -200,7 +199,7 @@ JS SDK 连接开放网络与 Go SDK 有些许不同之处，主要在配置文�
             "evm",
             {
                "key": "xuperos"      // 合约参数
-            }，
+            },
             "0",
             acc
           );
@@ -215,7 +214,5 @@ JS SDK 连接开放网络与 Go SDK 有些许不同之处，主要在配置文�
 
 
   start()
-
-
 
 具体接口文档参考 `JS SDK 使用文档 <../development_manuals/xuper-sdk-js.html>`_  。

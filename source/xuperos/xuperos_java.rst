@@ -37,22 +37,22 @@ Java SDK 接入指南
 
 配置文件中的内容如下（在 Java sdk 的 /src/main/java/com/baidu/xuper/conf 目录下已经有此文件模板），连接开放网络必须开启背书服务，进行如下配置：
 
-.. code-block:: Yaml
+.. code-block:: yaml
     :linenos:
 
     # endorseService Info
     endorseServiceHost: "39.156.69.83:37100"
     complianceCheck:
-    # 是否需要进行合规性背书
-    isNeedComplianceCheck: true
-    # 是否需要支付合规性背书费用
-    isNeedComplianceCheckFee: true
-    # 合规性背书费用
-    complianceCheckEndorseServiceFee: 400
-    # 支付合规性背书费用的收款地址
-    complianceCheckEndorseServiceFeeAddr: aB2hpHnTBDxko3UoP2BpBZRujwhdcAFoT
-    # 如果通过合规性检查，签发认证签名的地址
-    complianceCheckEndorseServiceAddr: jknGxa6eyum1JrATWvSJKW3thJ9GKHA9n
+      # 是否需要进行合规性背书
+      isNeedComplianceCheck: true
+      # 是否需要支付合规性背书费用
+      isNeedComplianceCheckFee: true
+      # 合规性背书费用
+      complianceCheckEndorseServiceFee: 400
+      # 支付合规性背书费用的收款地址
+      complianceCheckEndorseServiceFeeAddr: aB2hpHnTBDxko3UoP2BpBZRujwhdcAFoT
+      # 如果通过合规性检查，签发认证签名的地址
+      complianceCheckEndorseServiceAddr: jknGxa6eyum1JrATWvSJKW3thJ9GKHA9n
     #创建平行链所需要的最低费用
     minNewChainAmount: "100"
     crypto: "xchain"
