@@ -28,8 +28,8 @@ jobs:
 
     - name: setup Docker
       uses: docker-practice/actions-setup-docker@master
-      run: |
-        set -x
+      with:
+        set: -x
 
     - name: Build Multi Version
       run: |
