@@ -5,7 +5,7 @@ jobs:
   publish:
     strategy:
       matrix:
-        platform: [ubuntu-18.04]
+        platform: [ubuntu-latest]
     runs-on: ${{ matrix.platform }}
     steps:
     - name: Checkout code
@@ -20,19 +20,21 @@ jobs:
     - name: Install BOS dependencies
       run: |
         wget https://sdk.bce.baidu.com/console-sdk/bce-cli-0.10.10.zip && unzip bce-cli-0.10.10.zip && cd bce-cli-0.10.10 && python setup.py install
-     
+
 
     - name: Install Dependencies
       run: |
         sudo apt update&& sudo apt-get install make
-    
+
     - name: setup Docker
       uses: docker-practice/actions-setup-docker@master
-    
+      run: |
+        set -x
+
     - name: Build Multi Version
       run: |
         make build-image && make release
-        
+
 
     - name: Configure BOS Client
       run: |
@@ -41,7 +43,7 @@ jobs:
         ACCESSKEYID: ${{ secrets.ACCESSKEYID }}
         ACCESSKEYSECRET: ${{ secrets.ACCESSKEYSECRET }}
 
-        
+
     # - name: Upload to BOS
     #   run: |
     #     bce-cli-0.10.10/bce bos sync source/_build/html/ bos:/xuperos-test/cms-store/xuperdoc
