@@ -217,13 +217,13 @@
 .. code-block:: bash
 
     cd ./testnet/node1
-    sh ./control.sh start
+    bash ./control.sh start
 
     cd ../node2
-    sh ./control.sh start
+    bash ./control.sh start
 
     cd ../node3
-    sh ./control.sh start
+    bash ./control.sh start
 
 
 .. _net-state:
