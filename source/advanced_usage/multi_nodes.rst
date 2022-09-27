@@ -217,12 +217,18 @@
 .. code-block:: bash
 
     cd ./testnet/node1
+    sh ./control.sh start
+ # 如果sh命令运行不成功的话可以使用bash命令
     bash ./control.sh start
 
     cd ../node2
+        sh ./control.sh start
+ # 如果sh命令运行不成功的话可以使用bash命令
     bash ./control.sh start
 
     cd ../node3
+    sh ./control.sh start
+ # 如果sh命令运行不成功的话可以使用bash命令
     bash ./control.sh start
 
 
