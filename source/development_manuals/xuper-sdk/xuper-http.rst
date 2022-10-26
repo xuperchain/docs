@@ -1572,7 +1572,7 @@ header：``Content-Type:application/json``
     }
     var params = &pb.AK2AccountRequest{}
   	params.Bcname = "xuper"
-  	params.Account = "gH2XKGrne4mL5y37vwChzvmLDEWkXnuB8"
+  	params.Address = "gH2XKGrne4mL5y37vwChzvmLDEWkXnuB8"
     sendBody, err := json.Marshal(params)
     if err != nil {
     	fmt.Println(err)
@@ -1645,7 +1645,7 @@ header：``Content-Type:application/json``
     }
     var params = &pb.AddressContractsRequest{}
   	params.Bcname = "xuper"
-  	params.Account = "gH2XKGrne4mL5y37vwChzvmLDEWkXnuB8"
+  	params.Address = "gH2XKGrne4mL5y37vwChzvmLDEWkXnuB8"
     sendBody, err := json.Marshal(params)
     if err != nil {
     	fmt.Println(err)
