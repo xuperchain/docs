@@ -8,14 +8,14 @@ XuperChain 通过 XuperBridge 实现了合约与虚拟机的解耦，由 XuperBr
 语言和运行时之间的关系如表所示
 
 .. list-table:: 语言虚拟机兼容矩阵
-   :widths: 25 25 25 25 
+   :widths: 25 25 25 25
    :header-rows: 1
 
    * - 语言
      - Native
-     - WASM 
-     - EVM 
-   * - GO 
+     - WASM
+     - EVM
+   * - GO
      - 支持
      - 实验性支持
      - 不支持
@@ -94,7 +94,7 @@ XuperBridge 负责管理合约上下文。
 
 合约执行的所有状态信息由 XuperBridge 的上下文管理器(ContextManager) 统一管理。ContextManager 的主要功能包括
 
-    * 维护全局递增的 ContextID 
+    * 维护全局递增的 ContextID
     * 按需要进行 Context 的创建和销毁
     * 保存所有合约调用的状态
     * 根据 ContextID, 返回上下文有关信息
@@ -136,7 +136,7 @@ XuperBridge 通过合约执行沙盒(Sandbox)技生成读写集，主要包括
     * XMState: 合约 KV 数据的读写集
     * UTXOState： 合约 UTXO 的读写集
     * CrossQuerryState: 跨链调用的读写集
-    * ContractEventState：合约事件相关的读写集 
+    * ContractEventState：合约事件相关的读写集
 
 1. KV 数据读写集
 
@@ -169,7 +169,7 @@ XuperBridge 通过合约执行沙盒(Sandbox)技生成读写集，主要包括
         :alt: XuperBridge
         :align: center
         :width: 300px
-        
+
         XuperBridge
 
 1.合约与 xchain 的通信机制
@@ -182,7 +182,7 @@ XuperBridge 通过合约执行沙盒(Sandbox)技生成读写集，主要包括
         :alt: 合约socket
         :align: center
         :width: 400px
-        
+
         合约 socket
 
     - 在WASM虚拟机里面情况有所不同，WASM 虚拟机是以 library 的方式链接到 xchain 二进制里面，所以虚拟机和xchain在一个进程空间，通信是在 xchain 和 WASM虚拟机之间进行的，这里牵扯到xchain的数据跟虚拟机里面数据的交换，在实现上是通过WASM自己的模块机制实现的，xchain实现了一个虚拟的WASM模块，合约代码执行到外部模块调用的时候就转到对应的xchain函数调用。:ref:`xvm_communitation` 对 WASM虚拟机与宿主的通信方式有更多的描述
@@ -190,15 +190,15 @@ XuperBridge 通过合约执行沙盒(Sandbox)技生成读写集，主要包括
     - 在 EVM 合约中，合约解释器被嵌入到 xchain 二进制中, 有关调用通过本地函数调用的方式执行
     - 在 kernel 合约中，合约代码本身是 xchain 进程的一部分，有关系统调用通过本地函数调用的方式进行即可
 
-2. 数据传输协议
+2.数据传输协议
     无论是在 WASM 合约中还是在原生合约中，由于 xchain 和合约的地址空间不同，需要涉及到数据的序列化和反序列化。选择 ` protobuf <https://developers.google.com/protocol-buffershttps://developers.google.com/protocol-buffers>`_ 作为数据的序列化和反序列化协议。
     在 WASM 合约中，为了减少合约提及，降低运行时内存开销，选择 `lite-runtime <https://squidfunk.github.io/protobluff/guide/runtimes/#lite-runtime>` 进行数据的序列化和反序列化。 :ref:`toolchain` 中的 EMCC 内置了 protobuf 的 runtime，在链接时链接到 WASM 目标文件中。
 
-3. 系统调用接口
+3.系统调用接口
+    XuperChain 提供了通用的系统调用接口，所有服务由 SyscallService 提供，不同合约根据合约类型的不同采用grpc 或者 memrpc 的方式请求系统调用。
 
-    XuperChain 提供了通用的系统调用接口，所有服务由 SyscallService 提供，不同合约根据合约类型的不同采用grpc 活着 memrpc 的方式请求系统调用。
-    
     按照系统调用的不同可以分为以下几类
+    
     * 数据访问: 合约对状态数据的读写，主要包括 KV 访问和迭代器访问
     * 链上服务: 合约查询链上数据，主要包括查询区块，查询交易，合约调用，合约内转账，跨链查询
     * 状态管理: 和执行上下文交互，主要包括获取调用参数，调用日志，调用事件，返回调用结果
@@ -238,7 +238,7 @@ XuperBridge 通过合约执行沙盒(Sandbox)技生成读写集，主要包括
     }
 
 4. xchain 对合约的调用
-    
+
     在 XuperCahin 中， 除了合约会通过系统调用接口请求 xchain 提供的各种服务外， xchain 也需要请求执行合约代码。xchain 对合约的调用随合约类型的不同而不同。
 
     在原生合约中，每个合约是一个进程，合约进程和 xchain 拥有不同的地址空间，甚至可能处于不同的 `namespace <https://en.wikipedia.org/wiki/Linux_namespaces>`_, 合约进程在启动的时候会监听一个本地 TCP 端口，作为 grpc 服务端等待 xchain 进程发起的执行合约调用的请求。
@@ -296,7 +296,7 @@ EVM 合约支持
 
     ContractCodeProvider 主要功能提供合约代码以及合约的ABI(针对 EVM 合约)
     合约部署时，合约代码从请求中获取代码，合约调用时从账本获取代码， ContractCodeProvider 还维护了合约代码的缓存，当存在内存活着磁盘的缓存时，ContractCodeProvider 直接返回对应的代码缓存。
-    
+
 .. _xvm:
 
 XVM WASM 虚拟机
@@ -325,14 +325,14 @@ XVM WASM 虚拟机
     * dlclose: 关闭一个动态链接库
     * dlerror: 获取动态链接库中符号的地址
 
-* MMAP 
+* MMAP
     Linux 将进程地址空间进行了划分成文本段(Text), 已初始化的数据段(Data), 未初始化的数据(BSS)，堆(Heap)，内存映射(MMAP),栈(Stack) 等区域。通过 `MMAP <https://zh.wikipedia.org/wiki/%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84>`_ 匿名映射可以为进程分配大块的虚拟内存。与 `brk 系统调用 <https://man7.org/linux/man-pages/man2/brk.2.html>`_ 相比, MMAP 在处理大块内存时有更高的内存利用效率。
 
 
 XVM 编译流程
 >>>>>>>>
     WebAssembly 作为一种中间表示，本身无法在处理器上执行。为了能够执行WebAssembly，需要有另一个程序将 WebAssembly 转化为本地二进制码。通常有解释执行，JIT (预编译)执行和AOT(预编译)执行三种执行模式。
-    
+
     解释执行模式是一边读取 WebAssembly 字节码，一边执行有关指令。通常，在解释执行模式下，解释器需要为不同的模块存储运行时数据等等。在解释执行模式下，解释器每次读取一条或多条 WASM 指令，并修改对应的运行时数据。
 
     JIT(Just In Time)执行模式是针对解释执行模式的性能优化，将频繁执行的指令提前编译成本地机器码，首次执行时会比较慢，随着时间推移，热点代码被编译成本地机器码之后性能获得大幅提升。
@@ -347,9 +347,9 @@ XVM 编译流程
         :alt: XVM编译加载流程
         :align: center
         :width: 600px
-        
+
         XVM编译加载流程
-        
+
     针对C++ 合约，完整的编译加载流程为: CPP -> WASM -> C -> 动态链接库
 
     针对GO 合约，完整的编译加载流程为: GO -> WASM-> C -> 动态链接库
@@ -368,11 +368,11 @@ XVM 运行时
 
      XVM 相关的核心数据结构主要包括 xvm_resolver_t，xvm_code_t，和 xvm_context_t
 
-        * xvm_resolver_t 
+        * xvm_resolver_t
 
             主要负责全局符号的解析，函数的解析，函数调用等功能，
 
-        * xvm_code_t 
+        * xvm_code_t
 
             xvm_code_t 代表一个 wasm 模块或者一个动态链接库，xvm_code_t 对象包含了如何解析外部函数，如何新建一个独立的执行环境(xvm_context_t)等必须的信息。
 
@@ -384,7 +384,7 @@ XVM 运行时
 
         运行时行为在 XVM 中定义，以回调用函数的形式提供，在初始化 xvm_context_t，执行导出函数等的时候被被动态链接库调用。
 
-        XVM 运行时行为遵循 wasm-rt.h 的约束，主要包括 
+        XVM 运行时行为遵循 wasm-rt.h 的约束，主要包括
 
             * wasm_rt_trap: 处理异常
             * wasm_rt_register_func_type：注册函数类型
@@ -400,10 +400,10 @@ XVM 内存管理
 
     在 WASM 中，内存采用按页分配的方式，每页大小为 65535K，一个 WASM 模块最多允许 65535 页，总的内存大小为 4G。WASM 将 4G 的内存空间划分为保留段，静态数据段，栈段，堆段四个不同的区域。
 
-    XVM 内存管理主要包括两部分，分别是 XVM 自身的内存以及为 WASM 模块分配的内存。为 XVM 分配的内存主要用于初始化 WASM 模块的表，初始化外部函数，初始化全局变量，WASM 运行时栈等等。 
+    XVM 内存管理主要包括两部分，分别是 XVM 自身的内存以及为 WASM 模块分配的内存。为 XVM 分配的内存主要用于初始化 WASM 模块的表，初始化外部函数，初始化全局变量，WASM 运行时栈等等。
 
     针对页内存，XVM 按照 WASM 的标准进行内存的申请和分配，64K 为一页，按页进行内存分配。在每个 WASM 模块加载时，XVM 默认分配一个页面的内存。 针对大块内存，采用 MMAP 匿名页进行内存分配。WASM 中的每个内存页对应于XVM 进程 MMAP 区的一个匿名内存映射。采用匿名页映射的优势在于能够模块卸载的时候能够比较方便进行页面回收，降低 XVM 进程的内存占用。
-    
+
     除了 WASM 的内存外，WASM 模块的初始化，WASM 函数调用也需要动态地申请内存等等。由这些内存较小，需要频繁进行分配和释放，对这些内存，采用 calloc(sbrk) 从 XVM 进程的堆空间分配内存。
 
     需要注意的是，XVM 当前不支持内存增长，只能在模块初始化的时候进行所需的页内存的分配。
@@ -443,7 +443,7 @@ XVM 语言运行时
     当前 XVM 对 GO 语言 和 C/C++ 语言提供了支持
 
     1. C/C++ 语言
-    
+
         c++ 因为没有runtime，因此运行环境相对比较简单，只需要设置基础的堆栈分布以及一些系统函数还有emscripten的运行时函数即可。
 
         c++合约的内存分布
@@ -452,7 +452,7 @@ XVM 语言运行时
             :alt: c++合约的内存分布
             :align: center
             :width: 100px
-            
+
             c++合约的内存分布
 
     2. GO 语言
@@ -470,7 +470,7 @@ XVM 语言运行时
             :alt: go合约运行时结构
             :align: center
             :width: 400px
-            
+
             GO 合约运行时结构
 
 
@@ -482,12 +482,12 @@ XVM 语言运行时
 .. _xvm_communitation:
 
 XVM 和 WASM 模块的通信
->>>>>>>>>>>>>>>>> 
+>>>>>>>>>>>>>>>>>
 
     XVM 和 WASM 模块的交机制主要包括 XVM 向 WASM 模块传递数据以及 WASM 模块向 XVM 传递数据。
     在 XVM 和到 WASM 模块的通信方面，主要依靠 xvm_call 函数完成，该函数接受 params, param_len 两个参数，XVM 在进行函数调用前设置者两个参数即可。
     在 WASM 模块到XVM的通信方面，主要依靠外部函数完成。由于 WASM  的内存是 XVM 宿主进程的页映射，XVM 可以访问 WASM 模块的内存。在进行少量数据传输时，可以直接通过外部函数的参数进行传递，在需要进行大量内容传递时，需要调用方和被调用方约定参数的序列化方式(如PB),数据地址，数据的长度，并通过外部函数参数传递数据地址和数据长度即可。
-    
+
     以 C++ 合约的系统调用为例，其的函数签名为
 
     .. code-block:: go
@@ -506,7 +506,7 @@ XVM 和 WASM 模块的通信
         * requestAddr 和 requestLen 指定了请求的地址和长度, Request 为 PB 序列化的的 Request
         * responseAddr 和 responseLen 返回值的地址和长度, Response 为 PB 序列化的 Response
         * successAddr 为标志，表示调用是否成功
-    
+
     当合约执行过程中需要进行系统调用时，首先分配返回值所需的内存空间，将请求序列化后放到指定的位置，然后发起系统调用(WASM 的外部函数调用)。
 
     XVM 执行到该函数时，首先获取该合约调用(一个已经初始化的 xvm_context_t)的完整内存，通过方法地址和方法长度获取系统调用的方法，通过请求地址和请求长度并进行反序列化，执行成功之后将返回值及返回值的长度序列化写入到对应的内存区域。
