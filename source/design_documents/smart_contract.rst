@@ -41,7 +41,7 @@ XuperBridge 桥接层实现合约和虚拟机的解耦，桥接层主要负责�
 >>>>>>>>>>>>>>
 XuperChain 对虚拟机接口提供统一的抽象，使得虚拟机可以作为一个通用的组件。任何实现了虚拟机的接口约束的组件，均可以作为一个合约执行的虚拟机。
 
-XuperChain 对虚拟机的约束由于 InstaneCreator 接口表示
+XuperChain 对虚拟机的约束由于 InstanceCreator 接口表示
 
     .. code-block:: go
 
@@ -115,7 +115,7 @@ XuperBridge 负责管理合约上下文。
     * Invoke，运行一个context，这一步是执行合约的过程，合约执行的结果会存储在context里面。
     * Release，销毁 context，context持有的所有资源得到释放。
 
-4. 合约上下文信息的传递
+3. 合约上下文信息的传递
 
     合约虚拟机和 XuperBridge 通过系统调用进行通信获取合约状态的通信与传递，通过全局唯一的ContextID 标示需要获取的 Context对象，相关的系统调用具体包括
 
@@ -135,12 +135,12 @@ XuperBridge 通过合约执行沙盒(Sandbox)技生成读写集，主要包括
 
     * XMState: 合约 KV 数据的读写集
     * UTXOState： 合约 UTXO 的读写集
-    * CrossQuerryState: 跨链调用的读写集
+    * CrossQueryState: 跨链调用的读写集
     * ContractEventState：合约事件相关的读写集 
 
 1. KV 数据读写集
 
-合约 KV 数据的读写集需要实现事务隔离，具体包括
+    合约 KV 数据的读写集需要实现事务隔离，具体包括
 
     - 读请求不会读到最新的其他事务带来的变更
     - 读请求会读到最新的自己的写请求（包括删除）的变更
@@ -152,7 +152,7 @@ XuperBridge 通过合约执行沙盒(Sandbox)技生成读写集，主要包括
 
         - Get会生成一个读请求
         - Put会产生一个读加一个写
-        - Delete会产生一个读加一个特殊的写（TODO）
+        - Delete会产生一个读加一个特殊的写
         - Iterator会对迭代的key产生读
 
     在 Get 请求中，如果访问的值已在读集中存在，则直接返回，如果不存在，则从账本中进行读取。
@@ -191,14 +191,15 @@ XuperBridge 通过合约执行沙盒(Sandbox)技生成读写集，主要包括
     - 在 kernel 合约中，合约代码本身是 xchain 进程的一部分，有关系统调用通过本地函数调用的方式进行即可
 
 2. 数据传输协议
-    无论是在 WASM 合约中还是在原生合约中，由于 xchain 和合约的地址空间不同，需要涉及到数据的序列化和反序列化。选择 ` protobuf <https://developers.google.com/protocol-buffershttps://developers.google.com/protocol-buffers>`_ 作为数据的序列化和反序列化协议。
-    在 WASM 合约中，为了减少合约提及，降低运行时内存开销，选择 `lite-runtime <https://squidfunk.github.io/protobluff/guide/runtimes/#lite-runtime>` 进行数据的序列化和反序列化。 :ref:`toolchain` 中的 EMCC 内置了 protobuf 的 runtime，在链接时链接到 WASM 目标文件中。
+    无论是在 WASM 合约中还是在原生合约中，由于 xchain 和合约的地址空间不同，需要涉及到数据的序列化和反序列化。选择 `protobuf <https://developers.google.com/protocol-buffershttps://developers.google.com/protocol-buffers>`_ 作为数据的序列化和反序列化协议。
+    在 WASM 合约中，为了减少合约提及，降低运行时内存开销，选择 `lite-runtime <https://squidfunk.github.io/protobluff/guide/runtimes/#lite-runtime>`_ 进行数据的序列化和反序列化。 :ref:`toolchain` 中的 EMCC 内置了 protobuf 的 runtime，在链接时链接到 WASM 目标文件中。
 
 3. 系统调用接口
 
-    XuperChain 提供了通用的系统调用接口，所有服务由 SyscallService 提供，不同合约根据合约类型的不同采用grpc 活着 memrpc 的方式请求系统调用。
+    XuperChain 提供了通用的系统调用接口，所有服务由 SyscallService 提供，不同合约根据合约类型的不同采用 grpc 或者 memrpc 的方式请求系统调用。
     
     按照系统调用的不同可以分为以下几类
+
     * 数据访问: 合约对状态数据的读写，主要包括 KV 访问和迭代器访问
     * 链上服务: 合约查询链上数据，主要包括查询区块，查询交易，合约调用，合约内转账，跨链查询
     * 状态管理: 和执行上下文交互，主要包括获取调用参数，调用日志，调用事件，返回调用结果
@@ -250,7 +251,7 @@ XuperBridge 通过合约执行沙盒(Sandbox)技生成读写集，主要包括
         service NativeCode {
             rpc Call(xchain.contract.sdk.NativeCallRequest) returns (xchain.contract.sdk.NativeCallResponse);
             rpc Ping(xchain.contract.sdk.PingRequest) returns (xchain.contract.sdk.PingResponse);
-            }
+        }
 
     在 WASM 合约中，虚拟机被嵌入到 xchain 二进制中，每个合约被编译成一个本地的动态链接库，合约方法是动态链接库中的导出函数，因此合约调用根据合约名和合约方法的名称，找到对应的合约方法的地址，通过 cgo 进行本地调用即可。
 
@@ -276,26 +277,25 @@ WASM 合约支持
 
 EVM 合约支持
 >>>>>>>>>>>
-    XuperChain 提供了对 EVM 合约的支持，可以使用 solidity 语言进行智能合约开发，以太坊合约开发者可以方便的使用自己熟悉的语言。
+    XuperChain 提供了对 EVM 合约的支持，可以使用 solidity 语言进行智能合约开发，以太坊合约开发者可以方便地使用自己熟悉的语言。
 
     在 EVM 合约中，合约以解释执行的方式执行，合约解释器被嵌入到 xchain 二进制中.
-    相比于 WASM 合约和 原生合约，以太坊合约在性能方面路弱，主要适用于已有业务迁移至xhcian 的场景。
+    相比于 WASM 合约和 原生合约，以太坊合约性能方面略弱，主要适用于已有业务迁移至 xchain 的场景。
 
-
- 合约代码管理
- >>>>>>>>>>>>
- XuperBridge 负责合约代码的管理，合约代码管理由 ContractCodeProvider 提供，主要接口约束为
+合约代码管理
+>>>>>>>>>>>>
+    XuperBridge 负责合约代码的管理，合约代码管理由 ContractCodeProvider 提供，主要接口约束为
 
     .. code-block:: go
 
         type ContractCodeProvider interface {
-        GetContractCodeDesc(name string) (*protos.WasmCodeDesc, error)
-        GetContractCode(name string) ([]byte, error)
-        GetContractAbi(name string) ([]byte, error)
+            GetContractCodeDesc(name string) (*protos.WasmCodeDesc, error)
+            GetContractCode(name string) ([]byte, error)
+            GetContractAbi(name string) ([]byte, error)
         }
 
     ContractCodeProvider 主要功能提供合约代码以及合约的ABI(针对 EVM 合约)
-    合约部署时，合约代码从请求中获取代码，合约调用时从账本获取代码， ContractCodeProvider 还维护了合约代码的缓存，当存在内存活着磁盘的缓存时，ContractCodeProvider 直接返回对应的代码缓存。
+    合约部署时，合约代码从请求中获取代码，合约调用时从账本获取代码， ContractCodeProvider 还维护了合约代码的缓存，当存在内存或者磁盘的缓存时，ContractCodeProvider 直接返回对应的代码缓存。
     
 .. _xvm:
 
@@ -513,7 +513,7 @@ XVM 和 WASM 模块的通信
 
     外部调用结束，控制流程返回到 WASM 模块时，合约从对应的返回值地址获取返回值，并反序列化得到系统调用的结果。
 
-.. _ toolchain:
+.. _toolchain:
 
 XVM 工具链
 >>>>>>>>>>
