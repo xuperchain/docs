@@ -120,3 +120,4 @@ XuperChain文档
     more_materials/code_explanation.rst
     more_materials/config_explanation.rst
     more_materials/video.rst
+    more_materials/release.rst

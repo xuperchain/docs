@@ -24,7 +24,7 @@ copyright = u'2021, xuper'
 author = u'xuper'
 
 # The short X.Y version
-version = u'5.1'
+version = u'5.x'
 # The full version, including alpha/beta/rc tags
 release = u''
 
@@ -137,7 +137,6 @@ latex_elements = {
 # -- Options for manual page output ------------------------------------------
 
 
-
 # -- Options for Texinfo output ----------------------------------------------
 
 # Grouping the document tree into Texinfo files. List of tuples
@@ -170,5 +169,5 @@ html_context = {
     "conf_py_path": "/source/",  # Path in the checkout to the docs root
 }
 html_css_files = [
-  "custom.css"
+    "custom.css"
 ]
