@@ -20,13 +20,13 @@
 # -- Project information -----------------------------------------------------
 
 project = u'XuperChain 官方文档'
-copyright = u'2021, xuper'
+copyright = u'2022, xuper'
 author = u'xuper'
 
 # The short X.Y version
-version = u'5.1'
+version = u'5.3'
 # The full version, including alpha/beta/rc tags
-release = u''
+release = u'5.3'
 
 
 # -- General configuration ---------------------------------------------------
@@ -137,7 +137,6 @@ latex_elements = {
 # -- Options for manual page output ------------------------------------------
 
 
-
 # -- Options for Texinfo output ----------------------------------------------
 
 # Grouping the document tree into Texinfo files. List of tuples
@@ -166,9 +165,9 @@ html_context = {
     "display_github": True,  # Integrate GitHub
     "github_user": "xuperchain",  # Username
     "github_repo": "docs",  # Repo name
-    "github_version": "master",  # Version
+    "github_version": "v5.3",  # Version
     "conf_py_path": "/source/",  # Path in the checkout to the docs root
 }
 html_css_files = [
-  "custom.css"
+    "custom.css"
 ]
