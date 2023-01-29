@@ -215,4 +215,4 @@ JS SDK 连接开放网络与 Go SDK 有些许不同之处，主要在配置文�
 
   start()
 
-具体接口文档参考 `JS SDK 使用文档 <../development_manuals/xuper-sdk-js.html>`_  。
+具体接口文档参考 `JS SDK 使用文档 <../development_manuals/xuper-sdk/xuper-sdk-js.html>`_  。

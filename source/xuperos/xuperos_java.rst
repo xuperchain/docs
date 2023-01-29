@@ -131,4 +131,4 @@ Java SDK 接入指南
       System.out.println(tx.getContractResponse().getBodyStr());
 
 
-具体接口文档参考 `Java SDK 使用文档 <../development_manuals/xuper-sdk-java.html>`_  。
+具体接口文档参考 `Java SDK 使用文档 <../development_manuals/xuper-sdk/xuper-sdk-java.html>`_  。
