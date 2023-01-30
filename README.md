@@ -1,4 +1,5 @@
 # XuperChain 文档
+
 基于 [Sphinx](https://github.com/sphinx-doc/sphinx) 的 [XuperChain](https://github.com/xuperchain/xuperchain) 文档写作与托管平台，支持
 - 实时预览
 - 在线编辑
@@ -7,6 +8,8 @@
 - 访问统计
 - 自动发布
 - 标签页视图
+
+## 本地编辑
 
 ### 安装依赖
 1. 安装依赖项
@@ -55,6 +58,16 @@ XuperChain 文档支持实时热更新，你可以通过浏览器进行内容实
 ```
     需要注意的是，构建多版本时不会构建尚未提交的内容
 
+## 更新官网
+
+如果你已完成文档的修改，可以按照以下指导将文档的修改内容更新到 [XuperChain 文档官网]：
+
+1. 获得 [Auto Publish Doc] Action 触发权限
+2. [Auto Publish Doc] Action 中，指定目标分支执行 `Run workflow`
+3. 等待 Action 执行完毕，确认 [XuperChain 文档官网] 内容更新
+
+> 若浏览器存在缓存，可能需要强制刷新目标页面，以确认内容更新
+
 ## 贡献指南
 我们欢迎任何形式的文档贡献，包括
 1. 修改文档中的错别字
@@ -67,12 +80,12 @@ XuperChain 文档支持实时热更新，你可以通过浏览器进行内容实
 
 ### 完善已有内容文档
 如果你需要对 XuperChain 文档进行少量的更改，你可以直接使用在线编辑提交你的变更
-1. 浏览器打开 [XuperChain 文档官网](https://xuper.baidu.com/n/xuperdoc/index.html)
+1. 浏览器打开 [XuperChain 文档官网]
 2. 导航到你需要修改的文档页面
 3. 点击右上角"编辑此页"按钮
 4. 修改内容后点击 "Commit Change" 提交修改
 
-提交后会自动生成一个 Pull Request,待 Pull Request 合并后，你就可以在 [XuperChain 文档官网](https://xuper.baidu.com/n/xuperdoc/index.html)看到你的提交了
+提交后会自动生成一个 Pull Request,待 Pull Request 合并后，你就可以在 [XuperChain 文档官网] 看到你的提交了
 
 ### 贡献复杂内容
 如果你需要对已有文档做较多的调整，或者希望贡献一篇完整的内容，你可以
@@ -81,3 +94,6 @@ XuperChain 文档支持实时热更新，你可以通过浏览器进行内容实
 3. 查看 [代码提交指南](https://xuper.baidu.com/n/xuperdoc/contribution/pull_requests.html)
 4. 本地编辑文件
 5. 提交完整的 Pull Request
+
+[Auto Publish Doc]: https://github.com/xuperchain/docs/actions/workflows/ci.yml
+[XuperChain 文档官网]: https://xuper.baidu.com/n/xuperdoc/index.html
