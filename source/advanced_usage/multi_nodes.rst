@@ -246,6 +246,107 @@
     ./bin/xchain-cli status -H :37103
 
 
+.. _net-join:
+
+在已运行的网络中添加节点
+^^^^^^^^^^^^^^^^^^^^
+
+现在我们要向当前网络添加node4, 首先需要制作一个节点：
+
+.. code-block:: bash
+
+    # copy node1 为node4
+    cp -Rf node1 ./node4
+    cd node4
+
+
+**配置端口**
+
+xuperchain 的端口配置分别在 conf/network.yaml(p2p网络配置) 与 conf/server.yaml(系统端口配置) 中。
+
+将server.yaml 中以下端口修改:
+
+.. code-block:: yaml
+
+    # Rpc service listen port
+    rpcPort: 37104
+    # GWPort
+    GWPort: 37304
+    # MetricPort
+    metricPort: 37204
+
+在调整 conf/network.yaml 之前，我们需要先给node4重新生成一个keys:
+
+.. code-block:: bash
+
+    ./bin/xchain-cli account newkeys -f
+
+    # output
+    # create account using crypto type default
+    # create account in ./data/keys
+
+给node4重新分配一个网络连接地址并查看:
+
+.. code-block:: bash
+
+    ./bin/xchain-cli netURL gen
+    ./bin/xchain-cli netURL preview
+
+    # output
+    # /ip4/127.0.0.1/tcp/47101/p2p/QmPJP37mZBUeAe9AqbbAtapCkEibU45T2MYw4brYPLoQH7
+
+修改 conf/network.yaml 中的端口，并且在bootNodes 中加入node1的netURL:
+
+.. code-block:: yaml
+
+    # p2p network config
+
+    # Module is the name of p2p module plugin.(p2pv1 | p2pv2)
+    module: p2pv2
+    # Port the p2p network listened
+    port: 47104
+    # Address multiaddr string
+    address: /ip4/127.0.0.1/tcp/47104
+    # IsTls config the node use tls secure transparent
+    isTls: false
+    # KeyPath is the netdisk private key path
+    keyPath: netkeys
+    # BootNodes config the bootNodes the node to connect
+    bootNodes:
+    # node1 的 netURL
+    - "/ip4/127.0.0.1/tcp/47101/p2p/Qmf2HeHe4sspGkfRCTq6257Vm3UHzvh2TeQJHHvHzzuFw6"
+    # service name
+    serviceName: localhost
+
+**启动节点**
+
+.. code-block:: bash
+
+    bash control.sh start
+
+    # 查看 node4 的状态信息
+    ./bin/xchain-cli status -H :37104
+
+    # output
+    # node4 的 peers 信息可以看到：node4 已经链接到网络，并且识别到已有的 3 个其他 node
+    # "peers": [
+    # "/ip4/127.0.0.1/tcp/47102/p2p/ QmQKp8pLWSgV4JiGjuULKV1JsdpxUtnDEUMP8sGaaUbwVL",
+    # "/ip4/127.0.0.1/tcp/47103/p2p/QmZXjZibcL5hy2Ttv5CnAQnssvnCbPEGBzqk7sAnL69R1E",
+    # "/ip4/127.0.0.1/tcp/47101/p2p/Qmf2HeHe4sspGkfRCTq6257Vm3UHzvh2TeQJHHvHzzuFw6"
+    # ],
+
+    # 查看其他 node（node1）的状态信息
+    ./bin/xchain-cli status -H :37101
+
+    # output 
+    # node1 的 peers 信息中可以看到： node1 也发现了新加入网络的 node4
+    # "peers": [
+    # "/ip4/127.0.0.1/tcp/47104/p2p/QmPJP37mZBUeAe9AqbbAtapCkEibU45T2MYw4brYPLoQH7",
+    # "/ip4/127.0.0.1/tcp/47103/p2p/QmZXjZibcL5hy2Ttv5CnAQnssvnCbPEGBzqk7sAnL69R1E",
+    # "/ip4/127.0.0.1/tcp/47102/p2p/QmQKp8pLWSgV4JiGjuULKV1JsdpxUtnDEUMP8sGaaUbwVL"
+    # ],
+
+
 常见问题
 ^^^^^^^^^^^^
 - 端口冲突：注意如果在一台机器上部署多个节点，各个节点的RPC监听端口以及p2p监听端口都需要设置地不相同，避免冲突；
