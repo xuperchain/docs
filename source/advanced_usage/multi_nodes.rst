@@ -260,7 +260,7 @@
     cd node4
 
 
-**调整端口**
+**配置端口**
 
 xuperchain 的端口配置分别在 conf/network.yaml(p2p网络配置) 与 conf/server.yaml(系统端口配置) 中。
 
@@ -282,8 +282,8 @@ xuperchain 的端口配置分别在 conf/network.yaml(p2p网络配置) 与 conf/
     ./bin/xchain-cli account newkeys -f
 
     # output
-    create account using crypto type default
-    create account in ./data/keys
+    # create account using crypto type default
+    # create account in ./data/keys
 
 给node4重新分配一个网络连接地址并查看:
 
@@ -293,7 +293,7 @@ xuperchain 的端口配置分别在 conf/network.yaml(p2p网络配置) 与 conf/
     ./bin/xchain-cli netURL preview
 
     # output
-    /ip4/127.0.0.1/tcp/47101/p2p/QmPJP37mZBUeAe9AqbbAtapCkEibU45T2MYw4brYPLoQH7
+    # /ip4/127.0.0.1/tcp/47101/p2p/QmPJP37mZBUeAe9AqbbAtapCkEibU45T2MYw4brYPLoQH7
 
 修改 conf/network.yaml 中的端口，并且在bootNodes 中加入node1的netURL:
 
@@ -324,25 +324,27 @@ xuperchain 的端口配置分别在 conf/network.yaml(p2p网络配置) 与 conf/
 
     bash control.sh start
 
-    # 查看状态
+    # 查看 node4 的状态信息
     ./bin/xchain-cli status -H :37104
 
-    # output 中的 peers 可以看到已经链接到网络。
-    "peers": [
-    "/ip4/127.0.0.1/tcp/47102/p2p/QmQKp8pLWSgV4JiGjuULKV1JsdpxUtnDEUMP8sGaaUbwVL",
-    "/ip4/127.0.0.1/tcp/47103/p2p/QmZXjZibcL5hy2Ttv5CnAQnssvnCbPEGBzqk7sAnL69R1E",
-    "/ip4/127.0.0.1/tcp/47101/p2p/Qmf2HeHe4sspGkfRCTq6257Vm3UHzvh2TeQJHHvHzzuFw6"
-    ],
+    # output
+    # node4 的 peers 信息可以看到：node4 已经链接到网络，并且识别到已有的 3 个其他 node
+    # "peers": [
+    # "/ip4/127.0.0.1/tcp/47102/p2p/ QmQKp8pLWSgV4JiGjuULKV1JsdpxUtnDEUMP8sGaaUbwVL",
+    # "/ip4/127.0.0.1/tcp/47103/p2p/QmZXjZibcL5hy2Ttv5CnAQnssvnCbPEGBzqk7sAnL69R1E",
+    # "/ip4/127.0.0.1/tcp/47101/p2p/Qmf2HeHe4sspGkfRCTq6257Vm3UHzvh2TeQJHHvHzzuFw6"
+    # ],
 
-    # 看node1 的 peers
+    # 查看其他 node（node1）的状态信息
     ./bin/xchain-cli status -H :37101
 
-    # output peers 中也发现了我们新加入的 node4
-    "peers": [
-    "/ip4/127.0.0.1/tcp/47104/p2p/QmPJP37mZBUeAe9AqbbAtapCkEibU45T2MYw4brYPLoQH7",
-    "/ip4/127.0.0.1/tcp/47103/p2p/QmZXjZibcL5hy2Ttv5CnAQnssvnCbPEGBzqk7sAnL69R1E",
-    "/ip4/127.0.0.1/tcp/47102/p2p/QmQKp8pLWSgV4JiGjuULKV1JsdpxUtnDEUMP8sGaaUbwVL"
-    ],
+    # output 
+    # node1 的 peers 信息中可以看到： node1 也发现了新加入网络的 node4
+    # "peers": [
+    # "/ip4/127.0.0.1/tcp/47104/p2p/QmPJP37mZBUeAe9AqbbAtapCkEibU45T2MYw4brYPLoQH7",
+    # "/ip4/127.0.0.1/tcp/47103/p2p/QmZXjZibcL5hy2Ttv5CnAQnssvnCbPEGBzqk7sAnL69R1E",
+    # "/ip4/127.0.0.1/tcp/47102/p2p/QmQKp8pLWSgV4JiGjuULKV1JsdpxUtnDEUMP8sGaaUbwVL"
+    # ],
 
 
 常见问题
