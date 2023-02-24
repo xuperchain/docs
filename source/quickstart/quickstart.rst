@@ -13,7 +13,7 @@
 
 XuperChain主要由Golang开发，需要首先准备编译运行的环境
 
-- 安装go语言编译环境，推荐使用的版本为1.14或1.15
+- 安装go语言编译环境，推荐使用的版本为 1.5 - 1.8(不包含)
     - 下载地址：`golang <https://golang.org/dl/>`_
 - 安装git
     - 下载地址：`git <https://git-scm.com/download>`_
@@ -34,7 +34,7 @@ XuperChain主要由Golang开发，需要首先准备编译运行的环境
 .. code-block:: bash
 
     $ cd xuperchain
-    $ git checkout -b v5.1.0 v5.1.0
+    $ git checkout -b v5.3.0 v5.3.0
     $ make
 
 - 在output目录得到bin，conf， data 三个文件夹以及一个 control.sh 脚本
