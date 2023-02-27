@@ -204,4 +204,4 @@ Go SDK 使用配置文件有两种方式：
     	fmt.Printf("%s", tx.ContractResponse)
     }
 
-具体接口文档参考 `Go SDK 使用文档 <../development_manuals/xuper-sdk-go.html>`_  。
+具体接口文档参考 `Go SDK 使用文档 <../development_manuals/xuper-sdk/xuper-sdk-go.html>`_  。
