@@ -197,7 +197,7 @@
     # KeyPath is the netdisk private key path
     keyPath: netkeys
     # BootNodes config the bootNodes the node to connect
-    # BootNodes 也可以选择都链接同一个节点，再启动网络时需要先启动该节点
+    # BootNodes 也可以选择都链接同一个节点，在启动网络时需要先启动该节点
     bootNodes:
       - "/ip4/127.0.0.1/tcp/47101/p2p/Qmf2HeHe4sspGkfRCTq6257Vm3UHzvh2TeQJHHvHzzuFw6"
       - "/ip4/127.0.0.1/tcp/47102/p2p/QmQKp8pLWSgV4JiGjuULKV1JsdpxUtnDEUMP8sGaaUbwVL"
