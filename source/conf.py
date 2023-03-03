@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'XuperChain 官方文档'
-copyright = u'2022, xuper'
+copyright = u'2023, xuper'
 author = u'xuper'
 
 # The short X.Y version
