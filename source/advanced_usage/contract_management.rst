@@ -78,7 +78,7 @@
 部署native合约
 --------------
 
-在部署、调用native合约之前，请先查看 `conf/contract.yaml`_ 中native一节，确保native合约功能开启。
+在部署、调用native合约之前，请先查看 `conf/contract.yaml` 中native一节，确保native合约功能开启。
 
 .. code-block:: yaml
     :linenos:
