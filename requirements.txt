@@ -32,7 +32,7 @@ prompt-toolkit==3.0.14
 ptyprocess==0.7.0
 pyasn1==0.1.9
 pycodestyle==2.6.0
-Pygments==2.7.4
+Pygments==2.15.0
 pyparsing==2.4.7
 pyserial==3.0.1
 pytz==2020.5
